@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="http://localhost:4000/author/Achasan/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2021-12-26T18:03:17+09:00</updated>
+  <id>http://localhost:4000/author/Achasan/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">Memory Repo. | </title>
+  
+
+  
+    <subtitle>기억 저장소</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">[BOJ] 1874번 : 스택 수열</title>
+      <link href="http://localhost:4000/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" />
+      <published>2021-12-26T00:00:00+09:00</published>
+      <updated>2021-12-26T00:00:00+09:00</updated>
+      <id>http://localhost:4000/s3_stack_sequence</id>
+      <content type="html" xml:base="http://localhost:4000/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+
+&lt;p&gt;스택 (stack)은 기본적인 자료구조 중 하나로, 컴퓨터 프로그램을 작성할 때 자주 이용되는 개념이다. 스택은 자료를 넣는 (push) 입구와 자료를 뽑는 (pop) 입구가 같아 제일 나중에 들어간 자료가 제일 먼저 나오는 (LIFO, Last in First out) 특성을 가지고 있다.&lt;/p&gt;
+
+&lt;p&gt;1부터 n까지의 수를 스택에 넣었다가 뽑아 늘어놓음으로써, 하나의 수열을 만들 수 있다. 이때, 스택에 push하는 순서는 반드시 오름차순을 지키도록 한다고 하자. 임의의 수열이 주어졌을 때 스택을 이용해 그 수열을 만들 수 있는지 없는지, 있다면 어떤 순서로 push와 pop 연산을 수행해야 하는지를 알아낼 수 있다. 이를 계산하는 프로그램을 작성하라.&lt;/p&gt;
+
+&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
+
+&lt;p&gt;첫 줄에 n (1 ≤ n ≤ 100,000)이 주어진다. 둘째 줄부터 n개의 줄에는 수열을 이루는 1이상 n이하의 정수가 하나씩 순서대로 주어진다. 물론 같은 정수가 두 번 나오는 일은 없다.&lt;/p&gt;
+
+&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
+
+&lt;p&gt;입력된 수열을 만들기 위해 필요한 연산을 한 줄에 한 개씩 출력한다. push연산은 +로, pop 연산은 -로 표현하도록 한다. 불가능한 경우 NO를 출력한다.&lt;/p&gt;
+
+&lt;p&gt;#&lt;/p&gt;
+
+&lt;h3 id=&quot;입력-코드&quot;&gt;입력 코드&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
+public class Main {
+    public static void main(String[] args) throws NumberFormatException, IOException {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        int n = Integer.parseInt(br.readLine());
+
+        Stack&amp;lt;Integer&amp;gt; stack = new Stack&amp;lt;Integer&amp;gt;();
+
+        int temp = 0;
+        boolean flag = false;
+        while(n-- &amp;gt; 0) {
+
+            int num = Integer.parseInt(br.readLine());
+
+            if(num &amp;gt; temp) {
+
+                for(int i=temp+1; i&amp;lt;=num; i++) {
+                    stack.push(i);
+                    sb.append(&quot;+&quot;).append(&quot;\n&quot;);
+                }
+
+            } else {
+
+                if(stack.peek() &amp;gt; num) {
+                    flag = true;
+                }
+            }
+
+            stack.pop();
+            temp = (temp &amp;gt; num) ? temp : num;
+            sb.append(&quot;-&quot;).append(&quot;\n&quot;);
+        }
+
+        if(flag) {
+            System.out.println(&quot;NO&quot;);
+        } else {
+            System.out.println(sb);
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;문제만 읽었을 때는 도대체 어떤 방식으로 로직이 실행되는 지 눈으로 봐도 모르겠에서 구글링을 통해 힌트를 얻었다. 데이터를 입력하면 어떤 로직을 통해 예제의 출력값이 나오는지를 알아야했다.&lt;/p&gt;
+
+&lt;p&gt;로직은 다음의 조건을 가지고 있다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;값을 입력하면 그 값만큼 stack에 push한다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;3을 입력했을 때 stack.push(1), stack.push(2), stack.push(3)&lt;/li&gt;
+      &lt;li&gt;StringBuilder에 ‘+’를 추가해준다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;stack.poll() 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;배열에 저장한다. (필자는 StringBuilder에 append 하였다.) 입력한 값을 temp 변수에 저장한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;정수를 입력한다. 입력한 값이 1에서 입력한 값보다 클 경우에는 값만큼 stack.push한다.
+입력한 값이 1에서 입력한 값보다 작을 경우에는 현재 stack에 있는 값이 입력한 값보다 큰 지를 확인한다. 클 경우에는 NO를 출력해야한다. - 입력한 값을 모두 입력한 후 NO를 출력해야하므로 boolean 변수를 따로 생성한 다음 반복문을 빠져나오고나서 if문을 통해 출력값을 설정하였다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;문제를 이해한다면 로직을 구현하는데 큰 문제는 없었다. 문제를 이해하고 Stack 객체를 활용할 줄 안다면 로직 구현은 매우 쉬워진다. 위의 로직을 그대로 코드로 구현만 하면 될 것 같다.&lt;/p&gt;
+
+&lt;p&gt;백준을 풀 때 항상 지문을 이해하기가 너무 어려운 것 같다. 예시를 보다 구체적으로 들어주면 좋을 것 같은데,, 다양한 문제를 제공하는 것은 장점이지만 문제의 출제의도를 파악하고 어떤 자료구조를 요구하는지를 바로 알아채기가 힘든 것 같다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>AchaSan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Algorhythm" />
+      
+
+      
+        <summary type="html">1874번 : 스택 수열</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
