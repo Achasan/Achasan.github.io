@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://achasan.github.io/author/Achasan/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-27T13:31:13+09:00</updated>
+  <updated>2021-12-27T13:45:38+09:00</updated>
   <id>https://achasan.github.io/author/Achasan/feed.xml</id>
 
   
@@ -163,11 +163,11 @@
   
     <entry>
       <title type="html">[Java] Comparator, Comparable 객체 정리</title>
-      <link href="https://achasan.github.io/Comparator,-Comparable" rel="alternate" type="text/html" title="[Java] Comparator, Comparable 객체 정리" />
+      <link href="https://achasan.github.io/Comparator_Comparable" rel="alternate" type="text/html" title="[Java] Comparator, Comparable 객체 정리" />
       <published>2021-12-24T00:00:00+09:00</published>
       <updated>2021-12-24T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/Comparator,%20Comparable</id>
-      <content type="html" xml:base="https://achasan.github.io/Comparator,-Comparable">&lt;h1 id=&quot;comparator-comparable-정리&quot;&gt;Comparator, Comparable 정리&lt;/h1&gt;
+      <id>https://achasan.github.io/Comparator_Comparable</id>
+      <content type="html" xml:base="https://achasan.github.io/Comparator_Comparable">&lt;h1 id=&quot;comparator-comparable-정리&quot;&gt;Comparator, Comparable 정리&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
