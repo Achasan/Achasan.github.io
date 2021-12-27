@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title> - Articles</title>
-    <description>기억 저장소</description>
+    <description>by Achasan</description>
     <link>
     https://achasan.github.io</link>
     
@@ -108,6 +108,21 @@
         <link>
         https://achasan.github.io/s4-Statistics</link>
         <guid isPermaLink="true">https://achasan.github.io/s4-Statistics</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>객체지향의 사실과 오해 1장 정리</title>
+        
+          <description>&lt;h1 id=&quot;객체지향의-사실과-오해-1장-정리&quot;&gt;객체지향의 사실과 오해 1장 정리&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 22 Dec 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/OOP_1</link>
+        <guid isPermaLink="true">https://achasan.github.io/OOP_1</guid>
       </item>
       
     

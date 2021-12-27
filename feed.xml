@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://achasan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://achasan.github.io/" rel="alternate" type="text/html" /><updated>2021-12-27T13:45:38+09:00</updated><id>https://achasan.github.io/feed.xml</id><title type="html">Memory Repo.</title><subtitle>기억 저장소</subtitle><entry><title type="html">[BOJ] 1874번 : 스택 수열</title><link href="https://achasan.github.io/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" /><published>2021-12-26T00:00:00+09:00</published><updated>2021-12-26T00:00:00+09:00</updated><id>https://achasan.github.io/s3_stack_sequence</id><content type="html" xml:base="https://achasan.github.io/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://achasan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://achasan.github.io/" rel="alternate" type="text/html" /><updated>2021-12-27T18:32:54+09:00</updated><id>https://achasan.github.io/feed.xml</id><title type="html">Memory Repo.</title><subtitle>by Achasan</subtitle><entry><title type="html">[BOJ] 1874번 : 스택 수열</title><link href="https://achasan.github.io/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" /><published>2021-12-26T00:00:00+09:00</published><updated>2021-12-26T00:00:00+09:00</updated><id>https://achasan.github.io/s3_stack_sequence</id><content type="html" xml:base="https://achasan.github.io/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -624,7 +624,230 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;2차원 배열의 정렬방식은 Array.sort() 메서드를 사용하되, 값을 비교하는 방식은 콜백으로 따로 설정해주어 사용해야한다. 만약 내림차순으로 정렬하려고할 때도 위의 형식으로 콜백을 만들어주면 로직에 맞춰서 정렬을 해주니 참고하는 것이 좋을 것 같다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">11650번 : 좌표 정렬하기</summary></entry><entry><title type="html">[PRO] LV2 : 프린트</title><link href="https://achasan.github.io/lv2_print" rel="alternate" type="text/html" title="[PRO] LV2 : 프린트" /><published>2021-10-27T00:00:00+09:00</published><updated>2021-10-27T00:00:00+09:00</updated><id>https://achasan.github.io/lv2_print</id><content type="html" xml:base="https://achasan.github.io/lv2_print">&lt;h1 id=&quot;20211025-알고리즘-문제풀이&quot;&gt;20211025 알고리즘 문제풀이&lt;/h1&gt;
+&lt;p&gt;2차원 배열의 정렬방식은 Array.sort() 메서드를 사용하되, 값을 비교하는 방식은 콜백으로 따로 설정해주어 사용해야한다. 만약 내림차순으로 정렬하려고할 때도 위의 형식으로 콜백을 만들어주면 로직에 맞춰서 정렬을 해주니 참고하는 것이 좋을 것 같다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">11650번 : 좌표 정렬하기</summary></entry><entry><title type="html">객체지향의 사실과 오해 1장 정리</title><link href="https://achasan.github.io/OOP_1" rel="alternate" type="text/html" title="객체지향의 사실과 오해 1장 정리" /><published>2021-12-22T00:00:00+09:00</published><updated>2021-12-22T00:00:00+09:00</updated><id>https://achasan.github.io/OOP_1</id><content type="html" xml:base="https://achasan.github.io/OOP_1">&lt;h1 id=&quot;객체지향의-사실과-오해-1장-정리&quot;&gt;객체지향의 사실과 오해 1장 정리&lt;/h1&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ObjectOrientation.png&quot; alt=&quot;book&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;시너지를 생각하라, 전체는 부분의 합보다 크다. - 스티븐 코비&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;협력하는-객체들의-공통체&quot;&gt;협력하는 객체들의 공통체&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1장에서는 지금까지 설명해온 객체지향의 개념을 부정하며 시작한다.&lt;/li&gt;
+  &lt;li&gt;객체지향 소프트웨어는 실세계의 투영, 객체란 현실 세계에 존재하는 사물에 대한 추상화이지만 이는 철학적인 개념&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;실용적인 관점에서는 설명하기에 적합하지 않다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;객체지향의 목표는 실세계를 모방하는 것이 아닌 새로운 세계를 창조하는 것&lt;/li&gt;
+  &lt;li&gt;하지만 실세계의 비유가 객체지향의 다양한 측면을 이해하고 학습하는데 효과적&lt;/li&gt;
+  &lt;li&gt;실세계로 객체지향을 설명해야 핵심 사상인 &lt;strong&gt;연결안정성&lt;/strong&gt;을 설명하는데 적합한 틀 제공&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;협력하는-사람들&quot;&gt;협력하는 사람들&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;한 에피소드를 이야기하며 시작.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;커피를 마시고 싶은 손님이 커피를 주문하기위해 캐시어한테 커피를 주문, 점원은 바리스타에게 커피를 한 잔 달라고 요청, 만들어진 커피는 손님에게 전달됨.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;손님이 커피를 마시기까지의 과정에 암묵적인 &lt;strong&gt;협력&lt;/strong&gt;관계가 숨어있음.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;손님, 캐시어, 바리스타는 자신이 맡은 &lt;strong&gt;역할&lt;/strong&gt;이 있으며, 이를 성실히 수행하기위해 &lt;strong&gt;책임&lt;/strong&gt;을다한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;사람이 사는 곳이라면 어디서나 &lt;strong&gt;역할, 책임, 협력&lt;/strong&gt;이 존재하며 이는 객체지향에서 가장 중요한 개념 세 가지가 된다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;요청과-응답으로-구성된-협력&quot;&gt;요청과 응답으로 구성된 협력&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;사람은 스스로 해결하지 못하는 문제와 마주치면 다른 사람에게 도움을 &lt;strong&gt;요청(request)&lt;/strong&gt; 한다. 문제의 규모가 클 수록 요청은 연쇄적으로 발생하게된다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;손님은 커피를 못 만드므로 커피를 캐시어에게 요청한다.&lt;/li&gt;
+      &lt;li&gt;캐시어는 주문을 받고 바리스타에게 커피를 만들도록 요청한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;요청을 받은 사람은 주어진 책임을 다하며 다른사람의 요청에 &lt;strong&gt;응답(response)&lt;/strong&gt; 한다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;바리스타는 캐시어의 요청을 받고 커피를 만든다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;캐시어는 바리스타로 부터 만들어진 커피를 받고, 손님의 요청에 응답한다.(전달)&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;위의 과정을 통해 다른사람과 &lt;strong&gt;협력(collaboration)&lt;/strong&gt; 할 수 있는 능력은 거대하고 복잡한 문제를 해결할 수 있는 공통를 생성시킨다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;역할과-책임&quot;&gt;역할과 책임&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;협력하는 과정 속에서 특정한 역할을 부여받게된다. 위의 과정에서는 손님, 캐시어, 바리스타라는 역할이 존재한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;여기서 역할은 책임이라는 개념을 내포한다. 경찰이 범죄자를 잡아야하는 책임, 선생님이 제자를 가르쳐야하는 책임이 있는 것처럼 말이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;역할을 맡고, 적합한 책임을 수행하는 것은 몇 가지 중요한 개념을 제시한다.&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;여러 사람이 동일한 역할을 수행할 수 있다.&lt;/li&gt;
+      &lt;li&gt;역할은 대체 가능성을 의미한다.&lt;/li&gt;
+      &lt;li&gt;책임을 수행하는 방법은 자율적으로 선택할 수 있다.&lt;/li&gt;
+      &lt;li&gt;한 사람이 동시에 여러 역할을 수행할 수 있다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;역할-책임-협력&quot;&gt;역할, 책임, 협력&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;손님, 캐시어, 바리스타가 가지고 있던 역할과 책임을 객체지향적으로 바꾸어보자.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;사람이라는 단어를 객체로, 요청을 메시지로, 요청을 처리하는 방법을 메서드로 바꾸면 객체지향의 문맥으로 옮길 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;사람들이 타인과 관계를 맺고, 협력하는 과정이 객체지향과 근본개념과 유사하다는 사실을 공감할 수 있게된다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;역할과-책임을-수행하며-협력하는-객체들&quot;&gt;역할과 책임을 수행하며 협력하는 객체들&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;협력의 핵심은 특정한 책임을 수행하는 역할을 간의 연쇄적인 요청과 응답을 통해 목표를 달성한다는 것이다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;목표의 규모가 커질 수록 목표는 작은 단위로 쪼개지게되며, 하나의 단위에 적합한 사람이 역할을 수행하게되면서 요청과 응답은 연쇄되어 하나의 목표를 달성한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;객체의 경우 애플리케이션의 기능을 구현하기위해 협력하게된다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;하나의 시스템은 역할과 책임을 수행하는 객체로 분할되고, 시스템의 기능은 객체 간의 연쇄적인 요청과 응답의 흐름으로 구성된 협력으로 구현된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;객체의 역할은 사람의 역할과 유사하게 다음과 같은 특징을 지닌다.
+    &lt;ul&gt;
+      &lt;li&gt;여러 객체가 동일한 역할을 수행&lt;/li&gt;
+      &lt;li&gt;역할은 대체 가능성을 의미&lt;/li&gt;
+      &lt;li&gt;각 객체는 책임을 수행하는 방법을 자율적으로 선택&lt;/li&gt;
+      &lt;li&gt;하나의 객체가 동시에 여러 역할을 수행&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;협력-속에-사는-객체&quot;&gt;협력 속에 사는 객체&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;역할, 책임, 협력에 참여하는 주체는 객체이다. 협력 공동체의 일원으로서 객체는 두 가지의 덕목을 갖추어야 한다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;객체는 충분히 협력적이어야한다.&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;다른 객체의 요청에 귀 기울이고, 적극적으로 도움을 요청하는 열린 마음&lt;/li&gt;
+          &lt;li&gt;모든 것을 스스로 처리하는 객체는 자멸하고만다.&lt;/li&gt;
+          &lt;li&gt;수동적이어야한다는 의미가 아니다. 어떤 방식으로 처리할지는 객체 스스로가 결정해야한다.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;객체는 충분히 자율적이어야한다.&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;‘자기 스스로의 원칙에 따라 어떤 일을 하거나 통제하여 절제하는 것’&lt;/li&gt;
+          &lt;li&gt;요청에 의해 역할을 수행하지만 방식은 스스로의 판단에 따라 결정하고 행동한다.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;객체지향 설계의 묘미는 다른 객체와 조화롭게 협력하는만큼 개방적인 동시에 참여하는 방법을 스스로 결정할 수 있는 자율적인 객체들의 공동체를 설계하는데 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;상태와-행동을-함께-지닌-자율적인-객체&quot;&gt;상태와 행동을 함께 지닌 자율적인 객체&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;객체를 상태(state)와 행동(behavior)을 함께 지닌 실체로 정의&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;객체의 자율성은 객체의 내부와 외부를 명확히 구분하는 것&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;객체의 사적인 부분은 스스로 관리하고 외부에서 간섭할수 없어야한다.&lt;/li&gt;
+      &lt;li&gt;외부에서는 접근이 허락된 수단을 통해서만 객체와 의사소통&lt;/li&gt;
+      &lt;li&gt;무엇(what)을 수행하는지는 알 수 있지만 어떻게(how) 수행하는지에 대해서는 알 수 없다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;전통적인 개발방법과 객체지향의 개발방법을 구분짓는 가장 핵심적인 차이이다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;협력과-메시지-메서드와-자율성&quot;&gt;협력과 메시지, 메서드와 자율성&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;객체는 메시지로 의사소통한다. 메시지를 전송하고 수신하며 소통한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;객체지향의 세계에서 협력은 메시지를 전송하는 객체와 메시지를 수신하는 객체 사이의 관계로 구성된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;메시지를 수신하는 객체는 메시지를 이해할 수 있는지 판단하고, 자신만의 방법에 따라 메시지를 처리한다. 이를 메서드라고 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;메시지와 메서드의 분리는 객체들 간의 자율성을 증진시킨다. 메시지에 응답하기위해 여러가지 메서드를 사용할 수 있게 되는 것이다. 이것은 &lt;strong&gt;캡슐화&lt;/strong&gt;라는 개념과 깊이 관련되어 있다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Achasan</name></author><category term="ETC" /><summary type="html">객체지향의 사실과 오해 1장 정리</summary></entry><entry><title type="html">[PRO] LV2 : 프린트</title><link href="https://achasan.github.io/lv2_print" rel="alternate" type="text/html" title="[PRO] LV2 : 프린트" /><published>2021-10-27T00:00:00+09:00</published><updated>2021-10-27T00:00:00+09:00</updated><id>https://achasan.github.io/lv2_print</id><content type="html" xml:base="https://achasan.github.io/lv2_print">&lt;h1 id=&quot;20211025-알고리즘-문제풀이&quot;&gt;20211025 알고리즘 문제풀이&lt;/h1&gt;
 
 &lt;p&gt;[문제] 프로그래머스 2레벨 : 프린트 &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42587&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
 
@@ -758,95 +981,4 @@ location은 0 이상 (현재 대기목록에 있는 작업 수 - 1) 이하의 �
 
 &lt;p&gt;2중 for문을 사용하였다. arr1과 arr2에 있는 숫자를 하나씩 꺼내와서 2진수로 변환하고 공백부분을 0으로 바꿔주었다. 그리고 for문을 하나 더 생성하여 변환한 숫자의 각 자릿수가 0과 같다면 공백을, 아니면 #을 temp에 추가한 다음 완성된 행을 answer에 추가하였다.&lt;/p&gt;
 
-&lt;p&gt;문제는 생각보다 어렵지 않았지만, 함수를 모르면 아예 풀 수 없는 문제였다. 이번 기회에 toBinaryString() 함수와 format 함수에 대해서 잘 알게되었고, replace와 replaceAll의 차이점에 대해서도 다시한번 상기할 수 있게 되었다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">프로그래머스 : 비밀지도[1차]</summary></entry><entry><title type="html">[PRO] LV1 : 최대공약수와 최소공배수, 완주하지 못한 선수</title><link href="https://achasan.github.io/lv1-maximum_minimum" rel="alternate" type="text/html" title="[PRO] LV1 : 최대공약수와 최소공배수, 완주하지 못한 선수" /><published>2021-10-27T00:00:00+09:00</published><updated>2021-10-27T00:00:00+09:00</updated><id>https://achasan.github.io/lv1-maximum_minimum</id><content type="html" xml:base="https://achasan.github.io/lv1-maximum_minimum">&lt;h1 id=&quot;202110122-til--코딩테스트-문제풀이&quot;&gt;202110122 TIL : 코딩테스트 문제풀이&lt;/h1&gt;
-
-&lt;p&gt;오늘은 코딩테스트에 문제풀이와 Spring 인강 강의 위주로 공부를 진행했다. 코딩테스트는 꾸준히 해야 실력이 느는데, 문제를 풀면서 내가 어떤 부분이 부족한지를 피드백 할 수 있어서 더 좋은 것 같다. 생각없이 문제를 푸는 것보다 문제를 풀면서 내가 모르는 부분, 부족한 부분을 안 다음 그 부분을 중점적으로 공부하는 것이 좋을 것 같다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;최대공약수와-최소공배수-링크&quot;&gt;최대공약수와 최소공배수 &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/12940&quot;&gt;링크&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h3 id=&quot;문제--두-수를-입력받아-두-수의-최대공약수와-최소공배수를-반환하는-함수-solution을-완성해-보세요-배열의-맨-앞에-최대공약수-그다음-최소공배수를-넣어-반환하면-됩니다-예를-들어-두-수-3-12의-최대공약수는-3-최소공배수는-12이므로-solution3-12는-3-12를-반환해야-합니다&quot;&gt;문제 : 두 수를 입력받아 두 수의 최대공약수와 최소공배수를 반환하는 함수, solution을 완성해 보세요. 배열의 맨 앞에 최대공약수, 그다음 최소공배수를 넣어 반환하면 됩니다. 예를 들어 두 수 3, 12의 최대공약수는 3, 최소공배수는 12이므로 solution(3, 12)는 [3, 12]를 반환해야 합니다.&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;두 수의 최대공약수와 최소공배수를 구하는 문제이지만, 유클리드 호재법을 알지 못한다면 풀기가 어려워지는 문제이다.
-유클리드 호재법은 2개의 자연수나 정식의 최대공약수를 구하는 알고리즘의 하나이다.&lt;/p&gt;
-
-&lt;p&gt;a, b 두 자연수가 있다고 했을 때, a를 b로 나누면(단 a &amp;gt; b) 나머지 r이 나올 것이다. 여기서 b와 r의 최대공약수와 a와 b의 최대공약수는 같다. 이 점을 이용하여 나누어지지 않을 때까지 계속 루프를 돌려주면 b / r 이 0이 될 때 r이 최대 공약수가 되는 방식이다.&lt;/p&gt;
-
-&lt;p&gt;코드는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;kt&quot;&gt;long&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;};&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;연산을 하다가 int 범위값을 초과할 수도 있을 것 같다서 long 타입을 사용하였다. 중요한 부분은 while문인데, a % b 가 0이 될 때 까지 계속 루프를 돌린다. a % b의 값은 r에 넣어주고, b를 a에, 나머지 값을 b에 넣어 유클리드 호재법으로 최대공약수를 구한다.&lt;/p&gt;
-
-&lt;p&gt;최소공배수를 구하는 법은 간단한데, 두 수 n과 m이 주어질 때 n*m/최대공약수를 하면 최소공배수가 나오게 된다.&lt;/p&gt;
-
-&lt;p&gt;처음에는 이 방법을 모르고 어떻게든 로직을 짜려고 했으나 테스트코드에서 막히는 부분이 여러군데 있었다. 방법이 잘못되었다는 것을 깨닫고 구글링을 통해서 알고리즘을 확인하면서 유클리드 호재법을 새롭게 알게 되었다. 앞으로 코딩테스트 문제를 풀면서 쓰는 경우가 생길 것 같다. 기억해 놔야겠다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;hr /&gt;
-
-&lt;h2 id=&quot;완주하지-못한-선수-링크&quot;&gt;완주하지 못한 선수 &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42576&quot;&gt;링크&lt;/a&gt;&lt;/h2&gt;
-
-&lt;h3 id=&quot;수많은-마라톤-선수들이-마라톤에-참여하였습니다-단-한-명의-선수를-제외하고는-모든-선수가-마라톤을-완주하였습니다-마라톤에-참여한-선수들의-이름이-담긴-배열-participant와-완주한-선수들의-이름이-담긴-배열-completion이-주어질-때-완주하지-못한-선수의-이름을-return-하도록-solution-함수를-작성해주세요&quot;&gt;수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다. 마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.&lt;/h3&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;참가자의 배열 길이는 완주자의 배열길이보다 1 더 많다. 처음에는 ArrayList를 사용하여 두 배열 sort 해서 서로 같은 값은 remove해서 남은 값을 리턴할라고 했으나 배열 길이가 길어질수록 속도가 느려져서 떨어졌다. 사실 해시맵 개념은 알고 있었는데 제대로 써본 적이 없어서 머릿속에 기억이 거의 없었다. 이번 문제를 풀고 Map 객체와 List 객체, 여기에 Stream까지 공부를 해놔야겠다는 생각이 강하게 들었다.&lt;/p&gt;
-
-&lt;p&gt;먼저 코드는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;HashMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;participant&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getOrDefault&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;completion&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;put&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;keySet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;주목해야할 점은 getOrDefault() 메소드, 먼저 map 객체에 첫 번째 파라미터인 key가 있는지 확인하고 없으면 두 번째 파라미터의 value값을 가진 key를 생성한다. 먼저 참가자의 배열을 Map 객체에 하나씩 추가해준다. value 값으로는 1씩 카운트 해주는데, 동명이인으로 참가하는 경우를 해결하기 위해서이다. 여러 동명이인이 참가했을 경우 카운트가 하나 씩 더 추가된다.&lt;/p&gt;
-
-&lt;p&gt;이후 completion에 있는 배열을 하나씩 불러내서 카운트를 하나씩 내려준다. 아래에 keySet으로 배열을 생성해서 key의 value가 0이 아닐 경우 그 문자열을 리턴해주면 된다.&lt;/p&gt;
-
-&lt;p&gt;자바로 코딩테스트 문제를 푼다면 List, Map, Stream 세 가지 객체를 아냐 모르냐에 따라서 수준이 많이 갈린다고 생각한다. 개발 공부를 하면서 코딩테스트가 가장 지루했던 면이 있는데, 문제점이 여기에 있었다고 생각한다. 문제를 풀기위해서는 툴을 사용하는 방법을 알아야하는데 이걸 모르고 있으니 문제가 잘 풀릴리가 없다. 내일은 세 가지를 중점적으로 공부하는 시간을 가져봐야겠다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">202110122 TIL : 코딩테스트 문제풀이</summary></entry></feed>
+&lt;p&gt;문제는 생각보다 어렵지 않았지만, 함수를 모르면 아예 풀 수 없는 문제였다. 이번 기회에 toBinaryString() 함수와 format 함수에 대해서 잘 알게되었고, replace와 replaceAll의 차이점에 대해서도 다시한번 상기할 수 있게 되었다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">프로그래머스 : 비밀지도[1차]</summary></entry></feed>
