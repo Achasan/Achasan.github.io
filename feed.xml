@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://achasan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://achasan.github.io/" rel="alternate" type="text/html" /><updated>2021-12-27T18:59:36+09:00</updated><id>https://achasan.github.io/feed.xml</id><title type="html">Memory Repo.</title><subtitle>by Achasan</subtitle><entry><title type="html">[BOJ] 1874번 : 스택 수열</title><link href="https://achasan.github.io/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" /><published>2021-12-26T00:00:00+09:00</published><updated>2021-12-26T00:00:00+09:00</updated><id>https://achasan.github.io/s3_stack_sequence</id><content type="html" xml:base="https://achasan.github.io/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://achasan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://achasan.github.io/" rel="alternate" type="text/html" /><updated>2021-12-28T11:20:06+09:00</updated><id>https://achasan.github.io/feed.xml</id><title type="html">Memory Repo.</title><subtitle>by Achasan</subtitle><entry><title type="html">[BOJ] 1874번 : 스택 수열</title><link href="https://achasan.github.io/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" /><published>2021-12-26T00:00:00+09:00</published><updated>2021-12-26T00:00:00+09:00</updated><id>https://achasan.github.io/s3_stack_sequence</id><content type="html" xml:base="https://achasan.github.io/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -847,138 +847,397 @@
   &lt;li&gt;
     &lt;p&gt;메시지와 메서드의 분리는 객체들 간의 자율성을 증진시킨다. 메시지에 응답하기위해 여러가지 메서드를 사용할 수 있게 되는 것이다. 이것은 &lt;strong&gt;캡슐화&lt;/strong&gt;라는 개념과 깊이 관련되어 있다.&lt;/p&gt;
   &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Achasan</name></author><category term="ETC" /><summary type="html">객체지향의 사실과 오해 1장 정리</summary></entry><entry><title type="html">[PRO] LV2 : 프린트</title><link href="https://achasan.github.io/lv2_print" rel="alternate" type="text/html" title="[PRO] LV2 : 프린트" /><published>2021-10-27T00:00:00+09:00</published><updated>2021-10-27T00:00:00+09:00</updated><id>https://achasan.github.io/lv2_print</id><content type="html" xml:base="https://achasan.github.io/lv2_print">&lt;h1 id=&quot;20211025-알고리즘-문제풀이&quot;&gt;20211025 알고리즘 문제풀이&lt;/h1&gt;
+&lt;/ul&gt;</content><author><name>Achasan</name></author><category term="ETC" /><summary type="html">객체지향의 사실과 오해 1장 정리</summary></entry><entry><title type="html">AJAX를 사용하여 아이디 중복체크하기</title><link href="https://achasan.github.io/ajax_id_distinct" rel="alternate" type="text/html" title="AJAX를 사용하여 아이디 중복체크하기" /><published>2021-11-07T00:00:00+09:00</published><updated>2021-11-07T00:00:00+09:00</updated><id>https://achasan.github.io/ajax_id_distinct</id><content type="html" xml:base="https://achasan.github.io/ajax_id_distinct">&lt;h1 id=&quot;ajax-사용하여-아이디-중복체크하기스프링부트&quot;&gt;AJAX 사용하여 아이디 중복체크하기(스프링부트)&lt;/h1&gt;
 
-&lt;p&gt;[문제] 프로그래머스 2레벨 : 프린트 &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42587&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;곧 JSP 프로젝트가 시작된다. 시작하기 전에 AJAX에 대해 알아보고 어떻게 사용하는지 익히기 위해서 글을 작성하였다.&lt;/p&gt;
 
-&lt;p&gt;문제 설명&lt;/p&gt;
+&lt;p&gt;AJAX의 개념적인 부분은 이미 구글링을 하면 다 나와있기에 여기서 자세히 설명하지는 않을 것이다. 이 글에서는 AJAX를 통해 아이디 중복확인을 하는 로직을 간단하게 구현하는 방법에 대해서 초점을 맞출 생각이다.&lt;/p&gt;
 
-&lt;p&gt;일반적인 프린터는 인쇄 요청이 들어온 순서대로 인쇄합니다. 그렇기 때문에 중요한 문서가 나중에 인쇄될 수 있습니다. 이런 문제를 보완하기 위해 중요도가 높은 문서를 먼저 인쇄하는 프린터를 개발했습니다. 이 새롭게 개발한 프린터는 아래와 같은 방식으로 인쇄 작업을 수행합니다.&lt;/p&gt;
+&lt;p&gt;일단 DB연동같은건 하지 않았다. 그냥 Controller에 String 배열로 임의의 아이디 여러 개를 생성해놓고, 클라이언트가 ID를 입력할 때 String 배열에 있는 값과 일치할 경우 실행될 로직을 작성해보았다. 스프링 부트로 구현해보았다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;인쇄 대기목록의 가장 앞에 있는 문서(J)를 대기목록에서 꺼냅니다.&lt;/li&gt;
-  &lt;li&gt;나머지 인쇄 대기목록에서 J보다 중요도가 높은 문서가 한 개라도 존재하면 J를 대기목록의 가장 마지막에 넣습니다.&lt;/li&gt;
-  &lt;li&gt;그렇지 않으면 J를 인쇄합니다.
-예를 들어, 4개의 문서(A, B, C, D)가 순서대로 인쇄 대기목록에 있고 중요도가 2 1 3 2 라면 C D A B 순으로 인쇄하게 됩니다.&lt;/li&gt;
+  &lt;li&gt;test.html&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;내가 인쇄를 요청한 문서가 몇 번째로 인쇄되는지 알고 싶습니다. 위의 예에서 C는 1번째로, A는 3번째로 인쇄됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/2021-11-07-22-11-41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;현재 대기목록에 있는 문서의 중요도가 순서대로 담긴 배열 priorities와 내가 인쇄를 요청한 문서가 현재 대기목록의 어떤 위치에 있는지를 알려주는 location이 매개변수로 주어질 때, 내가 인쇄를 요청한 문서가 몇 번째로 인쇄되는지 return 하도록 solution 함수를 작성해주세요.&lt;/p&gt;
+&lt;p&gt;그냥 아이디와 비밀번호가 존재하는 단순한 HTML 파일이다. input 입력란 옆에 span태그를 숨겨놓고 텍스트를 입력할 때 로직이 실행되도록 했다.&lt;/p&gt;
 
-&lt;p&gt;제한사항
-현재 대기목록에는 1개 이상 100개 이하의 문서가 있습니다.
-인쇄 작업의 중요도는 1~9로 표현하며 숫자가 클수록 중요하다는 뜻입니다.
-location은 0 이상 (현재 대기목록에 있는 작업 수 - 1) 이하의 값을 가지며 대기목록의 가장 앞에 있으면 0, 두 번째에 있으면 1로 표현합니다.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;입력한 코드는 다음과 같다.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;JavaScript&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/2021-11-07-22-21-40.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;p&gt;로직을 요약하자면 다음과 같다.&lt;/p&gt;
 
-        &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;먼저 span 태그를 숨긴다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;아이디 input 태그에 아이디를 입력할 때마다 함수가 실행되는 keyup을 사용하였다. 텍스트 길이가 4미만 또는 16 이상일 때 span 태그로 조건에 만족하지 않는 멘트를 날리도록 코드를 작성했다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;만약 길이가 4 이상 16 이하라면 ajax로 서버와 통신한다. post방식으로 입력한 아이디를 서버로 전송하고, url은 “/id-check”으로 설정한다. 받는 데이터 타입은 간단하게 text로 하였다. json형식으로도 받을 수 있고, 스프링부트에서 json으로 데이터를 반환하는 기능들을 지원하지만 간단하게 구현하기위해 text로 하였다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;success는 데이터를 성공적으로 받았을 때 실행되는 함수이다. 받은 데이터가 false이면 사용가능한 아이디, true이면 이미 사용중인 아이디라고 멘트가 나오도록 했다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-            &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;처음 사용할 때는 삽질을 엄청했다. 특히 데이터를 넘기는 부분. 사실 ajax를 처음 쓴다기 보다는 jQuery가 익숙치 않아서 삽질이 길어진 것 같다. 데이터를 넘길 때는 data에 값을 넣고, 데이터를 받을 때는 success의 function 파라미터로 받아오기 때문에 이 부분을 정확히 모르는 상태에서 사용하다 시간이 길어졌다.&lt;/p&gt;
 
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;ol&gt;
+  &lt;li&gt;Controller&lt;/li&gt;
+&lt;/ol&gt;
 
-            &lt;span class=&quot;nc&quot;&gt;Queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LinkedList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/2021-11-07-22-24-25.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;priorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;priorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;먼저 이미 등록된 아이디를 ids 배열에 저장했다(임의로 작성). 입력한 아이디가 ids에 있는 아이디와 일치할 경우 이미 사용중인 아이디가 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;AJAX의 url을 “/id-check”으로 설정했다. @PostMapping(“/id-check”)으로 데이터가 들어오게 되고, 여기서 로직이 실행된다. @RequestParam으로 입력값을 받아오도록 했다. AJAX부분을 보면 JSON 형식으로 key는 id, value는 입력값으로 되어있었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;ids 배열을 for문으로 돌려서 만약 입력값과 일치하는 아이디가 나오면 아이디가 중복되므로 리턴할 isDistinct 변수를 true로 설정한다. 아닐 경우는 false로 설정한다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;poll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+&lt;p&gt;이 부분이 제일 스트레스 받았던 구간, 아직 스프링 부트를 배운지 얼마 안됐고, @RequestBody와 @RequestParam이 헷갈려서 데이터 값이 이상하게 오는 줄도 모르고 다른 코드를 고치고 있었다.&lt;/p&gt;
 
-                &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;able&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;able&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;@RequestBody는 GET이나 POST 방식이 아닐 때 사용해야하는 애노테이션이다. 정확히 말하면 쿼리파라미터로 오는 데이터가 아닐 때 사용해야한다. 모델 객체를 사용할 때 사용하는 것이 좋다. 모델 객체의 필드변수와 읽어오는 데이터의 key 값이 일치하면 모델 객체로 바인딩을 해주는 방식인데, 이를 깜빡하고 @RequestBody를 사용해서 시간이 엄청 오래걸렸다.&lt;/p&gt;
 
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;able&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
-                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;p&gt;@RequestParam은 쿼리파라미터로 값을 가져올 때 사용한다. AJAX로 보내는 값의 key가 id이므로 메서드 파라미터의 변수명도 id로 일치시키면 스프링부트는 둘의 이름이 같으므로 바인딩을 하게된다. 따라서 Model 객체가 아닌 이상은 @RequestBody를 사용하는 것이 좋다.&lt;/p&gt;
 
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;@ModelAttribute 애노테이션도 있다. 하지만 이 애노테이션은 쿼리파라미터를 받을 때 사용하는 Model 객체이므로 여기서는 예외.&lt;/p&gt;
 
-&lt;p&gt;이 문제를 푸면서 처음 알게된 사실은 Queue가 LinkedList로 생성된다는 점, 그리고 그것을 활용하여 향상된 for문을 사용하여 queue안에 있는 데이터들을 차례로 호출하여 로직을 수행할 수 있다는 점이었다. 이 점을 몰라서 문제 해결에 접근 자체를 하지 못했었던 것 같다.&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;또한 2레벨 문제이다보니 머리로만 생각하기에는 도저히 로직을 짜낼 수 가 없었다. 조건들이 많아지고 만들어야하는 기능들이 복잡하다보니 순서도를 작성해서 문제를 푸는 습관을 들여야겠다는 생각이 든다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">20211025 알고리즘 문제풀이</summary></entry><entry><title type="html">[PRO] LV1 : 비밀지도</title><link href="https://achasan.github.io/lv1-secret_map" rel="alternate" type="text/html" title="[PRO] LV1 : 비밀지도" /><published>2021-10-27T00:00:00+09:00</published><updated>2021-10-27T00:00:00+09:00</updated><id>https://achasan.github.io/lv1-secret_map</id><content type="html" xml:base="https://achasan.github.io/lv1-secret_map">&lt;h1 id=&quot;프로그래머스--비밀지도1차&quot;&gt;프로그래머스 : 비밀지도[1차]&lt;/h1&gt;
+&lt;h1 id=&quot;결과&quot;&gt;결과&lt;/h1&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/17681&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/result.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://t1.kakaocdn.net/welcome2018/secret8.png&quot; alt=&quot;map&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;프로젝트를 한다면 정규식으로 아이디 양식을 제한하는 코드를 만들어보고 싶다. 일단 AJAX의 기본적인 기능에 대해서 알 수 있었으므로 만족한다. 비동기로 기능을 구현하는게 굉장히 편한 것 같다. 나중에는 게시판 페이징을 비동기로 이동하는 것도 구현해보고 싶은 생각이 든다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="ETC" /><summary type="html">AJAX 사용하여 아이디 중복체크하기(스프링부트)</summary></entry><entry><title type="html">HTTP 헤더 살펴보기(협상, 우선순위)</title><link href="https://achasan.github.io/http_basic_6" rel="alternate" type="text/html" title="HTTP 헤더 살펴보기(협상, 우선순위)" /><published>2021-11-02T00:00:00+09:00</published><updated>2021-11-02T00:00:00+09:00</updated><id>https://achasan.github.io/http_basic_6</id><content type="html" xml:base="https://achasan.github.io/http_basic_6">&lt;h1 id=&quot;http-웹-기본-지식-6&quot;&gt;HTTP 웹 기본 지식 6&lt;/h1&gt;
 
-&lt;p&gt;문제 자체는 생각보다 간단하다. n x n 크기의 지도가 주어진다. 그리고 각 행마다 정수가 주어지는데, 정수를 2진수로 변환한 다음 각 자릿수에 1이 있으면 #, 없으면 공백으로 둔다.&lt;/p&gt;
+&lt;h2 id=&quot;http-헤더-자세히&quot;&gt;HTTP 헤더 자세히&lt;/h2&gt;
 
-&lt;p&gt;두 지도를 겹쳤을 때, 두 지도 모두 공백인 자리만 공백으로 두고, 나머지는 #으로 채워주면 된다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-12-45-06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;toBinaryString() 함수를 모르면 사용할 수 없는 문제, 여기에 String.format() 메소드까지 알고 있어야 문제의도대로 정확히 풀 수 있는 문제이다.&lt;/p&gt;
+&lt;p&gt;HTTP 헤더는 HTTP 전송에 필요한 모든 부가정보들을 담은 구역이라고 말했었다. HTTP 헤더의 자세한 구조를 알아보자.&lt;/p&gt;
 
-&lt;p&gt;들어보기만했고 실제로 써 본적은 없는 함수인데, 한번 알아보자.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-12-46-49.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Integer.toBinaryString(int i) : i를 2진수로 변환하고 String타입으로 리턴한다.&lt;/p&gt;
+&lt;h3 id=&quot;헤더의-분류rfc2616-기준&quot;&gt;헤더의 분류(RFC2616 기준)&lt;/h3&gt;
 
-&lt;p&gt;일단 정수를 2진수로 바꿀 수 있어서 이번 문제의 핵심 함수이지만, 하나 더 필요하다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;General 헤더 : 메시지 전체에 적용되는 정보를 말한다. (Connection: close)&lt;/li&gt;
+  &lt;li&gt;Request 헤더 : 요청 클라이언트의 정보를 말한다.(User-Agent: Mozilla/5.0 ..)&lt;/li&gt;
+  &lt;li&gt;Response 헤더 : 응답 정보를 말한다. (Server: Apache)&lt;/li&gt;
+  &lt;li&gt;Entity 헤더 : 엔티티 바디의 정보를 말한다. (Content-Type: text/html; charset=UTF-8, Content-Length: 3423)&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;Integer.toBinaryString(9) = “1001”;
-위의 사진에서 보다시피, 지도의 크기는 5x5이다. 근데 정수 9를 이진법으로 변환하면 1001이 나오므로, 맨 앞에 0이 들어가주어야 지도의 크기에 맞출 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-12-49-30.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;String.format(“format”, String s) : 문자열을 입력한 형식에 맞추어 변환한다. 형식은 여러가지가 있는데, &lt;a href=&quot;https://blog.jiniworld.me/68&quot;&gt;여기&lt;/a&gt;를 참조하는 것을 추천한다. 여기서 사용해야할 형식은 %s이다. %s는 Stirng 타입의 문자열의 형식을 지정할 수 있는데, %5s를 입력할 경우, String의 length는 5가 되어야하고 만약 s의 length가 5보다 작다면 남은 부분은 공백으로 채운다. 공백은 replaceAll을 사용하여 0으로 바꿔주어야 한다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;메시지 본문(Message Body)는 엔티티 본문(entity body)을 전달하는데 사용한다.&lt;/li&gt;
+  &lt;li&gt;엔티티 본문은 요청이나 응답에서 전달할 실제 데이터가 담겨있다.&lt;/li&gt;
+  &lt;li&gt;엔티티 헤더는 엔티티 본문의 데이터를 해석할 수 있는 정보를 제공한다.
+    &lt;ul&gt;
+      &lt;li&gt;데이터 유형(html, json), 데이터 길이, 압축정보 등등을 제공한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;메시지 본문이 엔티티 본문을 포함한다고 보면 된다.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;이제 코드를 보자,&lt;/p&gt;
+&lt;p&gt;원래는 이렇게 정의가 되어 있엇으나, &lt;strong&gt;2014년에 RFC7230~7235 개정판이 등장&lt;/strong&gt;하게 된다. 변경사항은 다음과 같다.&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;엔티티(Entity)를 표현(Representation)으로 바꿈&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;여기서 Representation = Representation Metadata + Representation Data 를 말한다.&lt;/li&gt;
+&lt;/ul&gt;
 
-    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ArrayList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-12-54-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-            &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;s&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toBinaryString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]));&lt;/span&gt;
-                &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;%&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;s&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toBinaryString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]));&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;replaceAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;replaceAll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+&lt;ul&gt;
+  &lt;li&gt;메시지 본문(message body)을 통해 표현 데이터를 전달하게된다.&lt;/li&gt;
+  &lt;li&gt;여기서 메시지 본문을 페이로드(payload)라고 한다.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;표현은 요청이나 응답에서 전달할 실제 데이터&lt;/strong&gt;를 말한다.&lt;/li&gt;
+  &lt;li&gt;또한 &lt;strong&gt;표현헤더는 표현 데이터를 해석할 수 있는 정보를 제공&lt;/strong&gt;한다.
+    &lt;ul&gt;
+      &lt;li&gt;데이터 유형(html, json), 데이터의 길이, 압축정보 등등을 제공한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-                &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++){&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'0'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;charAt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;sc&quot;&gt;'0'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;#&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;h3 id=&quot;표현&quot;&gt;표현&lt;/h3&gt;
 
-                &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;temp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;ul&gt;
+  &lt;li&gt;Content-Type: 표현 데이터의 형식
+    &lt;ul&gt;
+      &lt;li&gt;미디어 타입이나 문자 인코딩을 설명한다.&lt;/li&gt;
+      &lt;li&gt;예) “text/html; charset=UTF-8”, “application/json”, “/assets/images/HTTP_images/png”&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Content-Encoding: 표현 데이터의 압축 방식
+    &lt;ul&gt;
+      &lt;li&gt;표현한 데이터를 압축하기위해 사용한다.&lt;/li&gt;
+      &lt;li&gt;데이터를 전달하는 곳에서 압축 후에 인코딩 헤더를 추가&lt;/li&gt;
+      &lt;li&gt;데이터를 읽는 쪽에서 인코딩 헤더의 정보로 압축을 해제한다.&lt;/li&gt;
+      &lt;li&gt;예) Content-Encoding: gzip&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Content-Language: 표현 데이터의 자연언어
+    &lt;ul&gt;
+      &lt;li&gt;표현 데이터의 자연 연어를 표현한다. (ko, en, en-US)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Content-Length: 표현 데이터의 길이. 바이트 단위이다.
+    &lt;ul&gt;
+      &lt;li&gt;Transfer-Encoding(전송코딩)을 사용하면 Content-Length를 사용해서는 안된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;p&gt;그렇다면 엔티티에서 표현으로 말고 단어를 바꾼 이유는 무엇일까? 표현이라는 단어를 사용하게 된 이유는 HTTP헤더에서 어떤 Content type으로 요청/응답을 하느냐에 따라 HTML로 표현될 지, JSON으로 표현될 지, image로 표현될 지가 달라지기 때문에 표현이라는 단어를 사용하게 된 것이다.&lt;/p&gt;
 
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;2중 for문을 사용하였다. arr1과 arr2에 있는 숫자를 하나씩 꺼내와서 2진수로 변환하고 공백부분을 0으로 바꿔주었다. 그리고 for문을 하나 더 생성하여 변환한 숫자의 각 자릿수가 0과 같다면 공백을, 아니면 #을 temp에 추가한 다음 완성된 행을 answer에 추가하였다.&lt;/p&gt;
+&lt;h2 id=&quot;협상컨텐츠-네고시에이션&quot;&gt;협상(컨텐츠 네고시에이션)&lt;/h2&gt;
 
-&lt;p&gt;문제는 생각보다 어렵지 않았지만, 함수를 모르면 아예 풀 수 없는 문제였다. 이번 기회에 toBinaryString() 함수와 format 함수에 대해서 잘 알게되었고, replace와 replaceAll의 차이점에 대해서도 다시한번 상기할 수 있게 되었다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">프로그래머스 : 비밀지도[1차]</summary></entry></feed>
+&lt;p&gt;협상은 클라이언트가 선호하는 표현을 요청하는 것이다. 핵심적으로 사용되는 4가지가 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Accept: 클라이언트가 선호하는 미디어 타입 전달&lt;/li&gt;
+  &lt;li&gt;Accept-Charset: 클라이언트가 선호하는 문자 인코딩&lt;/li&gt;
+  &lt;li&gt;Accept-Encoding: 클라이언트가 선호하는 압축 인코딩&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Accept-Language: 클라이언트가 선호하는 자연 언어&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;협상 헤더는 &lt;strong&gt;요청 시에만 사용&lt;/strong&gt;한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;그렇다면 클라이언트가 선호하는 표현은 무엇이고, 협상이라는 것은 어디에 쓰이는 지 알아보자. 다음은 Accept-Language를 예로 들어 설명한 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-02-49.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;상황은 이렇다. 한국어 브라우저를 사용하는 클라이언트가 있고, 영어(기본)와 한국어를 지원하는 서버가 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;클라이언트가 GET방식으로 /event URI가 있는 페이지를 요청한다.&lt;/li&gt;
+  &lt;li&gt;서버는 클라이언트의 요청을 받는다. 클라이언트 측에서 따로 이야기한게 없었으므로 기본언어인 영어로 메시지 바디를 전송한다.&lt;/li&gt;
+  &lt;li&gt;클라이언트는 한국어 브라우저를 사용하지만 영어로 작성된 페이지를 보게 된다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;클라이언트는 한국어를 사용하기 때문에 한국어로 되어있는 페이지를 보길 원한다. 하지만 한국어로 페이지를 달라는 표현이 없었기 때문에 서버에서는 기본언어로 설정되있는 영어로 페이지를 보여주게 된다. 한국어를 원하는 클라이언트는 이제 다음과 같이 요청을 보낸다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-09-21.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Accept-Language: ko 라는 HTTP 헤더 정보를 넣어서 요청을 보냈다. 서버는 이를 읽으면 클라이언트 측에서 한국어를 사용한다는 것을 인지하고 한국어로 되어있는 HTML 페이지로 응답하게된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-10-58.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;한 가지 더 생각해보자, 만약 서버에서 한국어를 지원하지 않고, 독일어(기본), 영어만 지원한다면 어떻게 될까? 기본언어가 독일어로 되어있지만 한국인은 그래도 영어로 홈페이지를 보는 것이 차라리 나을 것이다. 하지만 Accept-Language를 ko로 보내면 서버에서는 지원하는 언어가 없기 때문에 기본언어인 독일어를 보여주게 된다. 이럴 땐 어떻게 해야될까?&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;협상과-우선순위&quot;&gt;협상과 우선순위&lt;/h2&gt;
+
+&lt;h3 id=&quot;quality-valuesq&quot;&gt;Quality Values(q)&lt;/h3&gt;
+
+&lt;p&gt;Quality Values는 여러 옵션들 중에 우선순위를 정하는 값이라고 보면 된다. Quality Values의 범위는 0~1이고, 클수록 높은 우선순위를 갖는다. 만약 생략하면 자동으로 1로 할당되어진다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;우선순위는 다음과 같다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ko-KR;q=1 (q 생략됨)&lt;/li&gt;
+  &lt;li&gt;ko;q=0.9&lt;/li&gt;
+  &lt;li&gt;en-US;q=0.8&lt;/li&gt;
+  &lt;li&gt;en;q=0.7&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-14-50.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;우선순위를 이용해서 이제 위의 예시로 돌아가보자, 독일어보다는 영어가 나은 한국인 입장에서, Accept-Language에 우선순위를 정하면 서버에서는 독일어보다 영어를 선호하니 영어로 홈페이지를 불러오게 될 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;협상과-우선순위2&quot;&gt;협상과 우선순위2&lt;/h3&gt;
+
+&lt;p&gt;위 처럼 Quality Values의 값을 할당하여 우선순위를 정할 수도 있다. 아니면 구체적인 명시를 통해서도 자동으로 우선순위가 정해지는 경우도 있다. 예시를 보자.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Accept: text/*, text/plain, text/plain;format=flowed, */*&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;text/plain;format=flowed&lt;/li&gt;
+  &lt;li&gt;text/plain&lt;/li&gt;
+  &lt;li&gt;text/*&lt;/li&gt;
+  &lt;li&gt;*/*&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;우선순위는 구체적으로 쓴 순서대로이다. 1번부터4번 까지 봤을 때, 1번으로 갈 수록 보다 구체적으로 명시된 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;전송-방식&quot;&gt;전송 방식&lt;/h2&gt;
+
+&lt;p&gt;전송 방식은 크게 네 가지가 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;단순 전송: 말 그대로 따로 처리 과정을 거치지 않고 그대로 응답을 보낸다. 기본적으로 Content-Length를 포함하여 보낸다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;압축 전송: [Content-Encoding: gzip]과 같은 형태로 인코딩 압축하여 응답을 보내는 방식, 클라이언트에서 응답을 받으면 압축을 해제한 다음 데이터를 읽게 된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;분할 전송: 데이터를 덩어리(chunked)로 나누어서 보내는 것을 말한다. Transfer-Encoding: chunked를 HTTP 헤더에 적어서 보낸다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;범위 전송: 클라이언트가 데이터를 받아가 중간에 끊겼을 때, 데이터를 다시 처음부터 끝까지 받는 것은 비효율적이므로 못받은 부분만 범위를 입력하여 요청을 보내면 서버가 범위만큼만 응답하여 데이터를 보내는 방식. Range: bytes=1001-2000과 같은 형식으로 보낸다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;일반-정보&quot;&gt;일반 정보&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;From: 유저 에이전트의 이메일 정보&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;일반적으로 잘 사용되지 않는다.&lt;/li&gt;
+      &lt;li&gt;검색 엔진같은 곳에서 주로 사용한다.&lt;/li&gt;
+      &lt;li&gt;요청에서 사용된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;Referer: 이전 웹 페이지 주소&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;현재 요청된 페이지의 이전 웹 페이지 주소를 말한다.&lt;/li&gt;
+      &lt;li&gt;A &amp;gt; B로 이동하는 경우 B를 요청할 때 Referer: A를 포함해서 요청한다.&lt;/li&gt;
+      &lt;li&gt;요청에서 사용한다.&lt;/li&gt;
+      &lt;li&gt;Referer같은 경우에는 포털사이트를 들어가서 f12를 누르고 Network에서 HTTP 메시지를 보면 바로 확인이 가능하다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;User-Agent: 유저 에이전트 애플리케이션 정보&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/
+537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;클라이언트의 애플리케이션 정보(웹 브라우저 정보 등등)&lt;/li&gt;
+      &lt;li&gt;통계 정보&lt;/li&gt;
+      &lt;li&gt;어떤 종류의 브라우저에서 장애가 발생하는지 파악이 가능하다.&lt;/li&gt;
+      &lt;li&gt;요청에서 사용한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Server: 요청을 처리하는 ORIGIN 서버의 소프트웨어 정보&lt;/p&gt;
+
+    &lt;blockquote&gt;
+      &lt;p&gt;Server: Apache/2.2.22(Debian)
+server: nginx&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;응답에서 사용한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Date: 메시지가 발생한 날짜와 시간&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Date: Tue, 15 Nov 1994 08:12:31 GMT&lt;/li&gt;
+      &lt;li&gt;응답에서 사용한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;특별한-정보&quot;&gt;특별한 정보&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-34-13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Host: 요청한 호스트의 정보(도메인)
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;요청에서 사용(필수값)&lt;/strong&gt;&lt;/li&gt;
+      &lt;li&gt;하나의 서버가 여러 도메인을 처리해야할 때 사용&lt;/li&gt;
+      &lt;li&gt;하나의 IP주소에 여러 도메인이 적용되어 있을 때 사용&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;호스트는 서버에서 가상 도메인을 활용하여 여러 개의 가상 호스트를 사용할 때, 어떤 호스트로 요청을 보내는 지를 서버가 구분할 때 필요하다. 요청에서의 필수값이므로 서버는 이 값을 보고 어떤 호스팅으로 보내야할 지를 판단하게된다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Location: 페이지 리다이렉션
+    &lt;ul&gt;
+      &lt;li&gt;웹 브라우저는 3xx 응답의 결과에 Location 헤더가 있으면 Location 위치로 자동이동하게 된다(리다이렉트) : 응답코드 3xx에서 설명한 바 있음&lt;/li&gt;
+      &lt;li&gt;201 (Created) 상태코드의 경우 Location 값은 요청에 의해 생성된 리소스 URI이다.&lt;/li&gt;
+      &lt;li&gt;3xx (Redirection): Location 값은 요청을 자동으로 리다이렉션하기 위한 대상 리소스를 가리킨다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Allow: 허용 가능한 HTTP 메서드
+    &lt;ul&gt;
+      &lt;li&gt;405 (Method Not Allowed)에서 응답에 포함해야한다.
+        &lt;blockquote&gt;
+          &lt;p&gt;Allow: GET, HEAD, PUT&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Retry-After: 유저 에이전트가 다음 요청을 하기까지 기다려야하는 시간&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;503(Service Unavailable) : 서비스가 언제까지 불능인지 알려줄 수 있다.&lt;/p&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;Retry-After: Fri, 31 Dec 1999 23:59:59 GMT (날짜 표기)&lt;/p&gt;
+        &lt;/blockquote&gt;
+
+        &lt;blockquote&gt;
+          &lt;p&gt;Retry-After: 120 (초단위 표기)&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Authorization: 클라이언트 인증 정보를 서버에 전달하는 것&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Authorization: Basic xxxxxxxxxxx&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;WWW-Authenticate: 리소스 접근 시 필요한 인증 방법을 정의함
+    &lt;ul&gt;
+      &lt;li&gt;401 Unauthorized 응답과 함께 사용한다.
+        &lt;blockquote&gt;
+          &lt;p&gt;WWW-Authenticate: Newauth realm=”apps”, type=1, title=”Login to &quot;apps&quot;”, Basic realm=”simple”&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Achasan</name></author><category term="SpringBoot" /><summary type="html">HTTP 웹 기본 지식 6</summary></entry></feed>

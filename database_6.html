@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>PL/SQL, 데이터 정의어(DDL)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/database_6" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PL/SQL, 데이터 정의어(DDL)" />
+    <meta property="og:description" content="PL/SQL (Procedual Language / Structured Query Language) SQL만으로는 구현이 어렵거나 구현이 불가능한 작업을 수행하기 위해서 오라클에서 제공하는 프로그래밍 언어를 말한다. 일반 프로그래밍 언어적인 요소들을 가지고 있으며, 데이터베이스 업무를 처리하기위한 최적화된 언어이다. 변수 선언, 조건문, 반복문 등 다양한 기능들을 사용할 수 있다. 기본 구조는 선언부, 실행부, 예외처리부로 나뉘어져 있다. 선언부(Declare) :" />
+    <meta property="og:url" content="https://achasan.github.io/database_6" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/database.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-09-07T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-09-07T00:00:00+09:00" />
+    <meta property="article:tag" content="Basic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="PL/SQL, 데이터 정의어(DDL)" />
+    <meta name="twitter:description" content="PL/SQL (Procedual Language / Structured Query Language) SQL만으로는 구현이 어렵거나 구현이 불가능한 작업을 수행하기 위해서 오라클에서 제공하는 프로그래밍 언어를 말한다. 일반 프로그래밍 언어적인 요소들을 가지고 있으며, 데이터베이스 업무를 처리하기위한 최적화된 언어이다. 변수 선언, 조건문, 반복문 등 다양한 기능들을 사용할 수 있다. 기본 구조는 선언부, 실행부, 예외처리부로 나뉘어져 있다. 선언부(Declare) :" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/database.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Basic" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/database_6",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/database.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/database_6"
+    },
+    "description": "PL/SQL (Procedual Language / Structured Query Language) SQL만으로는 구현이 어렵거나 구현이 불가능한 작업을 수행하기 위해서 오라클에서 제공하는 프로그래밍 언어를 말한다. 일반 프로그래밍 언어적인 요소들을 가지고 있으며, 데이터베이스 업무를 처리하기위한 최적화된 언어이다. 변수 선언, 조건문, 반복문 등 다양한 기능들을 사용할 수 있다. 기본 구조는 선언부, 실행부, 예외처리부로 나뉘어져 있다. 선언부(Declare) :"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="PL/SQL, 데이터 정의어(DDL)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-basic post tag-Basic ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 7 September 2021"> 7 September 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/basic/'>BASIC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">PL/SQL, 데이터 정의어(DDL)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/database.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="plsql-procedual-language--structured-query-language">PL/SQL (Procedual Language / Structured Query Language)</h1>
+
+<p>SQL만으로는 구현이 어렵거나 구현이 불가능한 작업을 수행하기 위해서 오라클에서
+제공하는 프로그래밍 언어를 말한다.
+일반 프로그래밍 언어적인 요소들을 가지고 있으며, 데이터베이스 업무를 처리하기위한
+최적화된 언어이다.
+변수 선언, 조건문, 반복문 등 다양한 기능들을 사용할 수 있다.</p>
+
+<p>기본 구조는 선언부, 실행부, 예외처리부로 나뉘어져 있다.</p>
+
+<ol>
+  <li>
+    <p>선언부(Declare) : 선언부는 모든 변수나 상수를 선언하는 부분이다.</p>
+  </li>
+  <li>
+    <p>실행부(Excutable - begin) : 실제 로직이 실행되는 부분으로, 제어문(조건문), 반복문 등의 로직을 기술한다. Java로 따지자면 Main문 정도가 되는듯 하다.</p>
+  </li>
+  <li>
+    <p>예외처리부(Exception) : 실행 도중 예외가 발생 시 해결하기위한 명령들을 기술하는 부분이다.</p>
+  </li>
+</ol>
+
+<p>기본 구조 중에서 선언부와 예외처리부는 생략이 가능하지만 실행부는 반드시 기술하여야 한다.
+또한 기본구조 키워드 뒤에는 세미콜론을 붙이지 않는다, 단, 블럭 내의 각 실행문장 끝에는 세미콜론을 붙인다.
+BEGIN ~ END(실행부) 밑에는 반드시 ‘/’를 붙여주어야 한다. END 뒤에는 세미콜론을 붙여준다.</p>
+
+<p>이전에 그룹함수와 DECODE 함수를 혼자 공부해서 배운적이 있었는데 이 함수들은 PL/SQL 내에서 단독으로 사용이 불가능하다.
+SQL문장에 포함되어서 사용되기 때문에 혼동해서는 안된다. PL/SQL문에서는 자바처럼 IF, FOR, WHILE 문을 사용할 수 있다.
+각 문장과 함수의 용도를 구별해서 사용해야하며, 무분별하게 의미가 같다고 해서 사용하면 에러가 발생할 수 있다.</p>
+
+<p>한 가지 더 알아두어야할 점은, PL/SQL은 기본적으로 문장의 결과를 화면에 출력시키지 않기 때문에,
+결과값이 화면에 나오도록 설정하기 위해서는 SET SERVEROUTPUT ON 키워드를 사용하여 출력을 활성화시켜주어야한다.</p>
+
+<p>예시 문장을 보자,</p>
+
+<pre><code class="language-SQL">    DECLARE
+        NUM NUMBER(2);
+        NAME VARCHAR2(20);
+    BEGIN
+        SELECT EMPNO, ENAME INTO NUM, NAME
+        FROM EMP
+        WHERE ENAME = 'ADAMS';
+
+        DBMS_ OUTPUT.PUT_LINE(NUM||'        '||NAME);
+    END;
+    /
+</code></pre>
+
+<p>선언부(DECLARE)에서 NUM과 NAME 변수를 선언하고, 실행부(BEGIN)에서 EMP 테이블에 있는 EMPNO와 ENAME 컬럼의 데이터를 선언한 변수에
+저장하였다. 조건으로는 이름이 ‘ADAMS’인 사원의 사번과 이름으로 조건을 걸었다.
+마지막 문장에 DBMS_OUTPUT.PUT_LINE() 함수를 볼 수있는데 이는 JAVA의 System.out.println()과 의미가 같은 함수이다.
+결과값을 출력하는 함수이다. 사번과 이름을 스크립트에 출력시키기 위해서 함수를 사용하였다.
+PL/SQL이 끝났을 떄는 END와 세미콜론을 붙이고, 다음줄에 ‘/’를 써야한다.</p>
+
+<h2 id="자료형-타입">자료형 타입</h2>
+
+<p>선언부에 선언한 변수의 자료형을 ‘스칼라 자료형’이라고 한다.
+주로 사용하는 자료형의 종류로는 스칼라 자료형, REFERENCE 자료형, ROWTYPE 자료형이 있다.
+스칼라 자료형은 인스턴스 자료형과 비슷하다. PL/SQL에서 사용되기 위해 선언된 변수로, 실행문이 종료되면 변수에 있던
+데이터 값은 사라진다.</p>
+
+<p>REFERENCE 자료형은 테이블 내의 컬럼이 가진 자료형타입을 그대로 참조해서 사용하는 자료형이다.
+선언부에 NUM EMP.EMPNO%TYPE 이런 식으로 사용한다. NUM이라는 변수를 선언하고, 자료형을 EMP 테이블에 있는 EMPNO 컬럼의 자료형과
+똑같이 하겠다는 뜻이 된다.</p>
+
+<p>ROWTYPE 자료형은 변수에 테이블에 있는 모든 컬럼들을 한꺼번에 저장하기 위한 자료형으로 선언하는 것을 말한다.
+선언부에 EMP_ROW EMP%ROWTYPE 과 같은 형식으로 사용한다. EMP_ROW는 EMP테이블에 있는 행 하나를 완전히 담을 수 있게 된다.
+주의해야할 점은 EMP_ROW는 행 하나만 저장이 가능하다. 여러 개의 행을 저장하고 출력하려고 할 경우 에러가 발생한다.</p>
+
+<h2 id="조건-제어문">조건 제어문</h2>
+
+<h3 id="if문">IF문</h3>
+
+<p>PL/SQL에서도 당연히 조건 제어문을 지원한다. 크게 3가지의 조건문으로 구성되어있는데,
+IF~THEN, IF~THEN~ELSE, IF~THEN~ELSIF 이다.</p>
+
+<ol>
+  <li>
+    <p>IF~THEN
+JAVA에서는 ‘IF(조건식){ 실행문; }’ 방식으로 되어있다면
+PL/SQL에서는 ‘IF 조건식 THEN 실행문; END IF;’ 방식으로 되어있다.
+괄호는 일절 쓰지 않으며, THEN과 END IF로 문장의 끝을 구분한다.</p>
+  </li>
+  <li>
+    <p>IF~THEN~ELSE
+IF~THEN에서 작성한 조건문에 ELSE를 하나 더 넣는 방식이다. ELSE는 당연히 조건식이 거짓일 때
+실행되어질 문장을 말한다.</p>
+  </li>
+  <li>
+    <p>IF~THEN~ELSIF
+여러 개의 조건식을 추가할 수 있는 조건식이다. JAVA에서는 ELSE IF 를 사용하여 조건문을 추가했었다.
+이와 똑같은 방식으로 사용한다. 다만 주의해야할 점은 키워드가 ELSIF로 사용된다는 점이다.
+ELSE IF가 아니라 ELSIF여서 처음에는 많이 헷갈릴 수 있으니 조심해야한다.</p>
+  </li>
+</ol>
+
+<pre><code class="language-SQL">    DECLARE
+        V_AVG NUMBER(5, 2) := 89.12;
+    BEGIN
+        IF V_AVG &gt;= 90 THEN
+            DBMS_OUTPUT.PUT_LINE('A');
+        ELSIF V_AVG &gt;= 80 THEN
+            DBMS_OUTPUT.PUT_LINE('B');
+        ELSIF V_AVG &gt;= 70 THEN
+            DBMS_OUTPUT.PUT_LINE('C');
+        ELSIF V_AVG &gt;= 60 THEN
+            DBMS_OUTPUT.PUT_LINE('D');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('F');
+        END IF;
+    END;
+    /
+</code></pre>
+
+<p>자바에서 구현했었던 학점 출력문을 PL/SQL로 구현한 모습이다. ELSIF문을 사용했을 때도 뒤에 THEN을 붙이는 것이 포인트이고,
+ELSE 문에는 THEN을 붙이지 않는다. 애초에 ELSE문 뒤에는 조건식이 나오지 않기 때문에 THEN을 붙일 필요도 없다.
+마지막은 꼭 END IF;로 조건문을 마무리해주도록 하자.</p>
+
+<p>여기서 중요한 점이 한 가지 있는데 선언부에서 V_AVG 변수에 값을 저장한 것이다. 변수에 값을 저장할 때는
+무조건 ‘:=’를 사용해주어야 한다는 점을 잊지말자.</p>
+
+<h3 id="case문">CASE문</h3>
+
+<p>CASE문은 Java에서 SWITCH 문과 기능이 같다. CASE 조건문은 크게 2가지로 나뉘어져 있는데,
+단순 CASE문과 검색 CASE문이다. 단순 CASE문은 CASE문의 기준이 되는 데이터 값에 따라 실행되는 문장이 달라지는 것이고,
+검색 CASE문은 기준 데이터값이 없고, 여러 조건식만 존재하는 CASE 문이다. 검색 CASE문의 경우에는 IF~THEN~ELSIF 조건문을
+좀 더 효율적으로 작성하기 위해서 만들어진 CASE문이라고 생각하면 될 것 같다.</p>
+
+<pre><code class="language-SQL">    DECLARE
+        V_SCORE NUMBER(3) := 88;
+    BEGIN
+        CASE
+            WHEN V_SCORE &gt;= 90 THEN
+                DBMS_OUTPUT.PUT_LINE('A');
+            WHEN V_SCORE &gt;= 80 THEN
+                DBMS_OUTPUT.PUT_LINE('B');
+            WHEN V_SCORE &gt;= 70 THEN
+                DBMS_OUTPUT.PUT_LINE('C');
+            WHEN V_SCORE &gt;= 60 THEN
+                DBMS_OUTPUT.PUT_LINE('D');
+            ELSE
+                DBMS_OUTPUT.PUT_LINE('F');
+        END CASE;
+    END;
+    /
+</code></pre>
+
+<p>검색 CASE문의 예시를 작성해보았다. 방금 IF~THEN~ELSIF 문에서 작성한 것과 내용면에서 큰 차이는 없다.
+다만 키워드가 CASE, WHEN으로 달라졌을 뿐이다. 쉽게 이해가 가능하여 여기까지 설명하도록 한다.</p>
+
+<h3 id="반복-제어문">반복 제어문</h3>
+
+<p>반복 제어문은 특정 작업을 반복하여 수행하고자할 때 사용하는 문장으로,
+기본 LOOP, WHILE LOOP, FOR LOOP 세 가지의 반복 제어문을 사용할 수 있다.</p>
+
+<p>세 가지의 반복 제어문을 설명하기 전에 PL/SQL에서는 반복문의 반복 수행을 종료시키는 명령어가 있다.
+반복문을 제어할 때 필요한 키워드이니 반드시 알아두도록 하자.</p>
+
+<ol>
+  <li>EXIT : 수행중인 반복을 종료시키는 명령어</li>
+  <li>EXIT-WHEN : 반복 종료를 위한 조건식을 지정하고 만족하면 반복을 종료</li>
+  <li>CONTINUE : 수행중인 반복의 현재 주기를 건너 띔</li>
+  <li>CONTINUE-WHEN : 특정 조건식을 지정하고 조건식을 만족하면 반복 주기를 건너띔</li>
+</ol>
+
+<p>이제 반복제어문을 하나씩 알아보자,</p>
+
+<ol>
+  <li>기본 LOOP : 기본 LOOP는 단순이 반복을 진행시키는 반복문이다. 따라서 반복문 안에 반복문을 종료시키는 명령어를 추가시켜주어야 한다. 아래 예제를 보자.</li>
+</ol>
+
+<pre><code class="language-SQL">    DECLARE
+        V_NUM NUMBER(3) := 1;
+        V_SUM NUMBER(5) := 0;
+    BEGIN
+        LOOP
+            IF V_NUM = 100 THEN
+                V_SUM := V_SUM + V_NUM;
+                DBMS_OUTPUT.PUT_LINE(V_SUM);
+                EXIT;
+            ELSE
+                V_SUM := V_SUM + V_NUM;
+                V_NUM := V_NUM + 1;
+            END IF;
+        END LOOP;
+    END;
+    /
+</code></pre>
+
+<p>1부터 100까지의 합을 구하는 반복문을 LOOP문을 사용하여 구한 식이다. 만약 V_NUM이 100보다 크거나 같을 경우에
+V_SUM에 V_NUM의 값을 더하고 V_SUM을 출력한 후 반복문을 종료시켰다. V_NUM이 100이 아니라면 V_SUM에 값을 더하고 반복문을
+계속 진행시키도록 하였다.</p>
+
+<p>코드를 조금 더 간결하게 바꾸어보자. 위에 제시한 4가지의 반복문을 제어하는 키워드를 통해 줄여볼 수 있다.</p>
+
+<pre><code class="language-SQL">    DECLARE
+        V_NUM NUMBER(3) := 1;
+        V_SUM NUMBER(5) := 0;
+    BEGIN
+        LOOP
+            V_SUM := V_SUM + V_NUM;
+            V_NUM := V_NUM + 1;
+            EXIT WHEN V_NUM &gt; 100;
+        END LOOP;
+        DBMS_OUTPUT.PUT_LINE(V_SUM);
+    END;
+    /
+</code></pre>
+
+<p>코드가 복잡하기 때문에 코드를 간소화 시켰다. 여기서 주목해야할 부분은 EXIT WHEN 이다.
+V_NUM이 100보다 클 경우에 루프를 나가도록 EXIT WHEN 키워드를 사용했고, 반복문을 빠져나오면 V_SUM을 출력하도록 하였다.</p>
+
+<ol>
+  <li>WHILE LOOP : 조건식을 만족할 때까지 계속 반복문을 돌리는 것이다 Java에서 배웠던 WHILE문과 같다.
+사용법만 간단히 보고 넘어간다.</li>
+</ol>
+
+<pre><code class="language-SQL">    DECLARE
+        V_NUM NUMBER(3) := 1;
+    BEGIN
+        DBMS_OUTPUT.PUT_LINE('WHILE LOOP 반복문');
+        WHILE V_NUM &lt;= 100 LOOP
+            DBMS_OUTPUT.PUT_LINE(V_NUM);
+            V_NUM := V_NUM + 1;
+        END LOOP;
+    END;
+    /
+</code></pre>
+
+<p>‘WHILE 조건식 LOOP’ 형태로 작성한다. 조건식을 만족할 때 까지 반복문을 사용하며, 예시에서는 V_NUM이 100이 되는 순간
+반복문을 빠져나오게 되는 형태이다. 문장 작성방식만 다를 뿐 Java와 사용방법이 같다.</p>
+
+<ol>
+  <li>FOR LOOP : 반복할 횟수를 정하고 반복문을 돌린다. WHILE문은 조건식을 만족할 때까지 계속 반복문을 돌린다면, FOR 반복문은 반복 횟수가 정해져있다. 이것도 Java와 공통적인 특징이다.</li>
+</ol>
+
+<pre><code class="language-SQL">    BEGIN
+        DBMS_OUTPUT.PUT_LINE('FOR LOOP 반복문');
+
+        FOR I IN 1 .. 100 LOOP
+            DBMS_OUTPUT.PUT_LINE('I = ' || I);
+        END LOOP;
+    END;
+    /
+</code></pre>
+
+<p>이번엔 선언부(DECLARE) 없이 예시를 작성하였다. 1부터 100까지 스크립트에 출력하는 반복문을 만든 것인데,
+FOR 반복문을 선언하는 부분을 보면 ‘FOR 정수 IN 숫자1 .. 숫자N LOOP’ 으로 되어있다.
+시작할 정수의 변수를 선언하고, IN 키워드를 작성한 다음 시작숫자 .. 최대숫자 LOOP으로 이루어져 있다.
+‘..’은 ~부터 ~까지의 뜻을 가지고 있어서 1부터 100까지 하나씩 I의 수를 증가시킨다는 뜻으로 보면 된다.
+FOR 반복문은 Java와는 다소 다른 형태로 되어있으므로 제대로 이해하고 넘어가는 것이 중요하다.</p>
+
+<p>CONTINUE는 조건식에 해당할 경우 그 반복문은 건너뛰도록 하는 키워드이다. 자바에서 사용한 continue와 동일하므로 이하 생략
+CONTINUE는 IF문 같이 조건식 아래에 해당하지만 IF문을 쓰지 않아도 되도록 CONTINUE WHEN 키워드를 제공한다.
+사용방법은 EXIT WHEN과 동일하여 자세한 설명은 생략한다.</p>
+
+<h2 id="키보드로-값-입력-받기">키보드로 값 입력 받기</h2>
+
+<p>Java에서는 Scanner 클래스나 BufferedReader 클래스를 이용하여 키보드로 데이터를 입력받아 코드 실행을 했었다.
+PL/SQL에서도 키보드로 데이터를 입력받는게 가능한데, ‘&amp;’를 사용하면 손쉽게 데이터를 입력받을 수 있다.</p>
+
+<pre><code class="language-SQL">    CREATE TABLE TEST(
+        NO NUMBER(3) PRIMARY KEY,
+        NAME VARCHAR2(20) NOT NULL,
+        ADDR VARCHAR2(100) NOT NULL
+    );
+</code></pre>
+
+<p>먼저 예제를 만들기 위해서 사용할 TEST 테이블을 만들었다. 컬럼은 NO, NAME, ADDR로 구성되어있고, NO가 기본키, 나머지는
+NOT NULL 제약조건을 가지고 있다.</p>
+
+<pre><code class="language-SQL">    DECLARE
+        NO TEST.NO%TYPE;
+        NAME TEST.NAME%TYPE;
+        ADDR TEST.ADDR%TYPE;
+        ROW TEST%ROWTYPE;
+    BEGIN
+        NO := '&amp;NO';
+        NAME := '&amp;NAME';
+        ADDR := '&amp;ADDR';
+
+        INSERT INTO TEST VALUES(NO, NAME, ADDR);
+        SELECT * INTO ROW FROM TEST WHERE NO = NO;
+        DBMS_OUTPUT.PUT_LINE('번호 /  이름  /  주소');
+        DBMS_OUTPUT.PUT_LINE(ROW.NO ||' ' || ROW.NAME || ' ' || ROW.ADDR);
+
+    END;
+    /
+</code></pre>
+
+<p>먼저 선언부에서 NO, NAME, ADDR, ROW 변수를 선언하였다. 자료형은 TEST 테이블에 있는 컬럼의 자료형을 참조하였다.
+실행부를 보면 각 컬럼의 데이터 값을 저장하려하는데 ‘&amp;변수명’이 사용된 것을 볼 수 있다.
+‘&amp;변수명’을 작성하면 해당 변수의 자료형에 맞도록 키보드로 데이터 값을 입력받는다는 것을 뜻한다.
+입력받은 데이터 값을 각 변수에 저장하여 INSERT 쿼리문을 사용하여 TEST 테이블에 새로운 행을 추가하였다.
+새로운 행을 추가하고 ROW 변수에 새로 생성한 행을 불러오고, 출력한 예제이다.</p>
+
+<p>중요한 점은 ‘&amp;변수명’을 통해 키보드로 값을 불러올 수 있다는 점이다. 잘 기억해두도록 하자.</p>
+
+<h1 id="데이터-정의어ddl--data-definition-language">데이터 정의어(DDL : Data Definition Language)</h1>
+
+<p>DDL은 데이터의 관리 및 보관을 위해 다양한 객체를 제공하는데 이러한 객체를
+새로 만들거나 기존에 존재하던 객체를 변경하거나 삭제하는 등의 기능을 수행하는 명령어를 말한다.</p>
+
+<p>데이터 정의어를 사용할 때 주의사항이 있는데,
+데이터 정의어를 실행하면 자동으로 COMMIT이 된다는 점,
+따라서 ROLLBACK을 통한 취소가 불가능하다는 점이 있다.</p>
+
+<p>데이터 정의어의 종류로는 CREATE, ALTER, DROP이 있다. 여태까지 사용해왔던 쿼리문이 DDL이라고 볼 수 있다.</p>
+
+<p>이 외에도 다양한 데이터 정의어가 있지만 나중에 필요할 때 따로 독학해야할 것 같다. 수업에서는 중요도 높은 DDL만 설명하는듯 하다.</p>
+
+<ul>
+  <li>RENAME : 테이블의 이름을 변경하고 싶을 때 사용하는 명령어</li>
+</ul>
+
+<pre><code class="language-SQL">    RENAME DEPT_02 TO DEPT_10; --'RENAME 기존이름 TO 바꿀이름'
+</code></pre>
+
+<p>위의 형식으로 입력한다.</p>
+
+<ul>
+  <li>DROP : 테이블을 삭제하는 명령어이다.</li>
+</ul>
+
+<pre><code class="language-SQL">    DROP TABLE TEST; --테스트 테이블을 삭제한다.
+</code></pre>
+
+<ul>
+  <li>TRUNCATE : 테이블의 데이터를 삭제하는 명령어(데이터를 자른다고 표현한다)</li>
+</ul>
+
+<pre><code class="language-SQL">    TRUNCATE TABLE DEPT_02; --'TRUNCATE TABLE 테이블이름'
+</code></pre>
+
+<ul>
+  <li>PURGE : 데이터를 완전히 삭제하는 키워드이다. DELETE문에서 보통 사용한다.</li>
+</ul>
+
+<pre><code class="language-SQL">    DELETE TABLE TEST;
+</code></pre>
+
+<p>위의 명령어를 입력했을 때 TEST라는 테이블이 삭제된다. 하지만 완전히 삭제된 것은 아니다.
+휴지통과 같은 공간에 테이블이 넘어가있는 상태로, 원할 때 ROLLBACK으로 복구가 가능하다.
+테이블을 완전히 삭제해버리기 위해서는 DELETE TABLE TEST PURGE;와 같이 작성하면 완전한 삭제가 가능하다.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/basic/">Basic</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/database_5">제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/database_4">그룹함수(GROUP BY, HAVING)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/database_3">묵시적, 명시적 형변환, DECODE, 정규식</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/basic/">
+                                
+                                    See all 5 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/lv1_Six">
+                <div class="post-card-image" style="background-image: url(/assets/images/programmers.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/lv1_Six">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Algorhythm</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[PRO] lv1 알고리즘 풀은 문제들</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>20211013 풀어본 알고리즘 문제
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      3 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/database_5">
+                <div class="post-card-image" style="background-image: url(/assets/images/database.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/database_5">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>숫자데이터와 관련된 함수
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        21 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">PL/SQL, 데이터 정의어(DDL)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=PL%2FSQL%2C+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%A0%95%EC%9D%98%EC%96%B4%28DDL%29&amp;url=https://achasan.github.io/database_6"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/database_6"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

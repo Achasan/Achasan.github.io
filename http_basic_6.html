@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>HTTP 헤더 살펴보기(협상, 우선순위)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/http_basic_6" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="HTTP 헤더 살펴보기(협상, 우선순위)" />
+    <meta property="og:description" content="HTTP 웹 기본 지식 6 HTTP 헤더 자세히 HTTP 헤더는 HTTP 전송에 필요한 모든 부가정보들을 담은 구역이라고 말했었다. HTTP 헤더의 자세한 구조를 알아보자. 헤더의 분류(RFC2616 기준) General 헤더 : 메시지 전체에 적용되는 정보를 말한다. (Connection: close) Request 헤더 : 요청 클라이언트의 정보를 말한다.(User-Agent: Mozilla/5.0 ..) Response 헤더 : 응답 정보를" />
+    <meta property="og:url" content="https://achasan.github.io/http_basic_6" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-11-02T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-02T00:00:00+09:00" />
+    <meta property="article:tag" content="Springboot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HTTP 헤더 살펴보기(협상, 우선순위)" />
+    <meta name="twitter:description" content="HTTP 웹 기본 지식 6 HTTP 헤더 자세히 HTTP 헤더는 HTTP 전송에 필요한 모든 부가정보들을 담은 구역이라고 말했었다. HTTP 헤더의 자세한 구조를 알아보자. 헤더의 분류(RFC2616 기준) General 헤더 : 메시지 전체에 적용되는 정보를 말한다. (Connection: close) Request 헤더 : 요청 클라이언트의 정보를 말한다.(User-Agent: Mozilla/5.0 ..) Response 헤더 : 응답 정보를" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Springboot" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/http_basic_6",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/httpCover.jpg",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/http_basic_6"
+    },
+    "description": "HTTP 웹 기본 지식 6 HTTP 헤더 자세히 HTTP 헤더는 HTTP 전송에 필요한 모든 부가정보들을 담은 구역이라고 말했었다. HTTP 헤더의 자세한 구조를 알아보자. 헤더의 분류(RFC2616 기준) General 헤더 : 메시지 전체에 적용되는 정보를 말한다. (Connection: close) Request 헤더 : 요청 클라이언트의 정보를 말한다.(User-Agent: Mozilla/5.0 ..) Response 헤더 : 응답 정보를"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="HTTP 헤더 살펴보기(협상, 우선순위)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-springboot post tag-SpringBoot ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 2 November 2021"> 2 November 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/springboot/'>SPRINGBOOT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">HTTP 헤더 살펴보기(협상, 우선순위)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/httpCover.jpg)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="http-웹-기본-지식-6">HTTP 웹 기본 지식 6</h1>
+
+<h2 id="http-헤더-자세히">HTTP 헤더 자세히</h2>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-12-45-06.png" alt="" /></p>
+
+<p>HTTP 헤더는 HTTP 전송에 필요한 모든 부가정보들을 담은 구역이라고 말했었다. HTTP 헤더의 자세한 구조를 알아보자.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-12-46-49.png" alt="" /></p>
+
+<h3 id="헤더의-분류rfc2616-기준">헤더의 분류(RFC2616 기준)</h3>
+
+<ul>
+  <li>General 헤더 : 메시지 전체에 적용되는 정보를 말한다. (Connection: close)</li>
+  <li>Request 헤더 : 요청 클라이언트의 정보를 말한다.(User-Agent: Mozilla/5.0 ..)</li>
+  <li>Response 헤더 : 응답 정보를 말한다. (Server: Apache)</li>
+  <li>Entity 헤더 : 엔티티 바디의 정보를 말한다. (Content-Type: text/html; charset=UTF-8, Content-Length: 3423)</li>
+</ul>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-12-49-30.png" alt="" /></p>
+
+<ul>
+  <li>메시지 본문(Message Body)는 엔티티 본문(entity body)을 전달하는데 사용한다.</li>
+  <li>엔티티 본문은 요청이나 응답에서 전달할 실제 데이터가 담겨있다.</li>
+  <li>엔티티 헤더는 엔티티 본문의 데이터를 해석할 수 있는 정보를 제공한다.
+    <ul>
+      <li>데이터 유형(html, json), 데이터 길이, 압축정보 등등을 제공한다.</li>
+    </ul>
+  </li>
+  <li>메시지 본문이 엔티티 본문을 포함한다고 보면 된다.</li>
+</ul>
+
+<p>원래는 이렇게 정의가 되어 있엇으나, <strong>2014년에 RFC7230~7235 개정판이 등장</strong>하게 된다. 변경사항은 다음과 같다.</p>
+
+<ul>
+  <li><strong>엔티티(Entity)를 표현(Representation)으로 바꿈</strong></li>
+  <li>여기서 Representation = Representation Metadata + Representation Data 를 말한다.</li>
+</ul>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-12-54-04.png" alt="" /></p>
+
+<ul>
+  <li>메시지 본문(message body)을 통해 표현 데이터를 전달하게된다.</li>
+  <li>여기서 메시지 본문을 페이로드(payload)라고 한다.</li>
+  <li><strong>표현은 요청이나 응답에서 전달할 실제 데이터</strong>를 말한다.</li>
+  <li>또한 <strong>표현헤더는 표현 데이터를 해석할 수 있는 정보를 제공</strong>한다.
+    <ul>
+      <li>데이터 유형(html, json), 데이터의 길이, 압축정보 등등을 제공한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="표현">표현</h3>
+
+<ul>
+  <li>Content-Type: 표현 데이터의 형식
+    <ul>
+      <li>미디어 타입이나 문자 인코딩을 설명한다.</li>
+      <li>예) “text/html; charset=UTF-8”, “application/json”, “/assets/images/HTTP_images/png”</li>
+    </ul>
+  </li>
+  <li>Content-Encoding: 표현 데이터의 압축 방식
+    <ul>
+      <li>표현한 데이터를 압축하기위해 사용한다.</li>
+      <li>데이터를 전달하는 곳에서 압축 후에 인코딩 헤더를 추가</li>
+      <li>데이터를 읽는 쪽에서 인코딩 헤더의 정보로 압축을 해제한다.</li>
+      <li>예) Content-Encoding: gzip</li>
+    </ul>
+  </li>
+  <li>Content-Language: 표현 데이터의 자연언어
+    <ul>
+      <li>표현 데이터의 자연 연어를 표현한다. (ko, en, en-US)</li>
+    </ul>
+  </li>
+  <li>Content-Length: 표현 데이터의 길이. 바이트 단위이다.
+    <ul>
+      <li>Transfer-Encoding(전송코딩)을 사용하면 Content-Length를 사용해서는 안된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>그렇다면 엔티티에서 표현으로 말고 단어를 바꾼 이유는 무엇일까? 표현이라는 단어를 사용하게 된 이유는 HTTP헤더에서 어떤 Content type으로 요청/응답을 하느냐에 따라 HTML로 표현될 지, JSON으로 표현될 지, image로 표현될 지가 달라지기 때문에 표현이라는 단어를 사용하게 된 것이다.</p>
+
+<p><br /></p>
+
+<h2 id="협상컨텐츠-네고시에이션">협상(컨텐츠 네고시에이션)</h2>
+
+<p>협상은 클라이언트가 선호하는 표현을 요청하는 것이다. 핵심적으로 사용되는 4가지가 있다.</p>
+
+<ul>
+  <li>Accept: 클라이언트가 선호하는 미디어 타입 전달</li>
+  <li>Accept-Charset: 클라이언트가 선호하는 문자 인코딩</li>
+  <li>Accept-Encoding: 클라이언트가 선호하는 압축 인코딩</li>
+  <li>
+    <p>Accept-Language: 클라이언트가 선호하는 자연 언어</p>
+  </li>
+  <li>협상 헤더는 <strong>요청 시에만 사용</strong>한다.</li>
+</ul>
+
+<p>그렇다면 클라이언트가 선호하는 표현은 무엇이고, 협상이라는 것은 어디에 쓰이는 지 알아보자. 다음은 Accept-Language를 예로 들어 설명한 것이다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-14-02-49.png" alt="" /></p>
+
+<p>상황은 이렇다. 한국어 브라우저를 사용하는 클라이언트가 있고, 영어(기본)와 한국어를 지원하는 서버가 있다.</p>
+
+<ul>
+  <li>클라이언트가 GET방식으로 /event URI가 있는 페이지를 요청한다.</li>
+  <li>서버는 클라이언트의 요청을 받는다. 클라이언트 측에서 따로 이야기한게 없었으므로 기본언어인 영어로 메시지 바디를 전송한다.</li>
+  <li>클라이언트는 한국어 브라우저를 사용하지만 영어로 작성된 페이지를 보게 된다.</li>
+</ul>
+
+<p>클라이언트는 한국어를 사용하기 때문에 한국어로 되어있는 페이지를 보길 원한다. 하지만 한국어로 페이지를 달라는 표현이 없었기 때문에 서버에서는 기본언어로 설정되있는 영어로 페이지를 보여주게 된다. 한국어를 원하는 클라이언트는 이제 다음과 같이 요청을 보낸다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-14-09-21.png" alt="" /></p>
+
+<p>Accept-Language: ko 라는 HTTP 헤더 정보를 넣어서 요청을 보냈다. 서버는 이를 읽으면 클라이언트 측에서 한국어를 사용한다는 것을 인지하고 한국어로 되어있는 HTML 페이지로 응답하게된다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-14-10-58.png" alt="" /></p>
+
+<p>한 가지 더 생각해보자, 만약 서버에서 한국어를 지원하지 않고, 독일어(기본), 영어만 지원한다면 어떻게 될까? 기본언어가 독일어로 되어있지만 한국인은 그래도 영어로 홈페이지를 보는 것이 차라리 나을 것이다. 하지만 Accept-Language를 ko로 보내면 서버에서는 지원하는 언어가 없기 때문에 기본언어인 독일어를 보여주게 된다. 이럴 땐 어떻게 해야될까?</p>
+
+<p><br /></p>
+
+<h2 id="협상과-우선순위">협상과 우선순위</h2>
+
+<h3 id="quality-valuesq">Quality Values(q)</h3>
+
+<p>Quality Values는 여러 옵션들 중에 우선순위를 정하는 값이라고 보면 된다. Quality Values의 범위는 0~1이고, 클수록 높은 우선순위를 갖는다. 만약 생략하면 자동으로 1로 할당되어진다.</p>
+
+<blockquote>
+  <p>Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7</p>
+</blockquote>
+
+<p>우선순위는 다음과 같다.</p>
+
+<ol>
+  <li>ko-KR;q=1 (q 생략됨)</li>
+  <li>ko;q=0.9</li>
+  <li>en-US;q=0.8</li>
+  <li>en;q=0.7</li>
+</ol>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-14-14-50.png" alt="" /></p>
+
+<p>우선순위를 이용해서 이제 위의 예시로 돌아가보자, 독일어보다는 영어가 나은 한국인 입장에서, Accept-Language에 우선순위를 정하면 서버에서는 독일어보다 영어를 선호하니 영어로 홈페이지를 불러오게 될 것이다.</p>
+
+<p><br /></p>
+
+<h3 id="협상과-우선순위2">협상과 우선순위2</h3>
+
+<p>위 처럼 Quality Values의 값을 할당하여 우선순위를 정할 수도 있다. 아니면 구체적인 명시를 통해서도 자동으로 우선순위가 정해지는 경우도 있다. 예시를 보자.</p>
+
+<blockquote>
+  <p>Accept: text/*, text/plain, text/plain;format=flowed, */*</p>
+</blockquote>
+
+<ol>
+  <li>text/plain;format=flowed</li>
+  <li>text/plain</li>
+  <li>text/*</li>
+  <li>*/*</li>
+</ol>
+
+<p>우선순위는 구체적으로 쓴 순서대로이다. 1번부터4번 까지 봤을 때, 1번으로 갈 수록 보다 구체적으로 명시된 것을 볼 수 있다.</p>
+
+<p><br /></p>
+
+<h2 id="전송-방식">전송 방식</h2>
+
+<p>전송 방식은 크게 네 가지가 있다.</p>
+
+<ul>
+  <li>
+    <p>단순 전송: 말 그대로 따로 처리 과정을 거치지 않고 그대로 응답을 보낸다. 기본적으로 Content-Length를 포함하여 보낸다.</p>
+  </li>
+  <li>
+    <p>압축 전송: [Content-Encoding: gzip]과 같은 형태로 인코딩 압축하여 응답을 보내는 방식, 클라이언트에서 응답을 받으면 압축을 해제한 다음 데이터를 읽게 된다.</p>
+  </li>
+  <li>
+    <p>분할 전송: 데이터를 덩어리(chunked)로 나누어서 보내는 것을 말한다. Transfer-Encoding: chunked를 HTTP 헤더에 적어서 보낸다.</p>
+  </li>
+  <li>
+    <p>범위 전송: 클라이언트가 데이터를 받아가 중간에 끊겼을 때, 데이터를 다시 처음부터 끝까지 받는 것은 비효율적이므로 못받은 부분만 범위를 입력하여 요청을 보내면 서버가 범위만큼만 응답하여 데이터를 보내는 방식. Range: bytes=1001-2000과 같은 형식으로 보낸다.</p>
+  </li>
+</ul>
+
+<h3 id="일반-정보">일반 정보</h3>
+
+<ul>
+  <li>
+    <p>From: 유저 에이전트의 이메일 정보</p>
+
+    <ul>
+      <li>일반적으로 잘 사용되지 않는다.</li>
+      <li>검색 엔진같은 곳에서 주로 사용한다.</li>
+      <li>요청에서 사용된다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Referer: 이전 웹 페이지 주소</strong></p>
+
+    <ul>
+      <li>현재 요청된 페이지의 이전 웹 페이지 주소를 말한다.</li>
+      <li>A &gt; B로 이동하는 경우 B를 요청할 때 Referer: A를 포함해서 요청한다.</li>
+      <li>요청에서 사용한다.</li>
+      <li>Referer같은 경우에는 포털사이트를 들어가서 f12를 누르고 Network에서 HTTP 메시지를 보면 바로 확인이 가능하다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>User-Agent: 유저 에이전트 애플리케이션 정보</p>
+
+    <blockquote>
+      <p>user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/
+537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36</p>
+    </blockquote>
+
+    <ul>
+      <li>클라이언트의 애플리케이션 정보(웹 브라우저 정보 등등)</li>
+      <li>통계 정보</li>
+      <li>어떤 종류의 브라우저에서 장애가 발생하는지 파악이 가능하다.</li>
+      <li>요청에서 사용한다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Server: 요청을 처리하는 ORIGIN 서버의 소프트웨어 정보</p>
+
+    <blockquote>
+      <p>Server: Apache/2.2.22(Debian)
+server: nginx</p>
+    </blockquote>
+
+    <ul>
+      <li>응답에서 사용한다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Date: 메시지가 발생한 날짜와 시간</p>
+    <ul>
+      <li>Date: Tue, 15 Nov 1994 08:12:31 GMT</li>
+      <li>응답에서 사용한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="특별한-정보">특별한 정보</h3>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-14-34-13.png" alt="" /></p>
+
+<ul>
+  <li>Host: 요청한 호스트의 정보(도메인)
+    <ul>
+      <li><strong>요청에서 사용(필수값)</strong></li>
+      <li>하나의 서버가 여러 도메인을 처리해야할 때 사용</li>
+      <li>하나의 IP주소에 여러 도메인이 적용되어 있을 때 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<p>호스트는 서버에서 가상 도메인을 활용하여 여러 개의 가상 호스트를 사용할 때, 어떤 호스트로 요청을 보내는 지를 서버가 구분할 때 필요하다. 요청에서의 필수값이므로 서버는 이 값을 보고 어떤 호스팅으로 보내야할 지를 판단하게된다.</p>
+
+<ul>
+  <li>Location: 페이지 리다이렉션
+    <ul>
+      <li>웹 브라우저는 3xx 응답의 결과에 Location 헤더가 있으면 Location 위치로 자동이동하게 된다(리다이렉트) : 응답코드 3xx에서 설명한 바 있음</li>
+      <li>201 (Created) 상태코드의 경우 Location 값은 요청에 의해 생성된 리소스 URI이다.</li>
+      <li>3xx (Redirection): Location 값은 요청을 자동으로 리다이렉션하기 위한 대상 리소스를 가리킨다.</li>
+    </ul>
+  </li>
+  <li>Allow: 허용 가능한 HTTP 메서드
+    <ul>
+      <li>405 (Method Not Allowed)에서 응답에 포함해야한다.
+        <blockquote>
+          <p>Allow: GET, HEAD, PUT</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Retry-After: 유저 에이전트가 다음 요청을 하기까지 기다려야하는 시간</p>
+
+    <ul>
+      <li>
+        <p>503(Service Unavailable) : 서비스가 언제까지 불능인지 알려줄 수 있다.</p>
+
+        <blockquote>
+          <p>Retry-After: Fri, 31 Dec 1999 23:59:59 GMT (날짜 표기)</p>
+        </blockquote>
+
+        <blockquote>
+          <p>Retry-After: 120 (초단위 표기)</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Authorization: 클라이언트 인증 정보를 서버에 전달하는 것</p>
+
+    <ul>
+      <li>Authorization: Basic xxxxxxxxxxx</li>
+    </ul>
+  </li>
+  <li>WWW-Authenticate: 리소스 접근 시 필요한 인증 방법을 정의함
+    <ul>
+      <li>401 Unauthorized 응답과 함께 사용한다.
+        <blockquote>
+          <p>WWW-Authenticate: Newauth realm=”apps”, type=1, title=”Login to "apps"”, Basic realm=”simple”</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/springboot/">Springboot</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_8">HTTP 기본 지식 : 캐시(Cache)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_7">HTTP 기본 지식 : 쿠키(Cookie)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_5">HTTP 상태코드, PRG(Post Redirect Get)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/springboot/">
+                                
+                                    See all 16 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_7">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_7">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">HTTP 기본 지식 : 쿠키(Cookie)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 7
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_5">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_5">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">HTTP 상태코드, PRG(Post Redirect Get)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 5
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        8 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">HTTP 헤더 살펴보기(협상, 우선순위)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=HTTP+%ED%97%A4%EB%8D%94+%EC%82%B4%ED%8E%B4%EB%B3%B4%EA%B8%B0%28%ED%98%91%EC%83%81%2C+%EC%9A%B0%EC%84%A0%EC%88%9C%EC%9C%84%29&amp;url=https://achasan.github.io/http_basic_6"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/http_basic_6"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

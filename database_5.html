@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/database_5" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션" />
+    <meta property="og:description" content="숫자데이터와 관련된 함수 ABS() : 절댓값을 구하는 함수이다. SIGN() : 양수면 1, 음수면 -1, 0이면 0을 리턴하는 함수이다. ROUND(실수, 자릿수) : 반올림을 해 주는 함수이다. 자릿수를 음수로할 경우에는 정수부분에서 반올림, 자릿수가 양수인 경우에는 소수점에서 반올림, 0인 경우에는 소수점 첫 번째 자리에서 반올림 TRUNC(실수, 자릿수) : 소수점 이하 자리를 버리는 함수이다." />
+    <meta property="og:url" content="https://achasan.github.io/database_5" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/database.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-09-06T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-09-06T00:00:00+09:00" />
+    <meta property="article:tag" content="Basic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션" />
+    <meta name="twitter:description" content="숫자데이터와 관련된 함수 ABS() : 절댓값을 구하는 함수이다. SIGN() : 양수면 1, 음수면 -1, 0이면 0을 리턴하는 함수이다. ROUND(실수, 자릿수) : 반올림을 해 주는 함수이다. 자릿수를 음수로할 경우에는 정수부분에서 반올림, 자릿수가 양수인 경우에는 소수점에서 반올림, 0인 경우에는 소수점 첫 번째 자리에서 반올림 TRUNC(실수, 자릿수) : 소수점 이하 자리를 버리는 함수이다." />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/database.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Basic" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/database_5",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/database.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/database_5"
+    },
+    "description": "숫자데이터와 관련된 함수 ABS() : 절댓값을 구하는 함수이다. SIGN() : 양수면 1, 음수면 -1, 0이면 0을 리턴하는 함수이다. ROUND(실수, 자릿수) : 반올림을 해 주는 함수이다. 자릿수를 음수로할 경우에는 정수부분에서 반올림, 자릿수가 양수인 경우에는 소수점에서 반올림, 0인 경우에는 소수점 첫 번째 자리에서 반올림 TRUNC(실수, 자릿수) : 소수점 이하 자리를 버리는 함수이다."
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-basic post tag-Basic ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 6 September 2021"> 6 September 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/basic/'>BASIC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/database.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="숫자데이터와-관련된-함수">숫자데이터와 관련된 함수</h1>
+
+<ol>
+  <li>
+    <p>ABS() : 절댓값을 구하는 함수이다.</p>
+  </li>
+  <li>
+    <p>SIGN() : 양수면 1, 음수면 -1, 0이면 0을 리턴하는 함수이다.</p>
+  </li>
+  <li>
+    <p>ROUND(실수, 자릿수) : 반올림을 해 주는 함수이다. 자릿수를 음수로할 경우에는 정수부분에서 반올림,
+자릿수가 양수인 경우에는 소수점에서 반올림, 0인 경우에는 소수점 첫 번째 자리에서 반올림</p>
+  </li>
+  <li>
+    <p>TRUNC(실수, 자릿수) : 소수점 이하 자리를 버리는 함수이다.</p>
+  </li>
+  <li>
+    <p>CEIL(실수) : 소수점이 있을 경우 모두 버리고 실수 + 1을 한다.</p>
+  </li>
+  <li>
+    <p>FLOOR(실수) : TRUNC와 쓰임이 비슷하다. 하지만 이 함수는 모든 소수점 자리를 버리고 정수만 출력한다.</p>
+  </li>
+  <li>
+    <p>POWER(숫자, N) : 제곱된 수를 구하는 함수, N제곱된 수가 나온다.</p>
+  </li>
+  <li>
+    <p>MOD(숫자, N) : 나머지를 구해주는 함수이다. 숫자를 N으로 나눈 다음, 나머지를 출력한다.</p>
+  </li>
+</ol>
+
+<h1 id="view">VIEW</h1>
+
+<p>VIEW는물리적인 테이블에 근거한 논리적인 가상의 테이블을 말한다. 실질적으로 데이터를 저장하고 있지 않지만,
+VIEW를 통해 질의하면 VIEW가 실제 테이블에 접근하여 데이터를 불러오는 방식이다.
+VIEW는 필요한 내용들만 추출해서 사용하는 테이블이며, 주로 데이터를 조회할 때 가장 많이 사용되고,
+테이블 처럼 사용이 가능하다. VIEW는 실제 테이블을 참조하는 가상테이블이기 떄문에 물리적인 공간이 필요없다.
+테이블과 마찬가지로 INSERT, UPDATE, DELETE, SELECT와 같은 트랜젝션이 가능하다.</p>
+
+<p>그렇다면 VIEW를 사용하는 이유는 무엇일까?</p>
+
+<ol>
+  <li>보완관리 : 여러 사용자들의 보안 레벨에 따라 조회할 수 있는 데이터의 범위를 조절하기 위해 사용한다.</li>
+  <li>사용자에게 편의성을 제공한다.</li>
+</ol>
+
+<p>VIEW 생성 방법 : CREATE VIEW 뷰이름 AS 쿼리문;</p>
+
+<p>예를 들어 CREATE VIEW EMP_HR AS SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, DEPTNO FROM EMP; 문장을 실행했다고 가정하면,
+VIEW 테이블인 EMP_HR을 만들고, 이 테이블에서는 EMP 테이블의 사번, 이름, 직무, 관리자, 입사일, 부서번호만 참조 가능하게
+설정하였다. 인사부의 사원이 데이터를 조회하고 싶을 때는 EMP_HR테이블을 통해 데이터를 조회할 수 있도록 설정하여
+조회가능한 데이터의 범위를 조절하는 것이 가능하다.</p>
+
+<p>그런데 VIEW 테이블에서 INSERT, UPDATE, DELETE와 같은 데이터의 삽입, 편집이 가능하다고 했는데 VIEW는 실제데이터를
+참조한 가상테이블이다. 그렇다면 데이터는 어디에 생성되는 것일까? 바로 실제테이블이다.
+VIEW 테이블을 통해서 데이터를 수정하면 실제테이블에 반영이 된다. 하지만 조회목적으로 VIEW를 만들었는데 데이터의 수정이
+가능하다는 말은 앞뒤가 틀리다. 따라서 VIEW 테이블을 조회가능한 테이블로만 사용할 수 있도록 키워드를 사용해주어야하는데,
+그 키워드가 바로 WITH READ ONLY 이다.</p>
+
+<p>VIEW 테이블을 생성할 때 모든 문장을 작성하고 뒤에 WITH READ ONLY 키워드를 넣어주면 해당되는 VIEW 테이블에서는 데이터를
+삽입, 수정하는 것이 불가능하고, 오직 조회만 가능하게 되는 VIEW 테이블이 된다.</p>
+
+<h1 id="제약조건-부가설명">제약조건 부가설명</h1>
+
+<ul>
+  <li>
+    <p>NOT NULL : NULL 값이 입력되지 못하게 하는 제약조건, 특정 열에 데이터의 중복 여부와는 관계 없이 NULL 값을 허용하지 않는
+제약조건을 말한다.</p>
+  </li>
+  <li>
+    <p>UNIQUE : 열에 저장할 데이터의 중복을 허용하지 않고자 할 때 사용하는 조건으로, NULL 값은 허용된다.</p>
+  </li>
+  <li>
+    <p>PRIMARY KEY : NOT NULL 제약조건과 UNIQUE 제약조건이 합쳐진 것으로, 테이블에 하나만 존재해야하는 제약조건이다.
+테이블에서 PRIMARY KEY로 설정된 컬럼은 그 테이블을 대표하는 컬럼이 된다. 주민번호나 사원번호가 그 예.</p>
+  </li>
+  <li>
+    <p>FOREIGN KEY : 다른 테이블의 필드(컬럼)을 참조하여 무결성을 검사하는 조건을 말한다.
+여기서 참조키는 부모 테이블의 컬럼, 외래키는 자식 테이블의 컬럼을 이야기한다.
+자식 테이블의 컬럼의 값(데이터)이 부모테이블에 없는 경우에는 무결성의 규칙이 깨질 수 있다.
+외래키가 존재하기 위해서는 우선적으로 부모테이블이 먼저 만들어져야 한다.
+EMP 테이블의 부서번호 컬럼이 DEPT 테이블을 참조하는 외래키 컬럼이다. 어떻게 데이터가 관리되는지를 생각하자.</p>
+  </li>
+  <li>
+    <p>CHECK : 열에 저장할 수 있는 값의 범위, 또는 패턴을 정의할 때 사용하는 제약조건이다.
+컬럼을 생성할 때 값을 설정할 수 있고, 설정한 값만 데이터에 입력될 수 있도록 할 때 사용되어진다.</p>
+  </li>
+</ul>
+
+<p>제약조건들을 테이블을 생성할 때, 각 컬럼의 데이터값을 설정하고나서 그 뒤에 적어주면 된다.</p>
+
+<p>예시)</p>
+
+<pre><code class="language-SQL">    CREATE TABLE TEST(
+        COL1 NUMBER(10) PRIMARY KEY,        -- 기본키 제약조건
+        COL2 VARCHAR2(20) NOT NULL,         -- NOT NULL 제약조건
+        COL3 VARCHAR2(30) NOT NULL,
+        DEPTNO NUMBER(2) REFERENCES DEPT (DEPTNO)
+        -- DEPTNO 컬럼이 DEPT 테이블에 있는 DEPTNO 컬럼을 참조 (DEPT가 부모테이블, TEST가 자식테이블)
+    );
+</code></pre>
+
+<p>저번 시간에 간략하게 제약조건을 배웠다. 이번시간에는 CHECK 제약조건을 처음 배웠는데 사용법을 잘 알아두어야할 것 같다.</p>
+
+<p>예시)</p>
+
+<pre><code class="language-SQL">    CREATE TABLE CHECK_TEST(
+    GENDER VARCHAR2(10),
+    CONSTRAINT GENDER_CH CHECK(GENDER IN ('남자', '여자'))
+    -- GENDER VARCHAR2(10) CHECK(GENGER IN('남자', '여자'0)) 와 동일.
+    -- CHECK 함수를 사용하여 GENDER 컬럼에는 남자 또는 여자만 올수 있도록
+    -- 설정하였다. 이 경우 '남자', '여자' 데이터값 외에 다른 데이터값이 오면 에러가 발생한다.
+    );
+</code></pre>
+
+<h1 id="시퀀스-부연설명">시퀀스 부연설명</h1>
+
+<p>시퀀스(SEQUENCE)는 연속적인 번호를 만들어주는 기능이다. 시퀀스를 생성하기위해서는 여러 키워드를 알아야한다.</p>
+
+<ul>
+  <li>
+    <p>CREATE SEQUENCE 시퀀스이름 : 시퀀스 생성</p>
+  </li>
+  <li>
+    <p>START WITH N : 시작번호를 설정한다. N이 시작번호가 되며, DEFAULT는 1이다.</p>
+  </li>
+  <li>
+    <p>INCREMENT N : 증가할 번호를 설정한다. N이 증가번호가 되며, DEFAULT는 1이다.</p>
+  </li>
+  <li>
+    <p>MAXVALUE N : 시퀀스의 최댓값을 설정한다. N이 최댓값이 된다.</p>
+  </li>
+  <li>
+    <p>MINVALUE N : 시퀀스의 최솟값을 설정한다. N이 최솟값이 된다.</p>
+  </li>
+  <li>
+    <p>CACHE/NOCACHE : 캐시메모리를 사용할지, 안할지를 결정한다.</p>
+  </li>
+</ul>
+
+<p>여기서 캐시메모리의 사용여부가 꽤 중요한 개념인데, 시퀀스를 캐시메모리에 저장하는 이유는 시퀀스를 더 빨리
+제공하기 위해서이다. 시퀀스 작업이 필요할 때 데이터값을 빠르게 로드할 수 있다. DEFAULT로는 20으로 설정되어있다.
+하지만 캐시메모리는 휘발성메모리이기 때문에, 시스템이 비정상적으로 종료되거나 전원이 차단될 경우, 캐시메모리는
+자동적으로 사라지게 되어, 시퀀스를 불러올 때 문제가 생길 수 있다. 강사님이 캐시메모리를 사용하지 않는 것을 권장하셨다.</p>
+
+<pre><code class="language-SQL">    SELECT 시퀀스이름.NEXTVAL FROM DUAL;
+    -- 시퀀스의 다음값을 불러오는 함수이다. 여기서 값이 2가 나왔을 경우 다음 값은 3이 되니 주의
+</code></pre>
+
+<h1 id="서브쿼리중요">서브쿼리(중요)</h1>
+
+<p>쿼리문 안에 또 다른 쿼리문을 만드는 것을 서브쿼리라고 한다.
+서브쿼리는 메인쿼리가 서브쿼리를 포함하는 방식이며, 종속적인 관계로 되어있다.
+여러번 쿼리를 실행해서 얻을 수 잇는 결과를 하나의 중첩된 쿼리문장으로 결과를 얻을 수 있게 해준다.</p>
+
+<p>서브쿼리를 사용할 때 서브쿼리는 꼭 괄호로 묶어서 사용해주어야한다.
+서브쿼리 내에서 ORDER BY절은 당연히 사용할 수 없다. 결과값을 얻는 목적으로 작성하는 쿼리문이기 때문이다.
+메인쿼리에서 정렬을 사용해야한다.
+또한 서브쿼리는 연산자의 오른쪽에 위치해야 한다.</p>
+
+<p>사용방법
+예시) WHERE 조건문에 이름이 SCOTT인 사람의 SAL보다 높은 SAL인 사람의 이름과 SAL을 출력하려고 할 때,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT ENAME, SAL FROM EMP WHERE SAL &gt; (SELECT SAL FROM EMP WHERE ENAME = 'SCOTT');
+</code></pre></div></div>
+
+<p>다음과 같은 문장을 사용해주면 된다. WHERE 문에 서브쿼리를 사용하였는데, ‘이름이 SCOTT인 사원의 SAL 보다 큰 SAL을 가진 행을 출력’
+하는 조건이다. 쿼리문 안에 또 다른 쿼리문이 존재하는 것이다. 다만 서브쿼리는 목적이 결과값을 얻어오는 목적으로 사용되므로
+여러 데이터를 출력하는 메인쿼리와는 그 용도가 다르다.</p>
+
+<p>아래는 여러가지 예제를 풀어본 것이다 테이블은 EMP, DEPTNO, PRODUCTS, MEMEBER10을 토대로 예제를 풀어보았다.</p>
+
+<pre><code class="language-SQL">    -- 1. EMP 테이블에서 평균 급여보다 더 적게 받는 사원의 사번, 이름, 담당업무, 급여, 부서번호를 화면에 출력
+    SELECT EMPNO, ENAME, JOB, SAL, DEPTNO FROM EMP WHERE SAL &lt; (SELECT AVG(NVL(SAL, 0)) FROM EMP);
+
+
+    -- 2. EMP 테이블에서 사번이 7521인 사원과 담당업무가 같고, 급여가 7934인 사원보다 더 많이 받는 사원의 사번, 이름, 담당업무, 급여를 화면에 출력
+
+    SELECT EMPNO, ENAME, JOB, SAL
+    FROM EMP
+    WHERE JOB = (SELECT JOB FROM EMP WHERE EMPNO = 7521) AND SAL &gt; (SELECT SAL FROM EMP WHERE EMPNO = 7934);
+
+
+    -- 3. EMP 테이블에서 담당업무가 'MANAGER'인 사원의 최소급여보다 적으면서, 담당업무가 'CLERK'는 아닌 사원의 사번, 이름, 담당업무, 급여를 화면에 출력
+    SELECT EMPNO, ENAME, JOB, SAL FROM EMP WHERE SAL &lt; (SELECT MIN(SAL) FROM EMP WHERE JOB = 'MANAGER') AND NOT JOB = 'CLERK';
+
+
+    -- 4. 부서위치가 'DALLALS'인 사원의 사번, 이름, 부서번호, 담당업무를 화면에 출력
+    SELECT E.EMPNO, E.ENAME, E.DEPTNO, E.JOB FROM EMP E JOIN DEPT D ON E.DEPTNO = D.DEPTNO WHERE D.LOC = 'DALLAS';
+    SELECT EMPNO, ENAME, DEPTNO, JOB FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE LOC = 'DALLAS');
+
+
+    -- 5. MEMBER10테이블에 있는 고객의 정보 중 마일리지가 가장 높은 회원의 모든 정보를 화면에 출력
+    SELECT * FROM MEMBER10 WHERE MILEAGE = (SELECT MAX(MILEAGE) FROM MEMBER10);
+
+
+    -- 6. EMP 테이블에서 'SMITH'인 사원보다 더 많은 급여를 받는 사원의 이름과, 급여를 화면에 출력
+    SELECT ENAME, SAL FROM EMP WHERE SAL &gt; (SELECT SAL FROM EMP WHERE ENAME = 'SMITH');
+
+
+    -- 7. EMP 테이블에서 10번 부서 급여의 평균 급여보다 더 적은 급여를 받는 사원들의 이름, 급여, 부서번호를 화면에 출력
+    SELECT ENAME, SAL, DEPTNO FROM EMP WHERE SAL &lt; (SELECT AVG(NVL(SAL, 0)) FROM EMP WHERE DEPTNO = 10);
+
+
+    -- 8. EMP 테이블에서 'BLAKE'와 같은 부서에 있는 사원들의 이름과 입사일자, 부서번호를 화면에 보여주되, 'BLAKE'는 제외하고 화면에 출력
+    SELECT ENAME, HIREDATE, DEPTNO FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME = 'BLAKE') AND NOT ENAME = 'BLAKE';
+
+
+    -- 9. EMP 테이블에서 평균급여보다 더 많은 급여를 받는 사원들의 사번, 이름, 급여를 화면에 보여주되, 급여가 높은데서 낮은 순으로 화면에 출력
+    SELECT EMPNO, ENAME, SAL FROM EMP WHERE SAL &gt; (SELECT AVG(NVL(SAL, 0)) FROM EMP) ORDER BY SAL DESC;
+
+
+    -- 10. EMP 테이블에서 이름에 'T'를 포함하고 있는 사원들과 같은 부서에 근무하고 있는 사원의 사번과 이름, 부서번호를 화면에 출력
+    SELECT EMPNO, ENAME, DEPTNO FROM EMP WHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE ENAME LIKE '%T%');
+</code></pre>
+
+<h1 id="group-by-having-절">GROUP BY, HAVING 절</h1>
+
+<p>특정 컬럼이나 값을 기준으로 해당 레코드를 묶어서 자료를 관리할 떄 사용하는 키워드가 GROUP BY이다.
+주로 특정 컬럼을 기준으로 집계를 구하는데 많이 사용되며, 그룹함수와 사용시 효율적으로 사용이 가능하다.</p>
+
+<p>예시 ) EMP 테이블의 부서 별 사원의 수를 구해볼 때,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT DEPTNO, COUNT(*) FROM EMP GROUP BY DEPTNO ORDER BY DEPTNO;
+</code></pre></div></div>
+
+<p>COUNT(*)는 행의 갯수를 구하는 함수이며, GROUP BY DEPTNO를 작성하여 총 3개의 부서 별로 사원의 수가 몇 명인지를
+출력해주었다. GROUP BY 키워드를 사용하지 않았다면 모든 사원 수가 출력되었을 것이다. 하나의 컬럼을 기준으로
+컬럼 별로 데이터의 값들을 출력해 주는 것이 GROUP BY 절이라고 할 수 있다.</p>
+
+<p>HAVING절은 GROUP BY절 다음에 나오는 조건절이다. GROUP BY 절의 결과데이터에 조건을 주어서 필터링을 할 수 있다.
+GROUP BY 절에는 WHERE 절이 올 수 없으므로 HAVING절을 사용하여 필터링해주어야한다.
+WHERE 절에는 그룹함수도 사용이 불가능하다는 점을 알아두자.</p>
+
+<p>예시 ) PRODUCTS 테이블에서 카테고리 별로 상품의 갯수를 화면에 출력하려고 할 때,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT CATEGORY_FK, COUNT(*) FROM PRODUCTS GROUP BY CATEGORY_FK HAVING COUNT(*) &gt; 1 ORDER BY CATEGORY_FK;
+</code></pre></div></div>
+
+<p>여기서 CATEGORY_FK는 제품의 종류, COUNT(*)는 행의 갯수를 출력하므로 제품의 갯수를 의미한다.
+GROUP BY CATEGORY_FK를 사용하여 제품의 종류 별로 제품의 갯수가 몇 개인지 출력하며,
+여기서 HAVING 절에 제품갯수가 1개 이상일 경우에만 출력하도록 필터링을 해주었다.
+HAVING 절에는 보통 그룹함수를 많이 사용하기 때문에 이를 잘 이용하여 사용하는 것이 좋다.</p>
+
+<h1 id="트랜잭션transaction">트랜잭션(TRANSACTION)</h1>
+
+<p>트랜잭션은 데이터 처리의 한 단위를 말한다. 오라클에서 발생하는 여러 개의 SQL 명령문들을 하나의
+논리적인 작업 단위로 처리하는 것을 말한다. ALL OR NOTHING 방식으로 처리하며, 명령어 여러 개의 집합이
+정상적으로 처리되면 종료하고, 여러 개의 명령어 중에서 하나의 명령어라도 잘못이 되면 전체를 취소하는 방식을
+말한다. 트랜잭션을 사용하는 이유로는 데이터의 일관성을 유지하면서 데이터의 안정성을 보장하기 위한 이유가 있다.</p>
+
+<p>트랜잭션 사용 시 트랜잭션을 제어하기 위한 명령어는 어떤 것이 있을까?</p>
+
+<ul>
+  <li>
+    <p>COMMIT : 모든 작업을 정상적으로 처리하겠다고 확정하는 명령어로, INSERT, DELETE, UPDATE와 같은 작업의 내용을
+실제 DB에 반영하고, 이전에 있던 데이터에 UPDATE 현상을 발생시킨다.
+모든 사용자가 변경된 데이터의 결과를 확인할 수 가 있다.</p>
+  </li>
+  <li>
+    <p>ROLLBACK : 작업 중에 문제가 발생했을 때, 트랜잭션 처리 과정에서 발생한 변경 사항을 취소하여 이전 상태로
+되돌리는 명령여이다. 트랜잭션 작업 내용을 취소하는 것이다.</p>
+  </li>
+</ul>
+
+<p>COMMIT의 경우에는 사진을 찍는 것과 같다. COMMIT 명령어를 실행하면, 실행할 상태의 모든 데이터들을 그 상태 그대로
+저장하는 것을 말한다. 그 이후에 데이터를 관리하다가 문제가 발생했을 때 ROLLBACK 명령어를 사용하면 COMMIT을 했던 그 상태로
+타임머신을 타고 이동하는 것과 같다.</p>
+
+<p>COMMIT은 DB의 전체적인 상태들을 저장하기 때문에 사소한 데이터 수정을 위해서 커밋을 하는 것은 부담스러울 수 있다.
+이를 보완하고자 SAVEPOINT라는 키워드가 있는데, 단어 뜻 그대로 세이브포인트를 세워서 문제가 발생했을 경우 세이브포인트 지점으로
+돌아갈 수 있다.</p>
+
+<p>SAVEPOINT 이름; 으로 사용할 수 있으며, 만들었던 세이브포인트로 돌아가기 위해서는 ROLLBACK 이름; 을 입력하여 돌아갈 수 있다.</p>
+
+<h1 id="제약-조건-책-보면서-추가-공부">제약 조건 책 보면서 추가 공부</h1>
+
+<p>제약조건을 추가할 때 제약조건에 이름을 붙여줄 수 있다. 제약조건에 이름을 붙여주지 않으면 ORACLE DB에서 자체적으로 이름을 부여하는데,
+찾을 때 복잡하고 찾기가 힘들다는 이야기가 있다. 제약조건에 이름을 붙여주면 나중에 제약조건의 내용을 수정할 때 쓸 수 있으므로
+제약조건에 이름을 넣어주는 것이 좋다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE TABLE TEST_TABLE(
+    NUM NUMBER(20)
+    CONSTRAINT TEST_TABLE_PK PRIMARY KEY,
+    NAME VARCHAR2(20)
+    CONSTRAINT TEST_TABLE_nn NOT NULL,
+    PHONE VARCHAR2(50)
+    CONSTRAINT TEST_TABLE_PHONE NOT NULL
+);
+</code></pre></div></div>
+
+<p>위와 같은 형식으로 제약조건을 넣어준다.</p>
+
+<p>테이블 생성 시에는 제약조건의 필요성을 느끼지 못했다가, 나중에 제약조건을 추가해야할 상황이 생겼을 때, 제약조건의 이름을 찾아 조건을 변경하거나
+추가할 수 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ALTER TABLE TEST_TABLE ADD CONSTRAINT TEST_TABLE_UNIQUE UNIQUE(NAME);
+</code></pre></div></div>
+
+<p>기존에 있는 제약이름은 사용할 수 없다. 새로운 이름을 생성하고 거기에 ‘제약조건(컬럼)’ 형식으로 써주어야한다.</p>
+
+<p>유의해야할 사항이 하나 더 있는데, NOT NULL 제약조건을 넣을 때이다. 컬럼에 기본값으로 NULL이 허용되있는 것을 변경하는 것이기 때문에
+이 때는 ADD를 사용하면 안되고, MODIFY() 함수를 사용해서 수정해주어야한다.</p>
+
+<p>외래키 제약조건은 자식테이블이 부모테이블을 참조하는 형식이다. 만약, 자식테이블의 데이터가 있다면 부모테이블을
+참조하고 있기 때문에 부모테이블의 데이터를 삭제할 수 없다. 따라서 이를 해결하기위한 키워드가 존재한다.</p>
+
+<ul>
+  <li>ON DELETE CASCADE : 부모테이블의 데이터를 지울 때 자식테이블의 데이터(행 전체)도 같이 지운다.</li>
+  <li>ON DELETE SET NULL : 부모테이블의 데이터를 지우면 자식테이블의 데이터는 NULL 값이 된다.</li>
+</ul>
+
+<p>두 키워드는 차이점을 가지고 있는데, ON DELETE CASCADE같은 경우에는 부모테이블의 데이터를 삭제하면
+자식테이블의 데이터 행 자체가 삭제된다는 점이다. 반면 ON DELETE SET NULL 같은 경우에는 자식테이블이 참조하던
+컬럼의 데이터만 NULL 값으로 표시되고, 행 자체의 데이터는 사라지지 않는다.
+이 키워드는 제약조건에 FOREIGN KEY를 설정할 때 문장의 마지막에 작성해주면 된다.</p>
+
+<h1 id="서브쿼리-책-보면서-복습-정리">서브쿼리 책 보면서 복습, 정리</h1>
+
+<p>수업시간에 배운 내용은 책을 보면서 복습이 얼추 되었다. 근데 책에서는 다중쿼리에 대해 비중있게 다루고 있는데,
+먼저 다중행 서브쿼리이다. 다중행 서브쿼리는 서브쿼리에서 나오는 결과값이 여러 개인 경우가 있는데, 이를 다중 쿼리라고 부르는데,</p>
+
+<p>수업시간에는 IN만 사용하여 다중쿼리의 데이터 값을 처리했지만, 연산자가 몇 가지 더 존재했다.</p>
+
+<ul>
+  <li>EXISTS : 서브쿼리의 값이 있을 경우에 메인쿼리를 수행</li>
+  <li>&gt; ANY(서브쿼리) : 서브쿼리 결과중에서 최솟값을 반환</li>
+  <li>&lt; ANY(서브쿼리) : 서브쿼리 결과중에서 최댓값을 반환</li>
+  <li>&lt; ALL(서브쿼리) : 서브쿼리 결과중에서 최솟값을 반환</li>
+  <li>&gt; ALL(서브쿼리) : 서브쿼리 결과중에서 최댓값을 반환</li>
+</ul>
+
+<p>구별을 잘 해야한다. 비교하고싶은 데이터 값보다 작은지, 큰지를 먼저 따지고, 그 다음에 서브쿼리의 데이터 값 중
+최솟값, 최댓값을 가져오는 것을 잘 설정해주어야 한다.</p>
+
+<h2 id="다중컬럼">다중컬럼</h2>
+
+<p>다중행은 서브쿼리가 여러개의 결과값을 가진 것이었다. 다중컬럼은 결과값이 여러 컬럼을 가지는 것을 말한다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT P.PROFNO, P.NAME, P.HIREDATE, D.DNAME
+FROM PROFESSOR P
+JOIN DEPARTMENT D
+ON P.DEPTNO = D.DEPTNO
+WHERE (P.DEPTNO, P.HIREDATE) IN(SELECT DEPTNO, MIN(HIREDATE) FROM PROFESSOR GROUP BY DEPTNO);
+</code></pre></div></div>
+
+<p>WHERE 절에 쓰인 문장을 보자, 서브쿼리에서 메인쿼리로 컬럼이 2개씩 데이터로 받아지고 있다.
+각 부서별로 입사일이 가장 오래된 교수를 서브쿼리에서 결과값으로 추출한 후, 메인쿼리로 옮겨서
+조건에 맞는 행을 출력하는 것이다. 다양한 검색을 할 때 사용되므로 이해해야한다.</p>
+
+<h2 id="스칼라-서브쿼리scalar-sub-query">스칼라 서브쿼리(Scalar Sub Query)</h2>
+
+<p>스칼라 서브쿼리는 SELECT 절에 오는 서브쿼리로 한 번에 결과를 1행씩 반환한다.
+실무에서 많이 사용되고 SQL 튜닝에서도 강조되는 부분이다.</p>
+
+<p>스칼라 서브쿼리는 OUTER JOIN과 구조가 비슷하다.
+JOIN방법은 출력하고자 하는 데이터의 양이 적을 경우 스칼라 서브 쿼리보다 속도가 느리다. 따라서
+출력하는 데이터의 양이 적을 경우에는 JOIN보다 스칼라 서브 쿼리를 많이 사용한다.
+데이터의 양이 많을 경우에는 JOIN이 더 효율적일 수 있으니 잘 판단하여 사용하여야 한다.
+스칼라 서브 쿼리가 빠른 이유는 찾는 데이터가 메모리에 만들여져 있는 값을 찾아오기 때문이다.</p>
+
+<p>메모리에 미리 찾을 것으로 예상되는 조건으로 데이터를 준비하고, 주문이 들어오면 바로 찾아가는 것이다.
+시쿼스에서 봤었던 캐시메모리와 비슷한 상황인 것 같다.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/basic/">Basic</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/database_6">PL/SQL, 데이터 정의어(DDL)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/database_4">그룹함수(GROUP BY, HAVING)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/database_3">묵시적, 명시적 형변환, DECODE, 정규식</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/basic/">
+                                
+                                    See all 5 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/database_6">
+                <div class="post-card-image" style="background-image: url(/assets/images/database.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/database_6">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">PL/SQL, 데이터 정의어(DDL)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>PL/SQL (Procedual Language / Structured Query Language)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      15 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/database_4">
+                <div class="post-card-image" style="background-image: url(/assets/images/database.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/database_4">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">그룹함수(GROUP BY, HAVING)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>SQL 복수행 함수(그룹함수)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4%EA%B3%BC+%EC%8B%9C%ED%80%80%EC%8A%A4+%EB%B6%80%EC%97%B0%EC%84%A4%EB%AA%85%2C+%EC%84%9C%EB%B8%8C%EC%BF%BC%EB%A6%AC%2C+%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98&amp;url=https://achasan.github.io/database_5"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/database_5"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

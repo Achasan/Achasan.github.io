@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/http_basic_3" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)" />
+    <meta property="og:description" content="HTTP 웹 기본 지식 3 HTTP HTTP 메시지에 모든 것이 전송 가능 HTML, TEXT IMAGE, 음성, 영상 파일 JSON, XML(API) 거의 모든 형태의 데이터 전송이 가능 서버 간에 데이터를 주고 받을 떄도 대부분 HTTP를 사용 HTTP의 역사 1991년 : HTTP/0.9 - GET 메서드만 지원, HTTP 헤더 X 1996년 : HTTP/1.0" />
+    <meta property="og:url" content="https://achasan.github.io/http_basic_3" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-10-31T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-10-31T00:00:00+09:00" />
+    <meta property="article:tag" content="Springboot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)" />
+    <meta name="twitter:description" content="HTTP 웹 기본 지식 3 HTTP HTTP 메시지에 모든 것이 전송 가능 HTML, TEXT IMAGE, 음성, 영상 파일 JSON, XML(API) 거의 모든 형태의 데이터 전송이 가능 서버 간에 데이터를 주고 받을 떄도 대부분 HTTP를 사용 HTTP의 역사 1991년 : HTTP/0.9 - GET 메서드만 지원, HTTP 헤더 X 1996년 : HTTP/1.0" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Springboot" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/http_basic_3",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/httpCover.jpg",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/http_basic_3"
+    },
+    "description": "HTTP 웹 기본 지식 3 HTTP HTTP 메시지에 모든 것이 전송 가능 HTML, TEXT IMAGE, 음성, 영상 파일 JSON, XML(API) 거의 모든 형태의 데이터 전송이 가능 서버 간에 데이터를 주고 받을 떄도 대부분 HTTP를 사용 HTTP의 역사 1991년 : HTTP/0.9 - GET 메서드만 지원, HTTP 헤더 X 1996년 : HTTP/1.0"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-springboot post tag-SpringBoot ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="31 October 2021">31 October 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/springboot/'>SPRINGBOOT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/httpCover.jpg)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="http-웹-기본-지식-3">HTTP 웹 기본 지식 3</h1>
+
+<h2 id="http">HTTP</h2>
+
+<h3 id="http-메시지에-모든-것이-전송-가능">HTTP 메시지에 모든 것이 전송 가능</h3>
+
+<ul>
+  <li>HTML, TEXT</li>
+  <li>IMAGE, 음성, 영상 파일</li>
+  <li>JSON, XML(API)</li>
+  <li>거의 모든 형태의 데이터 전송이 가능</li>
+  <li>서버 간에 데이터를 주고 받을 떄도 대부분 HTTP를 사용</li>
+</ul>
+
+<h3 id="http의-역사">HTTP의 역사</h3>
+
+<ul>
+  <li>1991년 : HTTP/0.9 - GET 메서드만 지원, HTTP 헤더 X</li>
+  <li>1996년 : HTTP/1.0 - 메서드와 헤더 추가됨</li>
+  <li>1997년 : HTTP/1.1 - 가장 많이 사용하고, 가장 중요한 버전이다.</li>
+  <li>2015년 : HTTP/2 - 성능 개선</li>
+  <li>현재진행중 : HTTP/3 - TCP 대신 UDP를 사용함, 성능 개선</li>
+</ul>
+
+<p>가장 중요한 버전은 HTTP 1.1이다. 1.1 버전에서 대부분의 기능들을 가지고 있고, 이후의 버전들은 성능 개선에 초점을 맞추어서 업데이트되고 있다.</p>
+
+<p>현재 1.1 버전을 가장 많이 사용하고 있으며, 1.1 버전에 대한 개정은 2014년에 이루어진 RFC7235이다.</p>
+
+<h3 id="http의-특징">HTTP의 특징</h3>
+
+<ul>
+  <li>클라이언트 서버 구조</li>
+  <li>무상태 프로토콜(Stateless), 비연결성</li>
+  <li>HTTP 메시지</li>
+  <li>단순함과 확장가능성</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="무상태-프로토콜">무상태 프로토콜</h2>
+
+<h3 id="stateless">Stateless</h3>
+
+<ul>
+  <li>서버가 클라이언트의 상태를 보존하지 않는 것.</li>
+  <li>장점은 서버의 확정성이 높다.(스케일 아웃)</li>
+  <li>단점은 클라이언트가 추가 데이터를 전송한다는 점</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="stateful-stateless의-차이점">Stateful, Stateless의 차이점</h3>
+
+<p>Stateful이 어떤 방식인지 다음 대화를 살펴보자</p>
+
+<blockquote>
+  <p>고객 : 이 노트북 얼마인가요?</p>
+</blockquote>
+
+<blockquote>
+  <p>점원 : 100만원 입니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>고객 : 2개 구매하겠습니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>점원 : 200만원입니다. 신용카드, 현금 중에 결제수단을 선택해주세요.</p>
+</blockquote>
+
+<blockquote>
+  <p>고객 : 신용카드로 구매하겠습니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>점원 : 200만원 결제완료 되었습니다.</p>
+</blockquote>
+
+<p>대화를 보면 처음부터 끝까지 내용이 이어지고 있다. 대화내용의 중간부분을 자르면 대화의 흐름을 이해할 수가 없을 것이다. 만약 점원이 중간에 바뀐다면 어떻게 될지 보자.</p>
+
+<blockquote>
+  <p>고객: 이 노트북 얼마인가요?</p>
+</blockquote>
+
+<blockquote>
+  <p>점원A: 100만원 입니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>고객: 2개 구매하겠습니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>점원B: ? 무엇을 2개 구매하시겠어요?</p>
+</blockquote>
+
+<blockquote>
+  <p>고객: 신용카드로 구매하겠습니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>점원C: ? 무슨 제품을 몇 개 신용카드로 구매하시겠어요?</p>
+</blockquote>
+
+<p>Stateful은 상태가 유지되는 것으로, 고객이 노트북을 산다고 말하면서 노트북이 상태유지되고, 2개를 산다고 말하면서 상태유지가 되고, 신용카드로 결제한다고 이야기하면서 데이터의 전송이 마무리 된다. 데이터를 처리하기까지 서버와 클라이언트가 계속 연결이 유지되어있어야하고, 중간에 서버가 바뀌면 어떤 데이터가 유지되고 있었는지 알 수 없게된다.</p>
+
+<p>이제 Stateless를 알아보자.</p>
+
+<blockquote>
+  <p>고객: 이 노트북 얼마인가요?</p>
+</blockquote>
+
+<blockquote>
+  <p>점원A: 100만원 입니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>고객: 노트북 2개 구매하겠습니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>점원B: 노트북 2개는 200만원 입니다. 신용카드, 현금중에 어떤 걸로 구매 하시겠어요?</p>
+</blockquote>
+
+<blockquote>
+  <p>고객: 노트북 2개를 신용카드로 구매하겠습니다.</p>
+</blockquote>
+
+<blockquote>
+  <p>점원C: 200만원 결제 완료되었습니다.</p>
+</blockquote>
+
+<p>무상태는 고객이 구매하려는 모든 데이터 정보를 가지고 있어서 서버가 바뀌더라도 비즈니스 로직의 처리가 가능해진다. 모든 데이터를 담고 있어서 데이터가 무거워지는 단점을 가지고 있지만, 서버 입장에서는 서버 증설이 가능해지고, 갑자기 몰리는 트래픽을 방지할 수 있어서 더 선호되는 상태이다.</p>
+
+<p><br /></p>
+
+<h3 id="stateful-stateless-정리">Stateful, Stateless 정리</h3>
+
+<ul>
+  <li>
+    <p>Stateful(상태유지) : 중간에 다른 점원으로 바뀌면 안된다. (중간에 다른 점원으로 바뀔 때 상태 정보를 다른 점원에게 미리 알려줘야 한다.)</p>
+  </li>
+  <li>
+    <p>Stateless(무상태) : 중간에 다른 점원으로 바뀌어도 된다.</p>
+
+    <ul>
+      <li>갑자기 고객이 증가해도 점원을 대거 투입할 수 있다.</li>
+      <li>갑자기 클라이언트 요청이 증가해도 서버를 대거 투입할 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Stateless는 응답서버를 쉽게 바꿀 수 있어서 무한한 서버 증설이 가능해진다.
+이를 스케일 아웃(scale out)이라고 하는데, 무상태 요청정보를 클라이언트가 가지고 있어서 이를 읽을 수 있는 서버만 늘려주면 되기 때문에 대응하기가 훨씬 수월해진다.</p>
+  </li>
+</ul>
+
+<p>하지만 Stateless는 한계점을 가지고 있다. 대표적으로 로그인이다. 클라이언트에서 로그인을 했을 경우 서버에서는 로그인을 했다는 상태를 서버에 유지해야 다른 서비스들을 이용할 수 있다.</p>
+
+<p>일반적으로 브라우저 쿠키와 서버 세션등을 사용해서 상태를 유지한다. 상태유지는 최소한만 사용하는 것이 좋다.</p>
+
+<p>또한 Stateful에 비해서 Stateless는 데이터를 한 번에 많이 보낸다느 점도 단점이라할 수 있다.</p>
+
+<p>결론은 Stateless의 최대장점은 트래픽이 몰리더라도 서버를 왕창늘려도 비즈니스 로직을 처리하는데 문제가 없다는 것이다. 클라이언트 측에서 정보를 A부터 Z까지 가지고 있기 때문에 서버측에서 정보를 읽는데 문제가 없다. 이러한 메리트 때문에 Stateless로 설계하는 것이 좋다.</p>
+
+<p><br /></p>
+
+<h2 id="비연결성connectionless">비연결성(Connectionless)</h2>
+
+<p><img src="/assets/images/HTTP_images/2021-10-31-22-58-37.png" alt="" /></p>
+
+<p>기본적으로 웹 애플리케이션이 가동되면 서버는 클라이언트와 연결을 유지한다. 클라이언트가 요청을 보내지 않더라도 서버는 요청이 올때까지 계속 연결을 유지시킨다. 연결이 계속 유지될수록 서버의 자원은 지속적으로 소모되어 좋지 않다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-10-31-22-59-19.png" alt="" /></p>
+
+<p>비연결성은 클라이언트와 서버 간에 쵸엉이 없을 경우에는 연결을 끊고 클라이언트의 요청이 들어오면 그때 다시 연결을 하는 것을 말한다. 이럴 경우에는 서버는 최소한의 자원으로 서버를 유지할 수 있게 된다.</p>
+
+<p>HTTP는 기본이 연결을 유지하지 않는 모델이다. 일반적으로 초 단위 이하의 빨느 속도로 응답하기 때문에 1시간동안 수 천명이 서비스를 사용해도 실제 서버에서 동시에 처리하는 요청은 수 십개 이하로 매우 적다.(브라우저가 랜더링하면 정보를 얻어오는 시간이 있기 때문)</p>
+
+<p><img src="/assets/images/HTTP_images/2021-10-31-23-03-07.png" alt="" /></p>
+
+<p>그렇다면 비연결성의 단점은 무엇일까? 요청과 응답이 이루어지면 연결을 끊어버리기 때문에 다시 요청을 하기 위해선 새로 TCP/IP 연결을 맺어야한다는 점이다. 우리는 위에서 TCP/IP가 연결되는 과정을 보았다. 3 way handshake를 매 번 수행해야한다는 점은 별로 좋아보이지 않는다.</p>
+
+<p>또한 웹 브라우저로 사이트를 요청하면 HTML 뿐만 아니라 JS, CSS, 이미지 등 수 많은 자원들이 같이 다운로드가 된다. 하나 씩 받게되면서 연결과 종료를 반복하게 되는 것이다. 지금은 Persistent Connections(지속연결)을 통해 문제를 해결하였다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-10-31-23-03-28.png" alt="" /></p>
+
+<p>지속연결을 할 경우에는 HTML, JS, CSS 이미지들을 모두 다운받을 때 까지 연결을 지속한다. 모든 리소스들을 다 받은 다음에 연결이 종료되어 효율적인 서버자원활용을 가능하게 한다.</p>
+
+<p><br /></p>
+
+<h2 id="http-메시지">HTTP 메시지</h2>
+
+<p><img src="/assets/images/HTTP_images/2021-10-31-23-05-00.png" alt="" /></p>
+
+<p>이전 강의에서 HTTP를 요청하고 응답이 어떻게 이루어지는 지 전체적인 흐름을 살펴보았다. 이번에는 HTTP 메시지가 어떤 구조를 가지고 있는지를 알아본다.</p>
+
+<p>HTTP의 메시지 구조는</p>
+
+<ul>
+  <li>start-line(시작라인)</li>
+  <li>header(헤더)</li>
+  <li>empty line(공백라인) (CRLF : 엔터) : 꼭 있어야하는 라인</li>
+  <li>message body(바디태그) : 올 수도 있고 안 올수도 있다.</li>
+</ul>
+
+<p>총 네 가지가 있다.</p>
+
+<p><br /></p>
+
+<h3 id="요청-메시지-구조">요청 메시지 구조</h3>
+
+<p><img src="/assets/images/HTTP_images/2021-10-31-23-44-16.png" alt="" /></p>
+
+<ul>
+  <li>start-line = request-line</li>
+  <li>request-line = method SP(공백) request-target SP HTTP-version CRLF(엔터)</li>
+</ul>
+
+<p>하나 씩 천천히 살펴보자. 먼저 요청 메시지는 시작 라인이 요청라인으로, 요청 라인은</p>
+
+<blockquote>
+  <p>메서드 요청대상 HTTP버전</p>
+</blockquote>
+
+<p>으로 이루어져 있다. 공백은 무조건 띄어쓰기를 해주어야한다.</p>
+
+<ol>
+  <li>
+    <p>HTTP메서드</p>
+
+    <ul>
+      <li>종류는 GET, POST, PUT, DELETE 등이 있다.</li>
+      <li>서버가 수행해야할 동작을 지정한다. (GET: 리소스 조회, POST: 요청 내역 처리)</li>
+    </ul>
+  </li>
+  <li>
+    <p>요청대상</p>
+
+    <ul>
+      <li>구성은 absolute-path[?query]로 구성되어있다. (절대경로[?쿼리])</li>
+      <li>여기서 절대경로는 “/”로 시작하는 경로를 말한다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>HTTP 버전 : 말 그대로 HTTP 버전을 나타낸다.</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="응답-메시지-구조">응답 메시지 구조</h3>
+
+<p><img src="/assets/images/HTTP_images/2021-11-01-17-45-07.png" alt="" /></p>
+
+<ul>
+  <li>start-line = status-line</li>
+  <li>status-line = HTTP-version SP status-code SP reason-phrase CRLF</li>
+</ul>
+
+<p>응답 메시지는 총 3개로 이루어져 있다.</p>
+
+<blockquote>
+  <p>HTTP버전 HTTP상태코드 이유문구</p>
+</blockquote>
+
+<ol>
+  <li>
+    <p>HTTP 버전 : 말 그대로 HTTP 버전을 나타냄</p>
+  </li>
+  <li>
+    <p>HTTP 상태 코드 : 요청 성공, 실패를 나태낸다.</p>
+
+    <ul>
+      <li>200 : 성공</li>
+      <li>400 : 클라이언트 요청 오류</li>
+      <li>500 : 서버 내부 오류</li>
+    </ul>
+  </li>
+  <li>
+    <p>이유 문구</p>
+    <ul>
+      <li>사람이 이해할 수 있는 짧은 상태 코드를 설명하는 글</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="http-헤더">HTTP 헤더</h3>
+
+<p><img src="/assets/images/HTTP_images/2021-11-01-17-48-00.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>header-field = field-name “:” OWS field-value OWS (OWS : 띄어쓰기 허용)</p>
+  </li>
+  <li>
+    <p>field-name은 대소문자 구분이 없다.</p>
+  </li>
+  <li>
+    <p>용도</p>
+    <ul>
+      <li>HTTP 전송에 필요한 모든 부가정보를 담는다.(메시지 바디의 내용, 크기, 압축, 인증, 요청 클라이언트의 정보…)</li>
+      <li>표준 헤더가 너무 많다는 점이 특징</li>
+      <li>필요시에는 임의의 헤더가 추가 가능하다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="http-메시지-바디">HTTP 메시지 바디</h3>
+
+<p><img src="/assets/images/HTTP_images/2021-11-01-17-52-17.png" alt="" /></p>
+
+<ul>
+  <li>실제로 전송할 데이터가 담겨있다.</li>
+  <li>HTML 문서, 이미지, 영상 JSON 등 byte로 표현할 수 있는 모든 데이터를 전송할 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="http-정리">HTTP 정리</h2>
+
+<ul>
+  <li>HTTP 메시지에 모든 것을 전송할 수 있다.</li>
+  <li>HTTP버전은 1.1을 기준으로 한다. 이후 버전은 성능 개선에 초점이 맞춰져 있다.</li>
+  <li>클라이언트와 서버 구조는 요청과 응답을 통해 이루어진다.</li>
+  <li>무상태 프로토콜(Stateless)의 특징에 대해 알아두기</li>
+  <li>HTTP 메시지의 구조(요청, 응답)</li>
+  <li>HTTP는 단순하고 확장이 가능한 특징을 가지고 있다.</li>
+</ul>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/springboot/">Springboot</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_8">HTTP 기본 지식 : 캐시(Cache)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_7">HTTP 기본 지식 : 쿠키(Cookie)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_6">HTTP 헤더 살펴보기(협상, 우선순위)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/springboot/">
+                                
+                                    See all 16 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_4">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_4">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">HTTP API 설계방법(REST API)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 4
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      15 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/spring_basic_9">
+                <div class="post-card-image" style="background-image: url(/assets/images/spring.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/spring_basic_9">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Spring:9] 빈 스코프(Bean Scope)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>빈 스코프 정리
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        7 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=HTTP%EC%9D%98+%EA%B0%9C%EB%85%90%28%EC%97%AD%EC%82%AC%2C+%ED%8A%B9%EC%A7%95%2C+Stateless%2C+Stateful%2C+%EB%B9%84%EC%97%B0%EA%B2%B0%EC%84%B1%29&amp;url=https://achasan.github.io/http_basic_3"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/http_basic_3"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>HTTP API 설계방법(REST API)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/http_basic_4" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="HTTP API 설계방법(REST API)" />
+    <meta property="og:description" content="HTTP 웹 기본 지식 4 HTTP API 설계 HTTP API를 설계한다고 가정해보자, 회원목록 조회, 회원 조회, 회원 등록, 회원 수정, 회원 삭제를 구현한다고 했을 때, 회원 목록 조회 /read-member-list 회원 조회 /read-member-by-id 회원 등록 /create-member 회원 수정 /update-member 회원 삭제 /delete-member 위의 URI를 좋은 설계라고 말할 수 있을 까? HTTP" />
+    <meta property="og:url" content="https://achasan.github.io/http_basic_4" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-11-01T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-01T00:00:00+09:00" />
+    <meta property="article:tag" content="Springboot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HTTP API 설계방법(REST API)" />
+    <meta name="twitter:description" content="HTTP 웹 기본 지식 4 HTTP API 설계 HTTP API를 설계한다고 가정해보자, 회원목록 조회, 회원 조회, 회원 등록, 회원 수정, 회원 삭제를 구현한다고 했을 때, 회원 목록 조회 /read-member-list 회원 조회 /read-member-by-id 회원 등록 /create-member 회원 수정 /update-member 회원 삭제 /delete-member 위의 URI를 좋은 설계라고 말할 수 있을 까? HTTP" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Springboot" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/http_basic_4",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/httpCover.jpg",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/http_basic_4"
+    },
+    "description": "HTTP 웹 기본 지식 4 HTTP API 설계 HTTP API를 설계한다고 가정해보자, 회원목록 조회, 회원 조회, 회원 등록, 회원 수정, 회원 삭제를 구현한다고 했을 때, 회원 목록 조회 /read-member-list 회원 조회 /read-member-by-id 회원 등록 /create-member 회원 수정 /update-member 회원 삭제 /delete-member 위의 URI를 좋은 설계라고 말할 수 있을 까? HTTP"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="HTTP API 설계방법(REST API)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-springboot post tag-SpringBoot ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 1 November 2021"> 1 November 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/springboot/'>SPRINGBOOT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">HTTP API 설계방법(REST API)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/httpCover.jpg)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="http-웹-기본-지식-4">HTTP 웹 기본 지식 4</h1>
+
+<h2 id="http-api-설계">HTTP API 설계</h2>
+
+<p>HTTP API를 설계한다고 가정해보자, 회원목록 조회, 회원 조회, 회원 등록, 회원 수정, 회원 삭제를 구현한다고 했을 때,</p>
+
+<ul>
+  <li>
+    <p>회원 목록 조회 /read-member-list</p>
+  </li>
+  <li>
+    <p>회원 조회 /read-member-by-id</p>
+  </li>
+  <li>
+    <p>회원 등록 /create-member</p>
+  </li>
+  <li>
+    <p>회원 수정 /update-member</p>
+  </li>
+  <li>
+    <p>회원 삭제 /delete-member</p>
+  </li>
+</ul>
+
+<p>위의 URI를 좋은 설계라고 말할 수 있을 까? HTTP API 설계 시 가장 중요한 점은 리소스를 식별할 수 있어야 한다는 점이다.</p>
+
+<blockquote>
+  <p>회원을 등록하고 수정하고 조회하는 것이 리소스가 아니다. 회원이라는 개념 자체가 리소스이다. 주어에 포커스를 두어야 한다. 회원이라는 리소스만 식별하여 회원 리소스를 URI에 매핑하는 것이 올바른 HTTP API의 설계이다.</p>
+</blockquote>
+
+<p>URI는 리소스만 식별하도록 하게한다. 리소스와 해당 리소스를 대상으로하는 행위를 분리해야한다. 주어와 동사를 분리해서 설계해야한다는 것이다.</p>
+
+<p>그렇다면 이제 정리해보자.</p>
+
+<ul>
+  <li>리소스 : 회원</li>
+  <li>행위 : 조회, 등록, 삭제 변경(동사)</li>
+</ul>
+
+<p>리소스는 명사, 행위는 동사가 된다. 그렇다면 이제 배운 내용을 바탕으로 URI 설계를 다시해보자.</p>
+
+<ul>
+  <li>
+    <p>회원 목록 조회 /members</p>
+  </li>
+  <li>
+    <p>회원 조회 /members/{id}</p>
+  </li>
+  <li>
+    <p>회원 등록 /members/{id}</p>
+  </li>
+  <li>
+    <p>회원 수정 /members/{id}</p>
+  </li>
+  <li>
+    <p>회원 삭제 /members/{id}</p>
+  </li>
+</ul>
+
+<p>(계층 구조 상 상위를 컬렉션으로 보고 복수단어 사용을 권장한다.)</p>
+
+<p>일단 배운내용대로 리소스(회원)를 중심으로 URI를 설계하였다. 그렇다면 조회, 등록, 수정, 삭제를 어떤 방법으로 구분할 지가 궁금해질 것이다. <strong>HTTP 메서드</strong>를 통해 이를 구분하는 것이 가능하다.</p>
+
+<p><br /></p>
+
+<h2 id="http-메서드의-종류">HTTP 메서드의 종류</h2>
+
+<ul>
+  <li>GET : 리소스 조회</li>
+  <li>POST : 요청 데이터를 처리, 주로 등록에 사용</li>
+  <li>PUT : 리소스를 대체한다, 해당 리소스가 없으면 생성한다.</li>
+  <li>PATCH : 리소스를 부분적으로 변경한다.</li>
+  <li>DELETE : 리소스를 삭제한다.</li>
+</ul>
+
+<h3 id="기타-메서드--head-options-connect-trace-가-있다-사용빈도-낮음">기타 메서드 : HEAD, OPTIONS, CONNECT, TRACE 가 있다. (사용빈도 낮음)</h3>
+
+<p><br /></p>
+
+<h3 id="get">GET</h3>
+
+<ul>
+  <li>리소스를 조회하는 메서드</li>
+  <li>서버에 전달하고 싶은 데이터는 <strong>query(쿼리파라미터, 쿼리스트링)</strong>를 통해서 전달한다.</li>
+  <li>메시지 바디를 사용해서 데이터를 전달할 수 있지만 지원하는 곳이 적다.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="post">POST</h3>
+
+<ul>
+  <li>요청 데이터를 처리한다.</li>
+  <li><strong>메시지 바디를 통해</strong> 서버로 요청 데이터를 전달한다.</li>
+  <li>서버는 요청 데이터를 처리하고, 메시지 바디를 통해 들어온 데이터를 처리하는 모든 기능을 수행한다.</li>
+  <li>서버는 주로 전달된 데이터를 통해 <strong>신규 리소스를 등록</strong>하고, 프로세스 처리에 사용한다.</li>
+</ul>
+
+<p>리소스 URI에 POST 요청에 오면 요청 데이터를 어떻게 처리할 지 리소스마다 따로 정해야한다. (POST는 따로 정해진게 없다는 뜻이다.)</p>
+
+<p>POST는 회원가입, 주문하기, 게시판 글쓰기, 댓글달기, 신규 주문 생성, 기존 자원에 데이터 추가와 같이 새로운 리소스를 생성하거나 입력 폼을 통해 데이터를 전달하여 서버에서 처리할 수 있는 작업을 할 때 사용되는 메서드이다. 다른 메서드를 사용하기 애매할 경우에는 POST를 사용할 정도로 거의 모든 데이터처리를 할 때 사용될 수 있는 메서드이다.</p>
+
+<p>[정리]</p>
+
+<ol>
+  <li>새 리소스 생성(등록)
+    <ul>
+      <li>서버가 아직 식별하지 않은 새 리소스를 생성해준다.</li>
+    </ul>
+  </li>
+  <li>요청 데이터를 처리
+    <ul>
+      <li>단순히 데이터를 생성하거나, 변경하는 것을 넘어 프로세스를 처리해야하는 경우에 해당한다.</li>
+      <li>주문의 경우 결제완료 &gt; 배달 시작 &gt; 배달완료처럼 단순히 값 변경을 넘어 프로세스의 상태가 변경되는 경우에도 POST를 사용한다.</li>
+      <li>POST의 결과로 새로운 리소스가 생성되지 않을 수도 있다.</li>
+    </ul>
+  </li>
+  <li>다른 메서드로 처리하기 애매한 경우 POST를 사용한다.
+    <ul>
+      <li>ex. JSON으로 조회 데이터를 넘겨야하는데 GET메서드를 사용하기 어려운 경우
+사용</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="put">PUT</h3>
+
+<ul>
+  <li>
+    <p>리소스를 완전히 대체한다.</p>
+
+    <ul>
+      <li>리소스가 있으면 대체한다.</li>
+      <li>리소스가 없으면 생성한다.</li>
+      <li>리소스를 덮어씌운다고 생각하면 된다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>클라이언트가 리소스를 식별한다</strong></p>
+    <ul>
+      <li>클라이언트가 리소스 위치를 알고 URI를 지정한다.</li>
+      <li>POST와의 차이점이다. POST는 서버에서 리소스를 지정하지만 PUT은 클라이언트에서 지정한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>여기서 리소스를 완전히 대체한다는 점에 주목해야한다. 예를 들어서 ID가100인 회원의 나이를 수정하기위해 “AGE” : 20을 PUT 메서드로 보낸다고 했을 때 서버에서는 ID 100에 “NAME” : STEVE, “AGE” : 50 이 저장되어있다면 서버의 데이터는 “AGE” : 20으로 완전히 대체된다. 이름이 누락되어버리는 것이다. 따라서 PUT을 사용할 경우 신중하게 입력 폼을 작성하는 것이 필요하다.</p>
+
+<p><br /></p>
+
+<h3 id="patch">PATCH</h3>
+
+<ul>
+  <li>리소스를 부분변경한다.</li>
+</ul>
+
+<p>PUT이 데이터를 완전 대체한다고 하면 PATCH는 부분변경이다. 위의 예시를 다시 참조하면, “AGE” : 20을 서버에 보내면 서버의 데이터는 “NAME” : STEVE, “AGE” : 20이 된다. NAME 데이터가 유지된다.</p>
+
+<p><br /></p>
+
+<h3 id="delete">DELETE</h3>
+
+<ul>
+  <li>리소스를 삭제한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="http-메서드의-속성">HTTP 메서드의 속성</h2>
+
+<p>HTTP 메서드를 보기 전에 유의해야할 점 : <strong>해당 리소스만 고려</strong>한다. 외부적인 요인은 고려하지 않는다.</p>
+
+<ul>
+  <li>
+    <p>안전(Safe Methods) : 호출해도 리소스가 변경되지 않음(GET, HEAD)</p>
+  </li>
+  <li>
+    <p><strong>멱등(Idempotent Methods)</strong> : 한 번 호출하든 두 번 호출하든 100번 호출하든 결과가 같다.</p>
+
+    <ul>
+      <li>GET : 한 번 조회하든 두 번 조회하든 같은 결과가 조회된다.</li>
+      <li>PUT : 결과를 대체한다. 따라서 같은 요청을 여러 번 해도 대체된 결과를 출력하기 때문에 최종적인 결과는 같다.(리소스 자체만 따져봐야한다. 대체되는 과정은 포함하지 않음.)</li>
+      <li>DELETE : 결과를 삭제하면 그 리소스는 지워진다. 삭제된 결과는 같다.</li>
+      <li><strong>POST</strong> : 두 번 호출하면 같은 결제가 중복해서 발생할 수 있다. 멱등에 해당되는 부분</li>
+    </ul>
+  </li>
+  <li>
+    <p>캐시가능(Cacheable Methods) : 응답결과 리소스를 캐시해서 사용해도 되는지의 여부</p>
+    <ul>
+      <li>GET, HEAD, POST, PATCH는 캐시가 가능하다.
+        <ul>
+          <li>실제로는 GET, HEAD 정도만 캐시로 사용한다. POST, PATCH는 본문 내용까지 캐시 키로 고려해야한다. 하지만 구현이 쉽지 않다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="http-메서드-활용">HTTP 메서드 활용</h2>
+
+<p>이제 HTTP 메서드를 활용해보도록 하자. 클라이언트에서 서버로 데이터를 전송해야하는 상황에서 HTTP API를 설계하는 예시를 들어볼 것이다.</p>
+
+<h3 id="클라이언트에서-서버로-데이터를-전송하는-방식">클라이언트에서 서버로 데이터를 전송하는 방식</h3>
+
+<ul>
+  <li>쿼리 파라미터를 통한 데이터 전송(GET) : 주로 정렬 필터에 사용한다.(검색어)</li>
+  <li>메시지 바디를 통한 데이터 전송(POST, PUT, PATCH) : 회원가입, 상품주문, 리소스 등록, 리소스 변경에 주로 사용되어진다.</li>
+</ul>
+
+<p>데이터를 전송하는 상황은 4가지의 상황으로 구분한다.</p>
+
+<ul>
+  <li>
+    <p>정적 데이터 조회</p>
+
+    <ul>
+      <li>이미지, 정적 테스트 문서</li>
+    </ul>
+  </li>
+  <li>
+    <p>동적 데이터 조회</p>
+
+    <ul>
+      <li>주로 검색, 게시판 목록에서 정렬 필터(검색어)</li>
+    </ul>
+  </li>
+  <li>
+    <p>HTML form을 통한 데이터 전송</p>
+
+    <ul>
+      <li>회원가입, 상품주문, 데이터 변경</li>
+    </ul>
+  </li>
+  <li>
+    <p>HTTP API를 통한 데이터 전송</p>
+    <ul>
+      <li>회원가입, 상품주문, 데이터 변경</li>
+      <li>서버 to 서버, 앱 클라이언트, 웹 클라이언트(AJAX)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-01-20-15-54.png" alt="" /></p>
+
+<h3 id="정적-데이터-조회">정적 데이터 조회</h3>
+
+<ul>
+  <li>이미지나 정적 텍스트 문서를 조회</li>
+  <li>조회는 GET 방식을 사용한다.</li>
+  <li>정적 데이터는 일반적으로 <strong>쿼리 파라미터 없이 리소스 경로로 단순하게 조회</strong>가 가능하다.</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-01-20-16-37.png" alt="" /></p>
+
+<h3 id="동적-데이터-조회">동적 데이터 조회</h3>
+
+<ul>
+  <li>
+    <p><strong>쿼리 파라미터를 사용</strong></p>
+  </li>
+  <li>
+    <p>/search?q=hello&amp;hl=ko</p>
+    <ul>
+      <li>uri뒤에 있는 쿼리파라미터를 통해서 쿼리 파라미터에 따른 응답 결과를 다르게 출력하는 동적인데이터를 조회한다.</li>
+      <li>조회 조건을 줄여주는 필터, 조회 결과를 정렬하는 정렬 조건에 주로 사용한다. 조회는 GET방식을 사용한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-01-20-18-26.png" alt="" /></p>
+
+<h3 id="html-form-데이터-전송--post-방식">HTML Form 데이터 전송 : POST 방식</h3>
+
+<ul>
+  <li>
+    <p>POST 방식은 URI에 쿼리파라미터가 존재하지 않는다. 대신 form 태그에 입력한 내용을 key와 value의 형태로 요청메시지의 <strong>메시지바디 부분에 담아서</strong> 보내게 된다.</p>
+  </li>
+  <li>Content-type : application/x-www-form-urlencoded
+    <ul>
+      <li>POST 방식으로 데이터를 전송할 경우 요청 HTTP 메시지의 Content type은 application/x-www-form-urlencoded로 설정되어 보내진다.</li>
+    </ul>
+  </li>
+  <li><strong>GET은 조회에서만 사용한다. 만약 form 태그로 입력한 데이터를 GET을 통해서 보내면 쿼리파라미터를 통해 보내게 된다. 좋지않다.</strong></li>
+</ul>
+
+<p><img src="/assets/images/HTTP_images/2021-11-01-20-22-11.png" alt="" /></p>
+
+<ul>
+  <li>enctype=”multipart/form-data” : 여러 Content-type의 데이터를 보낼 수 있게 해주는 인코딩 타입이다. form 태그에서 enctype 속성에 “multipart/form-data”를 입력하면 요청 메시지가 위의 사진처럼 입력되는데, 주로 바이너리 데이터를 전송할 때 사용된다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="http-api-데이터-전송">HTTP API 데이터 전송</h2>
+
+<ul>
+  <li>아이폰은 클라이언트에서 서버로 바로 전송을 해야한다. 이럴 때 HTTP API 데이터를 사용한다.</li>
+  <li>서버 to 서버 : 백엔드 시스템 통신이다.</li>
+  <li>앱 클라이언트 : 아이폰, 안드로이드에서만 사용한다.</li>
+  <li>웹 클라이언트 : HTML에서 Form 전송 대신 자바 스크립트를 통한 통신에 사용한다(AJAX) &gt; React, Vue.js와 같은 웹 클라이언트와 통신</li>
+  <li>POST, PUT, PATCH : 메시지 바디를 통해 데이터를 전송한다.</li>
+  <li>GET : 조회, 쿼리파라미터로 데이터를 전달한다.</li>
+  <li>Content-Type: application/json을 주로 사용한다(사실 상 표준) &gt; TEXT, XML, JSON 등등</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="http-설계-예시-컬렉션-스토어-컨트롤-uri">HTTP 설계 예시 (컬렉션, 스토어, 컨트롤 URI)</h1>
+
+<p>HTTP API를 설계하는 예시를 통해 HTTP 데이터 전송 시 사용되는 개념들을 익혀본다.</p>
+
+<p><br /></p>
+
+<h2 id="회원관리-시스템--post">회원관리 시스템 : POST</h2>
+
+<p>다시 회원 리소스로 돌아가보자, 배운 내용을 바탕으로 이제 회원 리소스로 CRUD를 어떻게 설계해야되는지 알았다.</p>
+
+<ul>
+  <li>회원 목록 /members : GET</li>
+  <li>회원 등록 /members : POST</li>
+  <li>회원 조회 /members/{id} : GET</li>
+  <li>회원 수정 /members/{id} : PATCH, PUT, POST</li>
+  <li>회원 삭제 /members/{id} : DELETE</li>
+</ul>
+
+<p>우리가 봐야할 건 회원 등록이 POST 기반으로 등록된다는 점이다. POST는 신규 자원을 등록할 때 사용할 수 있는데, 몇 가지 특징을 가지고 있다.</p>
+
+<ul>
+  <li>
+    <p><strong>클라이언트는 등록될 리소스의 URI를 모른다.</strong></p>
+
+    <ul>
+      <li>회원 등록 /members : POST</li>
+      <li>POST /members</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>서버가 새로 등록된 리소스 URI를 생성</strong>해준다.</p>
+
+    <ul>
+      <li>HTTP/1.1 201 Created</li>
+      <li>Location : /members/100</li>
+    </ul>
+  </li>
+  <li>
+    <p>이 개념을 <strong>컬렉션(Collections)</strong>이라고 한다.</p>
+    <ul>
+      <li>서버가 관리하는 리소스 디렉토리</li>
+      <li>서버가 리소스의 URI를 생성하고 관리</li>
+      <li>여기서 컬렉션은 /members가 된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>클라이언트는 그냥 /members URI로 등록할 데이터를 전송하고, 서버가 생성된 회원의 URI를 /members/100과 같이설정한다.</p>
+
+<p><br /></p>
+
+<h2 id="파일관리-시스템--put">파일관리 시스템 : PUT</h2>
+
+<p>이번에는 파일 관리 시스템을 구현한다고 가정해보자, 파일 목록, 파일 조회, 등록, 삭제, 대량 등록을 구현한다고 했을 때,</p>
+
+<ul>
+  <li>파일 목록 /files -&gt; GET</li>
+  <li>파일 조회 /files/{filename} -&gt; GET</li>
+  <li>파일 등록 /files/{filename} -&gt; PUT</li>
+  <li>파일 삭제 /files/{filename} -&gt; DELETE</li>
+  <li>파일 대량 등록 /files -&gt; POST</li>
+</ul>
+
+<p>다음과 같이 구현할 수 있다. 파일을 등록할 때 PUT 방식을 사용하고, 대량 등록할 때 POST방식을 사용하는데, 어떤 특징이 있는 지 알아보자</p>
+
+<p><br /></p>
+
+<h3 id="put-신규자원-등록-특징">PUT 신규자원 등록 특징</h3>
+
+<ul>
+  <li>
+    <p><strong>클라이언트가 리소스 URI를 알고있다.</strong></p>
+
+    <ul>
+      <li>파일 등록 /files/{filename} &gt; PUT</li>
+      <li>PUT /files/star.jpg</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>클라이언트가 직접 리소스의 URI를 지정</strong>한다.</p>
+  </li>
+  <li>
+    <p>이 개념을 <strong>스토어(Store)</strong>라고 한다.</p>
+    <ul>
+      <li>클라이언트가 관리하는 리소스 저장소이며</li>
+      <li>클라이언트가 리소스의 URI를 알고 관리한다.</li>
+      <li>스토어의 리소스는 /files</li>
+    </ul>
+  </li>
+</ul>
+
+<p>간단히 생각해보자, 파일을 업로드 할 때는 로컬파일의 위치가 클라이언트에 있으므로 클라이언트에서 업로드를 해야된다. 클라이언트에서 파일을 업로드 할 때 파일의 위치를 서버에서 미리 지정할 순 없다. 서버는 파일을 받은 다음 DB에 저장을 해야하기 때문에 주도권은 클라이언트에게 있다.</p>
+
+<p>따라서 클라이언트 리소스의 URI를 먼저 지정을 하고 서버에 전달하게된다.</p>
+
+<p><br /></p>
+
+<h3 id="html-form-사용">HTML FORM 사용</h3>
+
+<ul>
+  <li>HTML FORM은 GET과 POST 방식만 지원한다.</li>
+  <li>AJAX 같은 기술을 사용해서 한계를 극복할 수 있다.</li>
+  <li>여기서는 순수 HTML FORM만 언급한다.</li>
+  <li>GET, POST 방식만 지원하므로 제약이 있다.</li>
+</ul>
+
+<p>위의 회원목록을 HTML FORM 만 사용하여 개발한다고 가정해보자,</p>
+
+<ul>
+  <li>회원 목록 /members -&gt; GET</li>
+  <li>회원 등록 폼 /members/new -&gt; GET</li>
+  <li>회원 등록 /members/new, /members -&gt; POST</li>
+  <li>회원 조회 /members/{id} -&gt; GET</li>
+  <li>회원 수정 폼 /members/{id}/edit -&gt; GET</li>
+  <li>회원 수정 /members/{id}/edit, /members/{id} -&gt; POST</li>
+  <li>회원 삭제 /members/{id}/delete -&gt; POST</li>
+</ul>
+
+<p>URI를 보면 GET과 POST로만 구현을 해야하기 때문에 어쩔 수 없이 리소스 외에 동사를 사용하여 URI를 설계한 것을 볼 수 있다.</p>
+
+<p>이 개념을 <strong>컨트롤 URI</strong>라고한다.</p>
+
+<ul>
+  <li>GET, POST만 지원하므로 제약이 있음</li>
+  <li>이런 제약을 해결하기위해 동사로 된 리소스 경로를 사용</li>
+  <li>POST의 /new, /edit, /delete가 컨트롤 URI</li>
+  <li>HTTP 메서드로 해결하기 애매한 경우에 사용된다.</li>
+</ul>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/springboot/">Springboot</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_8">HTTP 기본 지식 : 캐시(Cache)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_7">HTTP 기본 지식 : 쿠키(Cookie)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_6">HTTP 헤더 살펴보기(협상, 우선순위)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/springboot/">
+                                
+                                    See all 16 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_5">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_5">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">HTTP 상태코드, PRG(Post Redirect Get)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 5
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      9 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_3">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_3">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 3
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        9 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">HTTP API 설계방법(REST API)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=HTTP+API+%EC%84%A4%EA%B3%84%EB%B0%A9%EB%B2%95%28REST+API%29&amp;url=https://achasan.github.io/http_basic_4"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/http_basic_4"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

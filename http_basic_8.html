@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>HTTP 기본 지식 : 캐시(Cache)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/http_basic_8" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="HTTP 기본 지식 : 캐시(Cache)" />
+    <meta property="og:description" content="HTTP 웹 기본 지식 8 캐시 캐시를 사용하는 상황은 언제일까? 주로 브라우저의 이미지파일을 저장해놓고 해당 홈페이지를 로딩할 때 바로 리소스를 가져오도록 하기 위해서 사용될 것이다. 캐시를 사용해야하는 상황에 대해 사진으로 알아보자. 웹 브라우저가 star.jpg라는 이미지를 서버에 요청하면 서버는 star.jpg를 클라이언트에 전송할 것이다. 여기서 HTTP 헤더는 0.1MB, star.jpg는 1.0MB라고 가정해보자. 서버는" />
+    <meta property="og:url" content="https://achasan.github.io/http_basic_8" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-11-02T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-02T00:00:00+09:00" />
+    <meta property="article:tag" content="Springboot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="HTTP 기본 지식 : 캐시(Cache)" />
+    <meta name="twitter:description" content="HTTP 웹 기본 지식 8 캐시 캐시를 사용하는 상황은 언제일까? 주로 브라우저의 이미지파일을 저장해놓고 해당 홈페이지를 로딩할 때 바로 리소스를 가져오도록 하기 위해서 사용될 것이다. 캐시를 사용해야하는 상황에 대해 사진으로 알아보자. 웹 브라우저가 star.jpg라는 이미지를 서버에 요청하면 서버는 star.jpg를 클라이언트에 전송할 것이다. 여기서 HTTP 헤더는 0.1MB, star.jpg는 1.0MB라고 가정해보자. 서버는" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Springboot" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/http_basic_8",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/httpCover.jpg",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/http_basic_8"
+    },
+    "description": "HTTP 웹 기본 지식 8 캐시 캐시를 사용하는 상황은 언제일까? 주로 브라우저의 이미지파일을 저장해놓고 해당 홈페이지를 로딩할 때 바로 리소스를 가져오도록 하기 위해서 사용될 것이다. 캐시를 사용해야하는 상황에 대해 사진으로 알아보자. 웹 브라우저가 star.jpg라는 이미지를 서버에 요청하면 서버는 star.jpg를 클라이언트에 전송할 것이다. 여기서 HTTP 헤더는 0.1MB, star.jpg는 1.0MB라고 가정해보자. 서버는"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="HTTP 기본 지식 : 캐시(Cache)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-springboot post tag-SpringBoot ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 2 November 2021"> 2 November 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/springboot/'>SPRINGBOOT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">HTTP 기본 지식 : 캐시(Cache)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/httpCover.jpg)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="http-웹-기본-지식-8">HTTP 웹 기본 지식 8</h1>
+
+<h2 id="캐시">캐시</h2>
+
+<p>캐시를 사용하는 상황은 언제일까? 주로 브라우저의 이미지파일을 저장해놓고 해당 홈페이지를 로딩할 때 바로 리소스를 가져오도록 하기 위해서 사용될 것이다. 캐시를 사용해야하는 상황에 대해 사진으로 알아보자.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-17-38-19.png" alt="" /></p>
+
+<p>웹 브라우저가 star.jpg라는 이미지를 서버에 요청하면 서버는 star.jpg를 클라이언트에 전송할 것이다. 여기서 HTTP 헤더는 0.1MB, star.jpg는 1.0MB라고 가정해보자. 서버는 웹브라우저에게 총 1.1MB의 데이터를 전송하였고, 클라이언트는 성공적으로 웹페이지에 star.jpg를 출력했다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-17-39-21.png" alt="" /></p>
+
+<p>클라이언트가 웹페이지를 탐색하다가 다시 star.jpg를 요청해야하는 상황이 되었다. 서버는 HTTP 요청 메시지를 읽고 다시 클라이언트에게 star.jpg파일을 전송한다. 1.1MB의 데이터가 다시 전송된다.</p>
+
+<p>뭔가 비효율적이다. 클라이언트에서 한번 받았던 데이터를 서버에서 매 번 전송을 해야하는 것은 자원낭비이다. 클라이언트 측에서 서버로부터 받은 데이터를 가지고 있으면서 서버에서 해당 데이터가 변경되지 않았으면 클라이언트가 가지고 있던 데이터를 다시 재활용하게 만드는 것이 캐시이다.</p>
+
+<p>캐시가 없다면 데이터가 변경되지 않아도 계속 네트워크를 통해서 데이터를 다운로드 받아야한다. 인터넷 네트워크 자원은 매우 느리고 비싸기 대문에 브라우저 로딩속도가 느려질 뿐 더러 사용자의 경험도 나빠진다.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-17-41-35.png" alt="" /></p>
+
+<p>이번엔 캐시를 사용할 때 클라이언트가 star.jpg를 서버에 요청하는 상황이다. 서버는 클라이언트에 star.jpg를 넘겨준다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-17-42-05.png" alt="" /></p>
+
+<p>클라이언트는 서버로부터 받은 star.jpg를 브라우저 캐시에 저장한다. 서버에서 정한 캐시 유효시간 데이터를 읽은 다음 그 시간동안 유효한 캐시데이터를 저장소에 저장한다.</p>
+
+<p>이후 브라우저는 star.jpg가 필요한 페이지에서 데이터를 확인하고 싶을 때 캐시 저장소에 있는 star.jpg를 불러와서 페이지에 출력하여 볼 수 있게 된다.</p>
+
+<p><br /></p>
+
+<h3 id="캐시의-특징">캐시의 특징</h3>
+
+<ul>
+  <li>캐시 덕분에 캐시 가능 시간동안 네트워크를 사용하지 않아도 된다.</li>
+  <li>비싼 네트워크 사용량을 줄일 수 있다.</li>
+  <li>브라우저 로딩 속도가 매우 빨라진다.</li>
+  <li>결과적으로 빠른 사용자 경험을 가질 수 있게 해준다.</li>
+</ul>
+
+<p>그렇다면 캐시의 유효시간이 지났을 경우에는 어떻게 처리될까? 캐시 유효시간이 초과하면 서버를 통해 데이터를 다시 조회하고 캐시를 갱신한다. 이 때 다시 네트워크 다운로드가 발생하게 된다.</p>
+
+<p>사실 캐시 유효시간이 초과해서 클라이언트가 서버에 다시 해당 데이터를 요청하면 2가지 상황이 일어난다.</p>
+
+<ol>
+  <li>
+    <p>서버에서 기존 데이터를 변경했을 경우 : 서버에서 해당 데이터를 변경했을 경우 클라이언트는 서버 측에서 데이터를 다시 전달받아야한다.</p>
+  </li>
+  <li>
+    <p>서버에서 기존 데이터를 변경하지 않았을 경우 : 캐시가 만료되었지만 서버에서 해당 데이터를 변경하지 않았을 경우에는 저장했던 캐시데이터를 다시 사용해도 상관이 없다.
+단, 클라이언트의 데이터와 서버의 데이터가 같다는 사실을 확인할 수 있는 방법이 필요하다.</p>
+  </li>
+</ol>
+
+<p>2번의 경우에는 <strong>검증 헤더</strong>를 사용하여 클라이언트의 데이터가 서버의 데이터와 일치하는지 여부를 확인이 가능하다.</p>
+
+<p><br /></p>
+
+<h2 id="검증-헤더">검증 헤더</h2>
+
+<p>검증헤더를 사용했을 경우 클라이언트의 캐시데이터가 어떻게 처리되는지를 알아보자.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-17-48-43.png" alt="" /></p>
+
+<p>먼저 클라이언트가 star.jpg를 서버에 요청한다. 서버는 star.jpg를 클라이언트에 전달하면서 star.jpg의 <strong>최종수정일을 클라이언트에 보낸다.</strong> 클라이언트는 받은 데이터를 브라우저 캐시저장소에 저장한다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-17-49-40.png" alt="" /></p>
+
+<p>클라이언트의 캐시데이터 시간이 만료되어 서버에 다시 star.jpg를 요청한다. 요청할 때 HTTP 헤더에 if-modified-since를 보낸다. 클라이언트가 가지고 있는 star.jpg의 최종수정일이 서버의 최종수정일과 다른지를 확인하는 것이다.</p>
+
+<p>최종 수정일이 다르지 않다는 것을 확인한 서버는 HTTP헤더에 304 Not Modified라는 상태코드를 넣어서 보내게 된다. 수정되지 않았으므로 캐시데이터를 그대로 사용하라는 의미가 된다 <strong>이 때, 이미지는 보내지 않고 HTTP 헤더만 보내게 되므로 데이터 용량은 0.1MB가 된다.</strong></p>
+
+<p>클라이언트는 서버의 응답을 받고 캐시데이터를 갱신하여 캐시저장소에서 불러온 이미지를 다시 사용하여 홈페이지를 랜더링하게 된다.</p>
+
+<p>정리를 하자면 다음과 같다.</p>
+
+<ul>
+  <li>캐시 유효 시간이 초과해도, 서버의 데이터가 갱신되지 않으면</li>
+  <li>304 Not Modified + 헤더 메타정보만 응답데이터에 보낸다.</li>
+  <li>클라이언트는 서버가 보낸 응답 헤더 정보로 캐시의 메타정보를 갱신한다.</li>
+  <li>클라이언트는 캐시에 저장되어있는 데이터를 재활용한다.</li>
+  <li>결과적으로 네트워크 다운로드가 발생하지만 용량이 적은 헤더 정보만 다운로드 한다.</li>
+  <li>실용적인 해결책이라 볼 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="검증-헤더와-조건부-요청">검증 헤더와 조건부 요청</h2>
+
+<h3 id="검증-헤더-1">검증 헤더</h3>
+
+<ul>
+  <li>검증 헤더는 캐시 데이터외 서버 데이터가 같은지 검증하는 데이터이다.</li>
+  <li>Last-Modified, ETag가 있다.</li>
+</ul>
+
+<h3 id="조건부-요청-헤더">조건부 요청 헤더</h3>
+
+<ul>
+  <li>검증 헤더로 조건에 따른 분기</li>
+  <li>If-Modified-Since: Last-Modified를 사용한다.</li>
+  <li>If-None-Match: ETag를 사용한다.</li>
+  <li>조건이 만족하게되면 200 OK로 응답한다.</li>
+  <li>조건이 만족하지 않으면 304 Not Modified로 응답한다. (실패했다는 것이 아니라 데이터가 수정된 것이 없으니 그대로 사용하라는 뜻이다.)</li>
+</ul>
+
+<p>ETag가 존재하는 이유에 주목해야한다. 위에서 캐시데이터의 최종 수정일을 비교하여 변경된 사항이 없으면 캐시데이터를 그대로 사용하였다. 먼저 Last-Modified, If-Modified-Since의 단점에 대해서 알아보자.</p>
+
+<ul>
+  <li>1초 미만(0.x초) 단위로 캐시 조정이 불가능하다.</li>
+  <li>날짜 기반의 로직을 사용한다.</li>
+  <li>데이터를 수정해서 날짜가 다르지만, 같은 데이터를 수정해서 데이터 결과가 똑같은 경우
+    <ul>
+      <li>스페이스나 주석처럼 크게 영향이 없는 변경에서 캐시를 유지하고 싶은 경우, 이미 데이터가 약간이라도 변경되어 최종수정일이 갱신되어서 다시 데이터를 받아야한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>위의 단점을 개선하기 위해서 ETag를 사용한다. ETag는 Entity Tag의 줄임말로, 캐시용 데이터에 임의의 고유한 버전 이름을 달아둔 것이다.</p>
+
+<blockquote>
+  <p>ETag: “v1.0”, ETag: “a2jiodwjekjl3”</p>
+</blockquote>
+
+<p>데이터가 변경되면 ETag의 이름을 바꾸어서 변경한다(Hash를 다시 생성하는 것이다.)</p>
+
+<blockquote>
+  <p>ETag: “aaaaa” -&gt; ETag: “bbbbb”</p>
+</blockquote>
+
+<p>캐시데이터를 갱신할 때는 단순하게 ETag만 비교하여 같으면 유지하고, 다르면 다시 받도록 처리한다. 아래 사진은 ETag로 캐시데이터를 갱신하는 것을 그림으로 표현한 것이다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-21-39-23.png" alt="" /></p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-21-39-48.png" alt="" /></p>
+
+<h3 id="etag-정리">ETag 정리</h3>
+
+<ul>
+  <li>단순히 ETag만 서버에 보내서 같으면 유지하고, 다르면 다시 받는다.</li>
+  <li><strong>캐시 제어 로직을 서버에서 완전히 관리하게 된다.</strong></li>
+  <li>클라이언트는 단순히 이 값을 서버에 제공한다(클라이언트는 캐시 매커니즘을 모른다.)</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="캐시-제어-헤더">캐시 제어 헤더</h2>
+
+<ul>
+  <li>Cache-Control: 캐시를 제어
+    <ul>
+      <li>Cache-Control: max-age
+        <ul>
+          <li>캐시의 유효시간, <strong>초 단위</strong> 기준이다.</li>
+        </ul>
+      </li>
+      <li>Cache-Control: no-cache
+        <ul>
+          <li>데이터는 캐시해도 되지만, 항상 원(origin) 서버에 검증하고 사용하도록 설정</li>
+        </ul>
+      </li>
+      <li>Cache-Control: no-store
+        <ul>
+          <li>데이터에 민감한 정보가 있어서 캐시로 저장하면 안되는 데이터(메모리에서 사용 후 최대한 빨리 삭제한다.)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Pragma : 케시를 제어(Cache-Control 하위호환)</p>
+
+    <ul>
+      <li>Cache-Control과 역할은 같다. 주로 HTTP 1.0에 호환하기 위해서 사용한다.</li>
+    </ul>
+  </li>
+  <li>Expires : 캐시 만료일을 지정(Cache-Control: max-age 하위호환)
+    <ul>
+      <li>캐시 만료일을 정확한 <strong>날짜로 지정</strong>한다.</li>
+      <li>HTTP 1.0부터 사용할 수 있다.</li>
+      <li>지금은 더 유연하게 적용이 가능한 Cache-Control: max-age를 권장한다.</li>
+      <li>Cache-Control: max-age와 함께 사용 시 Expires는 무시된다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="검증-헤더와-조건부-요청-헤더">검증 헤더와 조건부 요청 헤더</h2>
+
+<ul>
+  <li>
+    <p>검증 헤더(Validator)</p>
+
+    <ul>
+      <li>ETag: “v1.0”, ETag: “asid93jkrh2l”</li>
+      <li>Last-Modified: Thu, 04 Jun 2020 07:19:24 GMT</li>
+    </ul>
+  </li>
+  <li>
+    <p>조건부 요청 헤더</p>
+    <ul>
+      <li>If-Match, If-None-Match: ETag 값 사용</li>
+      <li>If-Modified-Since, If-Unmodified-Since: Last-Modified값 사용</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="프록시-캐시">프록시 캐시</h2>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-21-54-35.png" alt="" /></p>
+
+<p>클라이언트가 미국에 있는 원 서버에 접근하기 까지 0.5초의 시간이 걸린다. 0.5초는 짧은 시간이지만 웹페이지를 이동할 때마다 0.5초를 기다리는 것은 사용자입장에서 좋은 경험이 아니다.</p>
+
+<p>따라서 프록시 캐시 서버를 만들어서 미국에서 먼 사용자들이 프록시 캐시서버를 사용하여 웹페이지와 통신할 수 있도록 설계하면 이를 개선시킬 수 있다. CDN같은 서비스가 이에 해당한다.</p>
+
+<p>유튜브를 예로 들자면, 영상을 맨 처음 보는 유저는 캐시를 다운로드받아야해서 로딩 속도가 느려진다. 하지만 다른사람들은 처음 본 유저 덕분에 캐시가 다운로드되어 영상을 빠른속도로 볼 수 있게 된다.</p>
+
+<p>중간에서 공용으로 사용하는 프록시 캐시서버를 public 캐시라 하고, 웹 브라우저에서 사용하는 캐시를 private 캐시라고 한다.</p>
+
+<p><br /></p>
+
+<h3 id="cache-control-캐시-지시어기타">Cache-Control: 캐시 지시어(기타)</h3>
+
+<ul>
+  <li>
+    <p>Cache-Control: public - 응답이 public 캐시에 저장되어도 된다는 뜻이다.</p>
+  </li>
+  <li>
+    <p>Cache-Control: private - 응답이 해당 사용자만을 위한 것이다. private 캐시에 저장되어야한다.(기본값)</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="캐시-무효화">캐시 무효화</h2>
+
+<h3 id="cache-control-확실한-캐시-무효화-응답">Cache-Control: 확실한 캐시 무효화 응답</h3>
+
+<p>캐시가 되어선 안되는 데이터는 캐시가 되지 않도록 설정해주어야 한다.</p>
+
+<ul>
+  <li>Cache-Control: no-cache, no-store, must-revalidate</li>
+</ul>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-21-58-41.png" alt="" /></p>
+
+<ul>
+  <li>no-cache: 데이터는 캐시해도 되지만, 항상 원 서버에 검증하고 사용한다.</li>
+</ul>
+
+<p>no-cache를 한다고 가정해보자, 원 서버에 검증하고 사용해야되므로, 프록시서버에서 no-cache를 확인하면 원서버로 캐시데이터를 보낸다.</p>
+
+<p>하지만 원서버가 순간적으로 접속이 끊겨서 원서버에서 검증을 실패했다고 가정해보자, 이럴 경우 <strong>프록시 서버에서는 이전 데이터를 클라이언트 측으로 보낸다.</strong></p>
+
+<p>에를들어 통장 잔고나 민감한 개인정보의 경우는 이전 데이터를 클라이언트로 보내서는 안된다. 자칫 사용자에게 정보에 대한 혼동을 줄 수 있게된다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-11-02-22-00-25.png" alt="" /></p>
+
+<ul>
+  <li>must-revalidate: 캐시 만료 후 최초 조회 시 원 서버에 검증을 해야한다.
+원 서버에 접근 실패 시 반드시 오류가 발생해야한다. - 504(Gateway Timeout)
+must-revalidate는 캐시 유효시간이라면 캐시를 사용한다.</li>
+</ul>
+
+<p>must-revalidate는 캐시 만료 후 최초 조회 시 원 서버에 검증해야하는 것은 no-cache와 같은 공통점을 가진다. 하지만 원 서버에 접근 실패 시 반드시 오류가 발생해야하는 조건을 가지고 있다. 따라서 반드시 원 서버에서 검증 후에 데이터를 사용해야할 경우 must-revalidate를 넣어주어야 한다.</p>
+
+<ul>
+  <li>
+    <p>no-store: 데이터에 민감한 정보가 있으므로 저장하면 안된다(메모리에서 사용 후 최대한 빨리 삭제)</p>
+  </li>
+  <li>
+    <p>Pragma: no-cache</p>
+    <ul>
+      <li>HTTP 1.0 하위호환</li>
+    </ul>
+  </li>
+</ul>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/springboot/">Springboot</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_7">HTTP 기본 지식 : 쿠키(Cookie)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_6">HTTP 헤더 살펴보기(협상, 우선순위)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_5">HTTP 상태코드, PRG(Post Redirect Get)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/springboot/">
+                                
+                                    See all 16 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/ajax_id_distinct">
+                <div class="post-card-image" style="background-image: url(/assets/images/etc.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/ajax_id_distinct">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Etc</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">AJAX를 사용하여 아이디 중복체크하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>AJAX 사용하여 아이디 중복체크하기(스프링부트)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_7">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_7">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">HTTP 기본 지식 : 쿠키(Cookie)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 7
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">HTTP 기본 지식 : 캐시(Cache)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=HTTP+%EA%B8%B0%EB%B3%B8+%EC%A7%80%EC%8B%9D+%3A+%EC%BA%90%EC%8B%9C%28Cache%29&amp;url=https://achasan.github.io/http_basic_8"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/http_basic_8"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

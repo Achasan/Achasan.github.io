@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>[Spring:9] 빈 스코프(Bean Scope)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/spring_basic_9" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[Spring:9] 빈 스코프(Bean Scope)" />
+    <meta property="og:description" content="빈 스코프 정리 빈 스코프란? Bean Scope SingleTon : 기본 스코프, 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프 ProtoType : 스프링 컨테이너는 프로토타입 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프이다. 종료 메서드 호출이 되지 않는다. 웹 관련 스코프 request : 웹 요청이 들어오고" />
+    <meta property="og:url" content="https://achasan.github.io/spring_basic_9" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-10-29T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-10-29T00:00:00+09:00" />
+    <meta property="article:tag" content="Springboot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[Spring:9] 빈 스코프(Bean Scope)" />
+    <meta name="twitter:description" content="빈 스코프 정리 빈 스코프란? Bean Scope SingleTon : 기본 스코프, 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프 ProtoType : 스프링 컨테이너는 프로토타입 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프이다. 종료 메서드 호출이 되지 않는다. 웹 관련 스코프 request : 웹 요청이 들어오고" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Springboot" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/spring_basic_9",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/spring.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/spring_basic_9"
+    },
+    "description": "빈 스코프 정리 빈 스코프란? Bean Scope SingleTon : 기본 스코프, 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프 ProtoType : 스프링 컨테이너는 프로토타입 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프이다. 종료 메서드 호출이 되지 않는다. 웹 관련 스코프 request : 웹 요청이 들어오고"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="[Spring:9] 빈 스코프(Bean Scope)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-springboot post tag-SpringBoot ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="29 October 2021">29 October 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/springboot/'>SPRINGBOOT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">[Spring:9] 빈 스코프(Bean Scope)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/spring.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="빈-스코프-정리">빈 스코프 정리</h1>
+
+<h2 id="빈-스코프란">빈 스코프란?</h2>
+
+<p>Bean Scope</p>
+
+<ul>
+  <li>
+    <p>SingleTon : 기본 스코프, 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프</p>
+  </li>
+  <li>
+    <p>ProtoType : 스프링 컨테이너는 프로토타입 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프이다. 종료 메서드 호출이 되지 않는다.</p>
+  </li>
+</ul>
+
+<p>웹 관련 스코프</p>
+
+<ul>
+  <li>
+    <p>request : 웹 요청이 들어오고 나갈 때 까지 유지되는 스코프</p>
+  </li>
+  <li>
+    <p>session : 웹 세션이 생성되고 종료될 때까지 유지되는 스코프</p>
+  </li>
+  <li>
+    <p>application : 웹의 서블릿 컨텍스트와 같은 범위로 유지되는 스코프이다.</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="프로토타입-스코프">프로토타입 스코프</h2>
+
+<p>프로토타입 스코프를 스프링 컨테이너에 조회하면 항상 새로운 인스턴스를 생성해서 반환한다(싱글턴이 아니다.)</p>
+
+<p>프로토타입 빈을 등록했을 경우, 스프링 컨테이너는 프로토타입 빈을 생성하고, 의존관계를 주입하고, 초기화까지만 처리한다. 클라이언트에 빈을 반환하고 빈을 아예 관리하지 않는다. 따라서 클라이언트가 받은 프로토타입 빈을 관리할 책임을 갖는다. 초기화까지만 처리하기 때문에 @PreDestroy 종료 메서드는 호출되지 않는다.</p>
+
+<p>@Configuration 어노테이션을 주지 않더라도 AnnotationConfigApplicationContext 파라미터에 클래스를 넣어주면 해당 클래스는 컨테이너에 등록이 된다.(정확히 말하면 컴포넌트 스캔 목록에 해당되게된다.)</p>
+
+<p><br /></p>
+
+<h3 id="일반-스코프와-프로토타입-스코프의-차이점">일반 스코프와 프로토타입 스코프의 차이점</h3>
+
+<ul>
+  <li>
+    <p>일반 스코프라면 (Singleton) 스프링 컨테이너가 등록될 때 빈이 생성되면서 init() 메서드가 실행되게 된다.(@PostConstruct)</p>
+  </li>
+  <li>
+    <p>프로토타입 스코프는 스프링 컨테이너가 등록되면서 객체가 생성되지 않는다. 당연히 init() 메서드도 실행되지 않는다. 클라이언트가 프로토타입의 빈을 요청하면 그때 객체를 새로 생성하고 init() 메서드까지 한 다음에 클라이언트한테 객체를 던져주고 끝난다. 또한 같은 객체가 아닌 클라이언트가 요청할 때마다 새로운 객체를 생성해서 클라이언트한테 던져준다.</p>
+  </li>
+</ul>
+
+<p>클라이언트에게 객체를 줘버리기 때문에 컨테이너가 죽을 때destroy() 메서드는 실행되지 않는다. 만약 destroy()를 호출할 필요가 있을 경우 코드를 통해 수정으로 호출해주어야 한다.</p>
+
+<p><br /><br /></p>
+
+<h2 id="프로토타입-스코프를-싱글톤-빈과-함께-사용시-문제점">프로토타입 스코프를 싱글톤 빈과 함께 사용시 문제점</h2>
+
+<p>만약 싱글턴 빈에 프로토타입 빈을 의존관계 주입하게 되면 어떻게 될까? 싱글턴 빈은 컨테이너가 생성될 때 최초로 의존관계 주입이 되기 때문에 컨테이너에서 프로토타입 객체를 하나 생성해서 싱글턴 빈에 넣어줄 것이다.</p>
+
+<p>하지만 이렇게 된 다음 클라이언트가 싱글턴 빈을 호출하면 싱글턴 빈 안에 존재하는 프로토타입 빈만 계속 호출이 된다. 프로토타입 빈이 싱글턴이 되어버린 것이다.</p>
+
+<p>우리는 분명 싱글턴 빈에 프로토타입 빈을 의존관계 주입해서 빈을 호출할 때마다 새로운 프로토타입 빈 객체를 호출하게 구현하기를 원한다. 다른 방법을 찾아보자.</p>
+
+<p><br /><br /></p>
+
+<h2 id="싱글톤-빈과-함께-사용시-provider로-문제-해결">싱글톤 빈과 함께 사용시 Provider로 문제 해결</h2>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Scope</span><span class="o">(</span><span class="s">"singleton"</span><span class="o">)</span>
+        <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ClientBean</span> <span class="o">{</span>
+            <span class="nd">@Autowired</span>
+            <span class="nc">ApplicationContext</span> <span class="n">applicationContext</span><span class="o">;</span>
+
+            <span class="kd">public</span> <span class="kt">int</span> <span class="nf">logic</span><span class="o">()</span> <span class="o">{</span>
+                <span class="n">applicationContext</span> <span class="o">=</span>
+                    <span class="k">new</span> <span class="nf">AnnotationConfigApplicationContext</span><span class="o">(</span><span class="nc">PrototypeBean</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+                <span class="nc">PrototypeBean</span> <span class="n">prototypeBean</span> <span class="o">=</span>
+                     <span class="n">applicationContext</span><span class="o">.</span><span class="na">getBean</span><span class="o">(</span><span class="nc">PrototypeBean</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+                <span class="n">prototypeBean</span><span class="o">.</span><span class="na">addCount</span><span class="o">();</span>
+                <span class="k">return</span> <span class="n">prototypeBean</span><span class="o">.</span><span class="na">getCount</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+</code></pre></div></div>
+
+<p>이전 강의에서 싱글턴 빈에 프토토타입 빈을 의존관계 주입했을 때 프로토 타입 빈이 싱글턴이 되어버리는 현상을 보았었다. 따라서 위의 코드 처럼 클라이언트가 logic() 메서드를 실행하면 ApplicationContext를 통해 컨테이너에 등록되어있는 프로토타입 빈을 가져오게하도록 코드를 작성하여 메서드를 호출할 때마다 새로운 빈을 생성하도록 (어거지로) 구현했다.</p>
+
+<p>이 처럼 의존관계를 외부에서 주입받는게 아니라 직접 필요한 의존 관계를 찾는 것을 Dependency Lookup(DL) 의존관계라고 한다.</p>
+
+<p>하지만 이렇게 스프링의 애플리케이션 컨텍스트 전체를 주입받게 되면 스프링 컨테이너에 종속적인 코드가 되고, 단위테스트도 어려워지게 된다. 무엇보다 객체지향적이지 않은 것 같다.</p>
+
+<p><br /> <br /></p>
+
+<h2 id="objectfactory-objectprovider">ObjectFactory, ObjectProvider</h2>
+
+<p>지정한 빈을 컨테이너에서 대신 찾아주는 DL 서비스를 제공</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nd">@Scope</span><span class="o">(</span><span class="s">"singleton"</span><span class="o">)</span>
+    <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ClientBean</span> <span class="o">{</span>
+        <span class="nd">@Autowired</span>
+        <span class="kd">private</span> <span class="nc">ObjectProvider</span><span class="o">&lt;</span><span class="nc">PrototypeBean</span><span class="o">&gt;</span> <span class="n">prototypeBeanProvider</span><span class="o">;</span>
+
+        <span class="kd">public</span> <span class="kt">int</span> <span class="nf">logic</span><span class="o">()</span> <span class="o">{</span>
+            <span class="nc">PrototypeBean</span> <span class="n">prototypeBean</span> <span class="o">=</span> <span class="n">prototypeBeanProvider</span><span class="o">.</span><span class="na">getObject</span><span class="o">();</span>
+            <span class="n">prototypeBean</span><span class="o">.</span><span class="na">addCount</span><span class="o">();</span>
+            <span class="k">return</span> <span class="n">prototypeBean</span><span class="o">.</span><span class="na">getCount</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</code></pre></div></div>
+
+<p>위에서 작성했던 코드를 다음과 같이 바꿔보았다. 간단한 테스트를 위해서 필드주입으로 사용하였고, ObjectProvider를 사용하여 PrototypeBean을 직접 호출하여 호출할 때마다 새로운 객체를 받아오도록 하였다. 제네릭으로 어떤 빈을 호출할 건지를 적어주어야 한다.</p>
+
+<p>logic() 메서드를 보면 getObject() 메서드를 사용하여 컨테이너한테 프로토타입 빈의 새 객체를 요청한 다음 로직을 실행하는 것을 볼 수 있다.</p>
+
+<p>클라이언트가 메서드를 호출할 때마다 컨테이너는 새로운 객체를 주므로 테스트코드에서는 count의 수치가 1이 되어야 할 것이다. (테스트 성공)</p>
+
+<blockquote>
+  <p>지금까지 내용을 다시 정리하자면, 생성자 주입을 할 때 프로토타입 빈을 싱글턴 빈에다가 주입하게되면 빈을 생성할 때 최초로 프로토타입 빈이 주입되고, 이후에는 싱글턴 빈을 호출할 때 주입된 프로토타입 빈만 계속 호출되어 프로토타입 빈이 싱글턴이 되어버린다.</p>
+</blockquote>
+
+<blockquote>
+  <p>이를 방지하기위해 ObjectProvider 객체를 사용하면 해당 객체를 getObject() 메서드를 통해서 새로운 객체를 호출할 수 있다. logic() 메서드에 getObject() 메서드를 집어넣어 메서드가 실행될 때 마다 새로운 객체를 생성해낸다.</p>
+</blockquote>
+
+<p>원래는 ObjectFactory가 ObjectProvider보다 먼저 존재하고있었으나 ObjectProvider가 ObjectFactory를 상속하면서 여러가지 추가 기능들을 제공하는 객체가 만들어졌다.</p>
+
+<ul>
+  <li>
+    <p>ObjectFactory : 기능이 단순하고 별도의 라이브러리가 필요없다. 스프링에 의존</p>
+  </li>
+  <li>
+    <p>ObjectProvider : ObjectFactory를 상속한다. 옵션이나 스트림 처리 등 편의 기능이 많고 별도의 라이브러리가 필요없다. 스프링에 의존한다.</p>
+  </li>
+</ul>
+
+<p><br /> <br /></p>
+
+<h2 id="providerjavaxinject">Provider(javax.inject)</h2>
+
+<p>JSR-330인 자바 표준의 라이브러리이다. 라이브러리 이므로 그리들에 없다면 새로 설치를 해주어야 한다. dependencies 안에</p>
+
+<p>implementation ‘javax.inject:javax.inject:1’
+를 작성해주면 된다.</p>
+
+<p>Provider라는 이름의 여러 객체들이 있으니 사용할 때는 javax.inject인지 확인하고 사용하여야 한다.</p>
+
+<p>ObjectProvider는 getObject()를 통해 새로운 객체를 컨테이너에 요청한다. Provider는 get() 메서드를 사용하여 컨테이너에 새 객체를 요청할 수 있다.</p>
+
+<p>Provider는 자바 표준이고, 기능이 매우 단순하므로 단위테스트를 만들거나 mock 코드를 만들기는 훨씬 쉬워진다.</p>
+
+<p>특징 :</p>
+
+<ul>
+  <li>get() 메서드 하나로 기능이 매우 단순함</li>
+  <li>별도의 라이브러리가 필요하다.</li>
+  <li>자바 표준이므로 스프링이 아닌 다른 컨테이너에서도 사용할 수 있다. (근데 이럴일이 거의 없음)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="정리">[정리]</h3>
+
+<p>프로토타입 빈은 언제 사용할까? 매 번 사용할 때마다 의존관계 주입이 완료된 새로운 객체가 필요하면 사용하면 된다. 실무에서는 싱글턴 빈으로 대부분의 문제가 해결되기 떄문에 프로토타입 빈을 직접적으로 사용하는 일은 매우 드물다.</p>
+
+<p>프로토타입 뿐만 아니라 DL이 필요한 경우에는 위의 객체들을 모두 사용할 수 있다.</p>
+
+<p>※ Provider, ObjectProvider 어떤걸 사용해야되는지 : ObjectProvider는 DL을 위한 편의 기능을 많이 제공해주고 스프링 외에 별도의 의존고나계 추가가 필요없기 때문에 편리하다.</p>
+
+<p>만약 코드를 스프링이 아닌 다른 컨테이너에서도 사용할 수 있어야 한다면 JSR-330 Provider를 사용해야한다.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/springboot/">Springboot</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_8">HTTP 기본 지식 : 캐시(Cache)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_7">HTTP 기본 지식 : 쿠키(Cookie)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_6">HTTP 헤더 살펴보기(협상, 우선순위)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/springboot/">
+                                
+                                    See all 16 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_3">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_3">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 3
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      10 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_2">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_2">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 2
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">[Spring:9] 빈 스코프(Bean Scope)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%5BSpring%3A9%5D+%EB%B9%88+%EC%8A%A4%EC%BD%94%ED%94%84%28Bean+Scope%29&amp;url=https://achasan.github.io/spring_basic_9"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/spring_basic_9"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

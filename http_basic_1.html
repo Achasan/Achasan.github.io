@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/http_basic_1" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS" />
+    <meta property="og:description" content="HTTP 웹 기본 지식 인터넷 네트워크 웹을 개발하기 위해 알아야하는 인터넷 네트워크는 크게 5가지이다. 인터넷 통신 IP(Internet Protocol) TCP, UDP PORT DNS 인터넷 통신 인터넷에서 컴퓨터 둘이 통신을한다고 가정해보자. 클라이언트가 서버에 Hello world라는 메시지를 보내려고 한다. 만약 클라이언트가 한국에 있고, 서버가 미국에 있을 때 클라이언트의 메시지는 수 많은 노드들을 거쳐" />
+    <meta property="og:url" content="https://achasan.github.io/http_basic_1" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-10-29T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-10-29T00:00:00+09:00" />
+    <meta property="article:tag" content="Springboot" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS" />
+    <meta name="twitter:description" content="HTTP 웹 기본 지식 인터넷 네트워크 웹을 개발하기 위해 알아야하는 인터넷 네트워크는 크게 5가지이다. 인터넷 통신 IP(Internet Protocol) TCP, UDP PORT DNS 인터넷 통신 인터넷에서 컴퓨터 둘이 통신을한다고 가정해보자. 클라이언트가 서버에 Hello world라는 메시지를 보내려고 한다. 만약 클라이언트가 한국에 있고, 서버가 미국에 있을 때 클라이언트의 메시지는 수 많은 노드들을 거쳐" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Springboot" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/http_basic_1",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/httpCover.jpg",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/http_basic_1"
+    },
+    "description": "HTTP 웹 기본 지식 인터넷 네트워크 웹을 개발하기 위해 알아야하는 인터넷 네트워크는 크게 5가지이다. 인터넷 통신 IP(Internet Protocol) TCP, UDP PORT DNS 인터넷 통신 인터넷에서 컴퓨터 둘이 통신을한다고 가정해보자. 클라이언트가 서버에 Hello world라는 메시지를 보내려고 한다. 만약 클라이언트가 한국에 있고, 서버가 미국에 있을 때 클라이언트의 메시지는 수 많은 노드들을 거쳐"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-springboot post tag-SpringBoot ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="29 October 2021">29 October 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/springboot/'>SPRINGBOOT</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/httpCover.jpg)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="http-웹-기본-지식">HTTP 웹 기본 지식</h1>
+
+<h2 id="인터넷-네트워크">인터넷 네트워크</h2>
+
+<p>웹을 개발하기 위해 알아야하는 인터넷 네트워크는 크게 5가지이다.</p>
+
+<ul>
+  <li>인터넷 통신</li>
+  <li>IP(Internet Protocol)</li>
+  <li>TCP, UDP</li>
+  <li>PORT</li>
+  <li>DNS</li>
+</ul>
+
+<h3 id="인터넷-통신">인터넷 통신</h3>
+
+<ul>
+  <li>인터넷에서 컴퓨터 둘이 통신을한다고 가정해보자. 클라이언트가 서버에 Hello world라는 메시지를 보내려고 한다. 만약 클라이언트가 한국에 있고, 서버가 미국에 있을 때 클라이언트의 메시지는 수 많은 노드들을 거쳐 서버에 도착해야한다.</li>
+  <li>하지만 이 많은 노드들을 거쳐서 서버에 가는 동안 길을 잃지않고 목표한 지점의 서버까지 어떻게 이동할 수 있는 것일까?</li>
+</ul>
+
+<h3 id="ip--인터넷-프로토콜">IP : 인터넷 프로토콜</h3>
+
+<ul>
+  <li>IP의 역할은 지정한 IP주소에 데이터를 전달하는 것이다. 또한 패킷이라는 통신 단위로 데이터를 전달한다.</li>
+  <li>패킷?
+    <ul>
+      <li>패킷은 출발지IP, 목적지IP, 기타 정보들이 담겨있다.</li>
+      <li>클라이언트에서 Hello world 메시지를 담은 IP 패킷을 서버로 던진다. 서버는 IP패킷을 받으면 패킷을 읽는다.</li>
+      <li>서버들은 IP패킷에는 읽어오는 규약을 따르는데, 이를 통해 어떠한 클라이언트가 던진 패킷이더라도 IP 패킷을 읽을 수 있다.</li>
+      <li>읽은 패킷을 노드들끼리 던지면서 최종목적지 IP가 있는 서버로 패킷을 던져준다.</li>
+    </ul>
+  </li>
+  <li>클라이언트의 메시지를 받은 서버는 응답 패킷을 다시 클라이언트에 던져준다. 여기서 클라이언트가 서버까지 오는 노드와는 다른 루트로 전달이 될 수 있다. 어떻게든 클라이언트의 요청에 응답하기만 하는 것이 목적이다.</li>
+</ul>
+
+<h3 id="ip-프로토콜의-한계">IP 프로토콜의 한계</h3>
+
+<ul>
+  <li>비연결성 : 패킷을 받을 대상이 없거나 서비스 불능 상태여도 패킷이 전송된다.</li>
+  <li>비신뢰성 : 중간에 패킷이 사라진다면? 패킷이 순서대로 안온다면?
+    <ul>
+      <li>패킷의 용량이 클 경우에는 패킷을 쪼개서 순차적으로 보내야한다. 만약 1, 2, 3 순서대로 보냈는데 1, 3, 2순으로 도착했다면?</li>
+    </ul>
+  </li>
+  <li>프로그램 구분 불가 : 클라이언트에서 스트리밍으로 노래를 듣고, 통화를 하고, 게임을 한다고 했을 때 해당 클라이언트 아이피에서 보낸 요청이 어떤 프로그램 왔는 지 알 수 있는지?</li>
+</ul>
+
+<p><br /><br /></p>
+
+<h2 id="tcp-udp">TCP, UDP</h2>
+
+<p>IP프로토콜은 여러 한계점을 가지고 있다. 따라서 TCP, UDP가 더 많이 쓰인다. 어떤 장점을 가지고 있을까?</p>
+
+<p>이를 알기 위해서는 인터넷 프로토콜 스택의 4계층을 먼저 알아야한다.</p>
+
+<h3 id="인터넷-프로토콜-스택의-4계층">인터넷 프로토콜 스택의 4계층</h3>
+
+<ul>
+  <li>
+    <p>애플리케이션 계층 : HTTP, FTP</p>
+  </li>
+  <li>
+    <p>전송계층 : TCP, UDP</p>
+  </li>
+  <li>
+    <p>인터넷 계층 : IP</p>
+  </li>
+  <li>
+    <p>네트워크 인터페이스 계층(랜카드, 랜드라이버 …)</p>
+  </li>
+</ul>
+
+<p><img src="/assets/images/HTTP_images/2021-10-29-20-57-36.png" alt="" /></p>
+
+<p>위의 사진을 보면 4계층이 어떻게 이루어져있는지 볼 수 있다. 이제 TCP가 어떻게 전송되는지를 보자.</p>
+
+<p><br /></p>
+
+<p><img src="/assets/images/HTTP_images/2021-10-29-20-58-54.png" alt="" /></p>
+
+<ol>
+  <li>
+    <p>구동중인 어플리케이션에서 Hello world라는 메시지를 생성한다.(HTTP 방식)</p>
+  </li>
+  <li>
+    <p>Socket 라이브러리를 통해 데이터를 전송계층에 보낸다.</p>
+  </li>
+  <li>
+    <p>TCP 데이터를 생성한다. 메시지 데이터를 포함한다.</p>
+  </li>
+  <li>
+    <p>IP패킷을 생성하고 안에 TCP 데이터를 포함한다.(메시지도 같이 포함된다.)</p>
+  </li>
+  <li>
+    <p>랜카드의 MAC 주소와 정보가 포함된 Ethernet frame을 생성하고 안에 TCP 데이터를 담는다(TMI)</p>
+  </li>
+</ol>
+
+<p>IP 패킷에는 출발지 IP와 목적지 IP, 기타 정보가 담겨있다. TCP에는 출발지의 Port와 목적지 Port가 담겨있고 전송 제어, 순서, 검증 정보 등이 담겨있고 그 안에 전송 데이터가 담겨져있다.</p>
+
+<p><br /></p>
+
+<h2 id="tcp-특징">TCP 특징</h2>
+
+<p>TCP(/assets/images/HTTP_imagesTransfer Control Protocol)</p>
+
+<ul>
+  <li>연결지향 : TCP 3 way handshake(가상연결) - 먼저 상대방과 연결이 되어있는지 확인한 다음에 전송한다.</li>
+  <li>데이터 전달 보증 : 클라이언트에서 데이터를 전송하면 서버에서 데이트를 받았다고 회신해준다. 클라이언트에서는 데이터가 전달되었다는 점을 확인 가능하다.</li>
+  <li>순서 보장 : 패킷을 1, 2, 3 순서로 전송했는데 1, 3, 2 순서로 도착했을 경우 서버에서 패킷 2부터 다시 보내라고 응답한다.</li>
+</ul>
+
+<p>위의 3가지 특징으로 인해 TCP는 신뢰할 수 있는 프로토콜이 되었다. 현재는 대부분 TCP를 사용한다. 이제 각 특징에 대해 자세히 알아보자.</p>
+
+<h3 id="1-tcp-3-way-handshake-">1. TCP 3 way handshake <br /></h3>
+
+<p><img src="/assets/images/HTTP_images/2021-10-29-21-05-43.png" alt="" /></p>
+
+<ol>
+  <li>클라이언트가 서버에 SYN이라는 신호를 보낸다.</li>
+  <li>SYN 신호를 받은 서버가 클라이언트에 SYN + ACK 신호를 보낸다.</li>
+  <li>SYN + ACK 신호를 받은 클라이언트가 ACK 신호를 서버에 보낸다.</li>
+  <li>클라이언트가 서버로 데이터를 전송한다.</li>
+</ol>
+
+<p>여기서 SYN은 접속을 요청하는 신호이다. 클라이언트가 접속을 요청하면 서버는 접속요청과 요청 수락 신호를 같이 보낸다. 클라이언트는 요청 수락 신호를 보내게 되면 서로 연결이 가능하다는 뜻이므로 그제서야 클라이언트는 데이터를 전송하기 시작한다. (ACK 신호를 보내면서 같이 전송하기도 한다.)</p>
+
+<p><br /></p>
+
+<h3 id="2-데이터-전달-보증">2. 데이터 전달 보증</h3>
+
+<p>TCP는 클라이언트가 데이터를 서버에 보내면 서버에서 데이터를 받았다는 응답을 보낸다. IP 패킷의 경우에는 클라이언트가 데이터를 보내도 서버에서 받았다는 응답을 받지 못한다. 클라이언트에서는 데이터가 제대로 전송이 되었는 지 알 수가 없다. 신뢰성을 보장받지 못한다.</p>
+
+<p><br /></p>
+
+<h3 id="3-순서-보장">3. 순서 보장</h3>
+
+<p>클라이언트에서 TCP 프로토콜로 패킷을 쪼개서 1, 2, 3 순으로 보냈는데 1, 3, 2순으로 서버에 도착했다. 이럴 경우 서버에서는 TCP 정보를 읽고, 순서가 다르게 보내진 점을 인지하고 클라이언트에게 2번 패킷부터 다시 보내라고 응답을 보내게 된다.</p>
+
+<p><br /></p>
+
+<h2 id="udp-특징">UDP 특징</h2>
+
+<p>사용자 데이터그램 프로토콜(User Datagram Protocol)</p>
+
+<ul>
+  <li>UDP는 하얀 도화지에 비유할 수 있다.(기능이 거의 없음)</li>
+  <li>TCP의 3way handshake 같은 연결지향적인 기능이 없다.</li>
+  <li>데이터 전달 보증이 안된다.</li>
+  <li>순서 보장이 안된다.</li>
+  <li>하지만 구조가 단순하고 빠르다.</li>
+</ul>
+
+<p>UDP는 IP와 거의 같다고 보면 된다. 하지만 여기에 Port 정보와 체크섬 정보는 포함하고 있는게 차이점이다. 따라서 UDP를 사용하기 위해서는 애플리케이션에서 추가작업이 필요하다.</p>
+
+<p><br /></p>
+
+<h2 id="port">Port</h2>
+
+<p>TCP에 담기는 정보중에 Port가 있었다. port에 대해서 알아보자.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-10-29-21-14-13.png" alt="" /> <br /></p>
+
+<p>클라이언트가 게임, 화상통화, 웹 브라우저 각각 다른 프로그램들을 사용중이다. IP 프로토콜의 경우에는 요청을 보내도 IP만 적혀있어 어떤 프로그램에서 온 요청인지를 알 수 없다. 게임과 화상통화는 같은 서버를 공유하고 있어서 어느쪽으로 응답을 보내야될지 서버측에서 알 방법이 없다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-10-29-21-19-49.png" alt="" /> <br /></p>
+
+<p>위 사진은 TCP와 IP 패킷을 합친 것이다. TCP/IP에는 출발지 PORT, 목적지 PORT가 포함되어 있는데 아이피 뒤에 :0000 방식으로 붙여져 있다. 프로그램마다 포트번호를 다르게 해서 어디서 온 요청인지 구분할 수 있게 해준다.</p>
+
+<h3 id="port-특징-">Port 특징 <br /></h3>
+
+<p>Port는 항구라는 뜻을 가지고 있다. IP가 아파트라면, Port는 동, 호수를 의미한다. 포트를 통해 어떤 애플리케이션에서 온 요청인지 구분짓고, 서버에스는 해당 포트로 다시 응답해주면 되어 데이터가 충될되지 않게 해준다.</p>
+
+<ul>
+  <li>0 ~ 65535 할당 가능</li>
+  <li>0 ~ 1023 : 잘 알려진 포트로 사용하지 않는 것이 좋다.
+    <ul>
+      <li>FTP : 20, 21</li>
+      <li>TELNET : 23</li>
+      <li>HTTP : 80</li>
+      <li>HTTPS : 443</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="dns-domain-name-system">DNS (Domain Name System)</h2>
+
+<p>ip 주소는 숫자로 되어있어 기억하기가 어렵고 입력하기도 번거롭다. 또한 유동적인 ip를 사용할 경우에는 ip의 값이 변경될 수도 있다. 이렇게 될 경우 개발할 때 새로운 아이피 주소를 다시 작성해주어야 한다.</p>
+
+<p>이러한 단점을 보완하기위해 DNS가 등장하였다. DNS는 전화번호부라고 볼 수 있는데, IP 주소를 도메인 명으로 변환하는 시스템이다.</p>
+
+<p><img src="/assets/images/HTTP_images/2021-10-29-21-27-13.png" alt="" /></p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/springboot/">Springboot</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_8">HTTP 기본 지식 : 캐시(Cache)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_7">HTTP 기본 지식 : 쿠키(Cookie)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/http_basic_6">HTTP 헤더 살펴보기(협상, 우선순위)</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/springboot/">
+                                
+                                    See all 16 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_2">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_2">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 2
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      4 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/spring_basic_8">
+                <div class="post-card-image" style="background-image: url(/assets/images/spring.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/spring_basic_8">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Spring:8] 빈 생명주기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>빈 생명주기 콜백
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        5 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=IP+%ED%94%84%EB%A1%9C%ED%86%A0%EC%BD%9C%2C+TCP%2FUDP%EC%9D%98+%EC%A0%95%EC%9D%98%2C+%ED%8A%B9%EC%84%B1%2C+Port%2C+DNS&amp;url=https://achasan.github.io/http_basic_1"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/http_basic_1"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

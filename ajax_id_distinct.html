@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>AJAX를 사용하여 아이디 중복체크하기</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/ajax_id_distinct" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AJAX를 사용하여 아이디 중복체크하기" />
+    <meta property="og:description" content="AJAX 사용하여 아이디 중복체크하기(스프링부트) 곧 JSP 프로젝트가 시작된다. 시작하기 전에 AJAX에 대해 알아보고 어떻게 사용하는지 익히기 위해서 글을 작성하였다. AJAX의 개념적인 부분은 이미 구글링을 하면 다 나와있기에 여기서 자세히 설명하지는 않을 것이다. 이 글에서는 AJAX를 통해 아이디 중복확인을 하는 로직을 간단하게 구현하는 방법에 대해서 초점을 맞출 생각이다. 일단 DB연동같은건 하지" />
+    <meta property="og:url" content="https://achasan.github.io/ajax_id_distinct" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/etc.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-11-07T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-11-07T00:00:00+09:00" />
+    <meta property="article:tag" content="Etc" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AJAX를 사용하여 아이디 중복체크하기" />
+    <meta name="twitter:description" content="AJAX 사용하여 아이디 중복체크하기(스프링부트) 곧 JSP 프로젝트가 시작된다. 시작하기 전에 AJAX에 대해 알아보고 어떻게 사용하는지 익히기 위해서 글을 작성하였다. AJAX의 개념적인 부분은 이미 구글링을 하면 다 나와있기에 여기서 자세히 설명하지는 않을 것이다. 이 글에서는 AJAX를 통해 아이디 중복확인을 하는 로직을 간단하게 구현하는 방법에 대해서 초점을 맞출 생각이다. 일단 DB연동같은건 하지" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/etc.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Etc" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/ajax_id_distinct",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/etc.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/ajax_id_distinct"
+    },
+    "description": "AJAX 사용하여 아이디 중복체크하기(스프링부트) 곧 JSP 프로젝트가 시작된다. 시작하기 전에 AJAX에 대해 알아보고 어떻게 사용하는지 익히기 위해서 글을 작성하였다. AJAX의 개념적인 부분은 이미 구글링을 하면 다 나와있기에 여기서 자세히 설명하지는 않을 것이다. 이 글에서는 AJAX를 통해 아이디 중복확인을 하는 로직을 간단하게 구현하는 방법에 대해서 초점을 맞출 생각이다. 일단 DB연동같은건 하지"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="AJAX를 사용하여 아이디 중복체크하기" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-etc post tag-ETC ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 7 November 2021"> 7 November 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                               <a href='/tag/etc/'>ETC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">AJAX를 사용하여 아이디 중복체크하기</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/etc.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="ajax-사용하여-아이디-중복체크하기스프링부트">AJAX 사용하여 아이디 중복체크하기(스프링부트)</h1>
+
+<p>곧 JSP 프로젝트가 시작된다. 시작하기 전에 AJAX에 대해 알아보고 어떻게 사용하는지 익히기 위해서 글을 작성하였다.</p>
+
+<p>AJAX의 개념적인 부분은 이미 구글링을 하면 다 나와있기에 여기서 자세히 설명하지는 않을 것이다. 이 글에서는 AJAX를 통해 아이디 중복확인을 하는 로직을 간단하게 구현하는 방법에 대해서 초점을 맞출 생각이다.</p>
+
+<p>일단 DB연동같은건 하지 않았다. 그냥 Controller에 String 배열로 임의의 아이디 여러 개를 생성해놓고, 클라이언트가 ID를 입력할 때 String 배열에 있는 값과 일치할 경우 실행될 로직을 작성해보았다. 스프링 부트로 구현해보았다.</p>
+
+<p><br /></p>
+
+<ol>
+  <li>test.html</li>
+</ol>
+
+<p><img src="/assets/images/ETC/2021-11-07-22-11-41.png" alt="" /></p>
+
+<p>그냥 아이디와 비밀번호가 존재하는 단순한 HTML 파일이다. input 입력란 옆에 span태그를 숨겨놓고 텍스트를 입력할 때 로직이 실행되도록 했다.</p>
+
+<p><br /></p>
+
+<ol>
+  <li>JavaScript</li>
+</ol>
+
+<p><img src="/assets/images/ETC/2021-11-07-22-21-40.png" alt="" /></p>
+
+<p>로직을 요약하자면 다음과 같다.</p>
+
+<ul>
+  <li>
+    <p>먼저 span 태그를 숨긴다.</p>
+  </li>
+  <li>
+    <p>아이디 input 태그에 아이디를 입력할 때마다 함수가 실행되는 keyup을 사용하였다. 텍스트 길이가 4미만 또는 16 이상일 때 span 태그로 조건에 만족하지 않는 멘트를 날리도록 코드를 작성했다.</p>
+  </li>
+  <li>
+    <p>만약 길이가 4 이상 16 이하라면 ajax로 서버와 통신한다. post방식으로 입력한 아이디를 서버로 전송하고, url은 “/id-check”으로 설정한다. 받는 데이터 타입은 간단하게 text로 하였다. json형식으로도 받을 수 있고, 스프링부트에서 json으로 데이터를 반환하는 기능들을 지원하지만 간단하게 구현하기위해 text로 하였다.</p>
+  </li>
+  <li>
+    <p>success는 데이터를 성공적으로 받았을 때 실행되는 함수이다. 받은 데이터가 false이면 사용가능한 아이디, true이면 이미 사용중인 아이디라고 멘트가 나오도록 했다.</p>
+  </li>
+</ul>
+
+<p>처음 사용할 때는 삽질을 엄청했다. 특히 데이터를 넘기는 부분. 사실 ajax를 처음 쓴다기 보다는 jQuery가 익숙치 않아서 삽질이 길어진 것 같다. 데이터를 넘길 때는 data에 값을 넣고, 데이터를 받을 때는 success의 function 파라미터로 받아오기 때문에 이 부분을 정확히 모르는 상태에서 사용하다 시간이 길어졌다.</p>
+
+<p><br /></p>
+
+<ol>
+  <li>Controller</li>
+</ol>
+
+<p><img src="/assets/images/ETC/2021-11-07-22-24-25.png" alt="" /></p>
+
+<ul>
+  <li>
+    <p>먼저 이미 등록된 아이디를 ids 배열에 저장했다(임의로 작성). 입력한 아이디가 ids에 있는 아이디와 일치할 경우 이미 사용중인 아이디가 된다.</p>
+  </li>
+  <li>
+    <p>AJAX의 url을 “/id-check”으로 설정했다. @PostMapping(“/id-check”)으로 데이터가 들어오게 되고, 여기서 로직이 실행된다. @RequestParam으로 입력값을 받아오도록 했다. AJAX부분을 보면 JSON 형식으로 key는 id, value는 입력값으로 되어있었다.</p>
+  </li>
+  <li>
+    <p>ids 배열을 for문으로 돌려서 만약 입력값과 일치하는 아이디가 나오면 아이디가 중복되므로 리턴할 isDistinct 변수를 true로 설정한다. 아닐 경우는 false로 설정한다.</p>
+  </li>
+</ul>
+
+<p>이 부분이 제일 스트레스 받았던 구간, 아직 스프링 부트를 배운지 얼마 안됐고, @RequestBody와 @RequestParam이 헷갈려서 데이터 값이 이상하게 오는 줄도 모르고 다른 코드를 고치고 있었다.</p>
+
+<p>@RequestBody는 GET이나 POST 방식이 아닐 때 사용해야하는 애노테이션이다. 정확히 말하면 쿼리파라미터로 오는 데이터가 아닐 때 사용해야한다. 모델 객체를 사용할 때 사용하는 것이 좋다. 모델 객체의 필드변수와 읽어오는 데이터의 key 값이 일치하면 모델 객체로 바인딩을 해주는 방식인데, 이를 깜빡하고 @RequestBody를 사용해서 시간이 엄청 오래걸렸다.</p>
+
+<p>@RequestParam은 쿼리파라미터로 값을 가져올 때 사용한다. AJAX로 보내는 값의 key가 id이므로 메서드 파라미터의 변수명도 id로 일치시키면 스프링부트는 둘의 이름이 같으므로 바인딩을 하게된다. 따라서 Model 객체가 아닌 이상은 @RequestBody를 사용하는 것이 좋다.</p>
+
+<p>@ModelAttribute 애노테이션도 있다. 하지만 이 애노테이션은 쿼리파라미터를 받을 때 사용하는 Model 객체이므로 여기서는 예외.</p>
+
+<p><br /></p>
+
+<h1 id="결과">결과</h1>
+
+<p><img src="/assets/images/ETC/result.gif" alt="" /></p>
+
+<p>프로젝트를 한다면 정규식으로 아이디 양식을 제한하는 코드를 만들어보고 싶다. 일단 AJAX의 기본적인 기능에 대해서 알 수 있었으므로 만족한다. 비동기로 기능을 구현하는게 굉장히 편한 것 같다. 나중에는 게시판 페이징을 비동기로 이동하는 것도 구현해보고 싶은 생각이 든다.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/blog-cover.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/etc/">Etc</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/OOP_1">객체지향의 사실과 오해 1장 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/etc/">
+                                
+                                    See all 1 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/OOP_1">
+                <div class="post-card-image" style="background-image: url(/assets/images/OOP_cover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/OOP_1">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Etc</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">객체지향의 사실과 오해 1장 정리</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>객체지향의 사실과 오해 1장 정리
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      6 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/http_basic_8">
+                <div class="post-card-image" style="background-image: url(/assets/images/httpCover.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/http_basic_8">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Springboot</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">HTTP 기본 지식 : 캐시(Cache)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTTP 웹 기본 지식 8
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        10 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">AJAX를 사용하여 아이디 중복체크하기</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=AJAX%EB%A5%BC+%EC%82%AC%EC%9A%A9%ED%95%98%EC%97%AC+%EC%95%84%EC%9D%B4%EB%94%94+%EC%A4%91%EB%B3%B5%EC%B2%B4%ED%81%AC%ED%95%98%EA%B8%B0&amp;url=https://achasan.github.io/ajax_id_distinct"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/ajax_id_distinct"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2021</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

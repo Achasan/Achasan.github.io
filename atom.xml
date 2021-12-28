@@ -128,6 +128,246 @@
     
       
       <item>
+        <title>AJAX를 사용하여 아이디 중복체크하기</title>
+        
+          <description>&lt;h1 id=&quot;ajax-사용하여-아이디-중복체크하기스프링부트&quot;&gt;AJAX 사용하여 아이디 중복체크하기(스프링부트)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sun, 07 Nov 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/ajax_id_distinct</link>
+        <guid isPermaLink="true">https://achasan.github.io/ajax_id_distinct</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>HTTP 기본 지식 : 캐시(Cache)</title>
+        
+          <description>&lt;h1 id=&quot;http-웹-기본-지식-8&quot;&gt;HTTP 웹 기본 지식 8&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 02 Nov 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/http_basic_8</link>
+        <guid isPermaLink="true">https://achasan.github.io/http_basic_8</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>HTTP 기본 지식 : 쿠키(Cookie)</title>
+        
+          <description>&lt;h1 id=&quot;http-웹-기본-지식-7&quot;&gt;HTTP 웹 기본 지식 7&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 02 Nov 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/http_basic_7</link>
+        <guid isPermaLink="true">https://achasan.github.io/http_basic_7</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>HTTP 헤더 살펴보기(협상, 우선순위)</title>
+        
+          <description>&lt;h1 id=&quot;http-웹-기본-지식-6&quot;&gt;HTTP 웹 기본 지식 6&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 02 Nov 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/http_basic_6</link>
+        <guid isPermaLink="true">https://achasan.github.io/http_basic_6</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>HTTP 상태코드, PRG(Post Redirect Get)</title>
+        
+          <description>&lt;h1 id=&quot;http-웹-기본-지식-5&quot;&gt;HTTP 웹 기본 지식 5&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 01 Nov 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/http_basic_5</link>
+        <guid isPermaLink="true">https://achasan.github.io/http_basic_5</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>HTTP API 설계방법(REST API)</title>
+        
+          <description>&lt;h1 id=&quot;http-웹-기본-지식-4&quot;&gt;HTTP 웹 기본 지식 4&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 01 Nov 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/http_basic_4</link>
+        <guid isPermaLink="true">https://achasan.github.io/http_basic_4</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)</title>
+        
+          <description>&lt;h1 id=&quot;http-웹-기본-지식-3&quot;&gt;HTTP 웹 기본 지식 3&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sun, 31 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/http_basic_3</link>
+        <guid isPermaLink="true">https://achasan.github.io/http_basic_3</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Spring:9] 빈 스코프(Bean Scope)</title>
+        
+          <description>&lt;h1 id=&quot;빈-스코프-정리&quot;&gt;빈 스코프 정리&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 29 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_9</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_9</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름</title>
+        
+          <description>&lt;h1 id=&quot;http-웹-기본-지식-2&quot;&gt;HTTP 웹 기본 지식 2&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 29 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/http_basic_2</link>
+        <guid isPermaLink="true">https://achasan.github.io/http_basic_2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS</title>
+        
+          <description>&lt;h1 id=&quot;http-웹-기본-지식&quot;&gt;HTTP 웹 기본 지식&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 29 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/http_basic_1</link>
+        <guid isPermaLink="true">https://achasan.github.io/http_basic_1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Spring:8] 빈 생명주기</title>
+        
+          <description>&lt;h1 id=&quot;빈-생명주기-콜백&quot;&gt;빈 생명주기 콜백&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 28 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_8</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_8</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Spring:7] 조회한 빈이 모두 필요할 때</title>
+        
+          <description>&lt;h1 id=&quot;의존관계-자동-주입-2-이전링크&quot;&gt;의존관계 자동 주입 2 &lt;a href=&quot;20211028_4.md&quot;&gt;이전링크&lt;/a&gt;&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 28 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_7</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_7</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Spring:6] 추상체에 주입하려는 구현체(빈)가 여러 개 일 때</title>
+        
+          <description>&lt;h2 id=&quot;의존관계-자동-주입-어노테이션-설정방법&quot;&gt;의존관계 자동 주입 어노테이션 설정방법&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 28 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_6</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_6</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Spring:5] Gradle을 사용하여 lombok 라이브러리 추가하기</title>
+        
+          <description>&lt;h1 id=&quot;lombok&quot;&gt;lombok&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 28 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_5</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_5</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Spring:4] 다양한 의존관계 주입방법 4가지</title>
+        
+          <description>&lt;h2 id=&quot;다양한-의존관계-주입-방법&quot;&gt;다양한 의존관계 주입 방법&lt;/h2&gt;
+
+</description>
+        
+        <pubDate>Thu, 28 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_4</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_4</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Spring:3] 컴포넌트 스캔과 의존관계 자동주입(by Annotation)</title>
+        
+          <description>&lt;h1 id=&quot;20211028-til--spring-boot&quot;&gt;20211028 TIL : spring-boot&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 28 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_3</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_3</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[PRO] LV2 : 프린트</title>
         
           <description>&lt;h1 id=&quot;20211025-알고리즘-문제풀이&quot;&gt;20211025 알고리즘 문제풀이&lt;/h1&gt;
@@ -233,6 +473,36 @@
     
       
       <item>
+        <title>[Spring:2] 컨테이너에서 빈 조회, XML 설정, 싱글턴, 컴포넌트 스캔과 DI</title>
+        
+          <description>&lt;h1 id=&quot;20211024-til--spring-boot&quot;&gt;20211024 TIL : Spring Boot&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sun, 24 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_2</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Spring:1] 등장배경, 객체지향 설계 5원칙(SOLID)</title>
+        
+          <description>&lt;h1 id=&quot;20211019-til--spring&quot;&gt;20211019 TIL : Spring&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 19 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_basic_1</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_basic_1</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[PRO] lv1 알고리즘 풀은 문제들</title>
         
           <description>&lt;h1 id=&quot;20211013-풀어본-알고리즘-문제&quot;&gt;20211013 풀어본 알고리즘 문제&lt;/h1&gt;
@@ -243,6 +513,96 @@
         <link>
         https://achasan.github.io/lv1_Six</link>
         <guid isPermaLink="true">https://achasan.github.io/lv1_Six</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>PL/SQL, 데이터 정의어(DDL)</title>
+        
+          <description>&lt;h1 id=&quot;plsql-procedual-language--structured-query-language&quot;&gt;PL/SQL (Procedual Language / Structured Query Language)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 07 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/database_6</link>
+        <guid isPermaLink="true">https://achasan.github.io/database_6</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션</title>
+        
+          <description>&lt;h1 id=&quot;숫자데이터와-관련된-함수&quot;&gt;숫자데이터와 관련된 함수&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 06 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/database_5</link>
+        <guid isPermaLink="true">https://achasan.github.io/database_5</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>그룹함수(GROUP BY, HAVING)</title>
+        
+          <description>&lt;h1 id=&quot;sql-복수행-함수그룹함수&quot;&gt;SQL 복수행 함수(그룹함수)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sun, 05 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/database_4</link>
+        <guid isPermaLink="true">https://achasan.github.io/database_4</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>묵시적, 명시적 형변환, DECODE, 정규식</title>
+        
+          <description>&lt;h1 id=&quot;묵시적-형변환-명시적-형변환&quot;&gt;묵시적 형변환, 명시적 형변환&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Sat, 04 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/database_3</link>
+        <guid isPermaLink="true">https://achasan.github.io/database_3</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>조건절 키워드(LIKE, ORDER BY, NOT), 시퀀스, JOIN, DUAL 테이블</title>
+        
+          <description>&lt;h1 id=&quot;오라클db-공부-20210903&quot;&gt;오라클DB 공부 20210903&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 03 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/database_2</link>
+        <guid isPermaLink="true">https://achasan.github.io/database_2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절</title>
+        
+          <description>&lt;h1 id=&quot;오라클db-공부-20210902&quot;&gt;오라클DB 공부 20210902&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 02 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/database_1</link>
+        <guid isPermaLink="true">https://achasan.github.io/database_1</guid>
       </item>
       
     
