@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://achasan.github.io/author/Achasan/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2021-12-29T18:50:41+09:00</updated>
+  <updated>2021-12-31T14:02:59+09:00</updated>
   <id>https://achasan.github.io/author/Achasan/feed.xml</id>
 
   
@@ -30,6 +30,108 @@
   
   
 
+  
+    <entry>
+      <title type="html">[PRO] LV2 : 가장 큰 수</title>
+      <link href="https://achasan.github.io/lv2_Biggest_Num" rel="alternate" type="text/html" title="[PRO] LV2 : 가장 큰 수" />
+      <published>2021-12-29T00:00:00+09:00</published>
+      <updated>2021-12-29T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/lv2_Biggest_Num</id>
+      <content type="html" xml:base="https://achasan.github.io/lv2_Biggest_Num">&lt;h1 id=&quot;프로그래머스-lv2--가장-큰-수&quot;&gt;프로그래머스 Lv2 : 가장 큰 수&lt;/h1&gt;
+
+&lt;h2 id=&quot;문제-설명&quot;&gt;문제 설명&lt;/h2&gt;
+
+&lt;p&gt;0 또는 양의 정수가 주어졌을 때, 정수를 이어 붙여 만들 수 있는 가장 큰 수를 알아내 주세요.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, 주어진 정수가 [6, 10, 2]라면 [6102, 6210, 1062, 1026, 2610, 2106]를 만들 수 있고, 이중 가장 큰 수는 6210입니다.&lt;/p&gt;
+
+&lt;p&gt;0 또는 양의 정수가 담긴 배열 numbers가 매개변수로 주어질 때, 순서를 재배치하여 만들 수 있는 가장 큰 수를 문자열로 바꾸어 return 하도록 solution 함수를 작성해주세요.&lt;/p&gt;
+
+&lt;h2 id=&quot;제한-사항&quot;&gt;제한 사항&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;numbers의 길이는 1 이상 100,000 이하입니다.&lt;/li&gt;
+  &lt;li&gt;numbers의 원소는 0 이상 1,000 이하입니다.&lt;/li&gt;
+  &lt;li&gt;정답이 너무 클 수 있으니 문자열로 바꾸어 return 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;[6, 10, 2] &amp;gt; “6210”&lt;/li&gt;
+  &lt;li&gt;[3, 30, 34, 5, 9] &amp;gt; “9534330”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;입력한-코드&quot;&gt;입력한 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Comparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+                &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+                &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compareTo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;정렬 심화문제이다. 로직 자체는 매우 간단하지만 어떻게 구현해야할지 생각하는게 정말 힘들었다.&lt;/p&gt;
+
+&lt;p&gt;처음에는 숫자의 맨 앞자리를 비교한 후, 같은 숫자가 있을 경우 다음 자릿수가 있는지 체크하고 이를 비교하는 Comparator 객체를 만드려고 했으나 로직이 너무 복잡해져서 문제의도를 이런식으로 출제하는 건 개발자스럽지 않다는 생각을 갖게되어 바로 포기했다.&lt;/p&gt;
+
+&lt;p&gt;문제의 포인트는 ‘문자열’ 비교였다. 배열 내에 있는 각 원소들을 String타입으로 바꾸고 두 원소를 합친 다음에 compareTo() 메서드를 사용하여 정렬하게되면 손쉽게 구현이 가능했다. 큰 수를 구해야하므로 오름차순이 아닌 내림차순으로 구현되어야한다. 따라서 (o2+o1).compareTo(o1+o2)의 값을 리턴하도록 하였다.&lt;/p&gt;
+
+&lt;p&gt;정렬문제는 Comparator 객체를 얼마나 잘 다루느냐가 핵심인 것 같다. 보통 정렬 알고리즘이 두 객체를 어떻게 비교하느냐에 따라서 결정되기 때문에 Comparator에 대한 이해가 잘 된다면 손 쉽게 문제에 접근할 수 있는 것 같다. 해당 객체는 &lt;a href=&quot;https://achasan.github.io/Comparator_Comparable&quot;&gt;여기&lt;/a&gt; 에서 따로 포스팅하여 다루었기 때문에 참고하는 것이 좋을 것 같다.&lt;/p&gt;
+
+&lt;p&gt;사실 처음에 생각했던 방법이 막힌다음 내 머리로는 못 풀겠다고 판단하여 구글링을 하면서 힌트를 얻었다. String으로 compareTo() 메서드를 응용하는 방법을 알았으므로 앞으로 사용할 일이 있으면 활용해야겠다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Algorhythm" />
+      
+
+      
+        <summary type="html">프로그래머스 Lv2 : 가장 큰 수</summary>
+      
+
+      
+      
+    </entry>
   
     <entry>
       <title type="html">[BOJ] 1874번 : 스택 수열</title>
@@ -1259,177 +1361,6 @@
 
       
         <summary type="html">AJAX 사용하여 아이디 중복체크하기(스프링부트)</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">HTTP 기본 지식 : 쿠키(Cookie)</title>
-      <link href="https://achasan.github.io/http_basic_7" rel="alternate" type="text/html" title="HTTP 기본 지식 : 쿠키(Cookie)" />
-      <published>2021-11-02T00:00:00+09:00</published>
-      <updated>2021-11-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_7</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_7">&lt;h1 id=&quot;http-웹-기본-지식-7&quot;&gt;HTTP 웹 기본 지식 7&lt;/h1&gt;
-
-&lt;h2 id=&quot;쿠키&quot;&gt;쿠키&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Set-Cookie: 서버에서 클라이언트로 쿠키를 전달한다.(응답)&lt;/li&gt;
-  &lt;li&gt;Cookie: 클라이언트가 서버에서 받은 쿠키를 저장하고, HTTP 요청 시 서버로 전달한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;쿠키는 어떤 상황에서 사용되는지 아래 사진을 보고 확인해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-17-15-50.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;다음은 쿠키를 사용하지 않았을 때의 상황이다. POST 방식으로 /login URI에 user를 홍길동으로 하는 요청을 클라이언트에서 보냈을 때, 서버에서는 홍길동님이 로그인했다는 OK 응답메시지를 보내게 된다. “안녕하세요. 손님”이라는 문자를 출력한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-17-16-42.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;로그인이 된 것을 확인하고 /welcome 페이지로 이동했으나, 서버에서는 “안녕하세요, 손님”으로 메시지가 바꿔진 것을 확인할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;이유는 HTTP의 Stateless때문이다. 무상태 프로토콜이기 때문에 서버와 클라이언트가 요청을 주고받으면 연결이 끊어지게 되므로, 클라이언트가 서버에 욫어을 하면 서버는 이전 요청을 기억하지 못하게 되는 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-17-19-49.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;이를 해결하기 위해 클라이언트에서 GET을 통해 쿼리파라미터에 user=홍길동이라는 데이터를 넘겨서 “안녕하세요, 홍길동님”을 출력시키려고 한다. 과연 이것이 올바른 해결책이라고 할 수 있을까?&lt;/p&gt;
-
-&lt;p&gt;이런 문제를 해결하기 위해서 쿠키라는 개념이 등장하였다. 이제 쿠키를 사용하여 로그인처리를 어떻게 하는지 사진으로 보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-17-20-51.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;클라이언트가 POST 방식으로 user=홍길동 이라는 메시지를 서버에 전송하면 서버는 Set-Cookie: user=홍길동 을 통해 쿠키를 클라이언트에 전송하는 것을 볼 수 있다. 클라이언트는 받은 쿠키를 쿠키 저장소에 저장하게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-17-22-02.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;다른 URI로 이동할 때 클라이언트는 서버에 쿠키를 전송한다. 쿠키를 받은 서버는 쿠키 데이터정보를 읽고, 비즈니스 로직을 처리하면서 홍길동이 로그인 되었다는 메시지를 출력하게된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;쿠키-1&quot;&gt;쿠키&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;set-cookie: sessionId=abcde1234; expires=Sat, 26-Dec-2020 00:00:00 GMT; path=/; domain=.google.com; Secure&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;쿠키의 사용처&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;사용자 로그인 세션 관리&lt;/li&gt;
-      &lt;li&gt;광고 정보 트래킹(선호하는 광고가 어떤건지 체크)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;쿠키 정보는 항상 서버에 전송되는 것이 특징이다.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;네트워크 트래픽을 추가적으로 유발한다.&lt;/li&gt;
-      &lt;li&gt;따라서 최소한의 정보만 사용해야한다(세션 ID, 인증토큰 등)&lt;/li&gt;
-      &lt;li&gt;서버에 전송하지않고 웹 브라우저 내부에 데이터를 저장하고 싶으면 웹 스토리지를 참고하는 것이 좋다(localStorage, sessionStorage)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;보안에 민감한 데이터는 저장해선 안된다(주민번호, 신용카드 등)&lt;/strong&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;쿠키---생명주기&quot;&gt;쿠키 - 생명주기&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;Set-Cookie: &lt;strong&gt;expires&lt;/strong&gt;=Sat, 26-Dec-2020 04:39:21 GMT&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;만료일이 되면 쿠키가 삭제된다. (날짜를 기준으로 생명주기 설정)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Set-Cookie: &lt;strong&gt;max-age&lt;/strong&gt;=3600 (3600초)&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;0이나 음수를 지정하면 쿠키가 삭제된다. (시간을 기준으로 생명주기 설정)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;쿠키의 생명주기 종류는 2 가지가 있다. 세션쿠키는 만료 날짜를 생략하면 브라우저 종료 시 까지만 유지되는 쿠키이고, 영속 쿠키는 만료 날짜를 입력하면 해당 날짜까지 유지되는 생명주기이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;쿠키---도메인&quot;&gt;쿠키 - 도메인&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;domain=example.org&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;도메인을 명시하면 명시한 문서를 기준으로 도메인과 서브도메인을 포함하여 쿠키가 사용될 수 있다.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;위의 예시를 기준으로 보면 example.org는 물론 dev.example.org도 쿠키 접근이 가능하다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;도메인을 생략하면 현재 문서 기준 도메인만 적용된다.&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;example.org에서 쿠키를 생성하고 domain 지정을 생략할 경우에는 example.org에서만 쿠키 접근이 가능하다. dev.example.org에서는 불가능하다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;쿠키---경로&quot;&gt;쿠키 - 경로&lt;/h2&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;path=/home&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;이 &lt;strong&gt;경로를 포함한 하위 경로 페이지만&lt;/strong&gt; 쿠키에 접근이 가능&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;일반적으로 path=/ 루트로 지정한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;쿠키---보안&quot;&gt;쿠키 - 보안&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Secure : 쿠키는 http, https 구분하지 않고 전송하는데 Secure를 적용하면 https인 경우에만 전송한다.&lt;/li&gt;
-  &lt;li&gt;HttpOnly : XSS 공격을 방지하기위해서 사용, JS에서 접근이 불가하다. HTTP 전송에만 사용된다.&lt;/li&gt;
-  &lt;li&gt;SameSite : XSRF공격을 방지하고 요청 도메인과 쿠키에 설정된 도메인이 같은 경우만 쿠키를 전송한다.&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="SpringBoot" />
-      
-
-      
-        <summary type="html">HTTP 웹 기본 지식 7</summary>
       
 
       

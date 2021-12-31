@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://achasan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://achasan.github.io/" rel="alternate" type="text/html" /><updated>2021-12-29T18:50:41+09:00</updated><id>https://achasan.github.io/feed.xml</id><title type="html">Memory Repo.</title><subtitle>by Achasan</subtitle><entry><title type="html">[BOJ] 1874번 : 스택 수열</title><link href="https://achasan.github.io/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" /><published>2021-12-26T00:00:00+09:00</published><updated>2021-12-26T00:00:00+09:00</updated><id>https://achasan.github.io/s3_stack_sequence</id><content type="html" xml:base="https://achasan.github.io/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://achasan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://achasan.github.io/" rel="alternate" type="text/html" /><updated>2021-12-31T14:02:59+09:00</updated><id>https://achasan.github.io/feed.xml</id><title type="html">Memory Repo.</title><subtitle>by Achasan</subtitle><entry><title type="html">[PRO] LV2 : 가장 큰 수</title><link href="https://achasan.github.io/lv2_Biggest_Num" rel="alternate" type="text/html" title="[PRO] LV2 : 가장 큰 수" /><published>2021-12-29T00:00:00+09:00</published><updated>2021-12-29T00:00:00+09:00</updated><id>https://achasan.github.io/lv2_Biggest_Num</id><content type="html" xml:base="https://achasan.github.io/lv2_Biggest_Num">&lt;h1 id=&quot;프로그래머스-lv2--가장-큰-수&quot;&gt;프로그래머스 Lv2 : 가장 큰 수&lt;/h1&gt;
+
+&lt;h2 id=&quot;문제-설명&quot;&gt;문제 설명&lt;/h2&gt;
+
+&lt;p&gt;0 또는 양의 정수가 주어졌을 때, 정수를 이어 붙여 만들 수 있는 가장 큰 수를 알아내 주세요.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, 주어진 정수가 [6, 10, 2]라면 [6102, 6210, 1062, 1026, 2610, 2106]를 만들 수 있고, 이중 가장 큰 수는 6210입니다.&lt;/p&gt;
+
+&lt;p&gt;0 또는 양의 정수가 담긴 배열 numbers가 매개변수로 주어질 때, 순서를 재배치하여 만들 수 있는 가장 큰 수를 문자열로 바꾸어 return 하도록 solution 함수를 작성해주세요.&lt;/p&gt;
+
+&lt;h2 id=&quot;제한-사항&quot;&gt;제한 사항&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;numbers의 길이는 1 이상 100,000 이하입니다.&lt;/li&gt;
+  &lt;li&gt;numbers의 원소는 0 이상 1,000 이하입니다.&lt;/li&gt;
+  &lt;li&gt;정답이 너무 클 수 있으니 문자열로 바꾸어 return 합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;입출력-예&quot;&gt;입출력 예&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;[6, 10, 2] &amp;gt; “6210”&lt;/li&gt;
+  &lt;li&gt;[3, 30, 34, 5, 9] &amp;gt; “9534330”&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;입력한-코드&quot;&gt;입력한 코드&lt;/h2&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Comparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+                &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+                &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compareTo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;strings&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;0&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;정렬 심화문제이다. 로직 자체는 매우 간단하지만 어떻게 구현해야할지 생각하는게 정말 힘들었다.&lt;/p&gt;
+
+&lt;p&gt;처음에는 숫자의 맨 앞자리를 비교한 후, 같은 숫자가 있을 경우 다음 자릿수가 있는지 체크하고 이를 비교하는 Comparator 객체를 만드려고 했으나 로직이 너무 복잡해져서 문제의도를 이런식으로 출제하는 건 개발자스럽지 않다는 생각을 갖게되어 바로 포기했다.&lt;/p&gt;
+
+&lt;p&gt;문제의 포인트는 ‘문자열’ 비교였다. 배열 내에 있는 각 원소들을 String타입으로 바꾸고 두 원소를 합친 다음에 compareTo() 메서드를 사용하여 정렬하게되면 손쉽게 구현이 가능했다. 큰 수를 구해야하므로 오름차순이 아닌 내림차순으로 구현되어야한다. 따라서 (o2+o1).compareTo(o1+o2)의 값을 리턴하도록 하였다.&lt;/p&gt;
+
+&lt;p&gt;정렬문제는 Comparator 객체를 얼마나 잘 다루느냐가 핵심인 것 같다. 보통 정렬 알고리즘이 두 객체를 어떻게 비교하느냐에 따라서 결정되기 때문에 Comparator에 대한 이해가 잘 된다면 손 쉽게 문제에 접근할 수 있는 것 같다. 해당 객체는 &lt;a href=&quot;https://achasan.github.io/Comparator_Comparable&quot;&gt;여기&lt;/a&gt; 에서 따로 포스팅하여 다루었기 때문에 참고하는 것이 좋을 것 같다.&lt;/p&gt;
+
+&lt;p&gt;사실 처음에 생각했던 방법이 막힌다음 내 머리로는 못 풀겠다고 판단하여 구글링을 하면서 힌트를 얻었다. String으로 compareTo() 메서드를 응용하는 방법을 알았으므로 앞으로 사용할 일이 있으면 활용해야겠다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">프로그래머스 Lv2 : 가장 큰 수</summary></entry><entry><title type="html">[BOJ] 1874번 : 스택 수열</title><link href="https://achasan.github.io/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" /><published>2021-12-26T00:00:00+09:00</published><updated>2021-12-26T00:00:00+09:00</updated><id>https://achasan.github.io/s3_stack_sequence</id><content type="html" xml:base="https://achasan.github.io/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -277,143 +345,7 @@
 
 &lt;p&gt;여기서 중요한 점은 containsKey 메서드를 사용하여 중복여부를 판단하는 것이다. 문제 자체가 중복되는 값은 같은 순위값을 매기기 때문에 중복되는 값이 있으면 반복문에서 걸러내는 작업이 중요하다.&lt;/p&gt;
 
-&lt;p&gt;좌표압축이라는 키워드를 처음 들어보기도했고, 문제설명이 조금 이해안되게 나온 것 같기도하고.. 구현하는데는 큰 어려움은 없었다. 다만 이해가 안되서 좌표압축이 무엇인지 구글링을 해보긴 했다.. 이번 기회에 이해하고 넘어가는게 좋을 듯 싶다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">18870번 : 좌표압축</summary></entry><entry><title type="html">[BOJ] 2018번 : 통계학</title><link href="https://achasan.github.io/s4-Statistics" rel="alternate" type="text/html" title="[BOJ] 2018번 : 통계학" /><published>2021-12-23T00:00:00+09:00</published><updated>2021-12-23T00:00:00+09:00</updated><id>https://achasan.github.io/s4-Statistics</id><content type="html" xml:base="https://achasan.github.io/s4-Statistics">&lt;h1 id=&quot;2018번--통계학-link&quot;&gt;2018번 : 통계학 &lt;a href=&quot;https://www.acmicpc.net/problem/2108&quot;&gt;Link&lt;/a&gt;&lt;/h1&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-
-&lt;p&gt;수를 처리하는 것은 통계학에서 상당히 중요한 일이다. 통계학에서 N개의 수를 대표하는 기본 통계값에는 다음과 같은 것들이 있다. 단, N은 홀수라고 가정하자.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;산술평균 : N개의 수들의 합을 N으로 나눈 값&lt;/li&gt;
-  &lt;li&gt;중앙값 : N개의 수들을 증가하는 순서로 나열했을 경우 그 중앙에 위치하는 값&lt;/li&gt;
-  &lt;li&gt;최빈값 : N개의 수들 중 가장 많이 나타나는 값&lt;/li&gt;
-  &lt;li&gt;범위 : N개의 수들 중 최댓값과 최솟값의 차이&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로그램을 작성하시오.&lt;/p&gt;
-
-&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
-
-&lt;p&gt;첫째 줄에 수의 개수 N(1 ≤ N ≤ 500,000)이 주어진다. 단, N은 홀수이다. 그 다음 N개의 줄에는 정수들이 주어진다. 입력되는 정수의 절댓값은 4,000을 넘지 않는다.&lt;/p&gt;
-
-&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
-
-&lt;p&gt;첫째 줄에는 산술평균을 출력한다. 소수점 이하 첫째 자리에서 반올림한 값을 출력한다.&lt;/p&gt;
-
-&lt;p&gt;둘째 줄에는 중앙값을 출력한다.&lt;/p&gt;
-
-&lt;p&gt;셋째 줄에는 최빈값을 출력한다. 여러 개 있을 때에는 최빈값 중 두 번째로 작은 값을 출력한다.&lt;/p&gt;
-
-&lt;p&gt;넷째 줄에는 범위를 출력한다.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;최빈값을 구하는 로직을 구현하다가 막혀서 개고생한 문제이다. 최빈값이 여러 개 있을 경우에는 두 번째로 작은 값을 출력해야되는데, 안풀려서 풀었다 안풀었다 한 문제.&lt;/p&gt;
-
-&lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NumberFormatException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-            &lt;span class=&quot;c1&quot;&gt;// -4000 ~ 4000 정수&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8001&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-
-            &lt;span class=&quot;c1&quot;&gt;// 최대최소, 평균 변수 생성&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;c1&quot;&gt;// 입력한 값 배열에 넣기, min, max 값 산출, 총합 구하기&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-                &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]++;&lt;/span&gt;
-
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-                &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;avg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;c1&quot;&gt;//중앙값 구하기&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode_num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8001&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-                    &lt;span class=&quot;cm&quot;&gt;/**
-                    * 중앙값 구하기, count가 (n+1)/2 보다 작을 경우에는
-                    * mid 값 설정
-                    */&lt;/span&gt;
-                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-
-
-                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;mode_num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;mode_num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;avg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode_num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;이 문제에서 중요하게 보아야할 부분은 정수의 절댓값이 4000을 넘지 않는다는 점이다. Counting sort를 사용하여 문제를 풀라는 소리와 같다.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;따라서 8001개의 공간을 가진 int 배열을 생성해서 입력한 값에 따라 해당하는 배열 자리에 수를 하나씩 더하여 값을 저장하였다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;산술평균과 범위를 구하는 법은 쉽다. 배열에 값을 추가할 때마다 최솟값과 최대값인지를 확인하고 변수에 값을 저장하기만 하면 된다.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;산술평균의 경우 값을 소수점 첫 번째 자리에서 반올림한다고 했으므로, sum 변수를 double타입으로 캐스팅해야 값이 누락되지 않는다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Counting sort를 사용하므로 반복문에서 i를 사용하여 중앙값을 구할 수 없다. 따라서 count라는 변수를 따로 만든 다음 입력한 n의 절반이하라면 중앙값을 갱신하도록 구현하였다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;최빈값을 구하기 위해서는 2가지의 조건이 같이 돌아가야한다. 단순히 최빈값이 하나만 나오면 쉬워지지만, 같은 최빈값을 가진 수가 2개 이상이라면 이야기가 달라진다. 두 번째로 작은 값을 뽑아내야되기 때문에 check 이라는 boolean 변수를 만들어 같은 최빈값이 두 번째로 나왔다면 그 값을 홀드하고 check을 false로 만들어 다음에 또 최빈값이 나오더라도 패스하도록 구현하였다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">2018번 : 통계학 Link</summary></entry><entry><title type="html">[BOJ] 1427번 : 소트인사이드</title><link href="https://achasan.github.io/s5_sort_inside" rel="alternate" type="text/html" title="[BOJ] 1427번 : 소트인사이드" /><published>2021-12-23T00:00:00+09:00</published><updated>2021-12-23T00:00:00+09:00</updated><id>https://achasan.github.io/s5_sort_inside</id><content type="html" xml:base="https://achasan.github.io/s5_sort_inside">&lt;h1 id=&quot;1427번--소트인사이드-링크&quot;&gt;1427번 : 소트인사이드 &lt;a href=&quot;https://www.acmicpc.net/problem/1427&quot;&gt;(링크)&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;좌표압축이라는 키워드를 처음 들어보기도했고, 문제설명이 조금 이해안되게 나온 것 같기도하고.. 구현하는데는 큰 어려움은 없었다. 다만 이해가 안되서 좌표압축이 무엇인지 구글링을 해보긴 했다.. 이번 기회에 이해하고 넘어가는게 좋을 듯 싶다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">18870번 : 좌표압축</summary></entry><entry><title type="html">[BOJ] 1427번 : 소트인사이드</title><link href="https://achasan.github.io/s5_sort_inside" rel="alternate" type="text/html" title="[BOJ] 1427번 : 소트인사이드" /><published>2021-12-23T00:00:00+09:00</published><updated>2021-12-23T00:00:00+09:00</updated><id>https://achasan.github.io/s5_sort_inside</id><content type="html" xml:base="https://achasan.github.io/s5_sort_inside">&lt;h1 id=&quot;1427번--소트인사이드-링크&quot;&gt;1427번 : 소트인사이드 &lt;a href=&quot;https://www.acmicpc.net/problem/1427&quot;&gt;(링크)&lt;/a&gt;&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -624,7 +556,143 @@
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;2차원 배열의 정렬방식은 Array.sort() 메서드를 사용하되, 값을 비교하는 방식은 콜백으로 따로 설정해주어 사용해야한다. 만약 내림차순으로 정렬하려고할 때도 위의 형식으로 콜백을 만들어주면 로직에 맞춰서 정렬을 해주니 참고하는 것이 좋을 것 같다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">11650번 : 좌표 정렬하기</summary></entry><entry><title type="html">객체지향의 사실과 오해 1장 정리</title><link href="https://achasan.github.io/OOP_1" rel="alternate" type="text/html" title="객체지향의 사실과 오해 1장 정리" /><published>2021-12-22T00:00:00+09:00</published><updated>2021-12-22T00:00:00+09:00</updated><id>https://achasan.github.io/OOP_1</id><content type="html" xml:base="https://achasan.github.io/OOP_1">&lt;h1 id=&quot;객체지향의-사실과-오해-1장-정리&quot;&gt;객체지향의 사실과 오해 1장 정리&lt;/h1&gt;
+&lt;p&gt;2차원 배열의 정렬방식은 Array.sort() 메서드를 사용하되, 값을 비교하는 방식은 콜백으로 따로 설정해주어 사용해야한다. 만약 내림차순으로 정렬하려고할 때도 위의 형식으로 콜백을 만들어주면 로직에 맞춰서 정렬을 해주니 참고하는 것이 좋을 것 같다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">11650번 : 좌표 정렬하기</summary></entry><entry><title type="html">[BOJ] 2018번 : 통계학</title><link href="https://achasan.github.io/s4-Statistics" rel="alternate" type="text/html" title="[BOJ] 2018번 : 통계학" /><published>2021-12-23T00:00:00+09:00</published><updated>2021-12-23T00:00:00+09:00</updated><id>https://achasan.github.io/s4-Statistics</id><content type="html" xml:base="https://achasan.github.io/s4-Statistics">&lt;h1 id=&quot;2018번--통계학-link&quot;&gt;2018번 : 통계학 &lt;a href=&quot;https://www.acmicpc.net/problem/2108&quot;&gt;Link&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+
+&lt;p&gt;수를 처리하는 것은 통계학에서 상당히 중요한 일이다. 통계학에서 N개의 수를 대표하는 기본 통계값에는 다음과 같은 것들이 있다. 단, N은 홀수라고 가정하자.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;산술평균 : N개의 수들의 합을 N으로 나눈 값&lt;/li&gt;
+  &lt;li&gt;중앙값 : N개의 수들을 증가하는 순서로 나열했을 경우 그 중앙에 위치하는 값&lt;/li&gt;
+  &lt;li&gt;최빈값 : N개의 수들 중 가장 많이 나타나는 값&lt;/li&gt;
+  &lt;li&gt;범위 : N개의 수들 중 최댓값과 최솟값의 차이&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;N개의 수가 주어졌을 때, 네 가지 기본 통계값을 구하는 프로그램을 작성하시오.&lt;/p&gt;
+
+&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
+
+&lt;p&gt;첫째 줄에 수의 개수 N(1 ≤ N ≤ 500,000)이 주어진다. 단, N은 홀수이다. 그 다음 N개의 줄에는 정수들이 주어진다. 입력되는 정수의 절댓값은 4,000을 넘지 않는다.&lt;/p&gt;
+
+&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
+
+&lt;p&gt;첫째 줄에는 산술평균을 출력한다. 소수점 이하 첫째 자리에서 반올림한 값을 출력한다.&lt;/p&gt;
+
+&lt;p&gt;둘째 줄에는 중앙값을 출력한다.&lt;/p&gt;
+
+&lt;p&gt;셋째 줄에는 최빈값을 출력한다. 여러 개 있을 때에는 최빈값 중 두 번째로 작은 값을 출력한다.&lt;/p&gt;
+
+&lt;p&gt;넷째 줄에는 범위를 출력한다.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;최빈값을 구하는 로직을 구현하다가 막혀서 개고생한 문제이다. 최빈값이 여러 개 있을 경우에는 두 번째로 작은 값을 출력해야되는데, 안풀려서 풀었다 안풀었다 한 문제.&lt;/p&gt;
+
+&lt;h3 id=&quot;코드&quot;&gt;코드&lt;/h3&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NumberFormatException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// -4000 ~ 4000 정수&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8001&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// 최대최소, 평균 변수 생성&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;// 입력한 값 배열에 넣기, min, max 값 산출, 총합 구하기&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
+
+                &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]++;&lt;/span&gt;
+
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+                &lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;avg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sum&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;range&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;max&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;min&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//중앙값 구하기&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode_num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8001&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+                    &lt;span class=&quot;cm&quot;&gt;/**
+                    * 중앙값 구하기, count가 (n+1)/2 보다 작을 경우에는
+                    * mid 값 설정
+                    */&lt;/span&gt;
+                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+
+
+                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;mode_num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;mode_num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                        &lt;span class=&quot;n&quot;&gt;check&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Math&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;round&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;avg&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode_num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 문제에서 중요하게 보아야할 부분은 정수의 절댓값이 4000을 넘지 않는다는 점이다. Counting sort를 사용하여 문제를 풀라는 소리와 같다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;따라서 8001개의 공간을 가진 int 배열을 생성해서 입력한 값에 따라 해당하는 배열 자리에 수를 하나씩 더하여 값을 저장하였다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;산술평균과 범위를 구하는 법은 쉽다. 배열에 값을 추가할 때마다 최솟값과 최대값인지를 확인하고 변수에 값을 저장하기만 하면 된다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;산술평균의 경우 값을 소수점 첫 번째 자리에서 반올림한다고 했으므로, sum 변수를 double타입으로 캐스팅해야 값이 누락되지 않는다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Counting sort를 사용하므로 반복문에서 i를 사용하여 중앙값을 구할 수 없다. 따라서 count라는 변수를 따로 만든 다음 입력한 n의 절반이하라면 중앙값을 갱신하도록 구현하였다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;최빈값을 구하기 위해서는 2가지의 조건이 같이 돌아가야한다. 단순히 최빈값이 하나만 나오면 쉬워지지만, 같은 최빈값을 가진 수가 2개 이상이라면 이야기가 달라진다. 두 번째로 작은 값을 뽑아내야되기 때문에 check 이라는 boolean 변수를 만들어 같은 최빈값이 두 번째로 나왔다면 그 값을 홀드하고 check을 false로 만들어 다음에 또 최빈값이 나오더라도 패스하도록 구현하였다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Achasan</name></author><category term="Algorhythm" /><summary type="html">2018번 : 통계학 Link</summary></entry><entry><title type="html">객체지향의 사실과 오해 1장 정리</title><link href="https://achasan.github.io/OOP_1" rel="alternate" type="text/html" title="객체지향의 사실과 오해 1장 정리" /><published>2021-12-22T00:00:00+09:00</published><updated>2021-12-22T00:00:00+09:00</updated><id>https://achasan.github.io/OOP_1</id><content type="html" xml:base="https://achasan.github.io/OOP_1">&lt;h1 id=&quot;객체지향의-사실과-오해-1장-정리&quot;&gt;객체지향의 사실과 오해 1장 정리&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/ObjectOrientation.png&quot; alt=&quot;book&quot; /&gt;&lt;/p&gt;
 
@@ -926,318 +994,4 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/result.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;프로젝트를 한다면 정규식으로 아이디 양식을 제한하는 코드를 만들어보고 싶다. 일단 AJAX의 기본적인 기능에 대해서 알 수 있었으므로 만족한다. 비동기로 기능을 구현하는게 굉장히 편한 것 같다. 나중에는 게시판 페이징을 비동기로 이동하는 것도 구현해보고 싶은 생각이 든다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="ETC" /><summary type="html">AJAX 사용하여 아이디 중복체크하기(스프링부트)</summary></entry><entry><title type="html">HTTP 헤더 살펴보기(협상, 우선순위)</title><link href="https://achasan.github.io/http_basic_6" rel="alternate" type="text/html" title="HTTP 헤더 살펴보기(협상, 우선순위)" /><published>2021-11-02T00:00:00+09:00</published><updated>2021-11-02T00:00:00+09:00</updated><id>https://achasan.github.io/http_basic_6</id><content type="html" xml:base="https://achasan.github.io/http_basic_6">&lt;h1 id=&quot;http-웹-기본-지식-6&quot;&gt;HTTP 웹 기본 지식 6&lt;/h1&gt;
-
-&lt;h2 id=&quot;http-헤더-자세히&quot;&gt;HTTP 헤더 자세히&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-12-45-06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;HTTP 헤더는 HTTP 전송에 필요한 모든 부가정보들을 담은 구역이라고 말했었다. HTTP 헤더의 자세한 구조를 알아보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-12-46-49.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;헤더의-분류rfc2616-기준&quot;&gt;헤더의 분류(RFC2616 기준)&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;General 헤더 : 메시지 전체에 적용되는 정보를 말한다. (Connection: close)&lt;/li&gt;
-  &lt;li&gt;Request 헤더 : 요청 클라이언트의 정보를 말한다.(User-Agent: Mozilla/5.0 ..)&lt;/li&gt;
-  &lt;li&gt;Response 헤더 : 응답 정보를 말한다. (Server: Apache)&lt;/li&gt;
-  &lt;li&gt;Entity 헤더 : 엔티티 바디의 정보를 말한다. (Content-Type: text/html; charset=UTF-8, Content-Length: 3423)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-12-49-30.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;메시지 본문(Message Body)는 엔티티 본문(entity body)을 전달하는데 사용한다.&lt;/li&gt;
-  &lt;li&gt;엔티티 본문은 요청이나 응답에서 전달할 실제 데이터가 담겨있다.&lt;/li&gt;
-  &lt;li&gt;엔티티 헤더는 엔티티 본문의 데이터를 해석할 수 있는 정보를 제공한다.
-    &lt;ul&gt;
-      &lt;li&gt;데이터 유형(html, json), 데이터 길이, 압축정보 등등을 제공한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;메시지 본문이 엔티티 본문을 포함한다고 보면 된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;원래는 이렇게 정의가 되어 있엇으나, &lt;strong&gt;2014년에 RFC7230~7235 개정판이 등장&lt;/strong&gt;하게 된다. 변경사항은 다음과 같다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;strong&gt;엔티티(Entity)를 표현(Representation)으로 바꿈&lt;/strong&gt;&lt;/li&gt;
-  &lt;li&gt;여기서 Representation = Representation Metadata + Representation Data 를 말한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-12-54-04.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;메시지 본문(message body)을 통해 표현 데이터를 전달하게된다.&lt;/li&gt;
-  &lt;li&gt;여기서 메시지 본문을 페이로드(payload)라고 한다.&lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;표현은 요청이나 응답에서 전달할 실제 데이터&lt;/strong&gt;를 말한다.&lt;/li&gt;
-  &lt;li&gt;또한 &lt;strong&gt;표현헤더는 표현 데이터를 해석할 수 있는 정보를 제공&lt;/strong&gt;한다.
-    &lt;ul&gt;
-      &lt;li&gt;데이터 유형(html, json), 데이터의 길이, 압축정보 등등을 제공한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;표현&quot;&gt;표현&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Content-Type: 표현 데이터의 형식
-    &lt;ul&gt;
-      &lt;li&gt;미디어 타입이나 문자 인코딩을 설명한다.&lt;/li&gt;
-      &lt;li&gt;예) “text/html; charset=UTF-8”, “application/json”, “/assets/images/HTTP_images/png”&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Content-Encoding: 표현 데이터의 압축 방식
-    &lt;ul&gt;
-      &lt;li&gt;표현한 데이터를 압축하기위해 사용한다.&lt;/li&gt;
-      &lt;li&gt;데이터를 전달하는 곳에서 압축 후에 인코딩 헤더를 추가&lt;/li&gt;
-      &lt;li&gt;데이터를 읽는 쪽에서 인코딩 헤더의 정보로 압축을 해제한다.&lt;/li&gt;
-      &lt;li&gt;예) Content-Encoding: gzip&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Content-Language: 표현 데이터의 자연언어
-    &lt;ul&gt;
-      &lt;li&gt;표현 데이터의 자연 연어를 표현한다. (ko, en, en-US)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Content-Length: 표현 데이터의 길이. 바이트 단위이다.
-    &lt;ul&gt;
-      &lt;li&gt;Transfer-Encoding(전송코딩)을 사용하면 Content-Length를 사용해서는 안된다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;그렇다면 엔티티에서 표현으로 말고 단어를 바꾼 이유는 무엇일까? 표현이라는 단어를 사용하게 된 이유는 HTTP헤더에서 어떤 Content type으로 요청/응답을 하느냐에 따라 HTML로 표현될 지, JSON으로 표현될 지, image로 표현될 지가 달라지기 때문에 표현이라는 단어를 사용하게 된 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;협상컨텐츠-네고시에이션&quot;&gt;협상(컨텐츠 네고시에이션)&lt;/h2&gt;
-
-&lt;p&gt;협상은 클라이언트가 선호하는 표현을 요청하는 것이다. 핵심적으로 사용되는 4가지가 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Accept: 클라이언트가 선호하는 미디어 타입 전달&lt;/li&gt;
-  &lt;li&gt;Accept-Charset: 클라이언트가 선호하는 문자 인코딩&lt;/li&gt;
-  &lt;li&gt;Accept-Encoding: 클라이언트가 선호하는 압축 인코딩&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Accept-Language: 클라이언트가 선호하는 자연 언어&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;협상 헤더는 &lt;strong&gt;요청 시에만 사용&lt;/strong&gt;한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;그렇다면 클라이언트가 선호하는 표현은 무엇이고, 협상이라는 것은 어디에 쓰이는 지 알아보자. 다음은 Accept-Language를 예로 들어 설명한 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-02-49.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;상황은 이렇다. 한국어 브라우저를 사용하는 클라이언트가 있고, 영어(기본)와 한국어를 지원하는 서버가 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;클라이언트가 GET방식으로 /event URI가 있는 페이지를 요청한다.&lt;/li&gt;
-  &lt;li&gt;서버는 클라이언트의 요청을 받는다. 클라이언트 측에서 따로 이야기한게 없었으므로 기본언어인 영어로 메시지 바디를 전송한다.&lt;/li&gt;
-  &lt;li&gt;클라이언트는 한국어 브라우저를 사용하지만 영어로 작성된 페이지를 보게 된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;클라이언트는 한국어를 사용하기 때문에 한국어로 되어있는 페이지를 보길 원한다. 하지만 한국어로 페이지를 달라는 표현이 없었기 때문에 서버에서는 기본언어로 설정되있는 영어로 페이지를 보여주게 된다. 한국어를 원하는 클라이언트는 이제 다음과 같이 요청을 보낸다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-09-21.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Accept-Language: ko 라는 HTTP 헤더 정보를 넣어서 요청을 보냈다. 서버는 이를 읽으면 클라이언트 측에서 한국어를 사용한다는 것을 인지하고 한국어로 되어있는 HTML 페이지로 응답하게된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-10-58.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;한 가지 더 생각해보자, 만약 서버에서 한국어를 지원하지 않고, 독일어(기본), 영어만 지원한다면 어떻게 될까? 기본언어가 독일어로 되어있지만 한국인은 그래도 영어로 홈페이지를 보는 것이 차라리 나을 것이다. 하지만 Accept-Language를 ko로 보내면 서버에서는 지원하는 언어가 없기 때문에 기본언어인 독일어를 보여주게 된다. 이럴 땐 어떻게 해야될까?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;협상과-우선순위&quot;&gt;협상과 우선순위&lt;/h2&gt;
-
-&lt;h3 id=&quot;quality-valuesq&quot;&gt;Quality Values(q)&lt;/h3&gt;
-
-&lt;p&gt;Quality Values는 여러 옵션들 중에 우선순위를 정하는 값이라고 보면 된다. Quality Values의 범위는 0~1이고, 클수록 높은 우선순위를 갖는다. 만약 생략하면 자동으로 1로 할당되어진다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Accept-Language: ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;우선순위는 다음과 같다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;ko-KR;q=1 (q 생략됨)&lt;/li&gt;
-  &lt;li&gt;ko;q=0.9&lt;/li&gt;
-  &lt;li&gt;en-US;q=0.8&lt;/li&gt;
-  &lt;li&gt;en;q=0.7&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-14-50.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;우선순위를 이용해서 이제 위의 예시로 돌아가보자, 독일어보다는 영어가 나은 한국인 입장에서, Accept-Language에 우선순위를 정하면 서버에서는 독일어보다 영어를 선호하니 영어로 홈페이지를 불러오게 될 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;협상과-우선순위2&quot;&gt;협상과 우선순위2&lt;/h3&gt;
-
-&lt;p&gt;위 처럼 Quality Values의 값을 할당하여 우선순위를 정할 수도 있다. 아니면 구체적인 명시를 통해서도 자동으로 우선순위가 정해지는 경우도 있다. 예시를 보자.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Accept: text/*, text/plain, text/plain;format=flowed, */*&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;text/plain;format=flowed&lt;/li&gt;
-  &lt;li&gt;text/plain&lt;/li&gt;
-  &lt;li&gt;text/*&lt;/li&gt;
-  &lt;li&gt;*/*&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;우선순위는 구체적으로 쓴 순서대로이다. 1번부터4번 까지 봤을 때, 1번으로 갈 수록 보다 구체적으로 명시된 것을 볼 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;전송-방식&quot;&gt;전송 방식&lt;/h2&gt;
-
-&lt;p&gt;전송 방식은 크게 네 가지가 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;단순 전송: 말 그대로 따로 처리 과정을 거치지 않고 그대로 응답을 보낸다. 기본적으로 Content-Length를 포함하여 보낸다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;압축 전송: [Content-Encoding: gzip]과 같은 형태로 인코딩 압축하여 응답을 보내는 방식, 클라이언트에서 응답을 받으면 압축을 해제한 다음 데이터를 읽게 된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;분할 전송: 데이터를 덩어리(chunked)로 나누어서 보내는 것을 말한다. Transfer-Encoding: chunked를 HTTP 헤더에 적어서 보낸다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;범위 전송: 클라이언트가 데이터를 받아가 중간에 끊겼을 때, 데이터를 다시 처음부터 끝까지 받는 것은 비효율적이므로 못받은 부분만 범위를 입력하여 요청을 보내면 서버가 범위만큼만 응답하여 데이터를 보내는 방식. Range: bytes=1001-2000과 같은 형식으로 보낸다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;일반-정보&quot;&gt;일반 정보&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;From: 유저 에이전트의 이메일 정보&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;일반적으로 잘 사용되지 않는다.&lt;/li&gt;
-      &lt;li&gt;검색 엔진같은 곳에서 주로 사용한다.&lt;/li&gt;
-      &lt;li&gt;요청에서 사용된다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;strong&gt;Referer: 이전 웹 페이지 주소&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;현재 요청된 페이지의 이전 웹 페이지 주소를 말한다.&lt;/li&gt;
-      &lt;li&gt;A &amp;gt; B로 이동하는 경우 B를 요청할 때 Referer: A를 포함해서 요청한다.&lt;/li&gt;
-      &lt;li&gt;요청에서 사용한다.&lt;/li&gt;
-      &lt;li&gt;Referer같은 경우에는 포털사이트를 들어가서 f12를 누르고 Network에서 HTTP 메시지를 보면 바로 확인이 가능하다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;User-Agent: 유저 에이전트 애플리케이션 정보&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/
-537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;클라이언트의 애플리케이션 정보(웹 브라우저 정보 등등)&lt;/li&gt;
-      &lt;li&gt;통계 정보&lt;/li&gt;
-      &lt;li&gt;어떤 종류의 브라우저에서 장애가 발생하는지 파악이 가능하다.&lt;/li&gt;
-      &lt;li&gt;요청에서 사용한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Server: 요청을 처리하는 ORIGIN 서버의 소프트웨어 정보&lt;/p&gt;
-
-    &lt;blockquote&gt;
-      &lt;p&gt;Server: Apache/2.2.22(Debian)
-server: nginx&lt;/p&gt;
-    &lt;/blockquote&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;응답에서 사용한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Date: 메시지가 발생한 날짜와 시간&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Date: Tue, 15 Nov 1994 08:12:31 GMT&lt;/li&gt;
-      &lt;li&gt;응답에서 사용한다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;특별한-정보&quot;&gt;특별한 정보&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-11-02-14-34-13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Host: 요청한 호스트의 정보(도메인)
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;요청에서 사용(필수값)&lt;/strong&gt;&lt;/li&gt;
-      &lt;li&gt;하나의 서버가 여러 도메인을 처리해야할 때 사용&lt;/li&gt;
-      &lt;li&gt;하나의 IP주소에 여러 도메인이 적용되어 있을 때 사용&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;호스트는 서버에서 가상 도메인을 활용하여 여러 개의 가상 호스트를 사용할 때, 어떤 호스트로 요청을 보내는 지를 서버가 구분할 때 필요하다. 요청에서의 필수값이므로 서버는 이 값을 보고 어떤 호스팅으로 보내야할 지를 판단하게된다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Location: 페이지 리다이렉션
-    &lt;ul&gt;
-      &lt;li&gt;웹 브라우저는 3xx 응답의 결과에 Location 헤더가 있으면 Location 위치로 자동이동하게 된다(리다이렉트) : 응답코드 3xx에서 설명한 바 있음&lt;/li&gt;
-      &lt;li&gt;201 (Created) 상태코드의 경우 Location 값은 요청에 의해 생성된 리소스 URI이다.&lt;/li&gt;
-      &lt;li&gt;3xx (Redirection): Location 값은 요청을 자동으로 리다이렉션하기 위한 대상 리소스를 가리킨다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;Allow: 허용 가능한 HTTP 메서드
-    &lt;ul&gt;
-      &lt;li&gt;405 (Method Not Allowed)에서 응답에 포함해야한다.
-        &lt;blockquote&gt;
-          &lt;p&gt;Allow: GET, HEAD, PUT&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Retry-After: 유저 에이전트가 다음 요청을 하기까지 기다려야하는 시간&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;503(Service Unavailable) : 서비스가 언제까지 불능인지 알려줄 수 있다.&lt;/p&gt;
-
-        &lt;blockquote&gt;
-          &lt;p&gt;Retry-After: Fri, 31 Dec 1999 23:59:59 GMT (날짜 표기)&lt;/p&gt;
-        &lt;/blockquote&gt;
-
-        &lt;blockquote&gt;
-          &lt;p&gt;Retry-After: 120 (초단위 표기)&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Authorization: 클라이언트 인증 정보를 서버에 전달하는 것&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Authorization: Basic xxxxxxxxxxx&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;WWW-Authenticate: 리소스 접근 시 필요한 인증 방법을 정의함
-    &lt;ul&gt;
-      &lt;li&gt;401 Unauthorized 응답과 함께 사용한다.
-        &lt;blockquote&gt;
-          &lt;p&gt;WWW-Authenticate: Newauth realm=”apps”, type=1, title=”Login to &quot;apps&quot;”, Basic realm=”simple”&lt;/p&gt;
-        &lt;/blockquote&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Achasan</name></author><category term="SpringBoot" /><summary type="html">HTTP 웹 기본 지식 6</summary></entry></feed>
+&lt;p&gt;프로젝트를 한다면 정규식으로 아이디 양식을 제한하는 코드를 만들어보고 싶다. 일단 AJAX의 기본적인 기능에 대해서 알 수 있었으므로 만족한다. 비동기로 기능을 구현하는게 굉장히 편한 것 같다. 나중에는 게시판 페이징을 비동기로 이동하는 것도 구현해보고 싶은 생각이 든다.&lt;/p&gt;</content><author><name>Achasan</name></author><category term="ETC" /><summary type="html">AJAX 사용하여 아이디 중복체크하기(스프링부트)</summary></entry></feed>
