@@ -11,7 +11,7 @@
 
 
 
-    <title>DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절</title>
+    <title>객체지향의 사실과 오해 2장 : 상태</title>
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -46,7 +46,7 @@
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
     <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/database_1" />
+    <link rel="canonical" href="https://achasan.github.io/OOP_2" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -65,24 +65,24 @@
      <!--title below is coming from _includes/dynamic_title-->
     <meta property="og:site_name" content="Memory Repo." />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절" />
-    <meta property="og:description" content="오라클DB 공부 20210902 SQL : Structed Query Language. 사람이 원하는 바를 DBMS 프로그램에 알려주는 언어 데이터 모델에는 여러가지 종류가 있다. 계층형 모델, 네트워크형 모델, 관계형 데이터 모델, 객체지향형 모델 그 중 관계형 데이터 모델을 가장 많이 사용하는데, 데이터 간의 관계에 초점을 맞춘 데이터 모델이다. 예를들어 부서와 관련된 정보를 부서코드로 변환하여" />
-    <meta property="og:url" content="https://achasan.github.io/database_1" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/database.png" />
+    <meta property="og:title" content="객체지향의 사실과 오해 2장 : 상태" />
+    <meta property="og:description" content="객체지향의 사실과 오해 2장 : 상태 객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록 2장에서의 핵심은 객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것이다. 객체의 상태와 행동을 통해" />
+    <meta property="og:url" content="https://achasan.github.io/OOP_2" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/OOP_cover.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
-    <meta property="article:published_time" content="2021-09-02T00:00:00+09:00" />
-    <meta property="article:modified_time" content="2021-09-02T00:00:00+09:00" />
-    <meta property="article:tag" content="Basic" />
+    <meta property="article:published_time" content="2022-01-01T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-01-01T00:00:00+09:00" />
+    <meta property="article:tag" content="Etc" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절" />
-    <meta name="twitter:description" content="오라클DB 공부 20210902 SQL : Structed Query Language. 사람이 원하는 바를 DBMS 프로그램에 알려주는 언어 데이터 모델에는 여러가지 종류가 있다. 계층형 모델, 네트워크형 모델, 관계형 데이터 모델, 객체지향형 모델 그 중 관계형 데이터 모델을 가장 많이 사용하는데, 데이터 간의 관계에 초점을 맞춘 데이터 모델이다. 예를들어 부서와 관련된 정보를 부서코드로 변환하여" />
+    <meta name="twitter:title" content="객체지향의 사실과 오해 2장 : 상태" />
+    <meta name="twitter:description" content="객체지향의 사실과 오해 2장 : 상태 객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록 2장에서의 핵심은 객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것이다. 객체의 상태와 행동을 통해" />
     <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/database.png" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/OOP_cover.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
-    <meta name="twitter:data2" content="Basic" />
+    <meta name="twitter:data2" content="Etc" />
     <meta name="twitter:site" content="@false" />
     <meta name="twitter:creator" content="@false" />
     <meta property="og:image:width" content="1400" />
@@ -97,18 +97,18 @@
         "name": "Memory Repo.",
         "logo": "https://achasan.github.io/false"
     },
-    "url": "https://achasan.github.io/database_1",
+    "url": "https://achasan.github.io/OOP_2",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/database.png",
+        "url": "https://achasan.github.io/assets/images/OOP_cover.jpg",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/database_1"
+        "@id": "https://achasan.github.io/OOP_2"
     },
-    "description": "오라클DB 공부 20210902 SQL : Structed Query Language. 사람이 원하는 바를 DBMS 프로그램에 알려주는 언어 데이터 모델에는 여러가지 종류가 있다. 계층형 모델, 네트워크형 모델, 관계형 데이터 모델, 객체지향형 모델 그 중 관계형 데이터 모델을 가장 많이 사용하는데, 데이터 간의 관계에 초점을 맞춘 데이터 모델이다. 예를들어 부서와 관련된 정보를 부서코드로 변환하여"
+    "description": "객체지향의 사실과 오해 2장 : 상태 객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록 2장에서의 핵심은 객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것이다. 객체의 상태와 행동을 통해"
 }
     </script>
 
@@ -121,7 +121,7 @@
     </script> -->
 
     <meta name="generator" content="Jekyll 3.6.2" />
-    <link rel="alternate" type="application/rss+xml" title="DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절" href="/feed.xml" />
+    <link rel="alternate" type="application/rss+xml" title="객체지향의 사실과 오해 2장 : 상태" href="/feed.xml" />
 
 
 </head>
@@ -175,204 +175,127 @@ into the {body} of the default.hbs template -->
 <main id="site-main" class="site-main outer" role="main">
     <div class="inner">
 
-        <article class="post-full  tag-basic post tag-Basic ">
+        <article class="post-full  tag-etc post tag-ETC ">
 
             <header class="post-full-header">
                 <section class="post-full-meta">
-                    <time class="post-full-meta-date" datetime=" 2 September 2021"> 2 September 2021</time>
+                    <time class="post-full-meta-date" datetime=" 1 January 2022"> 1 January 2022</time>
                     
                         <span class="date-divider">/</span>
                         
                             
-                                <a href='/tag/basic/'>BASIC</a>
+                                <a href='/tag/etc/'>ETC</a>
                             
                         
                     
                 </section>
-                <h1 class="post-full-title">DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절</h1>
+                <h1 class="post-full-title">객체지향의 사실과 오해 2장 : 상태</h1>
             </header>
 
             
-            <figure class="post-full-image" style="background-image: url(/assets/images/database.png)">
+            <figure class="post-full-image" style="background-image: url(/assets/images/OOP_cover.jpg)">
             </figure>
             
 
             <section class="post-full-content">
                 <div class="kg-card-markdown">
-                    <h1 id="오라클db-공부-20210902">오라클DB 공부 20210902</h1>
+                    <h1 id="객체지향의-사실과-오해-2장--상태">객체지향의 사실과 오해 2장 : 상태</h1>
 
-<p>SQL : Structed Query Language. 사람이 원하는 바를 DBMS 프로그램에 알려주는 언어</p>
+<p><br /></p>
 
-<p>데이터 모델에는 여러가지 종류가 있다. 계층형 모델, 네트워크형 모델, 관계형 데이터 모델, 객체지향형 모델
-그 중 관계형 데이터 모델을 가장 많이 사용하는데, 데이터 간의 관계에 초점을 맞춘 데이터 모델이다.</p>
+<blockquote>
+  <p>객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록</p>
+</blockquote>
 
-<p>예를들어 부서와 관련된 정보를 부서코드로 변환하여 모든 직원의 부서 정보를 변경해야할 경우가 있을 경우
-부서 코드의 내용만 변경하여 간단하게 관리하게끔 하는 것이 관계형 데이터 모델이다.
-관계형 데이터 모델은 기본키와 외래키로 구성되어있는데, 이는 나중에 설명</p>
+<p>2장에서의 핵심은 <strong>객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것</strong>이다. 객체의 상태와 행동을 통해 여러 객체들이 서로 협력하며 하나의 목표를 달성하는 원리들을 설명하면서, 현실과 객체지향의 차이점을 보여주어 어떻게 소프트웨어를 설계해야하는지 방향을 제시해준다.</p>
 
-<p>관계형 DB의 구성요소로는 TABLE, ROW, COLUMN이 있다.
-관계형 DB는 기본적으로 데이터를 2차원 표 형태로 저장하고 관리한다. 이를 TABLE이라고 한다.
-TABLE은 행과 열로 구성되어있는데, 행(ROW)은 저장하려는 하나의 객체를 구성하는 값이다.
-열(COLUMN)은 저장하는 데이터를 대표하는 이름과 공통특성을 정의한 것으로, 저장 정보의 종류와 자료의
-저장가능한 최대크기, 중복여부를 설정할 수 있다.</p>
-
-<p>오라클 세팅은 CMD를 통해서 한다.
-CREATE USER (ID) IDENTIFIED BY (PW); &gt; 사용자를 생성하는 것으로 DB에 엑세스하고 관리, 수정할 수 있는 사용자를 추가하는 것이다.
-GRANT CONNECT, RESOURCE, DBA TO (ID) &gt; 만든 ID에 데이터와 관련된 권한을 부여한다.</p>
-
-<h2 id="오라클-column에-입력하는-주요-자료형data-type">오라클 COLUMN에 입력하는 주요 자료형(DATA TYPE)</h2>
-
-<ol>
-  <li>
-    <p>NUMBER(N, N1) : N은 전체 자릿수를 의미하고 N1은 소수 자릿수를 의미한다. N-N1은 정수 자릿수를 의미한다.
-정수는 1~38자리까지 표현가능하고, 실수는 -84~127자리까지 표현이 가능하다.
-예를들어, NUMBER(7,2)는 전체 7자리, 정수를 5자리, 실수를 2자리 표시할 수 있는 자료형이다.</p>
-  </li>
-  <li>
-    <p>CHAR(N) : 문자열이 n개 저자오디는 자료형으로, 고정자료형이다. 자릿수를 채우지 않아도 공간이 남기 때문에 비효율적이다.</p>
-  </li>
-  <li>
-    <p>VARCHAR(N) : 문자열이 N개 저장되는 자료형이다. 지금은 사용하지 않는 자료형</p>
-  </li>
-  <li>
-    <p>VARCHAR2(N) : 문자열이 N개 저장되는 자료형으로 가변자료형이다. 쓰이지 않은 공간은 없애버리기 때문에 CHAR에 비해 효율적</p>
-  </li>
-  <li>
-    <p>DATE : 날짜가 저장되는 자료형으로 시스템의 현재 날자 및 시간이 저장된다.</p>
-  </li>
-</ol>
-
-<h2 id="db관련-개념">DB관련 개념</h2>
+<p>이를 설명하기위해 글쓴이는 이상한 나라의 앨리스를 예시로 들어 설명한다. 요약하자면 다음과 같다.</p>
 
 <ul>
   <li>
-    <p>무결성(INTEGRITY) : DB에 저장된 값이 실제 현실에서의 수치와 같아야하는 데이터의 특징. 결성이 없는 것.</p>
+    <p>앨리스는 아름다운 정원을 발견했다. 정원에 들어가는 문이 40센티미터 이하여서 들어갈 수 없다.</p>
   </li>
   <li>
-    <p>무결성 제약조건 : DB에 저장된 값의 정확성을 보장하기 위해 정확하지 않은 데이터의 저장을 방지하기 위한 조건을 말한다.</p>
+    <p>앨리스는 주변에 ‘마셔라’가 적혀있는 병에있는 액체를 마시자 키가 24센티미터로 줄어들었다.</p>
+  </li>
+  <li>
+    <p>정원으로가는 문을 열려면 열쇠를 사용해야한다. 너무 작아져서 열쇠를 사용할 수 없게되었다.</p>
+  </li>
+  <li>
+    <p>이번엔 탁자 아래 케이크가 있어서 먹었더니 몸이 천장에 닿을만큼 훨씬 커지게되었다.</p>
+  </li>
+  <li>
+    <p>이 때 주변을 지나가던 토끼가 놀라 부채를 떨어뜨렸다. 앨리스는 더워서 부채를 부쳤는데 키가 60센티미터로 다시 줄었다.</p>
+  </li>
+  <li>
+    <p>주변을 걸어가던 앨리스는 쐐기벌레를 만난다. 쐐기벌레는 버섯을 하나 주는데, 한쪽을 먹으면 크기가 작아지고, 반대쪽을 먹으면 크기가 커지는 버섯이었다.</p>
+  </li>
+  <li>
+    <p>앨리스는 지금까지 얻은 물건을 통해 몸의 크기를 조절해 문을 열고 아름다운 정원으로 들어갔다.</p>
   </li>
 </ul>
 
-<h3 id="제약조건의-종류">제약조건의 종류</h3>
+<h2 id="앨리스-객체">앨리스 객체</h2>
 
-<ol>
-  <li>
-    <p>UNIQUE 제약 조건 : 중복이 되면 안되는 제약조건으로, 중복이 있을 경우에는 에러가 발생한다. 단, NULL은 중복에 포함되지 않는다.</p>
-  </li>
-  <li>
-    <p>NOT NULL 제약 조건 : 지정된 열에 NULL을 허용하지 않는 제약 조건, 공백을 허용하지 않는다.</p>
-  </li>
-  <li>
-    <p>CHECK 제약 조건 : 설정한 데이터값만 가져오게 할 수 있는 제약조건이다.</p>
-  </li>
-  <li>
-    <p>PRIMARY KEY 제약 조건 : UNIQUE + NOT NULL을 합친 조건이다. PRIMARY KEY는 기본키라고 불리고, 해당 테이블을 대표하는
-컬럼으로서의 역할을 수행하며, 다른테이블에서 외래키들이 참조할 수 있는 키로서의 자격을 가지게 된다.
-(외래키 : 컬럼이 다른 테이블에서 정의된 데이터를 참조하는 것)</p>
-  </li>
-</ol>
+<p>위의 이야기에서 주목해야할 점은 앨리스의 키의 변화이다. 정원으로 들어가기 위한 조건을 충족시키기위해 시간의 흐름에 따라 앨리스의 <strong>상태</strong>는 바뀌게 된다. 앨리스의 상태를 변화시키는 것은 앨리스의 <strong>행동</strong>이다. 버섯을 먹고, 음료수를 마시고, 부채질을 하고, 케이크를 먹으면서 앨리스의 키, 즉 상태는 변화한다.</p>
 
-<h2 id="테이블">테이블</h2>
+<p>또한 앨리스의 행동으로 앨리스의 키가 커지거나 작아지게되는데, 행동을 하기 전에 앨리스의 키가 얼마였느냐가 행동 후의 앨리스의 상태를 결정하게된다. <strong>앨리스가 한 행동의 결과는 앨리스의 상태에 의존적이다</strong>.</p>
 
-<ol>
-  <li>
-    <p>테이블 생성 : CREATE TABLE 테이블이름(컬럼 자료형 제약조건);
-한번에 여러개의 컬럼을 생성할 수 있다. 제약조건은 쓰지 않아도 생성할 수 있다.</p>
-  </li>
-  <li>테이블에 컬럼 추가 : ALTER TABLE 테이블이름 ADD(컬럼 자료형 제약조건);</li>
-  <li>테이블 내 컬럼 수정 : ALTER TABLE 테이블이름 MODIFY(컬럼이름 자로형 제약조건);</li>
-  <li>테이블 내 컬럼명 수정 : ALTER TABLE 테이블이름 RENAME COLUMN 컬럼 TO 새이름;</li>
-  <li>
-    <p>테이블 내 컬럼 삭제 : ALTER TABLE 테이블이름 DROP COLUMN 컬럼;</p>
-  </li>
-  <li>
-    <p>테이블에 데이터 추가 : INSERT INTO 테이블이름 VALUES(컬럼1, 컬럼2, 컬럼3, … , 컬럼N);
-테이블에 생성되어있는 컬럼에 데이터를 넣는다. 컬럼갯수가 맞지 않으면 뒤의 컬럼은 NULL 상태가 된다.
-제약조건이 있을 경우 에러가 날 수 있다.</p>
-  </li>
-  <li>
-    <p>지정한 컬럼에만 데이터 추가 : INSERT INTO 테이블이름(컬럼1, 컬럼2, 컬럼3, 컬럼4, … , 컬럼N)
-VALUES(컬럼데이터1, 컬럼데이터2, 컬럼데이터3, 컬럼데이터4, … , 컬럼데이터N);
-테이블이름 뒤에 소괄호로 컬럼을 작성하고 VALUES 뒤에 컬럼과 관련된 데이터를 작성하는 방식
-테이블 이름 뒤에 작성한 컬럼과 형식이 동일한 자료형을 입력해야한다.</p>
-  </li>
-  <li>
-    <p>테이블의 데이터 값 수정 : UPDATE, SET 사용
-UPDATE 테이블이름 SET 컬럼 = 데이터값 WHERE 조건에 맞는 행
-조건에 맞는 행은 기본값을 써주어도되고, 원하는 행에 해당하는 데이터 값을 조건으로 맞춰주면된다.</p>
-  </li>
-  <li>특정 데이터 행 삭제 : DELETE FROM 테이블 WHERE 조건식;
-조건식에 맞는 행을 테이블에서 제거한다.</li>
-</ol>
+<p>앨리스의 행동으로 상태가 변화하게되고, 아름다운 정원으로 들어가기위해 앨리스는 적절한 행동을 통해 문을 통과할 수 있는 상태를 만들어야할 것이다. 이는 행동 간의 순서가 중요하다는 것을 의미한다. 문을 통과하려면 케이크나 음료수를 마시는 행동이 선행되어야한다.</p>
 
-<h3 id="null값을-가진-데이터와-연신-시에는-null값이-출력된다">NULL값을 가진 데이터와 연신 시에는 NULL값이 출력된다.</h3>
-
-<p>따라서 NULL값을 가진 데이터와 연산 시에는 NULL값을 특정값으로 변경하는 함수를 사용해야하는데
-NVL() 함수를 통해서 사용할 수 있다. NVL() 함수를 통해 연산 시에는 자료형을 일치시켜주어야 한다.</p>
-
-<p>NVL(NULL값이 있는 칼럼, 변경 값);</p>
-
-<ul>
-  <li>NVL2() : JAVA의 삼항연산자와 사용방법이 비슷하다. NVL2(컬럼명, EXPR1, EXPR2)
-NULL이 아닌 경우 EXPR1을 출력하고, NULL인 경우에는 EXPR2를 출력한다.</li>
-</ul>
-
-<h2 id="컬럼에-별칭-부여">컬럼에 별칭 부여</h2>
-
-<p>여러 데이터를 가지고 연산을 하면 연산된 칼럼의 이름을 수정해주어야 하는데, 이를 컬럼에 별칭을 준다고 한다.
-연산한 컬럼, 또는 함수를 사용한 컬럼 되에 AS 키워드를 쓰고, 그 뒤에 “별칭”을 작성하면 된다.
-EX) SELECT NVL(SAL, 0) AS “SAL” FROM EMP;</p>
-
-<h2 id="중복을-제거해주는-함수--distinct">중복을 제거해주는 함수 : DISTINCT</h2>
-
-<p>SELECT 바로 뒤에 쓰여야하는 함수로, 중복된 값을 제거하고 하나만 출력하는 함수이다.</p>
-
-<h2 id="literal-작업--">LITERAL 작업 : ||</h2>
-
-<p><code class="language-plaintext highlighter-rouge">||</code> 를 사용하여 데이터를 문자열과 연결하여 출력할 수 있다. 이는 CONCAT() 함수와 같은 기능이지만
-<code class="language-plaintext highlighter-rouge">||</code> 가 편하기 때문에 더 많이 사용한다.</p>
-
-<h2 id="where-조건절--작성한-조건식에-맞는-데이터를-필터링">WHERE 조건절 : 작성한 조건식에 맞는 데이터를 필터링</h2>
-
-<p>WHERE 조건절에 사용할 수 있는 연산자가 다양하게 존재한다.
-JAVA에서 비교연산자는 익숙해서 SQL에서 사용하는 연산자를 알아보았다.</p>
+<p>그렇다면 지금까지의 내용을 정리해보자. 지금까지의 내용이 객체와 중요한 공통점을 공유하게될 것이다.</p>
 
 <ul>
   <li>
-    <p>BETWEEN a AND b : A와 B 사이에 있는 범위 값을 모두 검색한다.</p>
+    <p>앨리스는 상태를 가지며 상태는 변경가능하다.</p>
   </li>
-  <li>
-    <p>IN(a, b, c) : A이거나 B이거나 C인 조건을 검색한다.</p>
+  <li>앨리스의 상태를 변경시키는 것은 앨리스의 행동이다.
+    <ul>
+      <li>행동의 결과는 상태에 의존적이고, 상태를 이용해 서술가능하다.</li>
+      <li>행동의 순서가 결과에 영향을 미친다.</li>
+    </ul>
   </li>
-  <li>
-    <p>LIKE : 특정 패턴을 가지고 있는 조건을 검색한다.</p>
-  </li>
-  <li>
-    <p>IS NULL / IS NOT NULL : NULL값을 검색 / NULL이 아닌 값을 검색</p>
-  </li>
-  <li>
-    <p>A AND B : A조건과 B 조건을 모두 만족하는 값을 검색(A와 B는 조건이 들어간다.)</p>
-  </li>
-  <li>
-    <p>A OR B : A 조건이나 B 조건 중 한 가지라도 만족하는 값을 검색한다.</p>
-  </li>
-  <li>
-    <p>NOT A : A가 아닌 모든 조건을 검색한다.</p>
-  </li>
+  <li>앨리스는 어떤상태에 있더라도 유일하게 식별 가능하다.</li>
 </ul>
 
-<p>여기서 LIKE 연산자를 어떻게 사용하는지가 궁금하였는데 %와 _를 사용하여 비슷한 데이터값들을 찾을 수 있는 연산자이다.</p>
+<p><br /></p>
 
-<ul>
-  <li>% : 글자 수에 제한이 없고 어떤 글자가 와도 상관없는 경우</li>
-  <li>
-    <p>_ : 글자 수는 한 글자만 올 수 있고 어떤 글자가 와도 상관없는 경우</p>
-  </li>
-  <li>EX) WHERE SAL LIKE ‘1%’ : SAL 컬럼에서 앞자리가 1인 데이터를 출력, 뒤에는 어떤 수가 와도 상관없다.</li>
-  <li>EX) WHERE HIREDATE LIKE *__12% : 입사일이 12월인 직원의 데이터를 출력하고 싶을 때 *를 사용한다.
-DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이므로,
-12를 썼고, 뒤에는 아무내용이나 와도 상관없으므로 %를 사용.</li>
-</ul>
+<h2 id="객체--상태와-행동">객체 : 상태와 행동</h2>
+
+<p>객체의 다양한특성을 효과적으로 설명하기 위해서는 객체를 상태, 행동, 식별자를 지닌 식체로 보는 것이 가장 효과적이다. 이 책에서는 객체를 다음과 같이 정의한다.</p>
+
+<blockquote>
+  <p>객체란 식별가능한 개체 또는 사물이다. 객체는 자동차처럼 만질 수 있는 구체적인 사물일 수도 있고, 시간처럼 추상적인 개념일 수도 있다. 객체는 구별가능한 식별자, 특징적인 행동, 변경 가능한 상태를 가진다. 소프트웨어 안에서 객체는 저장된 상태와 실행가능한 코드를 통해 구현된다.</p>
+</blockquote>
+
+<h3 id="상태">상태</h3>
+
+<p>객체가 주변 환경과의 상호작용에 어떻게 반응하는가는 그 시점까지 객체에 어떤 일이 발생했느냐에 좌우된다. 예를 들면 비행기를 타기 위해서는 항공권을 발권해야한다. 없다면 비행기를 탈 수 없고, 있다면 탈 수 있게될 것이다. 비행기를 발권여부에 대한 행동이 비행기 탑승에 영향을 미친다.</p>
+
+<p>과거에 발생한 행동의 이력을 통해 현재 발생한 행동의 결과를 판단하는 방식은 복잡하고 번거로우며, 이해하기 쉽지 않다. 이를 단순하게 하기위해 <strong>상태</strong>라는 개념을 만들게 된다. 위의 예시로 따지자면 항공권 소유여부를 상태로 만들어 이전에 비행기를 발권하는 행동을 했는지 설명과 예측이 가능해진다.</p>
+
+<p>상태를 사용하면 과거에 얽매이지 않을 수 있다. 세상의 복잡성을 완화하고 인지 과부화를 줄이는 중요한 개념이다.</p>
+
+<h3 id="상태와-프로퍼티">상태와 프로퍼티</h3>
+
+<p>모든 것을 객체로 표현할 수는 없다. 앨리스의 키는 객체가 아니다. 음료와 케이크의 양은 객체가 아니다. 상태로 표현되는 것들이다. 이러한 단순한 값들은 객체가 아니지만 객체의 상태를 표현하는 중요한 수단이 된다.</p>
+
+<p>때로는 객체를 사용해 다른 객체의 상태를 표현해야할 수도 있다. 가장 간단하고 직관적이 방법은 앨리스의 상태 일부를 음료라는 객체를 이용해 표현하는 것이다. 앨리스가 음료를 들고 있을 경우 음료 객체를 상태로 표현하여 앨리스가 음료를 들고 있는 상태임을 나타내게할 수 있다.</p>
+
+<p>앨리스가 음료를 들고 있게될 경우, 앨리스와 음료 객체는 서로 연결되게된다.</p>
+
+<p>결론적으로 모든 객체의 상태는 단순한 값과 객체의 조합으로 표현되며, 객체의 상태를 구성하는 모든 특징을 통틀어 객체의 <strong>프로퍼티(property)</strong>라고한다. 일반적으로 프로퍼티는 변경되지 않고 고정되기 때문에 ‘정적’이다. 하지만 <strong>프로퍼티 값(property value)</strong>은 시간의 흐름에 따라 변경되어 ‘동적’이다.</p>
+
+<p>앨리스가 음료를 들고 있을 경우 두 객체는 서로 연결되어있다. 앨리스가 음료를 마시게 될 경우, 앨리스는 음료를 마셨다는 메시지를 음료 객체에 전달하게되고, 음료 객체는 이에 따라 상태를 변화시킬 것이다. 객체와 객체사이의 의미 있는 연결을 <strong>링크(link)</strong>라고 한다.</p>
+
+<p>링크와 달리 객체를 구성하는 단순한 값은 <strong>속성(attribute)</strong>이라고 부른다. 앨리스의 키, 음료수의 양은 단순한 값으로 표현되므로 속성이다.</p>
+
+<p>객체의 상태를 정의해보자, 이 책에서는 다음과 같이 정의한다.</p>
+
+<blockquote>
+  <p>상태는 특정 시점에 객체가 가지고 있는 정보의 집합으로 객체의 구조적인 특징을 표현한다. 객체의 상태는 객체에 존재하는 정적인 프로퍼티와 동적인 프로퍼티 값으로 구성된다. 객체의 프로퍼티는 단순한 값과 다른 객체를 참조하는 링크로 구분할 수 있다.</p>
+</blockquote>
+
 
                 </div>
             </section>
@@ -440,7 +363,7 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
                         <header class="read-next-card-header">
                             <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
                             
-                                <h3 class="read-next-card-header-title"><a href="/tag/basic/">Basic</a></h3>
+                                <h3 class="read-next-card-header-title"><a href="/tag/etc/">Etc</a></h3>
                             
                         </header>
                         <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
@@ -450,65 +373,34 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
                                 
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/OOP_4">객체지향의 사실과 오해 3장 : 타입</a></li>
+                                        
+                                    
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/OOP_3">객체지향의 사실과 오해 3장 : 타입과 추상화</a></li>
+                                        
+                                    
                                   
                                 
                                   
-                                
+                                    
+                                        
+                                        
+                                            <li><a href="/OOP_3">객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자</a></li>
+                                        
+                                    
                                   
                                 
                                   
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
-                                  
-                                
+                                    
                                   
                                 
                                   
@@ -531,26 +423,6 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
                                     
                                         
                                         
-                                            <li><a href="/database_6">PL/SQL, 데이터 정의어(DDL)</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/database_5">제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션</a></li>
-                                        
-                                    
-                                  
-                                
-                                  
-                                    
-                                        
-                                        
-                                            <li><a href="/database_4">그룹함수(GROUP BY, HAVING)</a></li>
-                                        
                                     
                                   
                                 
@@ -562,20 +434,71 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
                                   
                                 
                                   
-                                    
-                                        
-                                        
-                                    
+                                
                                   
                                 
                                   
-                                    
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
-                            <a href="/tag/basic/">
+                            <a href="/tag/etc/">
                                 
                                     See all 5 posts  →
                                 
@@ -591,26 +514,26 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/database_2">
-                <div class="post-card-image" style="background-image: url(/assets/images/database.png)"></div>
+            <a class="post-card-image-link" href="/OOP_3">
+                <div class="post-card-image" style="background-image: url(/assets/images/OOP_cover.jpg)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/database_2">
+            <a class="post-card-content-link" href="/OOP_3">
                 <header class="post-card-header">
                     
                         
                             
-                                <span class="post-card-tags">Basic</span>
+                                <span class="post-card-tags">Etc</span>
                             
                         
                     
 
-                    <h2 class="post-card-title">조건절 키워드(LIKE, ORDER BY, NOT), 시퀀스, JOIN, DUAL 테이블</h2>
+                    <h2 class="post-card-title">객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>오라클DB 공부 20210903
+                        <p>객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자
 
 </p>
                     
@@ -630,7 +553,7 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
                 <span class="reading-time">
                     
                     
-                      11 min read
+                      8 min read
                     
                 </span>
             </footer>
@@ -640,6 +563,57 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
             
 
             <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/lv2_Biggest_Num">
+                <div class="post-card-image" style="background-image: url(/assets/images/programmers.jpg)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/lv2_Biggest_Num">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Algorhythm</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[PRO] LV2 : 가장 큰 수</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>프로그래머스 Lv2 : 가장 큰 수
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        3 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
             
 
         </div>
@@ -655,18 +629,18 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절</div>
+    <div class="floating-header-title">객체지향의 사실과 오해 2장 : 상태</div>
     <!-- <div class="floating-header-share">
         <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
     <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
 </svg>
 </div>
-        <a class="floating-header-share-tw" href="https://twitter.com/share?text=DB+%EA%B8%B0%EB%B3%B8%EA%B0%9C%EB%85%90%2C+%EC%A3%BC%EC%9A%94+%EC%9E%90%EB%A3%8C%ED%98%95%2C+%ED%85%8C%EC%9D%B4%EB%B8%94%2C+%EC%A0%9C%EC%95%BD%EC%A1%B0%EA%B1%B4%2C+%EC%A1%B0%EA%B1%B4%EC%A0%88&amp;url=https://achasan.github.io/database_1"
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EC%9D%98+%EC%82%AC%EC%8B%A4%EA%B3%BC+%EC%98%A4%ED%95%B4+2%EC%9E%A5+%3A+%EC%83%81%ED%83%9C&amp;url=https://achasan.github.io/OOP_2"
             onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
 
         </a>
-        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/database_1"
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/OOP_2"
             onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
 
