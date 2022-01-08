@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://achasan.github.io/author/Achasan/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-02T21:03:48+09:00</updated>
+  <updated>2022-01-08T23:55:15+09:00</updated>
   <id>https://achasan.github.io/author/Achasan/feed.xml</id>
 
   
@@ -32,12 +32,190 @@
 
   
     <entry>
-      <title type="html">객체지향의 사실과 오해 3장 : 타입과 추상화</title>
-      <link href="https://achasan.github.io/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 타입과 추상화" />
+      <title type="html">Toast ui Editor 사용하기</title>
+      <link href="https://achasan.github.io/toast_ui_1" rel="alternate" type="text/html" title="Toast ui Editor 사용하기" />
+      <published>2022-01-06T00:00:00+09:00</published>
+      <updated>2022-01-06T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/toast_ui_1</id>
+      <content type="html" xml:base="https://achasan.github.io/toast_ui_1">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-사용법&quot;&gt;위지윅 에디터 Toast ui Editor 사용법&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;영화커뮤니티를 주제로 스프링 프로젝트를 진행중이다. 커뮤니티는 게시판 기능이 핵심이기 때문에 사용자가 게시글을 올리기 편하도록 기능을 구현하는데 중점을 맞춰야 한다고 생각한다.&lt;/p&gt;
+
+&lt;p&gt;textarea 태그를 사용하여 게시글을 올리게 할 경우 텍스트만 올릴 수 있기 때문에 비효율적이다. 또한 글 크기나 굵기같은 수정이 안되기 때문에 불편하다.&lt;/p&gt;
+
+&lt;p&gt;따라서 오픈소스 에디터로 눈길이 가게되었고, 여러가지 에디터중 Toast ui Editor를 사용해보기로 하였다.&lt;/p&gt;
+
+&lt;p&gt;사실 오픈소스 에디터는 종류가 다양하다. 대표적인 위지윅 오픈소스 에디터로 CKEditor를 많이 사용하는 것 같았다. 여러 글을 찾아보니 확장성이 좋은 에디터인 것 같았지만 5.0으로 업데이트 되면서 에디터의 핵심기능이 유료로 전환되었다는 이야기가 많이 들리기도하고, 기능이 너무 많아서 난잡해보이는 생각이 들어서 내 스타일은 아니였다.&lt;/p&gt;
+
+&lt;p&gt;그 와중에 Toast ui 에디터를 찾게 되었다. NHN에서 개발한 오픈소스 에디터로, 마크다운과 위지윅을 둘 다 지원하고, Viewer도 지원하기 때문에 작성한 글을 HTML태그로 쉽게 변환해주고, 또 작성된 글을 Viewer를 통해 손쉽게 게시글을 볼 수 있는 장점이 있었다.&lt;/p&gt;
+
+&lt;p&gt;아무튼 이번 프로젝트를 통해 게시판 에디터 사용법을 알게되었으므로 기록하여 나중에 사용할 일이 생길 때 찾아볼 수 있도록 하는 것이 이번 글의 목적이 되겠다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;공식문서 가이드가 있으므로 &lt;a href=&quot;https://github.com/nhn/tui.editor/blob/master/docs/ko/getting-started.md&quot;&gt;여기&lt;/a&gt;에서 참고하도록 하자.&lt;/p&gt;
+
+&lt;p&gt;먼저 CDN을 통해 에디터를 불러와야한다. Toast ui에서는 npm으로 사용하는 것을 권장하지만, 이번 프로젝트는 Spring/JSP를 사용하기 때문에 CDN으로 사용하기로 하였다.&lt;/p&gt;
+
+&lt;p&gt;2021년 1월 6일 기준, 현재의 cdn 주소는 다음과 같다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;editor를 불러오기 위해서는 HTML에 id가 editor인 div 태그를 생성한 후, 태그 바로 아래에 CDN을 입력해주어야한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;editor&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;에디터를 사용하기 위해서는 제공하는 CSS도필요하다. 필자는 head태그 내부에 넣어주었다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  ...
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://uicdn.toast.com/editor/latest/toastui-editor.min.css&quot;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  ...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;CSS와 자바스크립트를 모두 불러왔다면, 이제 에디터를 띄워보자, 에디터는 자바스크립트 코드를 작성하여 불러올 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;editor&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;editor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Editor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#editor&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위와 같이 작성했을 경우, 에디터를 볼 수 있게된다. 아래는 현재 프로젝트의 글쓰기 페이지에서 에디터를 띄운 모습이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/Tui_Editor/2022-01-08-22-53-52.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아마 우측하단에 보이는 언어가 영어일 것이다. 에디터를 한국어로 설정하기 위해서는 CDN을 하나 더 가져와야 한다. 주소는 아래와 같다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://uicdn.toast.com/editor/latest/i18n/ko-kr.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Editor를 한국어로 변경하기위해 작성한 JavaScript 문을 아래와 같이 수정한다. 지금까지 설명한 코드를 전부 합치면 아래와 같다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+  ...
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://uicdn.toast.com/editor/latest/toastui-editor.min.css&quot;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+  ...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  ...
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;editor&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://uicdn.toast.com/editor/latest/i18n/ko-kr.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;editor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Editor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#editor&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;ko-KR&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+  ...
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;일단 에디터를 불러오는 것과 한국어로 설정하는 것 까지는 완료되었다. 이제 에디터를 불러올 때 설정할 수 있는 옵션들을 알아보자.
+전체적인 옵션은 &lt;a href=&quot;https://nhn.github.io/tui.editor/latest/ToastUIEditorCore&quot;&gt;여기&lt;/a&gt;에서 확인이 가능하다. 여기에서는 대표적인 옵션들을 알아본다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;height&lt;/code&gt; : 에디터의 높이를 설정한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;initialEditType&lt;/code&gt; : Tui Editor는 마크다운과 위지윅을 지원한다. 에디터를 처음 불러왔을 때 입력방식을 정하는 옵션.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;initialValue&lt;/code&gt; : 에디터를 불러왔을 때 안에 입력될 내용을 해당 옵션을 통해 정할 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;language&lt;/code&gt; : 에디터의 언어를 설정한다. 위에서 한국어 정보를 CDN으로 가져왔으므로 ‘ko-KR’를 입력하여 설정하였다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;placeholder&lt;/code&gt; : HTML의 placeholder와 역할이 동일하다. 에디터에 입력한 값이 없을 경우 밝은 회색으로 출력될 텍스트.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;위의 옵션들을 가지고 에디터를 용도에 맞게 커스텀할 수 있다. 필자는 다음과 같이 작성하였다.&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;editor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;toastui&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;Editor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;el&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;#editor&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;500px&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;initialEditType&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;wysiwyg&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;placeholder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;내용을 입력해주세요&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;addImageBlobHook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;formData&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;FormData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;formData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;blob&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageURL&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;imageUpload&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;formData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;callback&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;imageURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;language&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ko-KR&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+});
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;개인적으로 자바스크립트가 HTML파일 안에서 길게 작성될 경우 지저분해 보일 수 있기 때문에 다른 파일로 빼낸 다음 import하여 사용하는 것을 추천한다. 해당 글에서 import하는 것은 생략한다.&lt;/p&gt;
+
+&lt;p&gt;위에서 언급하지 않았지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hooks&lt;/code&gt;와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;event&lt;/code&gt; 옵션은 에디터에서 사용자가 글을 작성할 때 특정한 이벤트가 발생할 경우에 작동하게할 수 있는 함수라고 보면 된다. 이는 다음 글 &lt;a href=&quot;https://achasan.github.io/toast_ui_2&quot;&gt;Toast ui Editor 이미지 업로드하기&lt;/a&gt;에서 자세히 다루도록 하겠다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ETC" />
+      
+
+      
+        <summary type="html">위지윅 에디터 Toast ui Editor 사용법</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">객체지향의 사실과 오해 3장 : 추상화</title>
+      <link href="https://achasan.github.io/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 추상화" />
       <published>2022-01-02T00:00:00+09:00</published>
       <updated>2022-01-02T00:00:00+09:00</updated>
       <id>https://achasan.github.io/OOP_3</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 2장 : 타입과 추상화&lt;/h1&gt;
+      <content type="html" xml:base="https://achasan.github.io/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -170,7 +348,7 @@
       
 
       
-        <summary type="html">객체지향의 사실과 오해 2장 : 타입과 추상화</summary>
+        <summary type="html">객체지향의 사실과 오해 3장 : 타입과 추상화</summary>
       
 
       
@@ -311,135 +489,6 @@
 
       
         <summary type="html">객체지향의 사실과 오해 3장 : 타입과 추상화</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">객체지향의 사실과 오해 2장 : 상태</title>
-      <link href="https://achasan.github.io/OOP_2" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 상태" />
-      <published>2022-01-01T00:00:00+09:00</published>
-      <updated>2022-01-01T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_2</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_2">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--상태&quot;&gt;객체지향의 사실과 오해 2장 : 상태&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;2장에서의 핵심은 &lt;strong&gt;객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것&lt;/strong&gt;이다. 객체의 상태와 행동을 통해 여러 객체들이 서로 협력하며 하나의 목표를 달성하는 원리들을 설명하면서, 현실과 객체지향의 차이점을 보여주어 어떻게 소프트웨어를 설계해야하는지 방향을 제시해준다.&lt;/p&gt;
-
-&lt;p&gt;이를 설명하기위해 글쓴이는 이상한 나라의 앨리스를 예시로 들어 설명한다. 요약하자면 다음과 같다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 아름다운 정원을 발견했다. 정원에 들어가는 문이 40센티미터 이하여서 들어갈 수 없다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 주변에 ‘마셔라’가 적혀있는 병에있는 액체를 마시자 키가 24센티미터로 줄어들었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;정원으로가는 문을 열려면 열쇠를 사용해야한다. 너무 작아져서 열쇠를 사용할 수 없게되었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이번엔 탁자 아래 케이크가 있어서 먹었더니 몸이 천장에 닿을만큼 훨씬 커지게되었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이 때 주변을 지나가던 토끼가 놀라 부채를 떨어뜨렸다. 앨리스는 더워서 부채를 부쳤는데 키가 60센티미터로 다시 줄었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;주변을 걸어가던 앨리스는 쐐기벌레를 만난다. 쐐기벌레는 버섯을 하나 주는데, 한쪽을 먹으면 크기가 작아지고, 반대쪽을 먹으면 크기가 커지는 버섯이었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 지금까지 얻은 물건을 통해 몸의 크기를 조절해 문을 열고 아름다운 정원으로 들어갔다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;앨리스-객체&quot;&gt;앨리스 객체&lt;/h2&gt;
-
-&lt;p&gt;위의 이야기에서 주목해야할 점은 앨리스의 키의 변화이다. 정원으로 들어가기 위한 조건을 충족시키기위해 시간의 흐름에 따라 앨리스의 &lt;strong&gt;상태&lt;/strong&gt;는 바뀌게 된다. 앨리스의 상태를 변화시키는 것은 앨리스의 &lt;strong&gt;행동&lt;/strong&gt;이다. 버섯을 먹고, 음료수를 마시고, 부채질을 하고, 케이크를 먹으면서 앨리스의 키, 즉 상태는 변화한다.&lt;/p&gt;
-
-&lt;p&gt;또한 앨리스의 행동으로 앨리스의 키가 커지거나 작아지게되는데, 행동을 하기 전에 앨리스의 키가 얼마였느냐가 행동 후의 앨리스의 상태를 결정하게된다. &lt;strong&gt;앨리스가 한 행동의 결과는 앨리스의 상태에 의존적이다&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;앨리스의 행동으로 상태가 변화하게되고, 아름다운 정원으로 들어가기위해 앨리스는 적절한 행동을 통해 문을 통과할 수 있는 상태를 만들어야할 것이다. 이는 행동 간의 순서가 중요하다는 것을 의미한다. 문을 통과하려면 케이크나 음료수를 마시는 행동이 선행되어야한다.&lt;/p&gt;
-
-&lt;p&gt;그렇다면 지금까지의 내용을 정리해보자. 지금까지의 내용이 객체와 중요한 공통점을 공유하게될 것이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 상태를 가지며 상태는 변경가능하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;앨리스의 상태를 변경시키는 것은 앨리스의 행동이다.
-    &lt;ul&gt;
-      &lt;li&gt;행동의 결과는 상태에 의존적이고, 상태를 이용해 서술가능하다.&lt;/li&gt;
-      &lt;li&gt;행동의 순서가 결과에 영향을 미친다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;앨리스는 어떤상태에 있더라도 유일하게 식별 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;객체--상태와-행동&quot;&gt;객체 : 상태와 행동&lt;/h2&gt;
-
-&lt;p&gt;객체의 다양한특성을 효과적으로 설명하기 위해서는 객체를 상태, 행동, 식별자를 지닌 식체로 보는 것이 가장 효과적이다. 이 책에서는 객체를 다음과 같이 정의한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;객체란 식별가능한 개체 또는 사물이다. 객체는 자동차처럼 만질 수 있는 구체적인 사물일 수도 있고, 시간처럼 추상적인 개념일 수도 있다. 객체는 구별가능한 식별자, 특징적인 행동, 변경 가능한 상태를 가진다. 소프트웨어 안에서 객체는 저장된 상태와 실행가능한 코드를 통해 구현된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;상태&quot;&gt;상태&lt;/h3&gt;
-
-&lt;p&gt;객체가 주변 환경과의 상호작용에 어떻게 반응하는가는 그 시점까지 객체에 어떤 일이 발생했느냐에 좌우된다. 예를 들면 비행기를 타기 위해서는 항공권을 발권해야한다. 없다면 비행기를 탈 수 없고, 있다면 탈 수 있게될 것이다. 비행기를 발권여부에 대한 행동이 비행기 탑승에 영향을 미친다.&lt;/p&gt;
-
-&lt;p&gt;과거에 발생한 행동의 이력을 통해 현재 발생한 행동의 결과를 판단하는 방식은 복잡하고 번거로우며, 이해하기 쉽지 않다. 이를 단순하게 하기위해 &lt;strong&gt;상태&lt;/strong&gt;라는 개념을 만들게 된다. 위의 예시로 따지자면 항공권 소유여부를 상태로 만들어 이전에 비행기를 발권하는 행동을 했는지 설명과 예측이 가능해진다.&lt;/p&gt;
-
-&lt;p&gt;상태를 사용하면 과거에 얽매이지 않을 수 있다. 세상의 복잡성을 완화하고 인지 과부화를 줄이는 중요한 개념이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;상태와-프로퍼티&quot;&gt;상태와 프로퍼티&lt;/h3&gt;
-
-&lt;p&gt;모든 것을 객체로 표현할 수는 없다. 앨리스의 키는 객체가 아니다. 음료와 케이크의 양은 객체가 아니다. 상태로 표현되는 것들이다. 이러한 단순한 값들은 객체가 아니지만 객체의 상태를 표현하는 중요한 수단이 된다.&lt;/p&gt;
-
-&lt;p&gt;때로는 객체를 사용해 다른 객체의 상태를 표현해야할 수도 있다. 가장 간단하고 직관적이 방법은 앨리스의 상태 일부를 음료라는 객체를 이용해 표현하는 것이다. 앨리스가 음료를 들고 있을 경우 음료 객체를 상태로 표현하여 앨리스가 음료를 들고 있는 상태임을 나타내게할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;앨리스가 음료를 들고 있게될 경우, 앨리스와 음료 객체는 서로 연결되게된다.&lt;/p&gt;
-
-&lt;p&gt;결론적으로 모든 객체의 상태는 단순한 값과 객체의 조합으로 표현되며, 객체의 상태를 구성하는 모든 특징을 통틀어 객체의 &lt;strong&gt;프로퍼티(property)&lt;/strong&gt;라고한다. 일반적으로 프로퍼티는 변경되지 않고 고정되기 때문에 ‘정적’이다. 하지만 &lt;strong&gt;프로퍼티 값(property value)&lt;/strong&gt;은 시간의 흐름에 따라 변경되어 ‘동적’이다.&lt;/p&gt;
-
-&lt;p&gt;앨리스가 음료를 들고 있을 경우 두 객체는 서로 연결되어있다. 앨리스가 음료를 마시게 될 경우, 앨리스는 음료를 마셨다는 메시지를 음료 객체에 전달하게되고, 음료 객체는 이에 따라 상태를 변화시킬 것이다. 객체와 객체사이의 의미 있는 연결을 &lt;strong&gt;링크(link)&lt;/strong&gt;라고 한다.&lt;/p&gt;
-
-&lt;p&gt;링크와 달리 객체를 구성하는 단순한 값은 &lt;strong&gt;속성(attribute)&lt;/strong&gt;이라고 부른다. 앨리스의 키, 음료수의 양은 단순한 값으로 표현되므로 속성이다.&lt;/p&gt;
-
-&lt;p&gt;객체의 상태를 정의해보자, 이 책에서는 다음과 같이 정의한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;상태는 특정 시점에 객체가 가지고 있는 정보의 집합으로 객체의 구조적인 특징을 표현한다. 객체의 상태는 객체에 존재하는 정적인 프로퍼티와 동적인 프로퍼티 값으로 구성된다. 객체의 프로퍼티는 단순한 값과 다른 객체를 참조하는 링크로 구분할 수 있다.&lt;/p&gt;
-&lt;/blockquote&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="ETC" />
-      
-
-      
-        <summary type="html">객체지향의 사실과 오해 2장 : 상태</summary>
       
 
       
@@ -588,6 +637,135 @@
 
       
         <summary type="html">객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">객체지향의 사실과 오해 2장 : 상태</title>
+      <link href="https://achasan.github.io/OOP_2" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 상태" />
+      <published>2022-01-01T00:00:00+09:00</published>
+      <updated>2022-01-01T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/OOP_2</id>
+      <content type="html" xml:base="https://achasan.github.io/OOP_2">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--상태&quot;&gt;객체지향의 사실과 오해 2장 : 상태&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;2장에서의 핵심은 &lt;strong&gt;객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것&lt;/strong&gt;이다. 객체의 상태와 행동을 통해 여러 객체들이 서로 협력하며 하나의 목표를 달성하는 원리들을 설명하면서, 현실과 객체지향의 차이점을 보여주어 어떻게 소프트웨어를 설계해야하는지 방향을 제시해준다.&lt;/p&gt;
+
+&lt;p&gt;이를 설명하기위해 글쓴이는 이상한 나라의 앨리스를 예시로 들어 설명한다. 요약하자면 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 아름다운 정원을 발견했다. 정원에 들어가는 문이 40센티미터 이하여서 들어갈 수 없다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 주변에 ‘마셔라’가 적혀있는 병에있는 액체를 마시자 키가 24센티미터로 줄어들었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;정원으로가는 문을 열려면 열쇠를 사용해야한다. 너무 작아져서 열쇠를 사용할 수 없게되었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이번엔 탁자 아래 케이크가 있어서 먹었더니 몸이 천장에 닿을만큼 훨씬 커지게되었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 때 주변을 지나가던 토끼가 놀라 부채를 떨어뜨렸다. 앨리스는 더워서 부채를 부쳤는데 키가 60센티미터로 다시 줄었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주변을 걸어가던 앨리스는 쐐기벌레를 만난다. 쐐기벌레는 버섯을 하나 주는데, 한쪽을 먹으면 크기가 작아지고, 반대쪽을 먹으면 크기가 커지는 버섯이었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 지금까지 얻은 물건을 통해 몸의 크기를 조절해 문을 열고 아름다운 정원으로 들어갔다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;앨리스-객체&quot;&gt;앨리스 객체&lt;/h2&gt;
+
+&lt;p&gt;위의 이야기에서 주목해야할 점은 앨리스의 키의 변화이다. 정원으로 들어가기 위한 조건을 충족시키기위해 시간의 흐름에 따라 앨리스의 &lt;strong&gt;상태&lt;/strong&gt;는 바뀌게 된다. 앨리스의 상태를 변화시키는 것은 앨리스의 &lt;strong&gt;행동&lt;/strong&gt;이다. 버섯을 먹고, 음료수를 마시고, 부채질을 하고, 케이크를 먹으면서 앨리스의 키, 즉 상태는 변화한다.&lt;/p&gt;
+
+&lt;p&gt;또한 앨리스의 행동으로 앨리스의 키가 커지거나 작아지게되는데, 행동을 하기 전에 앨리스의 키가 얼마였느냐가 행동 후의 앨리스의 상태를 결정하게된다. &lt;strong&gt;앨리스가 한 행동의 결과는 앨리스의 상태에 의존적이다&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;앨리스의 행동으로 상태가 변화하게되고, 아름다운 정원으로 들어가기위해 앨리스는 적절한 행동을 통해 문을 통과할 수 있는 상태를 만들어야할 것이다. 이는 행동 간의 순서가 중요하다는 것을 의미한다. 문을 통과하려면 케이크나 음료수를 마시는 행동이 선행되어야한다.&lt;/p&gt;
+
+&lt;p&gt;그렇다면 지금까지의 내용을 정리해보자. 지금까지의 내용이 객체와 중요한 공통점을 공유하게될 것이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 상태를 가지며 상태는 변경가능하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;앨리스의 상태를 변경시키는 것은 앨리스의 행동이다.
+    &lt;ul&gt;
+      &lt;li&gt;행동의 결과는 상태에 의존적이고, 상태를 이용해 서술가능하다.&lt;/li&gt;
+      &lt;li&gt;행동의 순서가 결과에 영향을 미친다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;앨리스는 어떤상태에 있더라도 유일하게 식별 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;객체--상태와-행동&quot;&gt;객체 : 상태와 행동&lt;/h2&gt;
+
+&lt;p&gt;객체의 다양한특성을 효과적으로 설명하기 위해서는 객체를 상태, 행동, 식별자를 지닌 식체로 보는 것이 가장 효과적이다. 이 책에서는 객체를 다음과 같이 정의한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;객체란 식별가능한 개체 또는 사물이다. 객체는 자동차처럼 만질 수 있는 구체적인 사물일 수도 있고, 시간처럼 추상적인 개념일 수도 있다. 객체는 구별가능한 식별자, 특징적인 행동, 변경 가능한 상태를 가진다. 소프트웨어 안에서 객체는 저장된 상태와 실행가능한 코드를 통해 구현된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;상태&quot;&gt;상태&lt;/h3&gt;
+
+&lt;p&gt;객체가 주변 환경과의 상호작용에 어떻게 반응하는가는 그 시점까지 객체에 어떤 일이 발생했느냐에 좌우된다. 예를 들면 비행기를 타기 위해서는 항공권을 발권해야한다. 없다면 비행기를 탈 수 없고, 있다면 탈 수 있게될 것이다. 비행기를 발권여부에 대한 행동이 비행기 탑승에 영향을 미친다.&lt;/p&gt;
+
+&lt;p&gt;과거에 발생한 행동의 이력을 통해 현재 발생한 행동의 결과를 판단하는 방식은 복잡하고 번거로우며, 이해하기 쉽지 않다. 이를 단순하게 하기위해 &lt;strong&gt;상태&lt;/strong&gt;라는 개념을 만들게 된다. 위의 예시로 따지자면 항공권 소유여부를 상태로 만들어 이전에 비행기를 발권하는 행동을 했는지 설명과 예측이 가능해진다.&lt;/p&gt;
+
+&lt;p&gt;상태를 사용하면 과거에 얽매이지 않을 수 있다. 세상의 복잡성을 완화하고 인지 과부화를 줄이는 중요한 개념이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;상태와-프로퍼티&quot;&gt;상태와 프로퍼티&lt;/h3&gt;
+
+&lt;p&gt;모든 것을 객체로 표현할 수는 없다. 앨리스의 키는 객체가 아니다. 음료와 케이크의 양은 객체가 아니다. 상태로 표현되는 것들이다. 이러한 단순한 값들은 객체가 아니지만 객체의 상태를 표현하는 중요한 수단이 된다.&lt;/p&gt;
+
+&lt;p&gt;때로는 객체를 사용해 다른 객체의 상태를 표현해야할 수도 있다. 가장 간단하고 직관적이 방법은 앨리스의 상태 일부를 음료라는 객체를 이용해 표현하는 것이다. 앨리스가 음료를 들고 있을 경우 음료 객체를 상태로 표현하여 앨리스가 음료를 들고 있는 상태임을 나타내게할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;앨리스가 음료를 들고 있게될 경우, 앨리스와 음료 객체는 서로 연결되게된다.&lt;/p&gt;
+
+&lt;p&gt;결론적으로 모든 객체의 상태는 단순한 값과 객체의 조합으로 표현되며, 객체의 상태를 구성하는 모든 특징을 통틀어 객체의 &lt;strong&gt;프로퍼티(property)&lt;/strong&gt;라고한다. 일반적으로 프로퍼티는 변경되지 않고 고정되기 때문에 ‘정적’이다. 하지만 &lt;strong&gt;프로퍼티 값(property value)&lt;/strong&gt;은 시간의 흐름에 따라 변경되어 ‘동적’이다.&lt;/p&gt;
+
+&lt;p&gt;앨리스가 음료를 들고 있을 경우 두 객체는 서로 연결되어있다. 앨리스가 음료를 마시게 될 경우, 앨리스는 음료를 마셨다는 메시지를 음료 객체에 전달하게되고, 음료 객체는 이에 따라 상태를 변화시킬 것이다. 객체와 객체사이의 의미 있는 연결을 &lt;strong&gt;링크(link)&lt;/strong&gt;라고 한다.&lt;/p&gt;
+
+&lt;p&gt;링크와 달리 객체를 구성하는 단순한 값은 &lt;strong&gt;속성(attribute)&lt;/strong&gt;이라고 부른다. 앨리스의 키, 음료수의 양은 단순한 값으로 표현되므로 속성이다.&lt;/p&gt;
+
+&lt;p&gt;객체의 상태를 정의해보자, 이 책에서는 다음과 같이 정의한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;상태는 특정 시점에 객체가 가지고 있는 정보의 집합으로 객체의 구조적인 특징을 표현한다. 객체의 상태는 객체에 존재하는 정적인 프로퍼티와 동적인 프로퍼티 값으로 구성된다. 객체의 프로퍼티는 단순한 값과 다른 객체를 참조하는 링크로 구분할 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ETC" />
+      
+
+      
+        <summary type="html">객체지향의 사실과 오해 2장 : 상태</summary>
       
 
       
@@ -1165,107 +1343,6 @@
 
       
         <summary type="html">1427번 : 소트인사이드 (링크)</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">[BOJ] 11651번 : 단어 정렬</title>
-      <link href="https://achasan.github.io/s5-Coordinate_alignment2" rel="alternate" type="text/html" title="[BOJ] 11651번 : 단어 정렬" />
-      <published>2021-12-23T00:00:00+09:00</published>
-      <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/s5-Coordinate_alignment2</id>
-      <content type="html" xml:base="https://achasan.github.io/s5-Coordinate_alignment2">&lt;h1 id=&quot;11651번--단어-정렬&quot;&gt;11651번 : 단어 정렬&lt;/h1&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-
-&lt;p&gt;알파벳 소문자로 이루어진 N개의 단어가 들어오면 아래와 같은 조건에 따라 정렬하는 프로그램을 작성하시오.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;길이가 짧은 것부터&lt;/li&gt;
-  &lt;li&gt;길이가 같으면 사전 순으로&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
-
-&lt;p&gt;첫째 줄에 단어의 개수 N이 주어진다. (1 ≤ N ≤ 20,000) 둘째 줄부터 N개의 줄에 걸쳐 알파벳 소문자로 이루어진 단어가 한 줄에 하나씩 주어진다. 주어지는 문자열의 길이는 50을 넘지 않는다.&lt;/p&gt;
-
-&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
-
-&lt;p&gt;조건에 따라 정렬하여 단어들을 출력한다. 단, 같은 단어가 여러 번 입력된 경우에는 한 번씩만 출력한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Comparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main4&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;NumberFormatException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Integer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;());&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;];&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Comparator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-                &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
-                &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;compareTo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-                    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;o2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;});&lt;/span&gt;
-
-            &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;\n&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;equals&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;\n&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Arrays.sort()를 사용하여 문제를 풀었다. Arrays.sort() 매개변수로 배열을 넣으면 오름차순으로 정렬되지만, 위 문제처럼 길이가 짧은 순, 사전 순으로 우선순위가 정해진 경우에는 비교 객체를 만들어서 문제를 풀어야한다.&lt;/p&gt;
-
-&lt;p&gt;비교객체는 Comparator, Comparable이 있다. 두 객체 모두 인터페이스이다. 여기서는 Comparator를 사용하여 문제를 풀었다. 익명객체를 생성한 다음 추상메서드인 compare를 구현하여 문제를 풀었다.&lt;/p&gt;
-
-&lt;p&gt;같은 단어가 여러 번 입력된 경우 한 번씩 출력해야되는 조건을 까먹고있어서 몇 번 틀렸는데, 아래에서 반복문을 통해 이전 단어와 일치하지 않을 때만 StringBuilder에 넣어서 출력하도록 하였다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Algorhythm" />
-      
-
-      
-        <summary type="html">11651번 : 단어 정렬</summary>
       
 
       
