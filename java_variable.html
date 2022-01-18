@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>[Java] 변수(Variable)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/java_variable" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[Java] 변수(Variable)" />
+    <meta property="og:description" content="변수(Variable) 2021.08.02 수업 변수 변수의 종류 Java의 변수 종류는 여러가지가 존재한다. 변수는 크게 기본형과 참조형으로 나뉘는데, 먼저 기본형을 살펴보기로 한다. 기본형에는 총 8가지의 타입이 있으며, 크게 정수형, 실수형, 문자형, 논리형으로 구분된다. 정수형(정수자료형)은 byte, short, int, long 총 4가지의 자료형이 있다. 실수형(실수자료형)은 float, double 총 2가지의 자료형이 있다. 문자형인 char 자료형," />
+    <meta property="og:url" content="https://achasan.github.io/java_variable" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-08-02T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-08-02T00:00:00+09:00" />
+    <meta property="article:tag" content="Basic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[Java] 변수(Variable)" />
+    <meta name="twitter:description" content="변수(Variable) 2021.08.02 수업 변수 변수의 종류 Java의 변수 종류는 여러가지가 존재한다. 변수는 크게 기본형과 참조형으로 나뉘는데, 먼저 기본형을 살펴보기로 한다. 기본형에는 총 8가지의 타입이 있으며, 크게 정수형, 실수형, 문자형, 논리형으로 구분된다. 정수형(정수자료형)은 byte, short, int, long 총 4가지의 자료형이 있다. 실수형(실수자료형)은 float, double 총 2가지의 자료형이 있다. 문자형인 char 자료형," />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Basic" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/java_variable",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/java.jfif",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/java_variable"
+    },
+    "description": "변수(Variable) 2021.08.02 수업 변수 변수의 종류 Java의 변수 종류는 여러가지가 존재한다. 변수는 크게 기본형과 참조형으로 나뉘는데, 먼저 기본형을 살펴보기로 한다. 기본형에는 총 8가지의 타입이 있으며, 크게 정수형, 실수형, 문자형, 논리형으로 구분된다. 정수형(정수자료형)은 byte, short, int, long 총 4가지의 자료형이 있다. 실수형(실수자료형)은 float, double 총 2가지의 자료형이 있다. 문자형인 char 자료형,"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="[Java] 변수(Variable)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-basic post tag-Basic ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 2 August 2021"> 2 August 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                                <a href='/tag/basic/'>BASIC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">[Java] 변수(Variable)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/java.jfif)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="변수variable">변수(Variable)</h1>
+
+<p>2021.08.02 수업</p>
+
+<hr />
+
+<h1 id="변수">변수</h1>
+
+<h2 id="변수의-종류">변수의 종류</h2>
+
+<p>Java의 변수 종류는 여러가지가 존재한다.</p>
+
+<p>변수는 크게 기본형과 참조형으로 나뉘는데, 먼저 기본형을 살펴보기로 한다.</p>
+
+<p>기본형에는 총 8가지의 타입이 있으며, 크게 정수형, 실수형, 문자형, 논리형으로 구분된다.</p>
+
+<p>정수형(정수자료형)은 byte, short, int, long 총 4가지의 자료형이 있다.</p>
+
+<p>실수형(실수자료형)은 float, double 총 2가지의 자료형이 있다.</p>
+
+<p>문자형인 char 자료형, 논리형(논리자료형)인 boolean 자료형이 존재한다.</p>
+
+<h2 id="저장공간--바이트">저장공간 : 바이트</h2>
+
+<p>기본형 변수가 8가지의 타입으로 나뉘는 이유는 타입마다 가지고 있는 저장공간의 차이에 있다. 저장공간이 클수록 타입이 구현할 수 있는 수치의 범위가 넓다. 각 자료형</p>
+
+<p>1바이트 = 8비트를 말한다. byte는 1바이트이므로,  2진법으로 0과 1로만 표현이 가능한 비트의 개수가 8개인 저장공간을 가지고 있다는 뜻이 된다.</p>
+
+<p>여기서 8개의 공간중 첫 번째 공간은 부호를 판가름하는 부호수로써 음수와 양수를 구분하게된다.</p>
+
+<p>따라서 byte는 부호수를 제외하고 2^7~2^7-1의 수를 구현할 수 있는 저장공간을 가지게 되는 것이다. 여기서 -1을 하는 이유는 0이 포함되기 때문에 -1를 하게 된다.</p>
+
+<p>비슷한 방식으로 short, int, long도 2바이트, 4바이트, 8바이트의 저장공간을 가지고 있으며, byte 타입에 비하면 훨씬 넓은 범위의 수치를 구현할 수 있게된다.</p>
+
+<h2 id="정수형정수자료형">정수형(정수자료형)</h2>
+
+<p>정수형 타입에는 byte, short, int, long 네 가지가 존재한다.</p>
+
+<ul>
+  <li>byte는 1바이트의 저장공간을 가진 변수이다. 가장 작은 저장공간을 가지고 있으며, -128~127까지의 숫자를 구현할 수 있는 변수이다.</li>
+  <li>short는 2바이트의 저장공간을 가진 변수로, byte보다는 많은 숫자를 구현해 낼 수 있는 변수이다.</li>
+  <li>int는 4바이트의 저장공간을 가지고 있는 정수형 변수로 정수형에서는 기본으로 사용되는 타입이다. 대략 10자리의 수를 저장할 수 있으며, 보통 연산을 수행할 때 따로 명시하지 않으면 int타입으로  자동변환되어 연산이 수행된다.</li>
+  <li>long은 8바이트의 저장공간을 갖는 정수형 변수로, 정수형 타입중에서는 가장 넓은 범위의 저장공간을 가진 변수이다. 약 19자리의 수를 저장할 수 있다.</li>
+</ul>
+
+<h2 id="실수형실수자료형">실수형(실수자료형)</h2>
+
+<p>실수형 타입에는 float, double 두 가지가 존재한다.</p>
+
+<ul>
+  <li>float은 4바이트의 저장공간을 가진 실수형 타입으로, 큰 값을 저장할 수 있지만 정밀도가 소수점 7자리까지만 구현이 가능하다. 따라서 소수점 일곱번째자리 이상으로 세밀하게 수를 다루어야하는 경우라면 double 타입을 쓰는 편이 좋다. 
+float타입을 사용할 경우에는 실수 뒤에 ‘F’를 붙여서 float타입이라는 것을 명시해야한다. 보통 double 타입을 실수형으로 많이 사용하기 때문이다.</li>
+  <li>double 타입은 실수형의 기본타입이다. 8바이트의 저장공간을 가지고 있으며, 정밀한 데이터를 다루어야하는 경우에 많이 사용하는 타입이다. 소수점 15자리까지 정밀도를 구현할 수 있다.</li>
+</ul>
+
+<h2 id="논리자료형-boolean형">논리자료형 (boolean형)</h2>
+
+<p>논리자료형은 1바이트의 저장공간을 가진 타입으로, true와 false 두 개의 값만을 반환하는 타입이다.</p>
+
+<p>보통 boolean형은 제어문을 사용할 때 가장 많이 쓰이는 타입으로, 보다 복잡한 로직을 가진 조건문을 만들 때 많이 사용되어진다. 논리자료형은 토글(toggle)을 만들때도 많이 사용되어지며, 앞으로 if문이나 for문을 공부할 때 자주 보게될 타입이라고 생각하자.</p>
+
+<h2 id="문자형-char형">문자형 (char형)</h2>
+
+<p>문자형은 2바이트의 저장공간을 가진 타입이다. 주로 문자를 반환할 때 사용되어진다.</p>
+
+<p>char형은 0부터 65535까지의 수를 구현할 수 있으며, 음수는 구현할 수 없다. 주로 유니코드의 단일문자를 처리할 때 쓰이는 타입이라고 볼 수 있다.</p>
+
+<p>유니코드는 전세계의 모든 문자를 숫자에 할당한 문자체계라고 보면된다. char형을 타입을 사용하여 숫자를 저장하면 문자를 반환한다. 이를 통해 문자를 숫자로, 숫자를 문자로 타입변환하여 사용할 수 있는 활용성있는 타입이다.</p>
+
+<h2 id="변수-생성-규칙">변수 생성 규칙</h2>
+
+<ul>
+  <li>예약어(자바 기본문법으로 지정된 단어)는 사용불가하다.</li>
+  <li>영문자, 또는 특수문자( _ , $ 만 가능)로 시작</li>
+  <li>변수는 숫자로 시작할 수 없다.</li>
+  <li>대소문자는 구분되어진다 (SUM ≠ sum)</li>
+  <li>변수명은 의미있게 만드는 것이 좋다.</li>
+</ul>
+
+<h2 id="형변환casting">형변환(Casting)</h2>
+
+<p>Casting은 데이터 값의 자료형을 다른 타입의 자료형으로 변환하는 것을 말한다.
+형 변환은 boolean을 제외한 7가지의 자료형이 서로 변환할 수 있다.
+형변환은 묵시적 형변환(자동타입변환), 명시적 형변환 으로 나뉜다.</p>
+
+<ul>
+  <li>묵시적 형변환은 따로 명시를 하지 않아도 자동으로 타입변환이 일어나는 것을 말한다. 보통 자료형의 크기가 작은 데이터를 큰 자료형의 데이터에 저장하는 형변환을 말한다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kt">byte</span> <span class="n">by</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">by</span> <span class="o">+</span> <span class="n">num</span><span class="o">;</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">sum</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="c1">// byte 타입의 변수 by는 int 타입으로 자동타입변환되어서 출력되게 된다.</span>
+</code></pre></div></div>
+
+<ul>
+  <li>명시적 형변환은 묵시적 형변환과 반대로 자료형의 크기가 큰 데이터를 작은 자료형의 데이터에 저장하는 것을 말한다. 형변환 작업을 해주어야되며 자료의 손실이 발생할 수가 있다.
+명시적 형변환은 되도록 안쓰는 편이 좋다. 왜냐하면 큰 그릇에 담긴 물을 작은 그릇에 담긴 물에 담으려고하면 온전히 그 물을 담을 수 없기 때문이다. 어찌저찌 작은 그릇에 담는다고 해도 담기지 못한 물은 어디론가 사라지게 된다. 자바도 마찬가지이다. 
+예를들어 int로 선언된 num 변수에 200이라는 수치를 저장했을 때 이를 byte타입으로 명시적 형변환을 한다면 형변환은 성공적으로 이루어지지만 수치는 다르게 나온다. 이유는 byte 타입이 -128~127까지 구현이 가능한 1바이트 타입인데 4바이트 타입의 int 타입을 바꾸려고하니 제대로된 값이 출력될수가 없다.
+이를 우리는 <strong>쓰레기값</strong> 이라고 한다. 쓰레기값은 어디에도 쓸 수 없는 쓸모없는 값을 의미하는 것으로 적절한 타입과 형변환이 이루어지지 않아 제대로 된 값이 나오지 않은 것을 의미한다.</li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">200</span><span class="o">;</span>
+		<span class="kt">byte</span> <span class="n">by</span><span class="o">;</span>
+		<span class="n">num</span> <span class="o">=</span> <span class="o">(</span><span class="kt">byte</span><span class="o">)</span><span class="n">by</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num</span><span class="o">);</span> <span class="c1">// 200이 출력되지 않고 쓰레기값이 나오게 된다.</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- Utterance script -->
+            <script src="https://utteranc.es/client.js"
+                repo="Achasan/achasan.github.io"
+                issue-term="url"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/Algorhythm.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/basic/">Basic</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_2">[JSP] % 태그, forward, redirect</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_1">[JSP] 이론 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/jQuery">jQuery 자주 사용하는 함수 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/basic/">
+                                
+                                    See all 29 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/java_operator">
+                <div class="post-card-image" style="background-image: url(/assets/images/java.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/java_operator">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Java] 연산자(Operator)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>연산자(Operator)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      10 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/java_control">
+                <div class="post-card-image" style="background-image: url(/assets/images/java.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/java_control">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Java] 제어문(Control)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>제어문(Control)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        12 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">[Java] 변수(Variable)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%5BJava%5D+%EB%B3%80%EC%88%98%28Variable%29&amp;url=https://achasan.github.io/java_variable"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/java_variable"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

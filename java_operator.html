@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>[Java] 연산자(Operator)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/java_operator" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[Java] 연산자(Operator)" />
+    <meta property="og:description" content="연산자(Operator) 2021.08.03 수업 연산 주어진 식을 계산하여 결과를 얻어내는 과정을 연산이라고 한다. 연산의 요소로는 피연산자와 연산자가 있다. 예를 들어 20 + 10이 있다고 한다면 20과 10은 피연산자이며 ‘+’ 가 연산자라고 볼 수 있다. 연산자는 연산을 수행하는 기호이며 Java에는 사칙연산 외에도 여러가지 연산자 기능을 제공한다. 연산자의 종류 Java에서는 다양한 연산자 기능을" />
+    <meta property="og:url" content="https://achasan.github.io/java_operator" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-08-03T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-08-03T00:00:00+09:00" />
+    <meta property="article:tag" content="Basic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[Java] 연산자(Operator)" />
+    <meta name="twitter:description" content="연산자(Operator) 2021.08.03 수업 연산 주어진 식을 계산하여 결과를 얻어내는 과정을 연산이라고 한다. 연산의 요소로는 피연산자와 연산자가 있다. 예를 들어 20 + 10이 있다고 한다면 20과 10은 피연산자이며 ‘+’ 가 연산자라고 볼 수 있다. 연산자는 연산을 수행하는 기호이며 Java에는 사칙연산 외에도 여러가지 연산자 기능을 제공한다. 연산자의 종류 Java에서는 다양한 연산자 기능을" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Basic" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/java_operator",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/java.jfif",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/java_operator"
+    },
+    "description": "연산자(Operator) 2021.08.03 수업 연산 주어진 식을 계산하여 결과를 얻어내는 과정을 연산이라고 한다. 연산의 요소로는 피연산자와 연산자가 있다. 예를 들어 20 + 10이 있다고 한다면 20과 10은 피연산자이며 ‘+’ 가 연산자라고 볼 수 있다. 연산자는 연산을 수행하는 기호이며 Java에는 사칙연산 외에도 여러가지 연산자 기능을 제공한다. 연산자의 종류 Java에서는 다양한 연산자 기능을"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="[Java] 연산자(Operator)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-basic post tag-Basic ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 3 August 2021"> 3 August 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                                <a href='/tag/basic/'>BASIC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">[Java] 연산자(Operator)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/java.jfif)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="연산자operator">연산자(Operator)</h1>
+
+<p>2021.08.03 수업</p>
+
+<hr />
+
+<h1 id="연산">연산</h1>
+
+<p>주어진 식을 계산하여 결과를 얻어내는 과정을 연산이라고 한다. 연산의 요소로는 피연산자와 연산자가 있다. 예를 들어 20 + 10이 있다고 한다면 20과 10은 피연산자이며 ‘+’ 가 연산자라고 볼 수 있다. 연산자는 연산을 수행하는 기호이며 Java에는 사칙연산 외에도 여러가지 연산자 기능을 제공한다.</p>
+
+<h2 id="연산자의-종류">연산자의 종류</h2>
+
+<p>Java에서는 다양한 연산자 기능을 제공하는데, 종류별로는 크게 4가지의 연산자가 있다.</p>
+
+<p><a href="%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1(Operator)%2000007277185648bea2c0825354164e50/%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%B4%20%E1%84%80%E1%85%B5%E1%84%82%E1%85%B3%E1%86%BC%E1%84%87%E1%85%A7%E1%86%AF%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%85%E1%85%B2%20eabe261da10143e6a45c801c2d35f066.csv">연산자의 기능별 분류
+</a></p>
+
+<h2 id="연산자의-우선순위-결합규칙">연산자의 우선순위, 결합규칙</h2>
+
+<p>식에서 사용되는 연산자가 둘 이상인 경우에는 연산자의 우선순위에 의해서 연산순서가 결정된다. 우리가 흔히 아는 곱셈과 나눗셈은 덧셈, 뺄셈보다 우선순위가 높다고 생각하듯이, Java에서의 연산자 우선순위는 상식적으로 이루어진다. Java의 연산 우선순위를 정리하면 다음과 같다.</p>
+
+<aside>
+💡 1. 산술 &gt; 비교 &gt; 논리 &gt; 대입 순으로 우선순위를 가지고 있다.
+2. 단항 &gt; 이항 &gt; 삼항 순으로 연산이 수행된다. 
+단항연산자의 우선순위가 이항연산자보다 높다.
+3. 단항 연산자와 대입 연산자를 제외한 모든 연산의 진행방향은 왼쪽에서 오른쪽으로 수행된다.
+
+</aside>
+
+<p>이러한 우선순위가 적용되어있기 때문에 우선순위를 임의로 조정하고 싶다면 ()괄호를 사용하여 우선순위를 설정해놓는 것이 좋다. 코딩후에 출력되는 결과가 달라질 수 있기 때문이다.</p>
+
+<hr />
+
+<h1 id="단항연산자--">단항연산자 (++, —)</h1>
+
+<p>단항연산자는 증감연산자와 대입연산자로 나뉜다. 상수를 제외한 정수와 실수 앞뒤에 모두 사용이 가능하다. 대부분의 연산자는 피연산자의 값을 변경하지 않지만, 증감연산자와 대입연산자가 유일하게 피연산자의 값을 변경한다. 여기서 주목해야할 연산자는 증감연산자이다.</p>
+
+<aside>
+💡 증가 연산자 (++) : 피연산자의 값을 1 증가시킨다.
+감소 연산자 (—) : 피연산자의 값을 1 감소시킨다.
+* 증감연산자는 묵시적 형변환이 발생하지 않으며, 연산결과 타입은 피연산자 타입이다.
+
+</aside>
+
+<p>증감연산자는 피연산자의 왼쪽과 오른쪽에 모두 올 수 있다. 왼쪽에 위치하면 전위형, 오른쪽에 위치하면 후위형 이라고 한다.</p>
+
+<p>전위형, 후위형에 따라서 연산방식이 다르므로, 호출 시 결과가 달라질 수 있다.
+전위형은 값이 참조되기 전에 증감시켜서 증가된 값을 바로 호출하지만, 후위형은 값이 참조된 후에 증감시키는 특징이 있다.</p>
+
+<p>하지만 피연산자가 수식이나 메소드 호출에 포함되지 않고 독립적인 하나의 문장으로 쓰인 경우에는 전위형과 후위형의 차이가 없다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+		<span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">5</span><span class="o">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">5</span><span class="o">;</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">++);</span> <span class="c1">// i=5, i=5+1</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(++</span><span class="n">j</span><span class="o">);</span> <span class="c1">// j=6 </span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"i = "</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="s">", j = "</span> <span class="o">+</span> <span class="n">j</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>피연산자 i는 후위형으로 증가연산자가 쓰였고, j는 전위형으로 증가연산자가 사용되었다.
+첫 번째 출력문에서는 i가 5의 값을 가지므로, 5가 출력된 후에 i의 값이 하나 증가하게된다. 두 번째 출력문에서는 j의 값이 하나 증가한 후에 출력문이 실행되므로 j는 6이 출력된다.
+세 번째 출력문에서는 두 피연산자가 모두 1씩 증가한 6을 출력하게 된다.</p>
+
+<p>증감연산자를 사용하면 코드가 간결해질 수 있다. 하지만 지나치게 사용할 경우에는 코드가 오히려 더 복잡해질 수 있으므로 식에 두 번 이상 포함된 변수에 증감연산자를 사용하는 것은 피해야 한다.</p>
+
+<h1 id="산술연산자">산술연산자</h1>
+
+<p>산술연산자는 우리가 일상생활에서 흔히 접할 수 있는 연산자이다. 사칙연산(+ - * /) 연산자가 산술연산자에 해당하며, 이 외에 나머지(%) 연산자도 있다.</p>
+
+<h2 id="나머지-연산자">나머지 연산자</h2>
+
+<p>나머지 연산자는 자바에서 제공하는 연산자인데, 피연산자에 나머지 연산자를 사용하면 피연산자를 나눈 뒤, 나머지를 반환하게 된다. 나머지연산자는 홀수, 짝수를 판별하는데 사용할 수 있으며, 이 외에 숫자의 배수를 판별할 때도 사용할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">3</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">%</span> <span class="n">num2</span><span class="o">;</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">%</span> <span class="n">num2</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>다음의 코드에서는 num1과 num2의 나머지연산을 수행시킨 것으로 결과적으로 콘솔에는 10/3 의 나머지인 1이 출력되게 된다.</p>
+
+<hr />
+
+<h1 id="관계연산자비교연산자">관계연산자(비교연산자)</h1>
+
+<p>비교연산자는 두 피연산자를 비교하는 데 사용되는 연산자이다. 주로 조건문과 반복문의 조건식에 사용되고, 연산결과는 boolean 타입의 true, false 둘 중 하나만을 반환한다.</p>
+
+<p>피연산자의 타입이 다를 경우에는 자료형의 범위가 큰 타입으로 자동변환 후에 비교연산자가 수행된다는 점을 주의하여야 한다.</p>
+
+<h2 id="대소비교-연산자----">대소비교 연산자 (&lt; &gt; ≤ ≥)</h2>
+
+<p>피연산자 간에 값의 크기를 비교하는 연산자이다. 참이면 true를, 거짓이면 false를 반환한다. boolean형을 제외한 나머지 자료형에 모두 사용이 가능하지만, 참조형 타입에는 사용이 불가하다.</p>
+
+<h2 id="등가비교-연산자-">등가비교 연산자(== ≠)</h2>
+
+<p>피연산자 간에 값이 같은지, 다른지를 비교하는 연산자이다. 모든 자료형에 사용할 수 있으며, 기본형의 경우에는 두 값이 같은지, 다른지를 확인하고, 참조형은 객체번지주소가 같은지, 다른지를 확인한다. 다만 피연산자 간에 기본형과 참조형은 비교할 수 없다.</p>
+
+<hr />
+
+<h1 id="논리-연산자">논리 연산자</h1>
+
+<p>논리연산자는 둘 이상의 조건을 연결하여 하나의 식으로 표현할 수 있게 해주는 연산자이다. 보통 AND와 OR이 많이 쓰이며, 비트연산자에서는 XOR이라는 연산자도 사용한다.</p>
+
+<h2 id="--">&amp;&amp;, ||, !</h2>
+
+<p>&amp;&amp;는 AND, 우리말로 그리고에 해당한다. AND는 두 피연산자가 모두 true가 나왔을 때만 true를 반환한다. 즉, 두 피연산자가 모두 조건식을 만족해야한다.
+||는 OR, 또는으로 두 피연산자 중에 하나만 true가 나와도 true를 반환한다. 두 연산자가 모두 false가 나오면 연산자 또한 false를 반환한다.
+논리부정연산자(!)는 피연산자가 true이면 false를, false면 true를 반환한다. 말그대로 반대값을 반환한다. 논리부정연산자를 사용하면 제어문을 통해 토글 버튼(toggle button)을 논리적으로 구현할 수 있다.</p>
+
+<h2 id="비트연산자">비트연산자</h2>
+
+<p>비트연산자는 피연산자를 비트단위로 논리연산하는 것으로, 피연산자를 이진수로 표현했을 때 각 비트자리에 있는 수를 왼쪽으로 이동시키거나, 오른쪽으로 이동시키는 등의 연산을 수행한다.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>논리연산자에서는 AND와 OR을 주로 사용한다. 비트연산자에는 AND와 OR, 여기에 XOR(^)이라는 비트연산자를 사용할 수 있다. 논리 연산자에서는 AND를 &amp;&amp;, OR을</td>
+      <td> </td>
+      <td>로 사용했지만, 비트연산자에서는 AND를 &amp;, OR을</td>
+      <td>로 사용한다.  XOR은 eXclusive OR이라고 부른다.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span> <span class="c1">// num1 = 1010(2), num2 = 101(2)</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">&amp;</span> <span class="n">num2</span><span class="o">);</span> <span class="c1">// 0</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>다음 코드에서는 num1 변수에 10을 저장하고, num2 변수에 5를 저장하고 콘솔출력문에 두 피연산자를 AND 연산자를 사용하여 출력하도록 했다.</p>
+
+<p>두 피연산자는 2진법으로 변환된 후, AND연산자를 수행하게 되는데, 여기서 AND 연산자는 두 피연산자가 같은 값을 가지면 1, 다른 값을 가지면 0의 값을 가지게 된다. 
+따라서 1010, 0101 같은 값을 가지지 않으므로 0을 반환하게 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span> <span class="c1">// num1 = 1010(2), num2 = 101(2)</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">|</span> <span class="n">num2</span><span class="o">);</span> <span class="c1">// 15</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>이번엔 OR 연산자를 사용해보았다. 0101과 1010 둘중 하나만 1의 값이 나오면 1을 반환하게되기 때문에 1111이 되어 15를 반환한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span> <span class="c1">// num1 = 1010(2), num2 = 101(2)</span>
+	<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">num1</span> <span class="o">^</span> <span class="n">num2</span><span class="o">);</span> <span class="c1">// 15</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>XOR 연산자는 두 값이 서로 다를 때 1의 값을 반환한다. 1010과 0101 4자리 모두 서로 다른 값이기 때문에 1111이 되어 똑같이 15를 반환하게 된다.</p>
+
+<h3 id="쉬프트-연산자---">쉬프트 연산자 ( «, » )</h3>
+
+<p>쉬프트 연산자는 비트연산자의 일종으로, 피연산자의 각 자리를 오른쪽이나 왼쪽으로 이동시킨다. 물론 2진수로 표현하였을 때 기준이다. 왼쪽이나 오른쪽으로 이동했을 때 수행되는 규칙들이 있다.</p>
+
+<p>왼쪽(«)으로 쉬프트연산자를 수행했을 때는 이동할 숫자만큼 비트들이 이동하게 되며, 왼쪽으로 이동하면서 자리를 벗어난 값들은 버려지게되고, 빈 자리는 0으로 채워진다.</p>
+
+<p>오른쪽(»)으로 쉬프트연산자를 수행했을 때는 이동한 숫자만큼 비트들이 이동하며, 오른쪽으로 이동하면서 자리를 벗어난 값들은 버려지고, 빈 자리는 0으로 채워진다. 단, 부호를 유지하기 위해 왼쪽 피연산자가 음수일 경우에는 빈자리를 1로 채우게 된다. 양수일 경우에는 0으로 채워진다.</p>
+
+<hr />
+
+<h1 id="이-외-연산자--">이 외 연산자 ? :</h1>
+
+<p>조건 연산자는 총 3개의 피연산자를 필요로하는 삼항 연산자이며, 삼항 연산자는 조건 연산자 하나 뿐이다.</p>
+
+<p><strong>(조건식) ? 식1 : 식2</strong></p>
+
+<p>만약 조건식이 true를 반환하면 식1에 있는 내용이 연산결과가 되며, false를 반환할 때는 식2가 연산결과가 된다. 조건식을 괄호로 둘러싸는 것은 가독성을 높이기 위해서이지만 필수는 아니다.</p>
+
+<p>if문을 사용하면 조건연산자를 사용하지않아도 똑같은 구현을 할 수 있다. 하지만 보다 코드의 가독성을 높이기 위해서 조건연산자를 사용하는 경우도 있으니 알아두도록 하자.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- Utterance script -->
+            <script src="https://utteranc.es/client.js"
+                repo="Achasan/achasan.github.io"
+                issue-term="url"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/Algorhythm.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/basic/">Basic</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_2">[JSP] % 태그, forward, redirect</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_1">[JSP] 이론 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/jQuery">jQuery 자주 사용하는 함수 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/basic/">
+                                
+                                    See all 29 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/java_array">
+                <div class="post-card-image" style="background-image: url(/assets/images/java.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/java_array">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Java] 배열(Array)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>배열(Array)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      13 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/java_variable">
+                <div class="post-card-image" style="background-image: url(/assets/images/java.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/java_variable">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Java] 변수(Variable)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>변수(Variable)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        6 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">[Java] 연산자(Operator)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%5BJava%5D+%EC%97%B0%EC%82%B0%EC%9E%90%28Operator%29&amp;url=https://achasan.github.io/java_operator"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/java_operator"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

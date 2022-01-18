@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>WEB의 역사, HTML5 주요 기능, UI/UX</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/web" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="WEB의 역사, HTML5 주요 기능, UI/UX" />
+    <meta property="og:description" content="2021.09.27 수업 내용 인터넷 vs 웹 인터넷은 전 세계를 연결하는 국제 정보 통신망이다. 컴퓨터나 스마트폰 같은 디지털기기로 연결되어 사람드링 정보를 공유할 수 있는 공간이다. 웹은 인터넷 공간에서 제공하는 서비스로, 인터넷 안에 웹이 포함되어 있는 개념이다. 최초 웹 개발자 팀 버너스 리 팀 버너스 리는 웹의 아버지로 불리며, W3CWord Wide Web" />
+    <meta property="og:url" content="https://achasan.github.io/web" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/css_html_js.jfif" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-09-27T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-09-27T00:00:00+09:00" />
+    <meta property="article:tag" content="Basic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WEB의 역사, HTML5 주요 기능, UI/UX" />
+    <meta name="twitter:description" content="2021.09.27 수업 내용 인터넷 vs 웹 인터넷은 전 세계를 연결하는 국제 정보 통신망이다. 컴퓨터나 스마트폰 같은 디지털기기로 연결되어 사람드링 정보를 공유할 수 있는 공간이다. 웹은 인터넷 공간에서 제공하는 서비스로, 인터넷 안에 웹이 포함되어 있는 개념이다. 최초 웹 개발자 팀 버너스 리 팀 버너스 리는 웹의 아버지로 불리며, W3CWord Wide Web" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/css_html_js.jfif" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Basic" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/web",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/css_html_js.jfif",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/web"
+    },
+    "description": "2021.09.27 수업 내용 인터넷 vs 웹 인터넷은 전 세계를 연결하는 국제 정보 통신망이다. 컴퓨터나 스마트폰 같은 디지털기기로 연결되어 사람드링 정보를 공유할 수 있는 공간이다. 웹은 인터넷 공간에서 제공하는 서비스로, 인터넷 안에 웹이 포함되어 있는 개념이다. 최초 웹 개발자 팀 버너스 리 팀 버너스 리는 웹의 아버지로 불리며, W3CWord Wide Web"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="WEB의 역사, HTML5 주요 기능, UI/UX" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-basic post tag-Basic ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="27 September 2021">27 September 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                                <a href='/tag/basic/'>BASIC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">WEB의 역사, HTML5 주요 기능, UI/UX</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/css_html_js.jfif)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="20210927-수업-내용">2021.09.27 수업 내용</h1>
+
+<h3 id="인터넷-vs-웹">인터넷 vs 웹</h3>
+<p>인터넷은 전 세계를 연결하는 국제 정보 통신망이다. 컴퓨터나 스마트폰 같은
+디지털기기로 연결되어 사람드링 정보를 공유할 수 있는 공간이다.</p>
+
+<ul>
+  <li>웹은 인터넷 공간에서 제공하는 서비스로, 인터넷 안에 웹이 포함되어 있는 개념이다.</li>
+</ul>
+
+<h3 id="최초-웹-개발자-팀-버너스-리">최초 웹 개발자 팀 버너스 리</h3>
+<p>팀 버너스 리는 웹의 아버지로 불리며, W3CWord Wide Web Consotium을 창설하였으며,
+이는 HTML 표준을 비롯한 웹 표준안을 제작하고 제안하는 일을 하는 국제적인 웹표준화 단체이다.</p>
+
+<h3 id="웹의-간단한-역사">웹의 간단한 역사</h3>
+<p>미국의 신기술을 연구하는 ARPA에서 웹의 모태가 되는 아파넷(ARPANET)을 1969년에 개발하였으며, 
+1991년에 팀 버너스 리에 의해 처음 HTML이 발표되면서 웹 브라우저의 경쟁이 시작된다.
+NCSA는 1993년에 모자이크라는 GUI 웹 브라우저를 최초로 발표하였고, 넷스케이프 커뮤니케이션에서
+넷스케이프 웹 브라우저를 발표한다. 또한 마이크로소프트의 인터넷 익스플로러도 이 때 등장하였다.</p>
+
+<p>인터넷 익스플로러는 당시 운영체제였던 윈도우에 강제로 설치되게 함으로써 점유율을 빠르게 늘리는데 성공한다.
+이에 대응하기위해 넷스케이프는 소스코드를 공개하고 모질라 재단을 설립하였으나, 점차 하락하여 붕괴한다.</p>
+
+<p>이후 웹 브라우저와 연동되는 프로그램을 사용자의 PC에 추가로 설치해 웹 브라우저의 기능을 확장하는 플러그인이라는
+기능이 도입되었으며, 대표적으로 어도비플래시나, ActiveX가 있다. 주로 공인인증서를 사용하거나, 툴바 등 
+웹에서 사용하지 못하는 기능들을 플러그인을 통하여 사용가능하도록 하였다.</p>
+
+<p>서로 다른 사용자가 함께 새로운 컨텐츠를 창조할 수 있는 웹 2.0 시대가 개막되게되면서
+유튜브, 위키피디아, 깃헙 등 많은 서비스들이 등장하게 된다. 또한, 점유율이 가장 높았던 브라우저인
+인터넷 익스플로러가 플러그인을 사용함에따라 프로그램이 무거워지는 단점도 부각되게 되었다.</p>
+
+<p>따라서 2004년 W3C(World Web Consortium) 회의에서 모질라 재단과 오페라 소프트웨어가 새로운 HTML을 제안하지만 거절당하고,
+웹 브라우저 제공기업인 애플, 모질라, 오페라 소프트웨어에서 2004년 6월 새로운 웹 표준 기관인
+WHATWG(Web Hypertext Application Technology Working Group)을 설립하고, Web Application 1.0 표준을 작성하게된다.</p>
+
+<p>W3C에서는 웹 표준으로 Web Application 1.0 표준을 채택하고, HTML5 표준으로 변경하게되었고,
+인터넷 익스플로러가 최신 표준을 지원하지 못하는 현상이 일어나게 된다.
+또한 웹 표준이 업데이트되게되면서 웹으로 다양한 표현이 가능해졌고, 다양한 웹 브라우저 마케팅이 등장하게 되었다.</p>
+
+<h3 id="웹-용어">웹 용어</h3>
+
+<p>웹은 기본적으로 클라이언트의 요청과 서버가 응답하는 방식으로 진행된다.</p>
+
+<ul>
+  <li>URL: 어떤 대상을 구분하는 주소</li>
+</ul>
+
+<p>서버 프로그램(백엔드 프로그램)은 주로 자바, C#, 루비, 파이썬, 자바스크립트 등이 사용되며,
+웹 프레임워크(ASP.NET, JSP, PHP), MVC 프레임워크(ASP.NET MVC, Spring MVC, Ruby on Rails 등), 비동기 프레임워크(Node.js, Express, Jetty)로 나뉜다.</p>
+
+<p>클라이언트 프로그램(프론트엔드 프로그램)은 HTML, CSS, 자바스크립트로 개발되며, 이번에 배울 내용은 여기에 해당된다.</p>
+
+<p>웹 표준 기술은 HTML5, CSS3, 자바스크립트 총 세 가지의 언어를 총칭하는 언어이다.</p>
+
+<ul>
+  <li>HTML : 웹페이지를 구성하는 뼈대</li>
+  <li>CSS(Cascading Style Sheets) : HTML 페이지에 스타일을 지정하는 스타일 시트를 작성할 때 사용하는언어</li>
+  <li>JavaScript : 표준 명칭은 EMCAScript이며, 사용자의 반응을 처리하는 스크립트를 작성하는 언어이다.</li>
+</ul>
+
+<h3 id="html5의-주요-기능">HTML5의 주요 기능</h3>
+
+<ul>
+  <li>멀티미디어 기능 : 플러그인의 도움 없이 스스로 음악, 동영상 재생이 가능</li>
+  <li>그래픽 기능 : 2차원, 3차원(CSS, 자바스크립트를) 그래픽 구현이 가능하다.</li>
+  <li>통신 기능 : 서버와 실시간으로 쌍방향 통신을 수행하며, IRC, 게임, 고객센터 실시간 문의/답변이 가능</li>
+  <li>장치 접근 : 장치에 접근하여 정보와 기능을 사용한다. (배터리정보, 현재 위치, 알람 등)</li>
+  <li>오프라인 및 저장소 : 인터넷이 연결되지 않은 상태에서도 응용프로그램을 동작할 수 있고, 따라서 HTML5를 응용 프로그램의 중심으로 사용하는 운영체제가 등장하였다.</li>
+</ul>
+
+<h3 id="웹-개발-세팅">웹 개발 세팅</h3>
+
+<p>국비수업에서는 Eclipse Enterprise Edition IDE(EclipseEE)를 사용하여 수업한다.
+VSC로 수업하지 않는 이유가 궁금했지만 아무래도 후에 JSP 수업을위해서 아파치 톰캣을 사용해야하고, 
+Eclipse를 통해서 수업하는게 JSP수업 시 효율적으로 관리할 수 있어서 인 것 같다.</p>
+
+<p>이전의 Eclipse는 Standard Edition으로, 오직 자바언어만 다룰 수 있도록 만들어진 에디션이다.
+따라서 웹 분야까지 다루기 위해서는 Enterprise Edition이 필요하다.</p>
+
+<p>아파치 톰캣은 아파치 소프트웨어 재단에서 개발하는 Java 기반 서블릿 컨테이너이다.
+후에 웹서버를 구동하거나 JSP/Spring으로 웹사이트를 구축한다면 반드시 사용되어진다고 한다.
+HTML, CSS, JavaScript를 통해 웹페이지를 만들고 구동해볼 때 console에서 구동하는 것이 아닌, 웹페이지를
+구동시켜야하기 때문에 직접 로컬컴퓨터를 웹서버로 지정하여 테스트 할 때 사용될 것 같다.</p>
+
+<p>프로젝트할 때에는 아파치 톰캣에 대해 자세히 알아보아야할 필요가 있을 것으로 생각된다.</p>
+
+<p>참고로, HTML,CSS,JavaScript를 다룰 수 있는 편집기를 웹 에디터라고 한다. 여기서는 EclipseEE가 해당된다.</p>
+
+<h1 id="ui--ux">UI / UX</h1>
+
+<ul>
+  <li>
+    <p>UI(User Interface)는 사용자가 특정 컨텐츠를 이용할 때 만나는 접점, 즉 사용자의 환경을 뜻하는 말이다.
+컴퓨터가 바탕화면의 아이콘과 툴바 또는 모바일 화면의 앱 아이콘을 클릭하는 것들 모두 UI라고 정의할 수 있다.
+사람들이 특정 컨텐츠를 이용할 대 만나게 되는 도구와 사용환경을 UI라고 하며, 웹페이지의 경우, 웹페이지 상단의 로고와 메뉴,
+배너와 이미지 섬네일 둘이 UI에 해당된다 볼 수 있다.</p>
+  </li>
+  <li>
+    <p>UX(User Experience)는 사용자가 특정 컨텐츠를 사용할 때 UI에서 느낄 수 있는 사용자 경험을 말한다.
+예를 들자면, 게시판에 접근할 때 A라는 웹페이지는 메뉴를 3번 클릭해야하지만, B라는 웹페이지에서는
+1회만 클릭해도 된다면 B라는 웹페이지의 사용자 경험이 더 좋다고 볼 수 있다. 특정 UI를 이용하여 컨텐츠를 사용할 때
+느끼는 사용자의 경험을 UX라고 말한다. 개발자는 기능을 구현할 때 UX를 염두하고 만들어야할 필요가 있다.</p>
+  </li>
+  <li>
+    <p>UI와 UX를 합쳐 사용자와 상호작용하는 여러 모션과 동적인 컨텐츠를 사용하는 환경을 구축할 수 있다.
+예를들면, 모바일 환경에서 화면을 좌우로 밀면 컨텐츠 화면이 슬라이드 되면서 바뀌거나, 웹페이지에서 특정 버튼을 클릭하면
+모션이 나타나 방문자의 시선을 끄는 환경을 말한다.</p>
+  </li>
+</ul>
+
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- Utterance script -->
+            <script src="https://utteranc.es/client.js"
+                repo="Achasan/achasan.github.io"
+                issue-term="url"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/Algorhythm.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/basic/">Basic</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_2">[JSP] % 태그, forward, redirect</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_1">[JSP] 이론 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/jQuery">jQuery 자주 사용하는 함수 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/basic/">
+                                
+                                    See all 29 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/html_css_tag">
+                <div class="post-card-image" style="background-image: url(/assets/images/css_html_js.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/html_css_tag">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[HTML] form 태그, input 태그, css 박스모델</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>20210929 수업 내용
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      13 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/html">
+                <div class="post-card-image" style="background-image: url(/assets/images/css_html_js.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/html">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[HTML] 자주 사용되는 html 태그</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>HTML 수업 9월 27일~28일
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        10 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">WEB의 역사, HTML5 주요 기능, UI/UX</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=WEB%EC%9D%98+%EC%97%AD%EC%82%AC%2C+HTML5+%EC%A3%BC%EC%9A%94+%EA%B8%B0%EB%8A%A5%2C+UI%2FUX&amp;url=https://achasan.github.io/web"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/web"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

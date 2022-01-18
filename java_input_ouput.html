@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>[Java] I/O (Input & Output)</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/java_input_ouput" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[Java] I/O (Input & Output)" />
+    <meta property="og:description" content="I/O (Input &amp; Output) 2021.08.23~24` IO패키지 프로그램에서 데이터를 외부에서 읽고 다시 외부로 출력하는 작업과 관련된 기능을 제공하는 패키지이다. 데이터는 Stream을 통해 입출력된다. Stream의 개념을 아는 것이 중요하다. Stream 클래스는 다양한 종류가 있지만 여기서는 중요한 개념들 위주로 작성하려고한다. 입력 스트림, 출력 스트림 프로그램이 데이터를 입력받을 때는 입력스트림, 데이터를 보낼 때는 출력스트림이라고" />
+    <meta property="og:url" content="https://achasan.github.io/java_input_ouput" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-08-23T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-08-23T00:00:00+09:00" />
+    <meta property="article:tag" content="Basic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[Java] I/O (Input & Output)" />
+    <meta name="twitter:description" content="I/O (Input &amp; Output) 2021.08.23~24` IO패키지 프로그램에서 데이터를 외부에서 읽고 다시 외부로 출력하는 작업과 관련된 기능을 제공하는 패키지이다. 데이터는 Stream을 통해 입출력된다. Stream의 개념을 아는 것이 중요하다. Stream 클래스는 다양한 종류가 있지만 여기서는 중요한 개념들 위주로 작성하려고한다. 입력 스트림, 출력 스트림 프로그램이 데이터를 입력받을 때는 입력스트림, 데이터를 보낼 때는 출력스트림이라고" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Basic" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/java_input_ouput",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/java.jfif",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/java_input_ouput"
+    },
+    "description": "I/O (Input &amp; Output) 2021.08.23~24` IO패키지 프로그램에서 데이터를 외부에서 읽고 다시 외부로 출력하는 작업과 관련된 기능을 제공하는 패키지이다. 데이터는 Stream을 통해 입출력된다. Stream의 개념을 아는 것이 중요하다. Stream 클래스는 다양한 종류가 있지만 여기서는 중요한 개념들 위주로 작성하려고한다. 입력 스트림, 출력 스트림 프로그램이 데이터를 입력받을 때는 입력스트림, 데이터를 보낼 때는 출력스트림이라고"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="[Java] I/O (Input & Output)" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-basic post tag-Basic ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="23 August 2021">23 August 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                                <a href='/tag/basic/'>BASIC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">[Java] I/O (Input & Output)</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/java.jfif)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="io-input--output">I/O (Input &amp; Output)</h1>
+
+<p>2021.08.23~24`</p>
+
+<hr />
+
+<h1 id="io패키지">IO패키지</h1>
+
+<p>프로그램에서 데이터를 외부에서 읽고 다시 외부로 출력하는 작업과 관련된 기능을 제공하는 패키지이다. 데이터는 Stream을 통해 입출력된다. Stream의 개념을 아는 것이 중요하다. Stream 클래스는 다양한 종류가 있지만 여기서는 중요한 개념들 위주로 작성하려고한다.</p>
+
+<h2 id="입력-스트림-출력-스트림">입력 스트림, 출력 스트림</h2>
+
+<p>프로그램이 데이터를 입력받을 때는 입력스트림, 데이터를 보낼 때는 출력스트림이라고 부르는데, 한 마디로 프로그램이 데이터를 읽기 위해 입력을 받고, 데이터를 보내기 위해 출력하는 것이라고 보면 된다. 입력은 보통 키보드, 파일, 프로그램을 통해 데이터가 입력을 받고 받은 데이터를 가공하거나 변경하여 모니터나 파일, 프로그램으로 출력하는 일련의 흐름을 입력스트림, 출력스트림이라고 부른다.</p>
+
+<h2 id="스트림-클래스">스트림 클래스</h2>
+
+<p>스트림 클래스는 크게 2가지로 구분되는데, 하나는 Byte 기반 스트림, 하나는 Character 기반 스트림이다. Byte 스트림은 그림, 멀티미디어, 문자 등 모든 종류의 데이터를 읽거나 보낼 수 있다. 하지만 문자 기반 스트림은 오직 문자만 읽을 수 있다.</p>
+
+<p>Byte 스트림은 InputStream, OutputStream의 두 가지 최상위클래스를 가지고 있으며, 용도에 맞게 따 여러가지 하위 Stream들이 존재한다. 보통 XXXInputStream, XXXOutputSteram 형식으로 되어있다.</p>
+
+<p>Character 스트림은 Reader, Writer가 최상위 클래스이며, XXXReader, XXXWriter 형식의 하위 클래스로 구성되어있다.</p>
+
+<h3 id="inputstream">InputStream</h3>
+
+<p>InputStream은 바이트 기반 입력 스트림의 최상위 클래스이며, 추상클래스이다. 하위 클래스들이 InputStream에서 선언한 추상메소드를 구현하여 사용한다. InputStream을 상속받아 사용되기 때문에 기본메소드는 모두 같으며, InputStream에 정의되어있다.</p>
+
+<ol>
+  <li>read() : 입력스트림으로부터 1바이트를 읽고 읽은 바이트를 리턴한다. 읽을 데이터가 없을 경우에는 -1을 리턴한다. 이를 반복문에 조건식으로 사용가능하다.</li>
+  <li>read(byte[] b) : byte 배열에 읽은 데이터들을 저장하고, 읽은 데이터 수를 int값으로 리턴한다.</li>
+  <li>read(byte[] b, int offset, int length) : byte 배열에 시작인덱스부터 얼만큼의 길이를 데이터에 저장할 지 정할 수 있다. 읽은 데이터의 수를 int값으로 리턴한다.</li>
+</ol>
+
+<p>여기서 주의해야할 점은 read() 메소드는 읽은 바이트를 1바이트의 단위로 리턴하지만, 오버로딩 된 메소드들은 읽은 바이트의 수를 리턴하지, 읽은 데이터의 값들은 byte 배열에 저장된다는 것이다. 헷갈릴 수 있으니 조심하자.</p>
+
+<p>또한 read(byte[] b)메소드는 배열에 배정된 길이만큼 한번에 데이터를 읽어온다. 예를들어 읽어오려는 데이터가 500byte이고, 데이터에 저장할 byte가 100의 길이를 가졌다고 가정했을 때, 반복문을 사용하면 5번의 루핑이 일어나고 배열에는 400~499의 데이터가 들어있게 될 것이다.</p>
+
+<p>바이트 기반 스트림으로 데이터를 입력받기 때문에 아스키 코드로 데이터를 읽어온다. 따라서 문자데이터를 받았을 때 읽으려면 char 타입으로 형변환을 해주어야한다. 또한 한글같은 경우 2바이트로 되어있는 문자의 경우 read() 메소드로 읽을 수가 없다.</p>
+
+<h3 id="outputstream">OutputStream</h3>
+
+<p>OutputStream은 바이트 기반 출력 스트림의 최상위 클래스이다. 출력 스트림의 하위 클래스들이 OutputStream을 상속받은 구조로 되어있고, InputStream 처럼 추상메소드가 선언되어있고, 기본적인 메소드들이 정의되어있다.</p>
+
+<ol>
+  <li>write() : 출력스트림으로 1 바이트를 보낸다</li>
+  <li>write(byte[] b) : byte 배열의 b에 담긴 데이터들을 모두 보낸다.</li>
+  <li>write(byte[] b, int offset, int length) : byte 배열의 담긴 데이터 중 지정한 index부터 길이까지의 데이터만 보낸다.</li>
+  <li>flush() : 버퍼에 잔류하는 모든 바이트를 출력한다.</li>
+  <li>close() : 사용한 시스템 자원을 반납한다. 출력 스트림을 닫는다.</li>
+</ol>
+
+<p>flush()와 close()는 출력스트림에만 있는 메소드인데, 이는 출력 스트림이 다른 프로그램이나 저장매체가 데이터를 읽는 속도가 다를 수 있어서 데이터를 보낼 때 Buffer라는 일종의 임시저장소에 데이터들을 쌓아놓기 때문이다. Buffer에 데이터가 꽉 차게 되면, 한번에 저장매체로 데이터를 옮기는 방식이다.
+flush()는 버퍼에 남아있는 데이터를 보내는 메소드이다. 버퍼가 꽉 차지 않아서 남은 데이터가 못 보내질 수 있으니 마지막에 메소드를 선언하여 남은 데이터까지 보내주어야 한다.
+버퍼는 보통 메모리를 할당받아서 만들어지는데, 작업이 끝나면 할당받았던 메모리를 close()메소드를 통해 풀어주어 다른 작업에 메모리가 사용될 수 있도록 한다.</p>
+
+<h3 id="reader-writer">Reader, Writer</h3>
+
+<p>문자 기반 스트림이 가지고 있는 최상위 클래스는 Reader와 Writer이다. InputStream과 OutputStream은 바이트 단위로 데이터를 불러오기 때문에 문자데이터를 가져와서 읽으려면 String 클래스로 형변환을 해줘야하는 번거로움이 생긴다. 따라서 Reader와 Writer를 통해 편하게 문자데이터만 입출력을 할 수 있도록 만들어졌다.</p>
+
+<p>Reader의 read(), Writer의 write()메소드의 쓰임새는 전반적으로 바이트 기반 스트림의 기본메소드와 사용법이 같다. 다만 2바이트 형식으로 데이터를 가져오는 방식이기 때문에 이 점은 유의하여야 한다. 배열에 데이터를 저장할 때 어떻게 저장될 지 숙지하고 사용하는 것이 중요할 것 같다.</p>
+
+<p>가장 큰 차이점은 바이트 기반 스트림의 경우 byte 타입에 저장을 하지만, 문자 기반 스트림에는 char타입으로 데이터를 저장하여야한다.</p>
+
+<h3 id="입출력-관련-클래스">입출력 관련 클래스</h3>
+
+<p>입출력과 관련된 다양한 클래스들이 있는데 이 글에서는 간단히만 언급한다.</p>
+
+<ul>
+  <li>File 클래스 : 파일을 입출력하는 클래스, 디렉토리에 있는 파일의 데이터를 읽어오거나, 데이터를 파일에 내보낼 수 있다. FileInputStream, FileOutputStream, FileReader, FileWriter 클래스가 이에 해당한다.</li>
+</ul>
+
+<p>관련 클래스중에 보조스트림 클래스라는 것도 있는데, 보조스트림은 자체적으로 입출력을 수행할 수 없고, 입력소스와 연결되는 클래스에 연결해서 입출력을 수행한다.</p>
+
+<ul>
+  <li>InputStreamReader, OutputStreamReader : 바이트 기반 스트림은 문자데이터를 ascii코드로 저장하기 때문에 형변환을 해야되는 번거로운 작업을 해야하는데, InputStreamReader, OutputStreamWriter를 사용하면 읽은 값이 자동으로 형변환이 되어서 타입변환작업 없이 데이터를 바로 볼 수 있다는 장점을 가지고 있다.</li>
+  <li>BufferedInputStream, BufferedReader : OutputStream에서 데이터를 출력할 때 Buffer를 사용한다고 언급했었다. 이 클래스들은 메모리 버퍼를 형성하여 데이터를 쓰고 전송 시 더 빠른 속도로 전송 할 수 있도록 해주는 클래스이다. 저장매체마다 다르겠지만 소스에 연결하여 사용하면 그냥 사용했을 때보다 거의 100배정도의 빠른 성능을 보여주는 것 같다. 
+참고로 BufferedReader에는 readLine()메소드가 있는데, 문자 데이터를 가져올 때 줄바꿈 단위로 데이터를 가져오는 메소드이다. 보다 편하게 데이터를 가져올 수 있도록 해준다.</li>
+  <li>PrinterStream, PrinterWriter : 프린트 보조 스트림으로 print(), println() 메소드를 가지고 있다. 코드를 작성하면서 많이 사용하는 System.out.println()이 PrintStream에 속해있다. 생성자로는 연결할 출력스트림의 변수를 입력한 다음, 우리가 흔하게 사용했던 print(), println()을 사용하여 데이터를 출력할 수 있다.
+    <ul>
+      <li>
+        <p>여기서 printf()와 관련된 다양한 포맷들이 나오는데, 앞으로 개발을 하면서 익숙해 져야할 부분이라고 생각해서 따로 글을 작성해놓았다. 익숙해지려 노력해야겠다.</p>
+
+        <p><a href="I%20O%20(Input%20&amp;%20Output)%20f289699bc91143e1aaa8fa5bd27316be/printf()%20Format%2071ce78c73d6b46a78ab924ba3e04d7c5.md">printf() Format</a></p>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="콘솔-입출력">콘솔 입출력</h2>
+
+<p>자바는 콘솔로부터 데이터를 입력받을 때 System.in을 사용하고 데이터를 출력할 때 System.out을 사용한다. 에러를 출력할 때는 System.err를 사용한다.</p>
+
+<h3 id="systemin"><a href="http://system.in">System.in</a></h3>
+
+<p>System.in은 InputStream 타입의 필드이기 떄문에 다음과 같이 변수 참조가 가능하다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">InputStream</span> <span class="n">is</span> <span class="o">=</span> <span class="nc">System</span><span class="o">.</span><span class="na">in</span><span class="o">;</span>
+</code></pre></div></div>
+
+<p>코드의 첫 줄에 이 문장을 써놓으면 is.read() 메소드를 입력할 때마다 콘솔이 입력값을 기다리게 된다. 입력값이 들어와야 데이터를 읽을 수 있기 때문이다. 콘솔에 입력한 값들은 ascii코드로 변환되어 읽어진다. 여기서 주의할 점은 엔터키도 ascii코드에 포함된다는 점인데, 13 10이 포함되게 된다.</p>
+
+<p>13은 캐리지 리턴, 10은 라인 피드라고해서 엔터키를 누르면 커서가 처음으로 이동하게 되고, 라인피드를 통해 줄바꿈이 일어나게 된다. 따라서 온전한 데이터값만 얻기 위해서는 엔터키를 뺀 값만 변환해 주는 것이 좋다.</p>
+
+<p>예제를 실행했을 때는 문자열로 데이터를 읽었기 때문에 byte배열로 받아서 new String(byte[] b, int offset, int length)로 타입변환을 해주었었다. 이 때 read()메소드로 데이터를 받은 수를 이용해 길이를 -2 해주어 엔터값만 빼서 문자열 데이터만 변환이 가능하도록 할 수 있었다.</p>
+
+<h3 id="systemout">System.out</h3>
+
+<p>지금까지 자바를 배우면서 수없이 사용해온 System.out.println() 코드가 여기있는 코드였다. out은 PrintStream타입의 필드인데, 결론적으로 OutputStream의 하위클래스이다. OutputStream을 통해 객체를 생성하고 사용하는 것은 불편한 점이 많아서 print(), println()으로 지금까지 메소드를 사용해 온 것이였다. 나중에 더 자세히 배우게 될 내용이여서 일단 넘어가기로 한다.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- Utterance script -->
+            <script src="https://utteranc.es/client.js"
+                repo="Achasan/achasan.github.io"
+                issue-term="url"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/Algorhythm.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/basic/">Basic</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_2">[JSP] % 태그, forward, redirect</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_1">[JSP] 이론 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/jQuery">jQuery 자주 사용하는 함수 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/basic/">
+                                
+                                    See all 29 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/java_awt_swing">
+                <div class="post-card-image" style="background-image: url(/assets/images/java.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/java_awt_swing">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Java] GUI(AWT & SWING)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>GUI( AWT &amp; SWING )
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      12 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/java_lambda">
+                <div class="post-card-image" style="background-image: url(/assets/images/java.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/java_lambda">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Java] 람다식(Lambda)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>람다식 (Lambda)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        7 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">[Java] I/O (Input & Output)</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%5BJava%5D+I%2FO+%28Input+%26+Output%29&amp;url=https://achasan.github.io/java_input_ouput"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/java_input_ouput"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

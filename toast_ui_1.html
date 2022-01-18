@@ -323,20 +323,20 @@ into the {body} of the default.hbs template -->
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script&gt;</span>
   <span class="kd">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">toastui</span><span class="p">.</span><span class="nx">Editor</span><span class="p">({</span>
-  <span class="na">el</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">#editor</span><span class="dl">"</span><span class="p">),</span>
-  <span class="na">height</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500px</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">initialEditType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">wysiwyg</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">placeholder</span><span class="p">:</span> <span class="dl">"</span><span class="s2">내용을 입력해주세요</span><span class="dl">"</span><span class="p">,</span>
-  <span class="na">hooks</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">addImageBlobHook</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">blob</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kd">const</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
-      <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">,</span> <span class="nx">blob</span><span class="p">);</span>
-      <span class="kd">const</span> <span class="nx">imageURL</span> <span class="o">=</span> <span class="nx">imageUpload</span><span class="p">(</span><span class="nx">formData</span><span class="p">);</span>
-      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">imageURL</span><span class="p">);</span>
-      <span class="nx">callback</span><span class="p">(</span><span class="nx">imageURL</span><span class="p">,</span> <span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">);</span>
+    <span class="na">el</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">#editor</span><span class="dl">"</span><span class="p">),</span>
+    <span class="na">height</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500px</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">initialEditType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">wysiwyg</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">placeholder</span><span class="p">:</span> <span class="dl">"</span><span class="s2">내용을 입력해주세요</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">hooks</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">addImageBlobHook</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">blob</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+        <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">,</span> <span class="nx">blob</span><span class="p">);</span>
+        <span class="kd">const</span> <span class="nx">imageURL</span> <span class="o">=</span> <span class="nx">imageUpload</span><span class="p">(</span><span class="nx">formData</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">imageURL</span><span class="p">);</span>
+        <span class="nx">callback</span><span class="p">(</span><span class="nx">imageURL</span><span class="p">,</span> <span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">);</span>
+      <span class="p">},</span>
     <span class="p">},</span>
-  <span class="p">},</span>
-  <span class="na">language</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ko-KR</span><span class="dl">'</span>
+    <span class="na">language</span><span class="p">:</span> <span class="dl">'</span><span class="s1">ko-KR</span><span class="dl">'</span>
 <span class="nt">&lt;/script&gt;</span>
 });
 </code></pre></div></div>
@@ -486,6 +486,54 @@ into the {body} of the default.hbs template -->
                                         
                                         
                                     
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
                                   
                                 
                                   

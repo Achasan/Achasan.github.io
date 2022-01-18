@@ -593,6 +593,36 @@
     
       
       <item>
+        <title>[JSP] % 태그, forward, redirect</title>
+        
+          <description>&lt;h1 id=&quot;jsp-20211015-til&quot;&gt;JSP 20211015 TIL&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 15 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/JSP_2</link>
+        <guid isPermaLink="true">https://achasan.github.io/JSP_2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JSP] 이론 정리</title>
+        
+          <description>&lt;h1 id=&quot;jsp-20211014-til&quot;&gt;JSP 20211014 TIL&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 14 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/JSP_1</link>
+        <guid isPermaLink="true">https://achasan.github.io/JSP_1</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[PRO] lv1 알고리즘 풀은 문제들</title>
         
           <description>&lt;h1 id=&quot;20211013-풀어본-알고리즘-문제&quot;&gt;20211013 풀어본 알고리즘 문제&lt;/h1&gt;
@@ -603,6 +633,157 @@
         <link>
         https://achasan.github.io/lv1_Six</link>
         <guid isPermaLink="true">https://achasan.github.io/lv1_Six</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>jQuery 자주 사용하는 함수 정리</title>
+        
+          <description>&lt;h1 id=&quot;20211012-til--jquery-내용-정리&quot;&gt;20211012 TIL : jQuery 내용 정리&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 12 Oct 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/jQuery</link>
+        <guid isPermaLink="true">https://achasan.github.io/jQuery</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>css 수업 배운 내용 정리</title>
+        
+          <description>&lt;h1 id=&quot;20210930-수업-내용-정리&quot;&gt;20210930 수업 내용 정리&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 30 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/css</link>
+        <guid isPermaLink="true">https://achasan.github.io/css</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[HTML] form 태그, input 태그, css 박스모델</title>
+        
+          <description>&lt;h1 id=&quot;20210929-수업-내용&quot;&gt;20210929 수업 내용&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 29 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/html_css_tag</link>
+        <guid isPermaLink="true">https://achasan.github.io/html_css_tag</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>WEB의 역사, HTML5 주요 기능, UI/UX</title>
+        
+          <description>&lt;h1 id=&quot;20210927-수업-내용&quot;&gt;2021.09.27 수업 내용&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 27 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/web</link>
+        <guid isPermaLink="true">https://achasan.github.io/web</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[HTML] 자주 사용되는 html 태그</title>
+        
+          <description>&lt;h1 id=&quot;html-수업-9월-27일28일&quot;&gt;HTML 수업 9월 27일~28일&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 27 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/html</link>
+        <guid isPermaLink="true">https://achasan.github.io/html</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Github 기본적인 개념 정리</title>
+        
+          <description>&lt;h1 id=&quot;github-협업-20210914&quot;&gt;GitHub 협업 (20210914)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 14 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/github_jdbc</link>
+        <guid isPermaLink="true">https://achasan.github.io/github_jdbc</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JDBC] Swing에 DB연동 2</title>
+        
+          <description>&lt;h1 id=&quot;20210910-수업-내용-정리&quot;&gt;20210910 수업 내용 정리&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 10 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/jdbc_swing_2</link>
+        <guid isPermaLink="true">https://achasan.github.io/jdbc_swing_2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JDBC] Swing에 DB연동</title>
+        
+          <description>&lt;h1 id=&quot;20210909-수업-내용&quot;&gt;20210909 수업 내용&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 09 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/jdbc_swing_db</link>
+        <guid isPermaLink="true">https://achasan.github.io/jdbc_swing_db</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JDBC] Connection, PrepareStatement, ResultSet 객체</title>
+        
+          <description>&lt;p&gt;20210908 수업 내용 정리
+적어야 할 내용 : 각 객체(Connection, PrepareStatement, ResultSet)에서 사용하는 메소드 정리하기&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 08 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/jdbc_object</link>
+        <guid isPermaLink="true">https://achasan.github.io/jdbc_object</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[JDBC] JDBC를 통해 데이터베이스와 Java 연동하기</title>
+        
+          <description>&lt;h1 id=&quot;jdbcjava-database-connectivity&quot;&gt;JDBC(Java Database Connectivity)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 07 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/jdbc</link>
+        <guid isPermaLink="true">https://achasan.github.io/jdbc</guid>
       </item>
       
     
@@ -693,6 +874,186 @@
         <link>
         https://achasan.github.io/database_1</link>
         <guid isPermaLink="true">https://achasan.github.io/database_1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 예외와 예외클래스(Exception)</title>
+        
+          <description>&lt;h1 id=&quot;예외와-예외클래스&quot;&gt;예외와 예외클래스&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Thu, 02 Sep 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_exception</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_exception</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 기본 API 클래스2 (Application Programming Interface)</title>
+        
+          <description>&lt;h1 id=&quot;기본-api-클래스2&quot;&gt;기본 API 클래스2&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 31 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_api_2</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_api_2</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 기본 API 클래스(Application Programming Interface)</title>
+        
+          <description>&lt;h1 id=&quot;기본-api-클래스&quot;&gt;기본 API 클래스&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 30 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_api_1</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_api_1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] GUI(AWT &amp; SWING)</title>
+        
+          <description>&lt;h1 id=&quot;gui-awt--swing-&quot;&gt;GUI( AWT &amp;amp; SWING )&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Wed, 25 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_awt_swing</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_awt_swing</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] I/O (Input &amp; Output)</title>
+        
+          <description>&lt;h1 id=&quot;io-input--output&quot;&gt;I/O (Input &amp;amp; Output)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 23 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_input_ouput</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_input_ouput</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 람다식(Lambda)</title>
+        
+          <description>&lt;h1 id=&quot;람다식-lambda&quot;&gt;람다식 (Lambda)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 20 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_lambda</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_lambda</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 인터페이스, 다형성</title>
+        
+          <description>&lt;h1 id=&quot;인터페이스와-다형성-interface&quot;&gt;인터페이스와 다형성 (Interface)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 17 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_interface_polymorphism</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_interface_polymorphism</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 메서드(Method), 클래스(Class)</title>
+        
+          <description>&lt;h1 id=&quot;메소드-클래스-method-class&quot;&gt;메소드, 클래스 (Method, Class)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 10 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_method_class</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_method_class</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 배열(Array)</title>
+        
+          <description>&lt;h1 id=&quot;배열array&quot;&gt;배열(Array)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Fri, 06 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_array</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_array</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 연산자(Operator)</title>
+        
+          <description>&lt;h1 id=&quot;연산자operator&quot;&gt;연산자(Operator)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_operator</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_operator</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 변수(Variable)</title>
+        
+          <description>&lt;h1 id=&quot;변수variable&quot;&gt;변수(Variable)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 02 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_variable</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_variable</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>[Java] 제어문(Control)</title>
+        
+          <description>&lt;h1 id=&quot;제어문control&quot;&gt;제어문(Control)&lt;/h1&gt;
+
+</description>
+        
+        <pubDate>Mon, 02 Aug 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/java_control</link>
+        <guid isPermaLink="true">https://achasan.github.io/java_control</guid>
       </item>
       
     

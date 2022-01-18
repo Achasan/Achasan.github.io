@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>[Java] 인터페이스, 다형성</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/java_interface_polymorphism" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[Java] 인터페이스, 다형성" />
+    <meta property="og:description" content="인터페이스와 다형성 (Interface) 2021.08.17 인터페이스 (Interface) 인터페이스는 추상클래스와 유사한 클래스이다. 인터페이스는 추상클래스처럼 추상메소드를 갖지만 추상메소드보다 추상화 정도가 높다. 또한 추상메소드가 일반 멤버변수, 생성자를 가질 수 있지만 인터페이스는 그렇지 않다. 오직 상수와 추상메소드만을 가질 수 있고, 다른 부분은 허용하지 않는다. 추상클래스를 미완성된 클래스라고 한다면, 인터페이스는 기본적인 설계도만을 가진 클래스라고 할 수" />
+    <meta property="og:url" content="https://achasan.github.io/java_interface_polymorphism" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2021-08-17T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2021-08-17T00:00:00+09:00" />
+    <meta property="article:tag" content="Basic" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[Java] 인터페이스, 다형성" />
+    <meta name="twitter:description" content="인터페이스와 다형성 (Interface) 2021.08.17 인터페이스 (Interface) 인터페이스는 추상클래스와 유사한 클래스이다. 인터페이스는 추상클래스처럼 추상메소드를 갖지만 추상메소드보다 추상화 정도가 높다. 또한 추상메소드가 일반 멤버변수, 생성자를 가질 수 있지만 인터페이스는 그렇지 않다. 오직 상수와 추상메소드만을 가질 수 있고, 다른 부분은 허용하지 않는다. 추상클래스를 미완성된 클래스라고 한다면, 인터페이스는 기본적인 설계도만을 가진 클래스라고 할 수" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Basic" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/java_interface_polymorphism",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/java.jfif",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/java_interface_polymorphism"
+    },
+    "description": "인터페이스와 다형성 (Interface) 2021.08.17 인터페이스 (Interface) 인터페이스는 추상클래스와 유사한 클래스이다. 인터페이스는 추상클래스처럼 추상메소드를 갖지만 추상메소드보다 추상화 정도가 높다. 또한 추상메소드가 일반 멤버변수, 생성자를 가질 수 있지만 인터페이스는 그렇지 않다. 오직 상수와 추상메소드만을 가질 수 있고, 다른 부분은 허용하지 않는다. 추상클래스를 미완성된 클래스라고 한다면, 인터페이스는 기본적인 설계도만을 가진 클래스라고 할 수"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="[Java] 인터페이스, 다형성" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-basic post tag-Basic ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="17 August 2021">17 August 2021</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                                <a href='/tag/basic/'>BASIC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">[Java] 인터페이스, 다형성</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/java.jfif)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="인터페이스와-다형성-interface">인터페이스와 다형성 (Interface)</h1>
+
+<p>2021.08.17</p>
+
+<hr />
+
+<h1 id="인터페이스-interface">인터페이스 (Interface)</h1>
+
+<p>인터페이스는 추상클래스와 유사한 클래스이다. 인터페이스는 추상클래스처럼 추상메소드를 갖지만 추상메소드보다 추상화 정도가 높다. 또한 추상메소드가 일반 멤버변수, 생성자를 가질 수 있지만 인터페이스는 그렇지 않다. 오직 상수와 추상메소드만을 가질 수 있고, 다른 부분은 허용하지 않는다.</p>
+
+<p>추상클래스를 미완성된 클래스라고 한다면, 인터페이스는 기본적인 설계도만을 가진 클래스라고 할 수 있다.</p>
+
+<p>인터페이스를 작성하는 방법은 클래스와 같다. class 대신 interface를 작성한다는 점만 빼면.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">interface</span> <span class="nc">인터페이스이름</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">타입</span> <span class="n">상수이름</span> <span class="o">=</span> <span class="n">값</span><span class="o">;</span> <span class="c1">// 필드에는 상수만 선언할 수 있다.</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="n">메소드이름</span><span class="o">(</span><span class="n">매개변수</span><span class="o">);</span> <span class="c1">// 추상메소드</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>인터페이스 멤버는 다음과 같은 변수가 있다.</p>
+
+<aside>
+💡 모든 멤버변수는 public static final 이어야하고, 이를 생략가능하다. (자동 인식)
+모든 메소드는 public abstract 이어야하고, 이를 생략이 가능하다. 
+(static 메소드, default 메소드 제외)
+
+</aside>
+
+<p>생략된 제어자는 컴파일 시에 컴파일러가 자동적으로 추가해준다.</p>
+
+<h2 id="인터페이스의-상속">인터페이스의 상속</h2>
+
+<p>인터페이스는 인터페이스로부터만 상속받을 수 있고, <strong>클래스와는 다르게 다중상속이 가능하다</strong>.</p>
+
+<p>여기서 주의해야할 점은 인터페이스끼리만 상속이 가능하다는 점이다. 인터페이스 간에는 여러 개의 상속을 받는 것이 가능하다. 자식 인터페이스는 부모 인터페이스의 정의된 멤버를 모두 상속받는다.</p>
+
+<h2 id="인터페이스의-구현">인터페이스의 구현</h2>
+
+<p>인터페이스도 추상클래스처럼 그 자체로는 인스턴스를 생성할 수 없고, 자신에 정의된 추상메소드를 구현하는 구현클래스를 작성해야한다. 인터페이스에 있는 추상메소드와 상수를 상속받기 위해서는 extends대신 implements를 작성하여 상속을 받는다고 생각하면 된다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">클래스이름</span> <span class="n">implenets</span> <span class="n">인터페이스이름</span> <span class="o">{}</span>	
+</code></pre></div></div>
+
+<p><strong>만약 구현하는 인터페이스의 메소드 중 일부만 구현한다면 abstract를 붙여서 추상클래스로 선언하어야한다. (처음 듣는 내용)</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Fighter</span> <span class="kd">implements</span> <span class="nc">Fightable</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">move</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>또한 클래스의 상속과 인터페이스의 구현을 동시에 할 수 있다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Fighter</span> <span class="kd">extends</span> <span class="nc">Unit</span> <span class="kd">implements</span> <span class="nc">Fightable</span> <span class="o">{</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<h2 id="인터페이스를-이용한-다중상속">인터페이스를 이용한 다중상속</h2>
+
+<p>이전에 자바에서 클래스 다중상속을 지원하지 않는다고 했던 적이 있었다. 다중상속은 장점도 있지만 단점이 더 크다고 판단하여서 지원하지 않았는데, 다른 언어와 다르게 다중상속을 지원하지 않아 발생할 수 있는 단점들을 보완하기 위해 자바에서는 인터페이스를 다중상속할 수 있도록 하였다.
+(하지만 자바의 정석에서는 인터페이스 다중상속을 거의 사용하지 않는다고 언급한다.)</p>
+
+<p>책에서는 가볍게 다루고 있으므로 다중상속에 대해서 자세히 들여보지는 않을 것 같다. 자바의 정석에서는 인터페이스가 단순히 클래스와 다르게 다중상속이 되는 수단으로 생각하는 것을 경계하고 있으며, 인터페이스를 사용하는 중요한 이유에 대한 개념을 중점적으로 다루고 있어서 넘어가도록 한다.</p>
+
+<h2 id="인터페이스의-장점">인터페이스의 장점</h2>
+
+<p>인터페이스를 사용하는 이유와 장점은 무엇이 있을까.</p>
+
+<ol>
+  <li>개발시간을 단축시킬 수 있다.</li>
+  <li>표준화가 가능하다.</li>
+  <li>서로 관계없는 클래스들에게 관계를 맺어줄 수 있다.</li>
+  <li>독립적인 프로그래밍이 가능하다.</li>
+</ol>
+
+<p>인터페이스가 작성되면 이를 이용하여 프로그램을 작성하는 것이 가능한데, 메소드를 호출하는 쪽에서는 메소드의 내용에 고나계없이 선언부만 알 수 있기 때문이다. 인터페이스를 구현하는 클래스를 작성하는 동안 그 클래스가 작성될 때 까지 기다리지 않고 양쪽에서 동시에 개발진행이 가능하다는 점도 개발시간을 줄이는데 도움이 된다.</p>
+
+<p>표준화가 가능하다는 점은, 프로젝트에 사용되는 기본 틀을 인터페이스로 작성하여 개발자들에게 인터페이스를 구현하여 프로그램을 작성하도록 함으로써 보다 일관되고 정형화된 프로그램이 가능하다는 점이 있다.</p>
+
+<p>클래스 간에 상속관계에 있지 않고, 같은 조상클래스를 가지고 있지 않은 서로 아무런 관계도 없는 클래스들에게 하나의 인터페이스를 공통적으로 구현하도록 함으로써 관계를 맺어줄 수 있다.</p>
+
+<p>인터페이스를 이용하면 클래스의 선언과 구현을 분리시킬 수 있어 독립적인 프로그램을 작성하는 것이 가능하다. 클래스와 클래스 간의 직접적인 관계를 인터페이스를 이용하면 간접적인 관계로 변경하면 영향을 미치지 않는 독립적인 프로그램 작성이 가능해진다.</p>
+
+<p>지금은 인터페이스의 활용성에 대해서 의문이 있지만, 실무에서는 인터페이스를 통해 클래스를 표준화 시키고, 간접적인 관계를 맺어줌으로써 서로 영향을 받지 않고 독립적인 프로그램의 실행에 도움을 주는 클래스로 알고 있어야 할 것 같다. 나중에 학원에서 프로젝트를 진행하게 되면 알 수 있을 것 같기도 하다.</p>
+
+<h1 id="다형성polymorphism">다형성(polymorphism)</h1>
+
+<p>다형성은 객체 지향 프로그램의 4대 특징 중 하나로, 여러가지 형태를 가질 수 잇는 능력을 의미한다. 자바에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 이도록 하여 다형성을 프로그램적으로 구현한다.</p>
+
+<p>한마디로, 부모 클래스 타입의 참조변수로 자식 클래스의 인스턴스를 참조할 수 있도록 하였다는 뜻인데, 처음에는 이해하기가 어려워서 반복하여 살펴보는 것이 중요한 개념이다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">TV</span> <span class="n">tv</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartTV</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>SmartTV가 부모 클래스인 TV 클래스를 상속받았다고 했을 때, TV 타입으로 매개변수를 선언하고 SmartTV 객체를 생성할 수 있다.</p>
+
+<p>지금까지는 인스턴스를 다루기 위해서 인스턴스의 타입과 일치하는 타입의 참조변수만을 사용했었는데, 인스턴스와 참조변수가 일치하지 않는 경우의 선언도 가능하며, 이 경우에는 참조변수와 인스턴스가 서로 상속관계에 있어야 가능하다.</p>
+
+<p>그렇다면 굳이 참조변수와 인스턴스 객체를 다르게 생성하는  이유는 무엇일까? 위에서 정의한 다형성을 위해서이다. 아래 코드를 살펴보자.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Tv</span> <span class="n">tv1</span> <span class="o">=</span> <span class="k">new</span> <span class="no">TV</span><span class="o">();</span>
+<span class="nc">Tv</span> <span class="n">tv2</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SmartTV</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>첫 줄의 코드는 참조변수와 인스턴스 객체가 일치하고, 두 번째 줄의 코드는 참조변수 Tv와 자식클래스인 SmartTV를 인스턴스 객체로 생성한 코드이다.</p>
+
+<p>두 코드의 차이점은 무엇일까? 첫 번째 TV 객체는 TV 클래스 내에 있는 멤버와 메소드를 모두 사용이 가능하다. 두 번째 코드는 SmartTV가 TV클래스를 상속받았기 때문에 TV클래스의 멤버와 SmartTV의 멤버를 모두 사용가능할 것 같지만 아니다. SmartTV 객체를 생성하였지만 참조변수가 TV이기 때문에 SmartTV객체는 TV의 멤버만 사용이 가능하다. 참조변수의 타입에 따라서 사용할 수 있는 멤버의 개수가 달라지는 것이다.</p>
+
+<p>여기서 유의해야될 점은 반대로 자식 클래스 참조타입에 부모클래스 객체를 생성하는 것은 불가능하다.부모클래스보다 자식클래스가 멤버가 더 많기 때문이다. 참조변수가 사용할 수 있는 멤버의 개수는 인스턴스의 멤버 개수보다 같거나 적어야한다.</p>
+
+<h2 id="참조변수의-형변환">참조변수의 형변환</h2>
+
+<p>참조변수도 형변환이 가능하다. 단, 서로 상속관계에 있는 클래스 사이에서만 가능하기 떄문에 자식 타입의 참조변수를 부모타입의 참조변수로, 부모타입의 참조변수를 자식타입으로의 형변환만 가능하다.</p>
+
+<p>여기서 자식타입을 부모타입으로 형변환하는 것을 up-casting, 부모타입을 자식타입으로 형변환하는 것을 down-casting이라고 한다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nc">Car</span> <span class="o">{</span>
+	<span class="nc">String</span> <span class="n">color</span><span class="o">;</span>
+	<span class="kt">int</span> <span class="n">door</span><span class="o">;</span>
+	<span class="kt">void</span> <span class="nf">drive</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Drive"</span><span class="o">);</span>
+	<span class="o">}</span>
+	<span class="kt">void</span> <span class="nf">stop</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">prinltn</span><span class="o">(</span><span class="s">"Stop"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">FireEngine</span> <span class="kd">extends</span> <span class="nc">Car</span> <span class="o">{</span>
+	<span class="kt">void</span> <span class="nf">water</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Water"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Ambulance</span> <span class="kd">extends</span> <span class="nc">Car</span> <span class="o">{</span>
+	<span class="kt">void</span> <span class="nf">siren</span><span class="o">()</span> <span class="o">{</span>
+		<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Siren"</span><span class="o">);</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>위의 코드에서는 Car라는 부모클래스를 만들고, 자식클래스인 FireEngine과 Ambulance를 생성하였다. 객체 지향 프로그래밍의 상속관계에는 형제관계가 없으므로 자식클래스들은 Car 클래스만 상속받고, 자식클래스끼리는 아무런 관계가 형성되어있지 않다.</p>
+
+<p>여기서 형변환을 일으키는 코드를 작성해보았다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Car</span> <span class="n">car</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+<span class="nc">FireEngine</span> <span class="n">fe</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">FireEngine</span><span class="o">();</span>
+<span class="n">car</span> <span class="o">=</span> <span class="n">fe</span><span class="o">;</span> <span class="c1">// up-casting 발생</span>
+
+<span class="nc">FireEngine</span> <span class="n">fe2</span> <span class="o">=</span> <span class="o">(</span><span class="nc">FireEngine</span><span class="o">)</span><span class="n">car</span><span class="o">;</span> <span class="c1">// down-casting 발생 - 에러 발생</span>
+</code></pre></div></div>
+
+<p>코드의 다섯 번째 줄인 FireEngine fe2 = (FireEngine)car; 에서 오류가 발생하는데, 이유는 FireEngine 객체를 참조하는 car 변수를 FireEngine으로 형변환하는 것은 좋았으나 문제는 참조하는 변수가  Car 타입인 car변수를 형변환하는 것은 불가능하기 때문이다.</p>
+
+<p>위에서 자식참조타입에 부모객체를 대입하는 것은 불가능하다고 했었는데, Car 참조변수에 FireEngine으로 형변환을 시도하려고하니 에러가 발생한다. 이유는 부모클래스는 자식클래스보다 멤버가 적을 수 밖에 없는데, 부모가 가지지 않은 멤버를 사용하려고 하는 행위가 불가능하기 때문이다. 컴파일오류는 발생하지 않지만, 코드가 실행 될 때 ClassCastException이 발생한다. 캐스팅은 헷갈릴 수 있기 때문에 형변환이 가능한지 확인 후에 형변환을 해주어야한다. 이러한 형변환이 가능한지를 알려주는 instanceof연산자가 있으므로 이를 활용하는 것이 좋다.</p>
+
+<h3 id="instanceof-연산자">instanceof 연산자</h3>
+
+<p>instanceof연산자는 참조변수가 참조하고 있는 인스턴스의 실제 타입을 알아보기위해 사용한다. instanceof의 왼쪽에는 참조변수를 넣어주고, 오른쪽에는 타입을 넣어준다. 연산의 결과는 boolean값인 true와 false이다. true일 경우 검사한 타입으로 형변환이 가능하다는 것을 뜻한다. 보통 조건문에 instanceof 연산자를 사용하여 true가 나오면 자동으로 형변환이 되도록 코드를 작성하는 편이다.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- Utterance script -->
+            <script src="https://utteranc.es/client.js"
+                repo="Achasan/achasan.github.io"
+                issue-term="url"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/Algorhythm.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/basic/">Basic</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_2">[JSP] % 태그, forward, redirect</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/JSP_1">[JSP] 이론 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/jQuery">jQuery 자주 사용하는 함수 정리</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/basic/">
+                                
+                                    See all 29 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/java_lambda">
+                <div class="post-card-image" style="background-image: url(/assets/images/java.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/java_lambda">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Java] 람다식(Lambda)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>람다식 (Lambda)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                      7 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/java_method_class">
+                <div class="post-card-image" style="background-image: url(/assets/images/java.jfif)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/java_method_class">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Basic</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">[Java] 메서드(Method), 클래스(Class)</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>메소드, 클래스 (Method, Class)
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        19 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">[Java] 인터페이스, 다형성</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%5BJava%5D+%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%2C+%EB%8B%A4%ED%98%95%EC%84%B1&amp;url=https://achasan.github.io/java_interface_polymorphism"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/java_interface_polymorphism"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

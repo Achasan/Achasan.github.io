@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://achasan.github.io/tag/basic/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-08T23:55:15+09:00</updated>
+  <updated>2022-01-17T20:30:46+09:00</updated>
   <id>https://achasan.github.io/tag/basic/feed.xml</id>
 
   
@@ -32,355 +32,92 @@
 
   
     <entry>
-      <title type="html">PL/SQL, 데이터 정의어(DDL)</title>
-      <link href="https://achasan.github.io/database_6" rel="alternate" type="text/html" title="PL/SQL, 데이터 정의어(DDL)" />
-      <published>2021-09-07T00:00:00+09:00</published>
-      <updated>2021-09-07T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/database_6</id>
-      <content type="html" xml:base="https://achasan.github.io/database_6">&lt;h1 id=&quot;plsql-procedual-language--structured-query-language&quot;&gt;PL/SQL (Procedual Language / Structured Query Language)&lt;/h1&gt;
+      <title type="html">[JSP] % 태그, forward, redirect</title>
+      <link href="https://achasan.github.io/JSP_2" rel="alternate" type="text/html" title="[JSP] % 태그, forward, redirect" />
+      <published>2021-10-15T00:00:00+09:00</published>
+      <updated>2021-10-15T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/JSP_2</id>
+      <content type="html" xml:base="https://achasan.github.io/JSP_2">&lt;h1 id=&quot;jsp-20211015-til&quot;&gt;JSP 20211015 TIL&lt;/h1&gt;
 
-&lt;p&gt;SQL만으로는 구현이 어렵거나 구현이 불가능한 작업을 수행하기 위해서 오라클에서
-제공하는 프로그래밍 언어를 말한다.
-일반 프로그래밍 언어적인 요소들을 가지고 있으며, 데이터베이스 업무를 처리하기위한
-최적화된 언어이다.
-변수 선언, 조건문, 반복문 등 다양한 기능들을 사용할 수 있다.&lt;/p&gt;
+&lt;p&gt;&amp;lt;% %&amp;gt; 태그를 이용하여 JSP 파일 내에 자바코드로 로직을 구현하고, 출력하는 부분을 배우고,
+forward에 대해서 중점적으로 배웠다.&lt;/p&gt;
 
-&lt;p&gt;기본 구조는 선언부, 실행부, 예외처리부로 나뉘어져 있다.&lt;/p&gt;
+&lt;h1 id=&quot;-태그-jsp-파일에서-자바코드-실행&quot;&gt;&amp;lt;%&amp;gt; 태그, JSP 파일에서 자바코드 실행&lt;/h1&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;선언부(Declare) : 선언부는 모든 변수나 상수를 선언하는 부분이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;실행부(Excutable - begin) : 실제 로직이 실행되는 부분으로, 제어문(조건문), 반복문 등의 로직을 기술한다. Java로 따지자면 Main문 정도가 되는듯 하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;예외처리부(Exception) : 실행 도중 예외가 발생 시 해결하기위한 명령들을 기술하는 부분이다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;JSP가 HTML보다 더 나은 장점을 가진 이유는 HTML과 자바코드를 동시에 작성할 수 있기 때문이다.
+&amp;lt;%&amp;gt; 태그를 사용하면 안에 자바코드를 작성할 수 있다. 변수 선언은 물론, 자바에서 사용했던 API까지
+사용이 가능하다는 장점이 있다.&lt;/p&gt;
 
-&lt;p&gt;기본 구조 중에서 선언부와 예외처리부는 생략이 가능하지만 실행부는 반드시 기술하여야 한다.
-또한 기본구조 키워드 뒤에는 세미콜론을 붙이지 않는다, 단, 블럭 내의 각 실행문장 끝에는 세미콜론을 붙인다.
-BEGIN ~ END(실행부) 밑에는 반드시 ‘/’를 붙여주어야 한다. END 뒤에는 세미콜론을 붙여준다.&lt;/p&gt;
+&lt;p&gt;&amp;lt;%&amp;gt;는 자바코드를 통해 로직을 구현할 수만 있는 태그이다. 만약 자바코드를 통해 구현한 로직을 가지고
+얻은 데이터를 출력하기 위해서는 &amp;lt;%= %&amp;gt; %옆에 ‘=’을 사용하여 안에 변수나 문자열을 집어넣으면
+출력이 가능하다.&lt;/p&gt;
 
-&lt;p&gt;이전에 그룹함수와 DECODE 함수를 혼자 공부해서 배운적이 있었는데 이 함수들은 PL/SQL 내에서 단독으로 사용이 불가능하다.
-SQL문장에 포함되어서 사용되기 때문에 혼동해서는 안된다. PL/SQL문에서는 자바처럼 IF, FOR, WHILE 문을 사용할 수 있다.
-각 문장과 함수의 용도를 구별해서 사용해야하며, 무분별하게 의미가 같다고 해서 사용하면 에러가 발생할 수 있다.&lt;/p&gt;
+&lt;p&gt;메서드를 선언하기 위해서는 &amp;lt;%! %&amp;gt;를 통해 안에 메서드 선언과 실행부를 작성하면 된다.&lt;/p&gt;
 
-&lt;p&gt;한 가지 더 알아두어야할 점은, PL/SQL은 기본적으로 문장의 결과를 화면에 출력시키지 않기 때문에,
-결과값이 화면에 나오도록 설정하기 위해서는 SET SERVEROUTPUT ON 키워드를 사용하여 출력을 활성화시켜주어야한다.&lt;/p&gt;
+&lt;p&gt;JSP 페이지의 맨 위에는 &amp;lt;%@ %&amp;gt; 태그 안에 JSP파일이 가지고 있는 설정과 정보들이 담긴 속성들이 있다.
+여기서 isErrorPage 속성과 errorPage 속성을 통해 500 에러나 404 에러가 발생했을 경우 호출할
+에러페이지를 지정해줄 수 있다.&lt;/p&gt;
 
-&lt;p&gt;예시 문장을 보자,&lt;/p&gt;
+&lt;p&gt;Servlet을 통해 request 객체에 담겨져 있는 데이터를 가공하거나, 로직을 통해 DB에 접근하는 등의
+작업을 수행했었다. &amp;lt;% %&amp;gt; 태그안에서는 기본적인 Servlet 객체들을 제공하기 때문에 Servlet을 거치지않고
+비즈니스 모델을 구현하는 것이 가능하다.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DECLARE
-        NUM NUMBER(2);
-        NAME VARCHAR2(20);
-    BEGIN
-        SELECT EMPNO, ENAME INTO NUM, NAME
-        FROM EMP
-        WHERE ENAME = 'ADAMS';
-
-        DBMS_ OUTPUT.PUT_LINE(NUM||'        '||NAME);
-    END;
-    /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;선언부(DECLARE)에서 NUM과 NAME 변수를 선언하고, 실행부(BEGIN)에서 EMP 테이블에 있는 EMPNO와 ENAME 컬럼의 데이터를 선언한 변수에
-저장하였다. 조건으로는 이름이 ‘ADAMS’인 사원의 사번과 이름으로 조건을 걸었다.
-마지막 문장에 DBMS_OUTPUT.PUT_LINE() 함수를 볼 수있는데 이는 JAVA의 System.out.println()과 의미가 같은 함수이다.
-결과값을 출력하는 함수이다. 사번과 이름을 스크립트에 출력시키기 위해서 함수를 사용하였다.
-PL/SQL이 끝났을 떄는 END와 세미콜론을 붙이고, 다음줄에 ‘/’를 써야한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;자료형-타입&quot;&gt;자료형 타입&lt;/h2&gt;
-
-&lt;p&gt;선언부에 선언한 변수의 자료형을 ‘스칼라 자료형’이라고 한다.
-주로 사용하는 자료형의 종류로는 스칼라 자료형, REFERENCE 자료형, ROWTYPE 자료형이 있다.
-스칼라 자료형은 인스턴스 자료형과 비슷하다. PL/SQL에서 사용되기 위해 선언된 변수로, 실행문이 종료되면 변수에 있던
-데이터 값은 사라진다.&lt;/p&gt;
-
-&lt;p&gt;REFERENCE 자료형은 테이블 내의 컬럼이 가진 자료형타입을 그대로 참조해서 사용하는 자료형이다.
-선언부에 NUM EMP.EMPNO%TYPE 이런 식으로 사용한다. NUM이라는 변수를 선언하고, 자료형을 EMP 테이블에 있는 EMPNO 컬럼의 자료형과
-똑같이 하겠다는 뜻이 된다.&lt;/p&gt;
-
-&lt;p&gt;ROWTYPE 자료형은 변수에 테이블에 있는 모든 컬럼들을 한꺼번에 저장하기 위한 자료형으로 선언하는 것을 말한다.
-선언부에 EMP_ROW EMP%ROWTYPE 과 같은 형식으로 사용한다. EMP_ROW는 EMP테이블에 있는 행 하나를 완전히 담을 수 있게 된다.
-주의해야할 점은 EMP_ROW는 행 하나만 저장이 가능하다. 여러 개의 행을 저장하고 출력하려고 할 경우 에러가 발생한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;조건-제어문&quot;&gt;조건 제어문&lt;/h2&gt;
-
-&lt;h3 id=&quot;if문&quot;&gt;IF문&lt;/h3&gt;
-
-&lt;p&gt;PL/SQL에서도 당연히 조건 제어문을 지원한다. 크게 3가지의 조건문으로 구성되어있는데,
-IF~THEN, IF~THEN~ELSE, IF~THEN~ELSIF 이다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;IF~THEN
-JAVA에서는 ‘IF(조건식){ 실행문; }’ 방식으로 되어있다면
-PL/SQL에서는 ‘IF 조건식 THEN 실행문; END IF;’ 방식으로 되어있다.
-괄호는 일절 쓰지 않으며, THEN과 END IF로 문장의 끝을 구분한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;IF~THEN~ELSE
-IF~THEN에서 작성한 조건문에 ELSE를 하나 더 넣는 방식이다. ELSE는 당연히 조건식이 거짓일 때
-실행되어질 문장을 말한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;IF~THEN~ELSIF
-여러 개의 조건식을 추가할 수 있는 조건식이다. JAVA에서는 ELSE IF 를 사용하여 조건문을 추가했었다.
-이와 똑같은 방식으로 사용한다. 다만 주의해야할 점은 키워드가 ELSIF로 사용된다는 점이다.
-ELSE IF가 아니라 ELSIF여서 처음에는 많이 헷갈릴 수 있으니 조심해야한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DECLARE
-        V_AVG NUMBER(5, 2) := 89.12;
-    BEGIN
-        IF V_AVG &amp;gt;= 90 THEN
-            DBMS_OUTPUT.PUT_LINE('A');
-        ELSIF V_AVG &amp;gt;= 80 THEN
-            DBMS_OUTPUT.PUT_LINE('B');
-        ELSIF V_AVG &amp;gt;= 70 THEN
-            DBMS_OUTPUT.PUT_LINE('C');
-        ELSIF V_AVG &amp;gt;= 60 THEN
-            DBMS_OUTPUT.PUT_LINE('D');
-        ELSE
-            DBMS_OUTPUT.PUT_LINE('F');
-        END IF;
-    END;
-    /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;자바에서 구현했었던 학점 출력문을 PL/SQL로 구현한 모습이다. ELSIF문을 사용했을 때도 뒤에 THEN을 붙이는 것이 포인트이고,
-ELSE 문에는 THEN을 붙이지 않는다. 애초에 ELSE문 뒤에는 조건식이 나오지 않기 때문에 THEN을 붙일 필요도 없다.
-마지막은 꼭 END IF;로 조건문을 마무리해주도록 하자.&lt;/p&gt;
-
-&lt;p&gt;여기서 중요한 점이 한 가지 있는데 선언부에서 V_AVG 변수에 값을 저장한 것이다. 변수에 값을 저장할 때는
-무조건 ‘:=’를 사용해주어야 한다는 점을 잊지말자.&lt;/p&gt;
-
-&lt;h3 id=&quot;case문&quot;&gt;CASE문&lt;/h3&gt;
-
-&lt;p&gt;CASE문은 Java에서 SWITCH 문과 기능이 같다. CASE 조건문은 크게 2가지로 나뉘어져 있는데,
-단순 CASE문과 검색 CASE문이다. 단순 CASE문은 CASE문의 기준이 되는 데이터 값에 따라 실행되는 문장이 달라지는 것이고,
-검색 CASE문은 기준 데이터값이 없고, 여러 조건식만 존재하는 CASE 문이다. 검색 CASE문의 경우에는 IF~THEN~ELSIF 조건문을
-좀 더 효율적으로 작성하기 위해서 만들어진 CASE문이라고 생각하면 될 것 같다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DECLARE
-        V_SCORE NUMBER(3) := 88;
-    BEGIN
-        CASE
-            WHEN V_SCORE &amp;gt;= 90 THEN
-                DBMS_OUTPUT.PUT_LINE('A');
-            WHEN V_SCORE &amp;gt;= 80 THEN
-                DBMS_OUTPUT.PUT_LINE('B');
-            WHEN V_SCORE &amp;gt;= 70 THEN
-                DBMS_OUTPUT.PUT_LINE('C');
-            WHEN V_SCORE &amp;gt;= 60 THEN
-                DBMS_OUTPUT.PUT_LINE('D');
-            ELSE
-                DBMS_OUTPUT.PUT_LINE('F');
-        END CASE;
-    END;
-    /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;검색 CASE문의 예시를 작성해보았다. 방금 IF~THEN~ELSIF 문에서 작성한 것과 내용면에서 큰 차이는 없다.
-다만 키워드가 CASE, WHEN으로 달라졌을 뿐이다. 쉽게 이해가 가능하여 여기까지 설명하도록 한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;반복-제어문&quot;&gt;반복 제어문&lt;/h3&gt;
-
-&lt;p&gt;반복 제어문은 특정 작업을 반복하여 수행하고자할 때 사용하는 문장으로,
-기본 LOOP, WHILE LOOP, FOR LOOP 세 가지의 반복 제어문을 사용할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;세 가지의 반복 제어문을 설명하기 전에 PL/SQL에서는 반복문의 반복 수행을 종료시키는 명령어가 있다.
-반복문을 제어할 때 필요한 키워드이니 반드시 알아두도록 하자.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;EXIT : 수행중인 반복을 종료시키는 명령어&lt;/li&gt;
-  &lt;li&gt;EXIT-WHEN : 반복 종료를 위한 조건식을 지정하고 만족하면 반복을 종료&lt;/li&gt;
-  &lt;li&gt;CONTINUE : 수행중인 반복의 현재 주기를 건너 띔&lt;/li&gt;
-  &lt;li&gt;CONTINUE-WHEN : 특정 조건식을 지정하고 조건식을 만족하면 반복 주기를 건너띔&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;이제 반복제어문을 하나씩 알아보자,&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;기본 LOOP : 기본 LOOP는 단순이 반복을 진행시키는 반복문이다. 따라서 반복문 안에 반복문을 종료시키는 명령어를 추가시켜주어야 한다. 아래 예제를 보자.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DECLARE
-        V_NUM NUMBER(3) := 1;
-        V_SUM NUMBER(5) := 0;
-    BEGIN
-        LOOP
-            IF V_NUM = 100 THEN
-                V_SUM := V_SUM + V_NUM;
-                DBMS_OUTPUT.PUT_LINE(V_SUM);
-                EXIT;
-            ELSE
-                V_SUM := V_SUM + V_NUM;
-                V_NUM := V_NUM + 1;
-            END IF;
-        END LOOP;
-    END;
-    /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;1부터 100까지의 합을 구하는 반복문을 LOOP문을 사용하여 구한 식이다. 만약 V_NUM이 100보다 크거나 같을 경우에
-V_SUM에 V_NUM의 값을 더하고 V_SUM을 출력한 후 반복문을 종료시켰다. V_NUM이 100이 아니라면 V_SUM에 값을 더하고 반복문을
-계속 진행시키도록 하였다.&lt;/p&gt;
-
-&lt;p&gt;코드를 조금 더 간결하게 바꾸어보자. 위에 제시한 4가지의 반복문을 제어하는 키워드를 통해 줄여볼 수 있다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DECLARE
-        V_NUM NUMBER(3) := 1;
-        V_SUM NUMBER(5) := 0;
-    BEGIN
-        LOOP
-            V_SUM := V_SUM + V_NUM;
-            V_NUM := V_NUM + 1;
-            EXIT WHEN V_NUM &amp;gt; 100;
-        END LOOP;
-        DBMS_OUTPUT.PUT_LINE(V_SUM);
-    END;
-    /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;코드가 복잡하기 때문에 코드를 간소화 시켰다. 여기서 주목해야할 부분은 EXIT WHEN 이다.
-V_NUM이 100보다 클 경우에 루프를 나가도록 EXIT WHEN 키워드를 사용했고, 반복문을 빠져나오면 V_SUM을 출력하도록 하였다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;WHILE LOOP : 조건식을 만족할 때까지 계속 반복문을 돌리는 것이다 Java에서 배웠던 WHILE문과 같다.
-사용법만 간단히 보고 넘어간다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DECLARE
-        V_NUM NUMBER(3) := 1;
-    BEGIN
-        DBMS_OUTPUT.PUT_LINE('WHILE LOOP 반복문');
-        WHILE V_NUM &amp;lt;= 100 LOOP
-            DBMS_OUTPUT.PUT_LINE(V_NUM);
-            V_NUM := V_NUM + 1;
-        END LOOP;
-    END;
-    /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;‘WHILE 조건식 LOOP’ 형태로 작성한다. 조건식을 만족할 때 까지 반복문을 사용하며, 예시에서는 V_NUM이 100이 되는 순간
-반복문을 빠져나오게 되는 형태이다. 문장 작성방식만 다를 뿐 Java와 사용방법이 같다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;FOR LOOP : 반복할 횟수를 정하고 반복문을 돌린다. WHILE문은 조건식을 만족할 때까지 계속 반복문을 돌린다면, FOR 반복문은 반복 횟수가 정해져있다. 이것도 Java와 공통적인 특징이다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    BEGIN
-        DBMS_OUTPUT.PUT_LINE('FOR LOOP 반복문');
-
-        FOR I IN 1 .. 100 LOOP
-            DBMS_OUTPUT.PUT_LINE('I = ' || I);
-        END LOOP;
-    END;
-    /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;이번엔 선언부(DECLARE) 없이 예시를 작성하였다. 1부터 100까지 스크립트에 출력하는 반복문을 만든 것인데,
-FOR 반복문을 선언하는 부분을 보면 ‘FOR 정수 IN 숫자1 .. 숫자N LOOP’ 으로 되어있다.
-시작할 정수의 변수를 선언하고, IN 키워드를 작성한 다음 시작숫자 .. 최대숫자 LOOP으로 이루어져 있다.
-‘..’은 ~부터 ~까지의 뜻을 가지고 있어서 1부터 100까지 하나씩 I의 수를 증가시킨다는 뜻으로 보면 된다.
-FOR 반복문은 Java와는 다소 다른 형태로 되어있으므로 제대로 이해하고 넘어가는 것이 중요하다.&lt;/p&gt;
-
-&lt;p&gt;CONTINUE는 조건식에 해당할 경우 그 반복문은 건너뛰도록 하는 키워드이다. 자바에서 사용한 continue와 동일하므로 이하 생략
-CONTINUE는 IF문 같이 조건식 아래에 해당하지만 IF문을 쓰지 않아도 되도록 CONTINUE WHEN 키워드를 제공한다.
-사용방법은 EXIT WHEN과 동일하여 자세한 설명은 생략한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;키보드로-값-입력-받기&quot;&gt;키보드로 값 입력 받기&lt;/h2&gt;
-
-&lt;p&gt;Java에서는 Scanner 클래스나 BufferedReader 클래스를 이용하여 키보드로 데이터를 입력받아 코드 실행을 했었다.
-PL/SQL에서도 키보드로 데이터를 입력받는게 가능한데, ‘&amp;amp;’를 사용하면 손쉽게 데이터를 입력받을 수 있다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    CREATE TABLE TEST(
-        NO NUMBER(3) PRIMARY KEY,
-        NAME VARCHAR2(20) NOT NULL,
-        ADDR VARCHAR2(100) NOT NULL
-    );
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;먼저 예제를 만들기 위해서 사용할 TEST 테이블을 만들었다. 컬럼은 NO, NAME, ADDR로 구성되어있고, NO가 기본키, 나머지는
-NOT NULL 제약조건을 가지고 있다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DECLARE
-        NO TEST.NO%TYPE;
-        NAME TEST.NAME%TYPE;
-        ADDR TEST.ADDR%TYPE;
-        ROW TEST%ROWTYPE;
-    BEGIN
-        NO := '&amp;amp;NO';
-        NAME := '&amp;amp;NAME';
-        ADDR := '&amp;amp;ADDR';
-
-        INSERT INTO TEST VALUES(NO, NAME, ADDR);
-        SELECT * INTO ROW FROM TEST WHERE NO = NO;
-        DBMS_OUTPUT.PUT_LINE('번호 /  이름  /  주소');
-        DBMS_OUTPUT.PUT_LINE(ROW.NO ||' ' || ROW.NAME || ' ' || ROW.ADDR);
-
-    END;
-    /
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;먼저 선언부에서 NO, NAME, ADDR, ROW 변수를 선언하였다. 자료형은 TEST 테이블에 있는 컬럼의 자료형을 참조하였다.
-실행부를 보면 각 컬럼의 데이터 값을 저장하려하는데 ‘&amp;amp;변수명’이 사용된 것을 볼 수 있다.
-‘&amp;amp;변수명’을 작성하면 해당 변수의 자료형에 맞도록 키보드로 데이터 값을 입력받는다는 것을 뜻한다.
-입력받은 데이터 값을 각 변수에 저장하여 INSERT 쿼리문을 사용하여 TEST 테이블에 새로운 행을 추가하였다.
-새로운 행을 추가하고 ROW 변수에 새로 생성한 행을 불러오고, 출력한 예제이다.&lt;/p&gt;
-
-&lt;p&gt;중요한 점은 ‘&amp;amp;변수명’을 통해 키보드로 값을 불러올 수 있다는 점이다. 잘 기억해두도록 하자.&lt;/p&gt;
-
-&lt;h1 id=&quot;데이터-정의어ddl--data-definition-language&quot;&gt;데이터 정의어(DDL : Data Definition Language)&lt;/h1&gt;
-
-&lt;p&gt;DDL은 데이터의 관리 및 보관을 위해 다양한 객체를 제공하는데 이러한 객체를
-새로 만들거나 기존에 존재하던 객체를 변경하거나 삭제하는 등의 기능을 수행하는 명령어를 말한다.&lt;/p&gt;
-
-&lt;p&gt;데이터 정의어를 사용할 때 주의사항이 있는데,
-데이터 정의어를 실행하면 자동으로 COMMIT이 된다는 점,
-따라서 ROLLBACK을 통한 취소가 불가능하다는 점이 있다.&lt;/p&gt;
-
-&lt;p&gt;데이터 정의어의 종류로는 CREATE, ALTER, DROP이 있다. 여태까지 사용해왔던 쿼리문이 DDL이라고 볼 수 있다.&lt;/p&gt;
-
-&lt;p&gt;이 외에도 다양한 데이터 정의어가 있지만 나중에 필요할 때 따로 독학해야할 것 같다. 수업에서는 중요도 높은 DDL만 설명하는듯 하다.&lt;/p&gt;
+&lt;h1 id=&quot;jsp-페이지-이동--forward-redirect&quot;&gt;JSP 페이지 이동 : forward, redirect&lt;/h1&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;RENAME : 테이블의 이름을 변경하고 싶을 때 사용하는 명령어&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;웹 어플리케이션은 여러 기능을 합쳐 하나의 프로그램을 실행하는 구조로 되어있다.
+  회원관리 기능, 게시판 관리 기능, 주문 관리 등에 대해 각각의 서블릿이 기능을 수행하게 되어있다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 때 프로그램을 실행하다 보면 서블릿끼리 또는 서블릿과 JSP를 연동해서 작업을 해야 하는 경우가 생길 수 밖에 없다.
+  예를 든다면 쇼핑몰의 경우 상품 관리 서블릿과 조회된 상품을 화면에 표시하는 JSP는 각각 따로 존재하게 되어있다.
+  따라서 사용자가 상품 조회를 요청하면 상품 관리 서블릿은 데이터베이스에서 상품 정보를 조회한 후 다시 JSP에게 해당 상품 정보를 전달하여 상품 정보를 표시해야한다.
+  이러한 페이지 이동은 필수적이다.&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;요청에 대한 추가 작업을 다른 서블릿에게 수행하게 한다.&lt;/li&gt;
+      &lt;li&gt;요청에 포함된 정보를 다른 서블릿이나 JSP와 공유할 수 있다.&lt;/li&gt;
+      &lt;li&gt;요청에 정보를 포함시켜 다른 서블릿에게 전달할 수 있다.&lt;/li&gt;
+      &lt;li&gt;모델 2 개발 시 서블릿에서 JSP 페이지로 데이터를 전달하는데 사용되어진다.(매우중요)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    RENAME DEPT_02 TO DEPT_10; --'RENAME 기존이름 TO 바꿀이름'
-&lt;/code&gt;&lt;/pre&gt;
+&lt;ol&gt;
+  &lt;li&gt;forward 방식
+    &lt;ul&gt;
+      &lt;li&gt;request의 영역(scope)에 담기 값이 유효하다.&lt;/li&gt;
+      &lt;li&gt;이동된 화면이 url에 안 보인다.(사용자는 이동했는지 알 수 없다.)&lt;/li&gt;
+      &lt;li&gt;서블릿이 직접 요청하는 방식이다.&lt;/li&gt;
+      &lt;li&gt;주로 키 값을 넘겨줄 떄 사용한다.(중요)&lt;/li&gt;
+      &lt;li&gt;RequestDispacher 객체를 이용한다 -&amp;gt; forward() 메서드를 이용
+  형식)
+          RequestDispacher rd = request.getReauestDispacher(“이동위치”);
+          rd.forward(request, response);&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;redirect 방식
+    &lt;ul&gt;
+      &lt;li&gt;클라이언트가 새로 페이지를 요청하는 것과 같은 방식으로 페이지가 이동이 된다.&lt;/li&gt;
+      &lt;li&gt;웹 브라우저에 재요청하는 방식이다.&lt;/li&gt;
+      &lt;li&gt;일반적으로 변수 값을 넘겨줄 떄 유용하다.(중요)&lt;/li&gt;
+      &lt;li&gt;request, response 값이 유효하지 않다.( 새로 만들어짐)&lt;/li&gt;
+      &lt;li&gt;이동된 url이 화면에 나타난다.
+        &lt;ul&gt;
+          &lt;li&gt;형식)	response.sendRedirect(“이동위치”);&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;위의 형식으로 입력한다.&lt;/p&gt;
+&lt;h1 id=&quot;에러페이지-처리하기&quot;&gt;에러페이지 처리하기&lt;/h1&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;DROP : 테이블을 삭제하는 명령어이다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;에러페이지를 처리하는 방법은 생각보다 간단하다. JSP 페이지의 맨 위에있는 페이지 설정 태그에 isErrorPage=”true” errorPage=”error.jsp”를 넣어주면 된다.
+isErrorPage는 해당 웹페이지가 에러페이지인지를 확인하는 속성이다. 동적으로 작동하는 코드가 실행되다가 예외를 발견하게되면 isErrorPage가 true가 된다.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DROP TABLE TEST; --테스트 테이블을 삭제한다.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;TRUNCATE : 테이블의 데이터를 삭제하는 명령어(데이터를 자른다고 표현한다)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    TRUNCATE TABLE DEPT_02; --'TRUNCATE TABLE 테이블이름'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;PURGE : 데이터를 완전히 삭제하는 키워드이다. DELETE문에서 보통 사용한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    DELETE TABLE TEST;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;위의 명령어를 입력했을 때 TEST라는 테이블이 삭제된다. 하지만 완전히 삭제된 것은 아니다.
-휴지통과 같은 공간에 테이블이 넘어가있는 상태로, 원할 때 ROLLBACK으로 복구가 가능하다.
-테이블을 완전히 삭제해버리기 위해서는 DELETE TABLE TEST PURGE;와 같이 작성하면 완전한 삭제가 가능하다.&lt;/p&gt;</content>
+&lt;p&gt;isErrorPage가 true 일 때 이동할 에러페이지를 errorPage 속성 안에 넣어주면 된다.
+하지만 이 방법은 하나의 에러페이지만 띄울 수 있어서 선호하는 방법은 아니다. 나중에 xml 방식을 통해 404에러, 500에러 등 뜨는 에러마다 보낼 수 있는 에러 페이지를 다르게 설정할 수 있는 방법도 있다.&lt;/p&gt;</content>
 
       
       
@@ -401,7 +138,7 @@ NOT NULL 제약조건을 가지고 있다.&lt;/p&gt;
       
 
       
-        <summary type="html">PL/SQL (Procedual Language / Structured Query Language)</summary>
+        <summary type="html">JSP 20211015 TIL</summary>
       
 
       
@@ -409,373 +146,124 @@ NOT NULL 제약조건을 가지고 있다.&lt;/p&gt;
     </entry>
   
     <entry>
-      <title type="html">제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션</title>
-      <link href="https://achasan.github.io/database_5" rel="alternate" type="text/html" title="제약조건과 시퀀스 부연설명, 서브쿼리, 트랜잭션" />
-      <published>2021-09-06T00:00:00+09:00</published>
-      <updated>2021-09-06T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/database_5</id>
-      <content type="html" xml:base="https://achasan.github.io/database_5">&lt;h1 id=&quot;숫자데이터와-관련된-함수&quot;&gt;숫자데이터와 관련된 함수&lt;/h1&gt;
+      <title type="html">[JSP] 이론 정리</title>
+      <link href="https://achasan.github.io/JSP_1" rel="alternate" type="text/html" title="[JSP] 이론 정리" />
+      <published>2021-10-14T00:00:00+09:00</published>
+      <updated>2021-10-14T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/JSP_1</id>
+      <content type="html" xml:base="https://achasan.github.io/JSP_1">&lt;h1 id=&quot;jsp-20211014-til&quot;&gt;JSP 20211014 TIL&lt;/h1&gt;
+
+&lt;p&gt;JSP 수업을 나가기 전 기본적인 웹에 대한 기초적 이론을 공부하였다.&lt;/p&gt;
+
+&lt;h2 id=&quot;웹-프로그래밍&quot;&gt;웹 프로그래밍&lt;/h2&gt;
+
+&lt;p&gt;웹 프로그래밍은 웹 어플리케이션을 만드는 행위를 말한다. 여기서 웹 어플리케이션은 웹을 기반으로 동작하는 프로그램을 말한다.
+그렇다면 웹을 무엇일까? 인터넷 서비스의 형태를 웹이라고 정의한다. 인터넷은 하나 이상의 네트워크가 연결되어 있는 형태를 인터넷이라 칭한다.
+네트워크를 연결하기위해서는 웹 서버가 필요한데, 각 클라이언트에게 컨텐츠(HTML, CSS, JS) 서비스를 제공하기위해서 필요하다.&lt;/p&gt;
+
+&lt;p&gt;웹 서버 중에서 Web Application Server(WAS)가 있는데 DB조회나 어떤 로직을 처리해야하는 동적인 컨텐츠를 제공하는 서버를 말한다.
+클라이언트는 네트워크로 서버에 접속한 후 서버로부터 서비스를 제공받는 컴퓨터를 뜻한다.&lt;/p&gt;
+
+&lt;p&gt;HTTP 프로토콜은 Hyper Text Transfer Protocol의 약자로 www 서비스를 제공하는 통신 규약을 말한다. HTML을 비롯하여 이미지, 동영상,
+XML 문서 등 다양한 데이터를 주고받을 때 사용하는 일종의 규칙을 뜻한다. 웹서버와 클라이언트는 HTTP 프로토콜을 통해 정보를 주고 받는다.&lt;/p&gt;
+
+&lt;p&gt;Dynamic Web Programming은 동적 웹 프로그래밍으로, 클라이언트의 요청이 있을 때마다 DB에 접근하여 실시간 정보를 클라이언트게 제공하는 기능을 처리하는 방식을 말한다.&lt;/p&gt;
+
+&lt;p&gt;웹 프로그래밍은 CGI 방식과 어플리케이션 서버 방식이 있다.
+CGI 방식은 클라이언트의 요청에 독립된 프로세스를 생성하기 때문에 점유하는 메모리가 많아져 시스템의 부하를 주게된다.
+요청이 발생할 떄마다 매 번 메모리에 프로그램을 로딩하기 때문에 동시에 여러 명의 접속자가 접속하여 프로그램을 실행하는 경우
+서버의 메모리도 증가하게 된다. 주로 C++ 언어에서 사용되어진다.&lt;/p&gt;
+
+&lt;p&gt;어플리케이션 서버 방식은 동시에 여러 명의 접속자가 동일한 프로그램의 처리를 요청하여도 한 개에 해당하는 메모리만 사용하는
+스레드 방식으로 이루어져 있는데, CGI 방식에 비해 메모리 사용량이 적다. 스레드 방식은 한꺼번에 많은 요청이 들어왔을 경우에
+동시에 요청들을 처리하되, DB에 접근할 때는 하나의 스레드만 접근하도록 하여 전달되는 데이터에 문제점이 없도록 하는 것을 말한다.(Thread Pool)
+주로 ASP, PHP, JSP에서 사용되어진다.&lt;/p&gt;
+
+&lt;h2 id=&quot;servlet&quot;&gt;Servlet&lt;/h2&gt;
+
+&lt;p&gt;Servlet은 서버 쪽에서 실행되면서 클라이언트의 요청에 따라 동적으로 서비스를 제공하는 자바 클래스이다.
+자바로 작성되어져 있어 자바가 가지고 있는 특징을 모두 가지고 있다. 서블릿은 서버에서 실행되다가 웹 브라우저에서 요청하면
+해당기능을 수행한 다음 웹 브라우저에게 결과를 전송한다. 서버에서 실행되기 때문에 보안과 관련도니 기능도 안전하게 수행할 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;servlet-life-cycle서블릿-생명-주기&quot;&gt;Servlet Life Cycle(서블릿 생명 주기)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;init() : 단 한번만 호출이 되고, 서블릿이 서비스 하기 위해 필요한 초기화 작업을 수행한다.&lt;/li&gt;
+  &lt;li&gt;service() : init() 메서드가 service() 메서드를 호출한다. 사용자의 요청에 따라 스레드 단위로 실행되는 메소드이며,
+여러번 실행된다. 각각의 service() 메서드를 통해서 doGet(), doPost() 메서드가 호출된다.
+파라미터니 HttpServletRequest 객체와 HttpServletResponse 객체를 통해 사용자의 요청을 처리한다.&lt;/li&gt;
+  &lt;li&gt;destroy() : 서블릿이 종료 요청이 오면 한 번만 호출되는 메서드로, 서블릿이 종료됨녀서 정리할 작업이 있으면 destroy() 메서드를 오버라이딩하여 구현한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;servlet-동작-과정&quot;&gt;Servlet 동작 과정&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;클라이언트가 요청을 하면 요청하는 서블릿이 메모리에 로딩되어있는지 확인한다.&lt;/li&gt;
+  &lt;li&gt;최초의 요청이면 init() 메소드를 호출하여 요청하는 클래스의 인스턴스(객체)를 메모리에 로딩한다.&lt;/li&gt;
+  &lt;li&gt;이후 doGet()이나 doPost() 메서드를 호출하여 서비스를 한다.&lt;/li&gt;
+  &lt;li&gt;클라이언트가 다시 동일한 서블릿을 요청하면 톰캣은 요청하는 서블릿이 메모리에 로딩되어있는지 확인한다.&lt;/li&gt;
+  &lt;li&gt;이번에는 메모리에 로딩이 되어있는 것이 확인되므로 바로 doGet()이나 doPost 메서드를 호출한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;servlet-방식&quot;&gt;Servlet 방식&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;웹 개발을 위한 표준이 되는 클래스를 말한다.&lt;/li&gt;
+  &lt;li&gt;웹 브라우저의 요청을 스레드 방식으로 처리하는 기술을 말한다.&lt;/li&gt;
+  &lt;li&gt;서버 쪽에서 실행되면서 클라이언트의 요청에 따라 동적으로 서비스를 제공하는 자바 클래스이다.&lt;/li&gt;
+  &lt;li&gt;처리해야 할 일들을 기술하는 곳이다.&lt;/li&gt;
+  &lt;li&gt;서블릿은 일반 자바 프로그램과 다르게 독자적으로 실행되지 못하고 톰캣과 같은 서버에서 실행된다.&lt;/li&gt;
+  &lt;li&gt;서블릿의 특징
+    &lt;ul&gt;
+      &lt;li&gt;서버쪽에서 실행되면서 기능을 수행한다.&lt;/li&gt;
+      &lt;li&gt;기존의 정적인 웹 프로그램의 문제점을 보오나하여 동적인 여러가지 기능을 제공한다.&lt;/li&gt;
+      &lt;li&gt;스레드 방식으로 실행된다(중요)&lt;/li&gt;
+      &lt;li&gt;클라이언트의 요구를 처리하는 기능을 최초 한 번만 메모리로 로딩한다.&lt;/li&gt;
+      &lt;li&gt;클라이언트가 동일한 기능을 요구하면 기존에 사용한 기능을 재사용한다.&lt;/li&gt;
+      &lt;li&gt;자바로 만들어져서 자바의 특징(OOP)을 가지고 있다.&lt;/li&gt;
+      &lt;li&gt;보안 기능을 적용하기 쉽다.&lt;/li&gt;
+      &lt;li&gt;웹 브라우저에서 요청 시 기능을 수행한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;즉 서블릿은&lt;/p&gt;
 
 &lt;ol&gt;
+  &lt;li&gt;클라이언트로부터 요청을 받는다.&lt;/li&gt;
+  &lt;li&gt;DB연동과 같은 비지니스 로직을 수행한다.&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;ABS() : 절댓값을 구하는 함수이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SIGN() : 양수면 1, 음수면 -1, 0이면 0을 리턴하는 함수이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ROUND(실수, 자릿수) : 반올림을 해 주는 함수이다. 자릿수를 음수로할 경우에는 정수부분에서 반올림,
-자릿수가 양수인 경우에는 소수점에서 반올림, 0인 경우에는 소수점 첫 번째 자리에서 반올림&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;TRUNC(실수, 자릿수) : 소수점 이하 자리를 버리는 함수이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;CEIL(실수) : 소수점이 있을 경우 모두 버리고 실수 + 1을 한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;FLOOR(실수) : TRUNC와 쓰임이 비슷하다. 하지만 이 함수는 모든 소수점 자리를 버리고 정수만 출력한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;POWER(숫자, N) : 제곱된 수를 구하는 함수, N제곱된 수가 나온다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;MOD(숫자, N) : 나머지를 구해주는 함수이다. 숫자를 N으로 나눈 다음, 나머지를 출력한다.&lt;/p&gt;
+    &lt;p&gt;처리된 결과를 클라이언트에게 돌려준다(응답)&lt;/p&gt;
+
+    &lt;p&gt;세 가지의 기능을 수행한다고 볼 수 있다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h1 id=&quot;view&quot;&gt;VIEW&lt;/h1&gt;
+&lt;h1 id=&quot;html의-form-태그로-servlet-사용해보기&quot;&gt;HTML의 form 태그로 Servlet 사용해보기&lt;/h1&gt;
 
-&lt;p&gt;VIEW는물리적인 테이블에 근거한 논리적인 가상의 테이블을 말한다. 실질적으로 데이터를 저장하고 있지 않지만,
-VIEW를 통해 질의하면 VIEW가 실제 테이블에 접근하여 데이터를 불러오는 방식이다.
-VIEW는 필요한 내용들만 추출해서 사용하는 테이블이며, 주로 데이터를 조회할 때 가장 많이 사용되고,
-테이블 처럼 사용이 가능하다. VIEW는 실제 테이블을 참조하는 가상테이블이기 떄문에 물리적인 공간이 필요없다.
-테이블과 마찬가지로 INSERT, UPDATE, DELETE, SELECT와 같은 트랜젝션이 가능하다.&lt;/p&gt;
+&lt;p&gt;form 태그는 입력한 데이터의 값을 가지고 action 속성에 입력된 값으로 등록된 servlet 에 접근할 수 있다.
+action 속성에 입력한 value 값으로 매핑되어있는 servlet으로 request를 보내면 서버에서 메소드를 실행하고
+메소드에 맞게 response를 하여 클라이언트 측에 정보를 전달하는 방식이다.&lt;/p&gt;
 
-&lt;p&gt;그렇다면 VIEW를 사용하는 이유는 무엇일까?&lt;/p&gt;
+&lt;p&gt;servlet class를 생성하게 되면 doPost() 메소드와 doGet() 메소드가 있다. 두 메소드 모두 입력받은 정보를 가지고
+메소드를 실행한다는 점은 동일하지만, 차이점이 있다.&lt;/p&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;보완관리 : 여러 사용자들의 보안 레벨에 따라 조회할 수 있는 데이터의 범위를 조절하기 위해 사용한다.&lt;/li&gt;
-  &lt;li&gt;사용자에게 편의성을 제공한다.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;doGet() 메소드는 form태그를 통해 받아올 수 있는 데이터값이 255자로 제한되며, url 뒤쪽에 받아온 데이터 값들이 출력되기 때문에
+보안 면에서 불리하다. 대신 서버에서 처리하는 과정이 빠르다는 장점이 있다.&lt;/p&gt;
 
-&lt;p&gt;VIEW 생성 방법 : CREATE VIEW 뷰이름 AS 쿼리문;&lt;/p&gt;
+&lt;p&gt;doPost() 메소드는 받아올 수 있는 데이터값이 무제한이며, 받아온 데이터를 숨겨서 작업을 처리하기 때문에 보안면에서 우수하다.
+하지만 받아오는 데이터가 길어질 수록 doGet() 메소드보다 성능 면에서 떨어진다.&lt;/p&gt;
 
-&lt;p&gt;예를 들어 CREATE VIEW EMP_HR AS SELECT EMPNO, ENAME, JOB, MGR, HIREDATE, DEPTNO FROM EMP; 문장을 실행했다고 가정하면,
-VIEW 테이블인 EMP_HR을 만들고, 이 테이블에서는 EMP 테이블의 사번, 이름, 직무, 관리자, 입사일, 부서번호만 참조 가능하게
-설정하였다. 인사부의 사원이 데이터를 조회하고 싶을 때는 EMP_HR테이블을 통해 데이터를 조회할 수 있도록 설정하여
-조회가능한 데이터의 범위를 조절하는 것이 가능하다.&lt;/p&gt;
+&lt;p&gt;servlet을 등록하는 방식은 annotation과 xml 방식이 있다. annotation 방식은 Servlet Class의 annotation인 @WebServlet(“value”)에
+value 키워드를 입력하면 form 태그 action 속성에 해당 value를 입력하면 해당 servlet이 실행되게끔 하도록 servlet class 매핑하여 사용한다.&lt;/p&gt;
 
-&lt;p&gt;그런데 VIEW 테이블에서 INSERT, UPDATE, DELETE와 같은 데이터의 삽입, 편집이 가능하다고 했는데 VIEW는 실제데이터를
-참조한 가상테이블이다. 그렇다면 데이터는 어디에 생성되는 것일까? 바로 실제테이블이다.
-VIEW 테이블을 통해서 데이터를 수정하면 실제테이블에 반영이 된다. 하지만 조회목적으로 VIEW를 만들었는데 데이터의 수정이
-가능하다는 말은 앞뒤가 틀리다. 따라서 VIEW 테이블을 조회가능한 테이블로만 사용할 수 있도록 키워드를 사용해주어야하는데,
-그 키워드가 바로 WITH READ ONLY 이다.&lt;/p&gt;
+&lt;p&gt;xml 방식은 WebContent 폴더 내에있는 WEB-INF 폴더에 있는 Web.xml 파일에 servlet을 등록하여 사용한다.
+servlet 태그를 생성하고, 태그 안에 servlet-name 태그를 만들어서 태그의 이름을 지정하고 servlet-class 태그를 통해 servlet이 위치한 경로를 지정한다.
+경로는 (패키지이름.servlet Class 이름)으로 작성하면 된다.&lt;/p&gt;
 
-&lt;p&gt;VIEW 테이블을 생성할 때 모든 문장을 작성하고 뒤에 WITH READ ONLY 키워드를 넣어주면 해당되는 VIEW 테이블에서는 데이터를
-삽입, 수정하는 것이 불가능하고, 오직 조회만 가능하게 되는 VIEW 테이블이 된다.&lt;/p&gt;
+&lt;p&gt;annotation 방식에서 @WebServlet(“value”)을 사용하여 매핑을 했던 것 처럼, xml 방식도 servlet-mapping 태그를 사용하여 servlet을 실행시킬 키워드로 매핑해주어야한다.&lt;/p&gt;
 
-&lt;h1 id=&quot;제약조건-부가설명&quot;&gt;제약조건 부가설명&lt;/h1&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;NOT NULL : NULL 값이 입력되지 못하게 하는 제약조건, 특정 열에 데이터의 중복 여부와는 관계 없이 NULL 값을 허용하지 않는
-제약조건을 말한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;UNIQUE : 열에 저장할 데이터의 중복을 허용하지 않고자 할 때 사용하는 조건으로, NULL 값은 허용된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;PRIMARY KEY : NOT NULL 제약조건과 UNIQUE 제약조건이 합쳐진 것으로, 테이블에 하나만 존재해야하는 제약조건이다.
-테이블에서 PRIMARY KEY로 설정된 컬럼은 그 테이블을 대표하는 컬럼이 된다. 주민번호나 사원번호가 그 예.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;FOREIGN KEY : 다른 테이블의 필드(컬럼)을 참조하여 무결성을 검사하는 조건을 말한다.
-여기서 참조키는 부모 테이블의 컬럼, 외래키는 자식 테이블의 컬럼을 이야기한다.
-자식 테이블의 컬럼의 값(데이터)이 부모테이블에 없는 경우에는 무결성의 규칙이 깨질 수 있다.
-외래키가 존재하기 위해서는 우선적으로 부모테이블이 먼저 만들어져야 한다.
-EMP 테이블의 부서번호 컬럼이 DEPT 테이블을 참조하는 외래키 컬럼이다. 어떻게 데이터가 관리되는지를 생각하자.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;CHECK : 열에 저장할 수 있는 값의 범위, 또는 패턴을 정의할 때 사용하는 제약조건이다.
-컬럼을 생성할 때 값을 설정할 수 있고, 설정한 값만 데이터에 입력될 수 있도록 할 때 사용되어진다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;제약조건들을 테이블을 생성할 때, 각 컬럼의 데이터값을 설정하고나서 그 뒤에 적어주면 된다.&lt;/p&gt;
-
-&lt;p&gt;예시)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    CREATE TABLE TEST(
-        COL1 NUMBER(10) PRIMARY KEY,        -- 기본키 제약조건
-        COL2 VARCHAR2(20) NOT NULL,         -- NOT NULL 제약조건
-        COL3 VARCHAR2(30) NOT NULL,
-        DEPTNO NUMBER(2) REFERENCES DEPT (DEPTNO)
-        -- DEPTNO 컬럼이 DEPT 테이블에 있는 DEPTNO 컬럼을 참조 (DEPT가 부모테이블, TEST가 자식테이블)
-    );
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;저번 시간에 간략하게 제약조건을 배웠다. 이번시간에는 CHECK 제약조건을 처음 배웠는데 사용법을 잘 알아두어야할 것 같다.&lt;/p&gt;
-
-&lt;p&gt;예시)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    CREATE TABLE CHECK_TEST(
-    GENDER VARCHAR2(10),
-    CONSTRAINT GENDER_CH CHECK(GENDER IN ('남자', '여자'))
-    -- GENDER VARCHAR2(10) CHECK(GENGER IN('남자', '여자'0)) 와 동일.
-    -- CHECK 함수를 사용하여 GENDER 컬럼에는 남자 또는 여자만 올수 있도록
-    -- 설정하였다. 이 경우 '남자', '여자' 데이터값 외에 다른 데이터값이 오면 에러가 발생한다.
-    );
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;시퀀스-부연설명&quot;&gt;시퀀스 부연설명&lt;/h1&gt;
-
-&lt;p&gt;시퀀스(SEQUENCE)는 연속적인 번호를 만들어주는 기능이다. 시퀀스를 생성하기위해서는 여러 키워드를 알아야한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;CREATE SEQUENCE 시퀀스이름 : 시퀀스 생성&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;START WITH N : 시작번호를 설정한다. N이 시작번호가 되며, DEFAULT는 1이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;INCREMENT N : 증가할 번호를 설정한다. N이 증가번호가 되며, DEFAULT는 1이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;MAXVALUE N : 시퀀스의 최댓값을 설정한다. N이 최댓값이 된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;MINVALUE N : 시퀀스의 최솟값을 설정한다. N이 최솟값이 된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;CACHE/NOCACHE : 캐시메모리를 사용할지, 안할지를 결정한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;여기서 캐시메모리의 사용여부가 꽤 중요한 개념인데, 시퀀스를 캐시메모리에 저장하는 이유는 시퀀스를 더 빨리
-제공하기 위해서이다. 시퀀스 작업이 필요할 때 데이터값을 빠르게 로드할 수 있다. DEFAULT로는 20으로 설정되어있다.
-하지만 캐시메모리는 휘발성메모리이기 때문에, 시스템이 비정상적으로 종료되거나 전원이 차단될 경우, 캐시메모리는
-자동적으로 사라지게 되어, 시퀀스를 불러올 때 문제가 생길 수 있다. 강사님이 캐시메모리를 사용하지 않는 것을 권장하셨다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    SELECT 시퀀스이름.NEXTVAL FROM DUAL;
-    -- 시퀀스의 다음값을 불러오는 함수이다. 여기서 값이 2가 나왔을 경우 다음 값은 3이 되니 주의
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;서브쿼리중요&quot;&gt;서브쿼리(중요)&lt;/h1&gt;
-
-&lt;p&gt;쿼리문 안에 또 다른 쿼리문을 만드는 것을 서브쿼리라고 한다.
-서브쿼리는 메인쿼리가 서브쿼리를 포함하는 방식이며, 종속적인 관계로 되어있다.
-여러번 쿼리를 실행해서 얻을 수 잇는 결과를 하나의 중첩된 쿼리문장으로 결과를 얻을 수 있게 해준다.&lt;/p&gt;
-
-&lt;p&gt;서브쿼리를 사용할 때 서브쿼리는 꼭 괄호로 묶어서 사용해주어야한다.
-서브쿼리 내에서 ORDER BY절은 당연히 사용할 수 없다. 결과값을 얻는 목적으로 작성하는 쿼리문이기 때문이다.
-메인쿼리에서 정렬을 사용해야한다.
-또한 서브쿼리는 연산자의 오른쪽에 위치해야 한다.&lt;/p&gt;
-
-&lt;p&gt;사용방법
-예시) WHERE 조건문에 이름이 SCOTT인 사람의 SAL보다 높은 SAL인 사람의 이름과 SAL을 출력하려고 할 때,&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT ENAME, SAL FROM EMP WHERE SAL &amp;gt; (SELECT SAL FROM EMP WHERE ENAME = 'SCOTT');
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;다음과 같은 문장을 사용해주면 된다. WHERE 문에 서브쿼리를 사용하였는데, ‘이름이 SCOTT인 사원의 SAL 보다 큰 SAL을 가진 행을 출력’
-하는 조건이다. 쿼리문 안에 또 다른 쿼리문이 존재하는 것이다. 다만 서브쿼리는 목적이 결과값을 얻어오는 목적으로 사용되므로
-여러 데이터를 출력하는 메인쿼리와는 그 용도가 다르다.&lt;/p&gt;
-
-&lt;p&gt;아래는 여러가지 예제를 풀어본 것이다 테이블은 EMP, DEPTNO, PRODUCTS, MEMEBER10을 토대로 예제를 풀어보았다.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;    -- 1. EMP 테이블에서 평균 급여보다 더 적게 받는 사원의 사번, 이름, 담당업무, 급여, 부서번호를 화면에 출력
-    SELECT EMPNO, ENAME, JOB, SAL, DEPTNO FROM EMP WHERE SAL &amp;lt; (SELECT AVG(NVL(SAL, 0)) FROM EMP);
-
-
-    -- 2. EMP 테이블에서 사번이 7521인 사원과 담당업무가 같고, 급여가 7934인 사원보다 더 많이 받는 사원의 사번, 이름, 담당업무, 급여를 화면에 출력
-
-    SELECT EMPNO, ENAME, JOB, SAL
-    FROM EMP
-    WHERE JOB = (SELECT JOB FROM EMP WHERE EMPNO = 7521) AND SAL &amp;gt; (SELECT SAL FROM EMP WHERE EMPNO = 7934);
-
-
-    -- 3. EMP 테이블에서 담당업무가 'MANAGER'인 사원의 최소급여보다 적으면서, 담당업무가 'CLERK'는 아닌 사원의 사번, 이름, 담당업무, 급여를 화면에 출력
-    SELECT EMPNO, ENAME, JOB, SAL FROM EMP WHERE SAL &amp;lt; (SELECT MIN(SAL) FROM EMP WHERE JOB = 'MANAGER') AND NOT JOB = 'CLERK';
-
-
-    -- 4. 부서위치가 'DALLALS'인 사원의 사번, 이름, 부서번호, 담당업무를 화면에 출력
-    SELECT E.EMPNO, E.ENAME, E.DEPTNO, E.JOB FROM EMP E JOIN DEPT D ON E.DEPTNO = D.DEPTNO WHERE D.LOC = 'DALLAS';
-    SELECT EMPNO, ENAME, DEPTNO, JOB FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE LOC = 'DALLAS');
-
-
-    -- 5. MEMBER10테이블에 있는 고객의 정보 중 마일리지가 가장 높은 회원의 모든 정보를 화면에 출력
-    SELECT * FROM MEMBER10 WHERE MILEAGE = (SELECT MAX(MILEAGE) FROM MEMBER10);
-
-
-    -- 6. EMP 테이블에서 'SMITH'인 사원보다 더 많은 급여를 받는 사원의 이름과, 급여를 화면에 출력
-    SELECT ENAME, SAL FROM EMP WHERE SAL &amp;gt; (SELECT SAL FROM EMP WHERE ENAME = 'SMITH');
-
-
-    -- 7. EMP 테이블에서 10번 부서 급여의 평균 급여보다 더 적은 급여를 받는 사원들의 이름, 급여, 부서번호를 화면에 출력
-    SELECT ENAME, SAL, DEPTNO FROM EMP WHERE SAL &amp;lt; (SELECT AVG(NVL(SAL, 0)) FROM EMP WHERE DEPTNO = 10);
-
-
-    -- 8. EMP 테이블에서 'BLAKE'와 같은 부서에 있는 사원들의 이름과 입사일자, 부서번호를 화면에 보여주되, 'BLAKE'는 제외하고 화면에 출력
-    SELECT ENAME, HIREDATE, DEPTNO FROM EMP WHERE DEPTNO = (SELECT DEPTNO FROM EMP WHERE ENAME = 'BLAKE') AND NOT ENAME = 'BLAKE';
-
-
-    -- 9. EMP 테이블에서 평균급여보다 더 많은 급여를 받는 사원들의 사번, 이름, 급여를 화면에 보여주되, 급여가 높은데서 낮은 순으로 화면에 출력
-    SELECT EMPNO, ENAME, SAL FROM EMP WHERE SAL &amp;gt; (SELECT AVG(NVL(SAL, 0)) FROM EMP) ORDER BY SAL DESC;
-
-
-    -- 10. EMP 테이블에서 이름에 'T'를 포함하고 있는 사원들과 같은 부서에 근무하고 있는 사원의 사번과 이름, 부서번호를 화면에 출력
-    SELECT EMPNO, ENAME, DEPTNO FROM EMP WHERE DEPTNO IN(SELECT DEPTNO FROM EMP WHERE ENAME LIKE '%T%');
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&quot;group-by-having-절&quot;&gt;GROUP BY, HAVING 절&lt;/h1&gt;
-
-&lt;p&gt;특정 컬럼이나 값을 기준으로 해당 레코드를 묶어서 자료를 관리할 떄 사용하는 키워드가 GROUP BY이다.
-주로 특정 컬럼을 기준으로 집계를 구하는데 많이 사용되며, 그룹함수와 사용시 효율적으로 사용이 가능하다.&lt;/p&gt;
-
-&lt;p&gt;예시 ) EMP 테이블의 부서 별 사원의 수를 구해볼 때,&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT DEPTNO, COUNT(*) FROM EMP GROUP BY DEPTNO ORDER BY DEPTNO;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;COUNT(*)는 행의 갯수를 구하는 함수이며, GROUP BY DEPTNO를 작성하여 총 3개의 부서 별로 사원의 수가 몇 명인지를
-출력해주었다. GROUP BY 키워드를 사용하지 않았다면 모든 사원 수가 출력되었을 것이다. 하나의 컬럼을 기준으로
-컬럼 별로 데이터의 값들을 출력해 주는 것이 GROUP BY 절이라고 할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;HAVING절은 GROUP BY절 다음에 나오는 조건절이다. GROUP BY 절의 결과데이터에 조건을 주어서 필터링을 할 수 있다.
-GROUP BY 절에는 WHERE 절이 올 수 없으므로 HAVING절을 사용하여 필터링해주어야한다.
-WHERE 절에는 그룹함수도 사용이 불가능하다는 점을 알아두자.&lt;/p&gt;
-
-&lt;p&gt;예시 ) PRODUCTS 테이블에서 카테고리 별로 상품의 갯수를 화면에 출력하려고 할 때,&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT CATEGORY_FK, COUNT(*) FROM PRODUCTS GROUP BY CATEGORY_FK HAVING COUNT(*) &amp;gt; 1 ORDER BY CATEGORY_FK;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;여기서 CATEGORY_FK는 제품의 종류, COUNT(*)는 행의 갯수를 출력하므로 제품의 갯수를 의미한다.
-GROUP BY CATEGORY_FK를 사용하여 제품의 종류 별로 제품의 갯수가 몇 개인지 출력하며,
-여기서 HAVING 절에 제품갯수가 1개 이상일 경우에만 출력하도록 필터링을 해주었다.
-HAVING 절에는 보통 그룹함수를 많이 사용하기 때문에 이를 잘 이용하여 사용하는 것이 좋다.&lt;/p&gt;
-
-&lt;h1 id=&quot;트랜잭션transaction&quot;&gt;트랜잭션(TRANSACTION)&lt;/h1&gt;
-
-&lt;p&gt;트랜잭션은 데이터 처리의 한 단위를 말한다. 오라클에서 발생하는 여러 개의 SQL 명령문들을 하나의
-논리적인 작업 단위로 처리하는 것을 말한다. ALL OR NOTHING 방식으로 처리하며, 명령어 여러 개의 집합이
-정상적으로 처리되면 종료하고, 여러 개의 명령어 중에서 하나의 명령어라도 잘못이 되면 전체를 취소하는 방식을
-말한다. 트랜잭션을 사용하는 이유로는 데이터의 일관성을 유지하면서 데이터의 안정성을 보장하기 위한 이유가 있다.&lt;/p&gt;
-
-&lt;p&gt;트랜잭션 사용 시 트랜잭션을 제어하기 위한 명령어는 어떤 것이 있을까?&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;COMMIT : 모든 작업을 정상적으로 처리하겠다고 확정하는 명령어로, INSERT, DELETE, UPDATE와 같은 작업의 내용을
-실제 DB에 반영하고, 이전에 있던 데이터에 UPDATE 현상을 발생시킨다.
-모든 사용자가 변경된 데이터의 결과를 확인할 수 가 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ROLLBACK : 작업 중에 문제가 발생했을 때, 트랜잭션 처리 과정에서 발생한 변경 사항을 취소하여 이전 상태로
-되돌리는 명령여이다. 트랜잭션 작업 내용을 취소하는 것이다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;COMMIT의 경우에는 사진을 찍는 것과 같다. COMMIT 명령어를 실행하면, 실행할 상태의 모든 데이터들을 그 상태 그대로
-저장하는 것을 말한다. 그 이후에 데이터를 관리하다가 문제가 발생했을 때 ROLLBACK 명령어를 사용하면 COMMIT을 했던 그 상태로
-타임머신을 타고 이동하는 것과 같다.&lt;/p&gt;
-
-&lt;p&gt;COMMIT은 DB의 전체적인 상태들을 저장하기 때문에 사소한 데이터 수정을 위해서 커밋을 하는 것은 부담스러울 수 있다.
-이를 보완하고자 SAVEPOINT라는 키워드가 있는데, 단어 뜻 그대로 세이브포인트를 세워서 문제가 발생했을 경우 세이브포인트 지점으로
-돌아갈 수 있다.&lt;/p&gt;
-
-&lt;p&gt;SAVEPOINT 이름; 으로 사용할 수 있으며, 만들었던 세이브포인트로 돌아가기 위해서는 ROLLBACK 이름; 을 입력하여 돌아갈 수 있다.&lt;/p&gt;
-
-&lt;h1 id=&quot;제약-조건-책-보면서-추가-공부&quot;&gt;제약 조건 책 보면서 추가 공부&lt;/h1&gt;
-
-&lt;p&gt;제약조건을 추가할 때 제약조건에 이름을 붙여줄 수 있다. 제약조건에 이름을 붙여주지 않으면 ORACLE DB에서 자체적으로 이름을 부여하는데,
-찾을 때 복잡하고 찾기가 힘들다는 이야기가 있다. 제약조건에 이름을 붙여주면 나중에 제약조건의 내용을 수정할 때 쓸 수 있으므로
-제약조건에 이름을 넣어주는 것이 좋다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE TABLE TEST_TABLE(
-    NUM NUMBER(20)
-    CONSTRAINT TEST_TABLE_PK PRIMARY KEY,
-    NAME VARCHAR2(20)
-    CONSTRAINT TEST_TABLE_nn NOT NULL,
-    PHONE VARCHAR2(50)
-    CONSTRAINT TEST_TABLE_PHONE NOT NULL
-);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위와 같은 형식으로 제약조건을 넣어준다.&lt;/p&gt;
-
-&lt;p&gt;테이블 생성 시에는 제약조건의 필요성을 느끼지 못했다가, 나중에 제약조건을 추가해야할 상황이 생겼을 때, 제약조건의 이름을 찾아 조건을 변경하거나
-추가할 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ALTER TABLE TEST_TABLE ADD CONSTRAINT TEST_TABLE_UNIQUE UNIQUE(NAME);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;기존에 있는 제약이름은 사용할 수 없다. 새로운 이름을 생성하고 거기에 ‘제약조건(컬럼)’ 형식으로 써주어야한다.&lt;/p&gt;
-
-&lt;p&gt;유의해야할 사항이 하나 더 있는데, NOT NULL 제약조건을 넣을 때이다. 컬럼에 기본값으로 NULL이 허용되있는 것을 변경하는 것이기 때문에
-이 때는 ADD를 사용하면 안되고, MODIFY() 함수를 사용해서 수정해주어야한다.&lt;/p&gt;
-
-&lt;p&gt;외래키 제약조건은 자식테이블이 부모테이블을 참조하는 형식이다. 만약, 자식테이블의 데이터가 있다면 부모테이블을
-참조하고 있기 때문에 부모테이블의 데이터를 삭제할 수 없다. 따라서 이를 해결하기위한 키워드가 존재한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;ON DELETE CASCADE : 부모테이블의 데이터를 지울 때 자식테이블의 데이터(행 전체)도 같이 지운다.&lt;/li&gt;
-  &lt;li&gt;ON DELETE SET NULL : 부모테이블의 데이터를 지우면 자식테이블의 데이터는 NULL 값이 된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;두 키워드는 차이점을 가지고 있는데, ON DELETE CASCADE같은 경우에는 부모테이블의 데이터를 삭제하면
-자식테이블의 데이터 행 자체가 삭제된다는 점이다. 반면 ON DELETE SET NULL 같은 경우에는 자식테이블이 참조하던
-컬럼의 데이터만 NULL 값으로 표시되고, 행 자체의 데이터는 사라지지 않는다.
-이 키워드는 제약조건에 FOREIGN KEY를 설정할 때 문장의 마지막에 작성해주면 된다.&lt;/p&gt;
-
-&lt;h1 id=&quot;서브쿼리-책-보면서-복습-정리&quot;&gt;서브쿼리 책 보면서 복습, 정리&lt;/h1&gt;
-
-&lt;p&gt;수업시간에 배운 내용은 책을 보면서 복습이 얼추 되었다. 근데 책에서는 다중쿼리에 대해 비중있게 다루고 있는데,
-먼저 다중행 서브쿼리이다. 다중행 서브쿼리는 서브쿼리에서 나오는 결과값이 여러 개인 경우가 있는데, 이를 다중 쿼리라고 부르는데,&lt;/p&gt;
-
-&lt;p&gt;수업시간에는 IN만 사용하여 다중쿼리의 데이터 값을 처리했지만, 연산자가 몇 가지 더 존재했다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;EXISTS : 서브쿼리의 값이 있을 경우에 메인쿼리를 수행&lt;/li&gt;
-  &lt;li&gt;&amp;gt; ANY(서브쿼리) : 서브쿼리 결과중에서 최솟값을 반환&lt;/li&gt;
-  &lt;li&gt;&amp;lt; ANY(서브쿼리) : 서브쿼리 결과중에서 최댓값을 반환&lt;/li&gt;
-  &lt;li&gt;&amp;lt; ALL(서브쿼리) : 서브쿼리 결과중에서 최솟값을 반환&lt;/li&gt;
-  &lt;li&gt;&amp;gt; ALL(서브쿼리) : 서브쿼리 결과중에서 최댓값을 반환&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;구별을 잘 해야한다. 비교하고싶은 데이터 값보다 작은지, 큰지를 먼저 따지고, 그 다음에 서브쿼리의 데이터 값 중
-최솟값, 최댓값을 가져오는 것을 잘 설정해주어야 한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;다중컬럼&quot;&gt;다중컬럼&lt;/h2&gt;
-
-&lt;p&gt;다중행은 서브쿼리가 여러개의 결과값을 가진 것이었다. 다중컬럼은 결과값이 여러 컬럼을 가지는 것을 말한다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT P.PROFNO, P.NAME, P.HIREDATE, D.DNAME
-FROM PROFESSOR P
-JOIN DEPARTMENT D
-ON P.DEPTNO = D.DEPTNO
-WHERE (P.DEPTNO, P.HIREDATE) IN(SELECT DEPTNO, MIN(HIREDATE) FROM PROFESSOR GROUP BY DEPTNO);
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;WHERE 절에 쓰인 문장을 보자, 서브쿼리에서 메인쿼리로 컬럼이 2개씩 데이터로 받아지고 있다.
-각 부서별로 입사일이 가장 오래된 교수를 서브쿼리에서 결과값으로 추출한 후, 메인쿼리로 옮겨서
-조건에 맞는 행을 출력하는 것이다. 다양한 검색을 할 때 사용되므로 이해해야한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;스칼라-서브쿼리scalar-sub-query&quot;&gt;스칼라 서브쿼리(Scalar Sub Query)&lt;/h2&gt;
-
-&lt;p&gt;스칼라 서브쿼리는 SELECT 절에 오는 서브쿼리로 한 번에 결과를 1행씩 반환한다.
-실무에서 많이 사용되고 SQL 튜닝에서도 강조되는 부분이다.&lt;/p&gt;
-
-&lt;p&gt;스칼라 서브쿼리는 OUTER JOIN과 구조가 비슷하다.
-JOIN방법은 출력하고자 하는 데이터의 양이 적을 경우 스칼라 서브 쿼리보다 속도가 느리다. 따라서
-출력하는 데이터의 양이 적을 경우에는 JOIN보다 스칼라 서브 쿼리를 많이 사용한다.
-데이터의 양이 많을 경우에는 JOIN이 더 효율적일 수 있으니 잘 판단하여 사용하여야 한다.
-스칼라 서브 쿼리가 빠른 이유는 찾는 데이터가 메모리에 만들여져 있는 값을 찾아오기 때문이다.&lt;/p&gt;
-
-&lt;p&gt;메모리에 미리 찾을 것으로 예상되는 조건으로 데이터를 준비하고, 주문이 들어오면 바로 찾아가는 것이다.
-시쿼스에서 봤었던 캐시메모리와 비슷한 상황인 것 같다.&lt;/p&gt;</content>
+&lt;p&gt;이후의 작동방식은 annotation과 같다.&lt;/p&gt;</content>
 
       
       
@@ -796,7 +284,7 @@ JOIN방법은 출력하고자 하는 데이터의 양이 적을 경우 스칼라
       
 
       
-        <summary type="html">숫자데이터와 관련된 함수</summary>
+        <summary type="html">JSP 20211014 TIL</summary>
       
 
       
@@ -804,84 +292,286 @@ JOIN방법은 출력하고자 하는 데이터의 양이 적을 경우 스칼라
     </entry>
   
     <entry>
-      <title type="html">그룹함수(GROUP BY, HAVING)</title>
-      <link href="https://achasan.github.io/database_4" rel="alternate" type="text/html" title="그룹함수(GROUP BY, HAVING)" />
-      <published>2021-09-05T00:00:00+09:00</published>
-      <updated>2021-09-05T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/database_4</id>
-      <content type="html" xml:base="https://achasan.github.io/database_4">&lt;h1 id=&quot;sql-복수행-함수그룹함수&quot;&gt;SQL 복수행 함수(그룹함수)&lt;/h1&gt;
+      <title type="html">jQuery 자주 사용하는 함수 정리</title>
+      <link href="https://achasan.github.io/jQuery" rel="alternate" type="text/html" title="jQuery 자주 사용하는 함수 정리" />
+      <published>2021-10-12T00:00:00+09:00</published>
+      <updated>2021-10-12T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/jQuery</id>
+      <content type="html" xml:base="https://achasan.github.io/jQuery">&lt;h1 id=&quot;20211012-til--jquery-내용-정리&quot;&gt;20211012 TIL : jQuery 내용 정리&lt;/h1&gt;
 
-&lt;p&gt;단일행 함수는 하나의 데이터가 가공되는 방식이었다면, 복수행함수는 한꺼번에 여러 건의 데이터가 함수로 입력되는
-방식이다. 사용법은 일반적인 함수와 매우 비슷하다. 다만 주의해야할 점은 null값을 각 함수마다 어떻게 취급하는지를
-알아야 한다는 점이다. 주로 사용되는 복수행 함수들을 알아보자.&lt;/p&gt;
+&lt;p&gt;jQuery는 자바스크립트 언어를 간편하게 사용가능하도록 단순화시킨 오픈소스 기반의 라이브러리이며, 자바스크립트의 DOM을 좀 더 쉽게 다루기 위해 설계되어져 있다. jQuery를 통해 이벤트처리를 손 쉽게 구현할 수 있으며, 모든 브라우저에서 호환이 가능하다는 것이 장점이다.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;COUNT() : 입력되는 데이터의 갯수를 출력한다.&lt;/li&gt;
-  &lt;li&gt;SUM() : 입력된 데이터의 합계 값을 출력한다.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;AVG() : 입력된 데이터의 평균값을 출력한다. NULL 값은 제외하기 때문에 NVL()함수로 치환하는 것이 좋다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;MAX() : 입력된 데이터 중 가장 큰 값을 출력한다.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;MIN() : 입력된 데이터 중 가장 작은 값을 출력한다.
-※ MAX() 함수와 MIN() 함수는 정렬한 후에 가장 큰 값/작은 값을 출력하기 때문에 성능이 좋지 않다.
-추후에 INDEX를 사용하는 것을 추천한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;STDDEV() : 입력된 값중 표준편차를 출력한다.&lt;/li&gt;
-  &lt;li&gt;VARIANCE() : 입력된 값 중 분산값을 출력한다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;동적으로 DOM을 손쉽게 처리가 가능하다. 물론 CSS도 간단하게 적용할 수가 있다.&lt;/p&gt;
 
-&lt;h2 id=&quot;group-by--특정-조건으로-세부적인-그룹화하기&quot;&gt;GROUP BY : 특정 조건으로 세부적인 그룹화하기&lt;/h2&gt;
+&lt;p&gt;개인적인 생각으로 jQuery는 미래에 자연스럽게 도태되지않을까 생각하는 라이브러리이다. 많은 기능들을 손쉽게 지원하지만 현재에는 node.js, React 등 보다 상호작용이 간단하고 최신 기능들을 지원하는 라이브러리들이 많기 때문이다. 물론 아직 jQuery의 점유율은 가장 높고, 사람들이 많이 알고 많이 사용하는 라이브러리임에는 확실히다. 알아두어서 나쁠건 없다는 생각이다.&lt;/p&gt;
 
-&lt;p&gt;EMP 테이블에서 SAL 컬럼의 평균을 구한다고 해보자. SAL의 평균은 단순히 컬럼에 있는 SAL 데이터 값들을
-평균으로 나누기 때문에 하나의 데이터만 출력될 것이다.
-하지만 직업별로 SAL 평균을 보고싶을 때는 어떻게 해야할까?&lt;/p&gt;
+&lt;h3 id=&quot;jquery-사용-방법&quot;&gt;jQuery 사용 방법&lt;/h3&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT JOB, TRUNC(AVG(NVL(SAL, 0)), 0) FROM EMP GROUP BY JOB;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;제이쿼리를 사용하는 방법은 두 가지 이다. 하나는 제이쿼리 라이브러리를 공식 홈페이지에서 다운받은다음 파일로 변환하여 자신의 프로젝트 파일에 넣은다음 import 하여 사용하는 방법, 하나는 jQuery 주소를 연동시켜 사용하는 방식인데, 이 방식은 CDN 방식이라고 부른다.&lt;/p&gt;
 
-&lt;p&gt;다음의 문장을 작성하면 직업별로 급여평균을 출력할 수 있다. 뒤에 GROUP BY 키워드가 보이는데, 이는 JOB의
-데이터를 그루핑하여 출력하라는 의미가 된다. 따라서 직업 별로 SAL의 평균값이 출력되게 된다.&lt;/p&gt;
+&lt;p&gt;CDN 방식은 Content Delivery Network의 약자로, 사용자가 요청한 컨텐츠를 사용자와 가장 가까운 곳에 위치한 서버에 전달하는 방식을 말한다.&lt;/p&gt;
 
-&lt;p&gt;조금 더 응용해보자,&lt;/p&gt;
+&lt;p&gt;가장 안전한 방법은 직접 라이브러리를 다운받아 프로젝트파일에 넣어놓는 것이다. CDN 방식을 사용할 경우 서버에 문제가 생기면 내가 만든 웹페이지도 작동이 안될 수 있으므로, 만일을 대비하여 CDN보다는 직접 파일을 넣어놓고 사용하는 편이 좋다.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT JOB, TRUNC(AVG(NVL(SAL, 0)), 0)
-FROM EMP
-GROUP BY DEPTNO, JOB;`
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;https://jquery.com/download/&quot;&gt;jQuery&lt;/a&gt; 홈페이지에 방문하여 소스코드를 다운로드받거나, 여러 CDN 서버중에 원하는 서버를 선택하여 다운 받으면 된다.&lt;/p&gt;
 
-&lt;p&gt;이번엔 GROUP BY가 두 번 사용되었다. 먼저 부서별로 그룹핑한 다음, 부서 별로 존재하는 각 직업 별로 두 번 그룹핑하여
-데이터를 출력하라는 의미이다.
-예를 들어, 부서번호가 10, 20, 30으로 3개가 있고, 직업이 5개가 있다고 할 때, 부서번호가 10인 그룹의 직업 별 평균,
-20인 그룹의 직업 별 평균, 30인 그룹의 직업 별 평균을 출력하라는 뜻이 된다.
-다소 헷갈릴 수 있으니 제대로 이해하고 넘어가야 한다.
-그룹핑을 했을 경우에는 데이터가 정렬이 안되게 뒤죽박죽 섞여있으므로 ORDER BY를 통해 정렬해 주는 것이 보기 좋다.&lt;/p&gt;
+&lt;h2 id=&quot;jquery-태그-지정방법&quot;&gt;jQuery 태그 지정방법&lt;/h2&gt;
 
-&lt;p&gt;GROUP BY를 사용하기 위해서는 두 가지의 조건이 있다.&lt;/p&gt;
+&lt;p&gt;보통 JS에서는 document.querySelector() 를 작성하여 태그를 선택한다. 하지만 jQuery에서는 $(‘태그’)를 통해 태그를 선택할 수 있다. 예를 들어 body 태그를 선택한다면 $(‘body’)를 입력하는 것 만으로 body 태그를 선택할 수 있다. 간단하게 body태그의 background-color를 변경해보자,&lt;/p&gt;
+
+&lt;p&gt;$(‘body’).css(‘background-color’, ‘salmon’);&lt;/p&gt;
+
+&lt;p&gt;body태그의 css를 적용하는 함수는 css이다. jQuery는 태그를 선택 후, 뒤에 .을 붙이고 사용할 함수를 작성하여 사용하면된다. css함수의 매개값으로는 속성이름과 속성값을 입력해주면 된다. background-color를 salmon색으로 바꾸어 웹페이지 전체 배경색을 바꾸었다.&lt;/p&gt;
+
+&lt;h2 id=&quot;jquery의-여러가지-선택자&quot;&gt;jQuery의 여러가지 선택자&lt;/h2&gt;
+
+&lt;p&gt;jQuery에서는 다양한 선택자가 있다. 기본적으로 $()를 사용해 클래스, 아이디, element, 여러가지 선택자들을 선택할 수 있다. querySelector()처럼 사용하면 되어서 어렵지는 않다.&lt;/p&gt;
+
+&lt;p&gt;$()를 통해 태그를 선택하고, 선택한 태그의 부모태그를 불러오고싶다면 parent() 함수를 사용하면 된다. 선택한 태그의 자식태그를 선택하고 싶다면 $(‘element child’) 형식으로 태그를 입력하면 된다. 이 경우에는 자식의 자식태그까지 전부 선택된다. children() 함수도 위와 같은 기능이다.&lt;/p&gt;
+
+&lt;p&gt;그렇다면 자식태그’만’ 선택하기위해서는 어떻게 해야될까? $(‘element &amp;gt; child’) 형식으로 작성해주면 된다. 꺽새를 넣어주면 선택한 태그 기준으로 자식태그만 선택이 되며, 자식의 자식태그는 선택되지 않는다.&lt;/p&gt;
+
+&lt;h3 id=&quot;인접-관계-선택자&quot;&gt;인접 관계 선택자&lt;/h3&gt;
+
+&lt;p&gt;인접관계 선택자로는 prev()와 next() 함수가 있다. 선택한 태그를 기준으로 이전태그, 다음 태그를 선택하는 선택자이다. prevAll()은 선택태그 기준 이전에 있는 모든 태그들을 선택하고, nextAll()은 선택태그 기준 이후에 있는 모든 태그들을 선택한다.
+선택한 태그를 기준으로 모든 형제요소를 선택하는 선택자는 siblings() 이다. 부모태그, 자식태그를 제외한 모든 태그들을 선택한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;탐색-선택자&quot;&gt;탐색 선택자&lt;/h3&gt;
+
+&lt;p&gt;jQuery의 탐색 선택자를 이용하면 직접 선택자를 이용해 선택한 요소 중 원하는 요소를 한번 더 탐색하여 정확히 선택할 수 있는 장점이 있다.
+탐색 선택자의 종류로는 위치탐색, 속성탐색, 콘텐츠 탐색, 필터링 선택자가 있다.&lt;/p&gt;
+
+&lt;p&gt;위치탐색 선택자는 말 그대로 태그의 위치를 찾아서 선택하는 선택자이다.
+first() 함수를 사용하면 전체 elements 중에서 첫 번째 태그를 선택한다.
+last() 함수는 당연히 마지막 태그를 선택한다.&lt;/p&gt;
+
+&lt;p&gt;홀수 요소들을 선택할 때는 odd() 함수를 선택하여 홀수index에 있는 요소들을 한번에 선택이 가능하고 even() 함수는 반대로 짝수 요소들을 한번에 선택한다.&lt;/p&gt;
+
+&lt;p&gt;특정 숫자요소를 선택하기 위해서는 nth-child()를 사용하는데, 이것은 함수라기보다는 태그선택자에 사용하는 키워드라고 보는것이 좋다.
+예를들어 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(&apos;li:nth-child(3)&apos;).css(&apos;color&apos;, &apos;blue&apos;);&lt;/code&gt; 와 같이 작성했을 때는 li 태그 중 세 번째 태그를 선택하게 된다. 여기서 주의해야할 점은 0부터 시작하지 않고 1부터 시작한다는 점이다.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(&apos;li:nth-child(3n)&apos;).css(&apos;color&apos;, &apos;blue&apos;);&lt;/code&gt; 3의 배수마다 태그를 지정하기위해서는 n을 뒤에 붙여주면 된다.&lt;/p&gt;
+
+&lt;p&gt;요소를 선택하는 선택자도 있는데, 다음과 같다.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;SELECT 절에 사용된 컬럼이나 포현식은 반드시 GROUP BY 절에 사용되어야 한다. 안그러면 에러가 난다.
-(GROUP BY에 사용된 컬럼은 SELECT에 반드시 있어야할 필요는 없다.)&lt;/p&gt;
+    &lt;p&gt;요소[속성] : 속성이 있는 요소 가져요기
+  $(“a[title]”).css(“border”, “3px solid red”);&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;GROUP BY절에는 반드시 컬럼명이 사용되어야 하고, 컬럼 별칭은 사용될 수 없다.&lt;/p&gt;
+    &lt;p&gt;요소[속성=값] : 속성과 값이 일치하는 요소 가져오기
+  $(“a[href=’http://www.naver.com’]”)
+     .css(“background-color”, “pink”);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;요소[속성^=값] : 값으로 시작하는 요소 가져오기
+  $(“a[href^=’mailto’]”)
+     .css(“background-color”, “aqua”);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;요소[속성$=값] : 값으로 끝나는 요소 가져오기
+  $(“a[href$=’net’]”)
+     .css(“background-color”, “lightgray”);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;요소[속성&lt;em&gt;=값] : 값을 포함하는 요소 가져오기
+  $(“a[href&lt;/em&gt;=’daum’]”)
+     .css(“border”, “1px solid red”);&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;요소[속성=값][속성=값] : and 조건으로 조건 2개의 속성과 값을 모두 만족하는 요소 가져오기
+  $(“a[href^=’mailto’][href$=’com’]”)
+       .css(“border”, “3px solid red”);&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;having-절의-사용&quot;&gt;HAVING 절의 사용&lt;/h2&gt;
+&lt;p&gt;속성을 조작하기 위해서는 html() 함수를 사용하면 되는데, JS의 경우에는 innerHTML과 같은 기능을 가진다. text() 함수는 선택한 요소 내의 텍스트를 불러오거나 텍스트를 바꿀 때 사용하는 함수이다.&lt;/p&gt;
 
-&lt;p&gt;WHERE 문에 그룹함수를 사용하여 조건식을 작성할 수 있을까? 답은 NO다. WHERE문에서는 그룹 함수를
-비교조건으로 사용할 수 없다. 대신 HAVING문을 사용하면 해결이 가능하다.&lt;/p&gt;
+&lt;h2 id=&quot;이-외-다양한-jquery-함수&quot;&gt;이 외 다양한 jQuery 함수&lt;/h2&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT DEPTNO, AVG(NVL(SAL,0)) -- 부서번호, 급여평균 출력
-FROM EMP -- EMP 테이블에서
-WHERE DEPTNO &amp;gt; 10 -- DEPTNO가 20, 30인 경우
-GROUP BY DEPTNO -- 부서번호 별로 평균 출력
-HAVING AVG(NVL(SAL, 0)) &amp;gt; 2000; -- 급여평균이 2000 이상인 경우 출력(그룹함수는 HAVING문으로 조건을 줄 수 있다.)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;속성 조작 메소드 - removeAttr(‘props’) : 선택한 요소에서 기존의 속성을 삭제할 때 사용 - attr(‘props’) : 선택한 요소에 새로운 속성을 추가 - attr(‘props’, ‘value’) : 선택한 요소에서 새 속성을 추가하거나 기존의 속성을 변경 시 사용 - addClass() : 선택한 요소에 클래스 선택자를 생성 - removeClass() : 선택한 요소에 지정된 클래스 선택자 삭제 - val(‘value’) : 선택한 요소에 있는 value 값을 가져온다 input 태그에서 사용한다. 매개값을 입력하여 변경이 가능하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;컨텐츠 탐색 선택자 : 요소, 속성이 포함 여부에 따라 특정 요소를 선택하는 선택자 - $(“요소선택:contains(텍스트)”) : 텍스트를 포함하는 요소만 선택하는 선택자.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;dl&gt;
+      &lt;dt&gt;$(“요소선택”).contents()&lt;/dt&gt;
+      &lt;dd&gt;선택한 요소 중 가장 가까운 하위 요소를 선택하는 선택자.&lt;/dd&gt;
+    &lt;/dl&gt;
 
-&lt;p&gt;WHERE문에 그룹함수를 사용할 수 없다는 사실이 중요하다.&lt;/p&gt;</content>
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;$(“요소선택:has(요소명)”) / $(“요소선택”).has(요소명)&lt;/dt&gt;
+          &lt;dd&gt;요소 중 요소명을 포함하는 요소만 선택하는 선택자.&lt;/dd&gt;
+        &lt;/dl&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;$(“요소선택:not(제외요소)”) / $(“요소선택”).not(제외요소)&lt;/dt&gt;
+          &lt;dd&gt;제외요소만 제외하고 선택하는 선택자.&lt;/dd&gt;
+        &lt;/dl&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;$(“요소선택1”).closest(“요소선택2”)&lt;/dt&gt;
+          &lt;dd&gt;요소선택1을 감싸는 상위 중 가장 가까운 상위 요소를 선택하는 선택자.&lt;/dd&gt;
+        &lt;/dl&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;$(“요소선택”).탐색선택자().end()&lt;/dt&gt;
+          &lt;dd&gt;필터링이 실행되기 이전의 요소선택인지 선택하는 선택자.&lt;/dd&gt;
+        &lt;/dl&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;$(“요소선택”).filter(필터요소)&lt;/dt&gt;
+          &lt;dd&gt;필터요소만 선택하는 선택자.&lt;/dd&gt;
+        &lt;/dl&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;dl&gt;
+          &lt;dt&gt;$(“요소선택”).find(요소선택2)&lt;/dt&gt;
+          &lt;dd&gt;요소선택2만 선택하는 선택자.&lt;/dd&gt;
+        &lt;/dl&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;요소 편집 메서드 - 선택한 요소를 복제하거나 새 요소를 생성하는 메서드. - 복제하거나 새로 생성한 요소를 의도한 위치로 삽입하고
+선택한 요소를 삭제하는 기능.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;before() : 선택한 요소 이전 위치에 새 요소를 추가하는 메서드.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(“요소선택”).before(“새 요소”)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;after() : 선택한 요소 다음 위치에 새 요소를 추가하는 메서드.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(“요소선택”).after(“새 요소”)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;insertBefore() : 선택한 요소의 이전 위치에 새 요소를 추가하는 메서드.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(“새 요소”).insertBefore(“요소선택”)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;insertAfter() : 선택한 요소의 다음 위치에 새 요소를 추가하는 메서드.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(“새 요소”).insertAfter(“요소선택”)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;clone() : 선택한 요소를 복사하는 메서드.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(“요소선택”).clone()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;empty() : 선택한 요소의 하위 내용들을 모두 삭제하는 메서드.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(“요소선택”).empty()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;remove() : 선택한 요소를 삭제하는 메서드.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(“요소선택”).remove()&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;replaceWith() : 선택된 요소만 새 요소로 교체하는 메서드.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(“요소선택”).replaceWith(“새 요소”)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;replaceAll() : 선택 요소 전체를 새 요소로 교체하는 메서드.
+    형식) $(“새 요소”).replaceAll(“새 요소”)&lt;/p&gt;
+
+&lt;h3 id=&quot;jquery를-통해-이벤트-처리하기&quot;&gt;jQuery를 통해 이벤트 처리하기&lt;/h3&gt;
+
+&lt;p&gt;jQuery를 사용하는 큰 이유 중 하나는 이벤트 처리와 애니메이션 처리일 것이다.
+몇 줄 작성하지않아도 괜찮은 이벤트리스너와 애니메이션을 작성하여 사용할 수 있다.
+빈도가 높은 이벤트 리스너들을 알아보자.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;이벤트 함수 작성방법
+    &lt;ul&gt;
+      &lt;li&gt;이벤트 형식 : $(‘요소 선택’).on(‘이벤트 이름’, 이벤트리스너(함수))&lt;/li&gt;
+      &lt;li&gt;이벤트리스너는 보통 무명클래스를 이용하여 처리한다. 같은 형식의 기능이 실행될 경우에는 function으로 선언하고 사용하는게 좋다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;사용할 수 있는 이벤트의 종류는 굉장히 다양하다. 따라서 상황에 맞는 이벤트를 사용하고, 굳이 이벤트들을 전부 외울 필요는 없다. 이런게 있구나 정도로 이해하는 것이 좋을 것 같다. 자주 사용하는 이벤트들만 사용방법을 알아보도록 한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;jQuery에서 제공하는 이벤트 종류
+blur, change, load, unload, resize, scroll, select
+submit, click, dblclick, mousedown, mouseup, mousemove,
+mouseover, mouseout, mouseenter, mouseleave, focus
+keydown, keypress, keyup&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;jquery를-통한-애니메이션-처리&quot;&gt;jQuery를 통한 애니메이션 처리&lt;/h3&gt;
+
+&lt;p&gt;jQuery를 통한 애니메이션 처리의 몇 가지 기능들을 살펴보았다. 다양한 기능들을 지원하는 것 같지만, 자주 사용하는 기능들을 살펴본다.&lt;/p&gt;
+
+&lt;p&gt;효과 관련 메소드&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;hide() : 노출되어있는 요소를 숨기는 기능을 하는 메소드
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(‘element’).hide(속도(ms), 콜백함수);&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;show() : 숨겨져 있떤 요소를 노출시키는 기능을 하는 메소드
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(‘element’).show(속도(ms), 콜백함수);&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;toggle() : 선택한 요소가 보이면 숨기고, 숨겨져 있으면 보이게 하는 기능하는 메소드
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(‘element’).toggle(효과속도, 콜백함수)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;fadeIn() : 숨겨져 있던 요소가 점점 투명해지면서 노출이 되는 기능&lt;/li&gt;
+  &lt;li&gt;fadeOut() : 노출이 되어 있떤 요소가 점점 사라지는(불투명) 기능&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;fadeToggle() : 노출이 되어있던 요소는 점점 사라지고, 사라져 있던 요소는 점점 선명해지면서 노출이 되는기능&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;fadeTo() : 선택한 요소를 지정한 투명도의 값까지만 숨기는 기능, 투명도는 0부터 1사이의 값까지만 입력이 가능하다.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(‘element’).fadeTo(효과속도, 투명도)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;slideUp() : 선택한 요소를 숨길 때 사용하는 메소드
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(‘element’).slideUp(효과속도, 콜백)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;slideDown() : 선택한 요소를 숨길 때 사용하는 메소드
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(‘element’).slideDown(효과속도, 콜백)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;slideToggle() : 선택한 요소를 숨길 때 사용하는 메소드
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(‘element’).slideToggle(효과속도, 콜백)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;animate() : 선택한 요소에 다양한 동적 효과를 적용하는 메소드이다.
+    &lt;ul&gt;
+      &lt;li&gt;형식) $(‘element’).animate({animation property}, motion speed(ms), callback); * 애니메이션 속성에는 모션으로 적용할 속성을 CSS를 이용하여 입력한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;stop() : 선택한 요소에 효과 또는 애니메이션이 적용된 효과를 정지시키는 메소드&lt;/li&gt;
+  &lt;li&gt;delay() : 선택한 요소의 효과 또는 애니메이션이 적용될 효과를 지연시키는 메소드&lt;/li&gt;
+&lt;/ul&gt;</content>
 
       
       
@@ -902,7 +592,7 @@ HAVING AVG(NVL(SAL, 0)) &amp;gt; 2000; -- 급여평균이 2000 이상인 경우 
       
 
       
-        <summary type="html">SQL 복수행 함수(그룹함수)</summary>
+        <summary type="html">20211012 TIL : jQuery 내용 정리</summary>
       
 
       
@@ -910,178 +600,165 @@ HAVING AVG(NVL(SAL, 0)) &amp;gt; 2000; -- 급여평균이 2000 이상인 경우 
     </entry>
   
     <entry>
-      <title type="html">묵시적, 명시적 형변환, DECODE, 정규식</title>
-      <link href="https://achasan.github.io/database_3" rel="alternate" type="text/html" title="묵시적, 명시적 형변환, DECODE, 정규식" />
-      <published>2021-09-04T00:00:00+09:00</published>
-      <updated>2021-09-04T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/database_3</id>
-      <content type="html" xml:base="https://achasan.github.io/database_3">&lt;h1 id=&quot;묵시적-형변환-명시적-형변환&quot;&gt;묵시적 형변환, 명시적 형변환&lt;/h1&gt;
+      <title type="html">css 수업 배운 내용 정리</title>
+      <link href="https://achasan.github.io/css" rel="alternate" type="text/html" title="css 수업 배운 내용 정리" />
+      <published>2021-09-30T00:00:00+09:00</published>
+      <updated>2021-09-30T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/css</id>
+      <content type="html" xml:base="https://achasan.github.io/css">&lt;h1 id=&quot;20210930-수업-내용-정리&quot;&gt;20210930 수업 내용 정리&lt;/h1&gt;
+
+&lt;h2 id=&quot;css-수업&quot;&gt;CSS 수업&lt;/h2&gt;
 
 &lt;ol&gt;
-  &lt;li&gt;묵시적 형변환&lt;/li&gt;
+  &lt;li&gt;둘 이상의 요소에 같은 스타일을 적용하는 방법은 태그나 선택자를 ,를 사용하면 된다.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;묵시적 형변환은 말그대로 개발자가 따로 형변환을 지시하지 않아도 시스템에서 자동적으로 형변환을 일어나게 하는 것을 말한다. 자바에서는 “1” + 1 을 출력하면 “11”이 되어 문자로 묵시적형변환이 일어나지만 SQL에서는 ‘1’ + 1 을 하면 2가 출력된다. 문자가 숫자로 변환되는 형변환이 일어난다. 문자는 숫자 형태로 되어있어야 형변환이 일어난다. 1 + ‘A’가 산술계산이 안되는 것 과 같다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;명시적 형변환&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;명시적 형변환은 함수를 사용하여 데이터값의 자료형을 다른 타입으로 바꾸는 것을 말한다. 형변환을 할 수 있는 함수는 총 3가지가 존재한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;[날짜 &amp;gt; 문자] TO_CHAR(DATE, ‘FORMAT’) : 날짜를 문자로 변환시킬 때 사용, 매개값으로는 날짜 데이터, 출력 형식을 작성하면 된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;출력형식 : 다양한 출력형식을 제공하고 있는데 대표적인 것들만 추려보면&lt;/li&gt;
-  &lt;li&gt;년 : YYYY(2021), YY(21), YEAR(TWENTY TWENTY-ONE)&lt;/li&gt;
-  &lt;li&gt;월 : MM(09), MONTH(SEPTEMBER)&lt;/li&gt;
-  &lt;li&gt;일 : DD(04), DDTH(4TH - 몇 번째 날인지를 표시)&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;시간 : HH24(하루를 24시간으로 표시) / HH(하루를 12시간으로 표시), MI(분), SS(초)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;[숫자 &amp;gt; 문자] TO_CHAR(NUMBER, ‘FORMAT’) : 숫자를 문자형으로 변환시키는 함수이다. 역시 형식을 지정하여 변환시킬 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;출력 형식&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;9 : 자릿수를 뜻한다. TO_CHAR(1234, ‘99999’)는 1234를 5자리까지만 출력하라는 의미인데, 1234는 4자리이므로 남은 자릿수는 출력되지않음&lt;/li&gt;
-  &lt;li&gt;0 : 빈 자릿수를 0으로 채운다는 뜻이다. TO_CHAR(1234, ‘099999’)를 실행하면 001234가 나오게 된다.&lt;/li&gt;
-  &lt;li&gt;$ : $를 붙여서 표시한다는 뜻, TO_CHAR(1234, ‘$9999’)를 실행하면 $1234가 나온다.&lt;/li&gt;
-  &lt;li&gt;. : 소수점 이하를 표시한다. 소수가 없더라도 0으로 표시된다. TO_CHAR(1234, ‘9999.00’) = 1234.00&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;, : 천 단위 구분 기호를 표시한다. TO_CHAR(1234, ‘99,999’) = 1,234&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;TO_NUMBER() : 숫자 형태로 생긴 문자를 숫자로 바꿔주는 함수이다.&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;TO_NUMBER(‘2’) = 2로 출력된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;TO_DATE() : 날짜 형태로 생긴 문자를 DATE 타입으로 바꿔주는 함수이다.&lt;/li&gt;
-  &lt;li&gt;TO_DATE(‘2021/09/04’) = 2021년 9월 4일의 DATE 타입으로 바뀐다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;decode--오라클-db의-if문&quot;&gt;DECODE() : 오라클 DB의 IF문&lt;/h1&gt;
-
-&lt;p&gt;DECODE()는 오라클 문법에 있는 IF문이라고 생각하면 된다.
-서로의 데이터가 같은지, 다른지를 구별하여 같을 경우, 다를 경우에 출력하는 값을 다르게 설정 가능하다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;DECODE(A, B, ‘1’, null) : A = B일 경우 ‘1’, A != B일 경우 NULL 출력&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;DECODE(A, B, ‘1’, C, ‘2’, null) : A = B 면 ‘1’, A = C 면 ‘2’, 해당하지 않을 경우 NULL 출력
-무조건 기준은 첫 번째 매개값이라는 것을 알 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;DECODE(A, B, DECODE(C, D, ‘, NULL)) : 안쪽에 있는 DECODE부터 실행된다. C = D이면 ‘, C != D이면 NULL 출력 후&lt;/li&gt;
-  &lt;li&gt;A = B 이면 DECODE() 값, A != B 이면 DECODE 값 출력
-ELSE에 해당하는 네 번째 매개값이 비어있으면 아무것도 출력하지 않은 상태가 된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&quot;case문&quot;&gt;CASE문&lt;/h1&gt;
-
-&lt;p&gt;DECODE가 데이터 값들의 ‘=’ 연산자만들 사용하여 처리되는 함수라면, CASE는 크거나 작은 조건까지 처리가 가능하다.
-CASE 문은 CASE() WHEN THEN ELSE END 순으로 사용이 된다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CASE(조건) WHEN(결과값 기준 조건문) THEN(출력값)
-           WHEN(결과값 기준 조건문2) THEN(출력값2)
-           WHEN(결과값 기준 조건문3) THEN(출력값3)
-           WHEN(결과값 기준 조건문4) THEN(출력값4)
-           ELSE (출력값5)
-           END (별칭)
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;h2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;red&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bold&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
+&lt;p&gt;위의 코드의 경우 h1 태그와 h2 태그에 모두 적용되도록 설정된 style이다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;브라우저, 운영체제별로 기본적으로 지원하는 폰트가 다를 수 있다. 따라서 body 태그에 웹폰트를 설정해 주는 것이 좋다.
+웹폰트는 프로젝트 폴더에 직접 넣어주어도 되고, 다른 URL을 통해 서버로부터 폰트를 가져와서 설정해 주는 것이 가능한데,
+&lt;a href=&quot;https://fonts.google.com/&quot;&gt;구글폰트&lt;/a&gt; 페이지나 &lt;a href=&quot;https://noonnu.cc/&quot;&gt;눈누&lt;/a&gt;와 같은 웹폰트 홈페이지에서 상업적 용도로 사용가능한
+폰트들을 불러와 설정할 수 있다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;각 홈페이지에서 사용할 폰트를 누르면 웹폰트로 사용이라는 탭이 보이는데 여기서 CSS형식으로 폰트정보를 제공한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&apos;Dongle-Regular&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&apos;https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108_2@1.0/Dongle-Regular.woff&apos;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;woff&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;font-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;동글 폰트체를 가져온다고 했을 때, 다음과 같은 폰트정보를 제공하는데, 저 코드를 그대로 복사하여 style 태그 안에 넣어주고
+폰트를 바꿀 글자는 font-family: ‘Dongle-Regular’를 입력해주면 된다.&lt;/p&gt;
+
+&lt;p&gt;하지만 개인적인 생각으로는 다른 서버로부터 폰트를 가져오는 것이기 때문에 만약 서버가 작동하지 않는다면 내가 만든 웹페이지의
+폰트도 작동하지 않을 것이다. 웬만하면 폰트를 직접 다운로드받아 서버에 업로드 해놓는 것이 좋을 것 같다는 생각이 들었다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;em 단위
+em 단위는 간단히 말하면 ‘배수’이다. 예를 들어 body 태그의 font-size가 16px로 설정이 되어있고, body 태그 내에 있는 
+p 태그의 font-size 단위를 2em으로 설정한다면 p 태그의 폰트사이즈는 32px로 되어 표현이 될 것이다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;태그의 font-size를 em 단위로 설정하면, 부모태그의 font-size를 기준으로 n배된 크기로 설정이 된다. CSS를 다룰 때
+자주 나오는 개념이므로 알아두는 것이 좋다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;margin과 padding의 여백 설정
+margin과 padding, inline, block과 같은 개념은 20210929에서 공부한 바 있으므로 중복되는 내용은 생략,
+여백을 설정하는 방식에 대해서 배운 내용을 정리하였다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;기본적으로 여백은 시계방향 순서대로 설정한다. 상단, 오른쪽, 하단, 왼쪽 순서대로이다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;margin: 10px 20px 30px 40px;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 코드는 상단 10px, 오른쪽 20px, 하단 30px, 왼쪽 40px의 여백을 설정하는 코드이다.
+만약 상단/하단, 왼쪽/오른쪽 중에 한 면을 공백으로 놓을 경우에는 반대쪽 면의 여백을 그대로 따라간다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;margin: 10px 20px;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 코드는 상단이 10px, 오른쪽이 20px로만 설정되어있고, 반대쪽은 공백이므로 하단 10px, 왼쪽 20px의 설정을 그대로 따라간다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;border의 속성
+border는 정확히 말하면 padding의 테두리를 지정하는 요소라고 생각한다. border는 padding과 margin의 중간어딘가로 표현하지만,
+padding의 크기에 따른 테두리를 지정하는 것으로 개념이 잡혔다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;border를 지정할 때는 두께 선의종류 색상 3가지를 입력해주어야한다.
+물론 개별적으로도 입력이 가능하다.&lt;/p&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;CASE : CASE 뒤에는 함수나 연산을 통해 만들어져 나올 테이터 값을 적으면 된다.&lt;/li&gt;
-  &lt;li&gt;WHEN : CASE를 통해서 나온 결과값을 판단할 조건문을 작성해주면 된다. WHERE문처럼 사용한다.&lt;/li&gt;
-  &lt;li&gt;THEN : 조건에 일치할 경우에 출력할 값 적는다.&lt;/li&gt;
-  &lt;li&gt;ELSE : 여러가지 WHEN, THEN을 통해서 작성한 조건에 모두 일치하지 않을 경우 출력할 값을 적는다.&lt;/li&gt;
-  &lt;li&gt;END : CASE문을 통해 출력될 값들의 컬럼 별칭을 적는다.&lt;/li&gt;
+  &lt;li&gt;border-width : 테두리 선의 두께&lt;/li&gt;
+  &lt;li&gt;border-style : 테두리 선의 종류&lt;/li&gt;
+  &lt;li&gt;border-color : 테두리 선의 색상&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;CASE 문에서는 컴마가 사용되지 않는다. 또한 연동하여 사용되는 키워드가 많으므로 잘 이해하고 사용해야한다.
-물론 그렇다고 CASE문만 사용하는 것은 아니다. ‘=’을 통한 조건식을 사용하는 경우에는 DECODE 문이 훨씬 효율적이다.
-따라서 적절히 상황에 맞추어 사용하는 것이 좋다.&lt;/p&gt;
-
-&lt;h1 id=&quot;정규식-내용-정리&quot;&gt;정규식 내용 정리&lt;/h1&gt;
-
-&lt;p&gt;이전에 LIKE 키워드를 사용하여 %과 _를 통해 원하는 위치에 오는 문자열을 찾는 조건문을 작성한 적이 있는데,
-이를 보다 구체적으로 체계화한 것이 정규식이다. 정규식은 유닉스에서 검색할 때 주로 사용되는 기술로 다양한
-메타문자들을 사용하여 검색 방법을 확장하는 것을 말한다. 먼저 정규식과 관련된 함수부터 알아보자.&lt;/p&gt;
+&lt;p&gt;여기서 border-style 쪽을 살펴보자, 테두리 선의 종류를 여러가지로 나타낼 수 있는데 여러 종류들이 있다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;REGEXP_LIKE : LIKE 함수처럼 특정 패턴과 매칭되는 결과를 검색해내는 함수이다.&lt;/li&gt;
-  &lt;li&gt;REGEXP_REPLACE : REPLACE 함수를 확장한 개념으로 주어진 문자열에서 특정 패턴을 찾아서 주어진 다른모양으로 치환하는 함수&lt;/li&gt;
-  &lt;li&gt;REGEXP_SUBSTR : SUBSTR 함수를 확장하여 특정 패턴에서 주어진 문자를 추출해 내는 함수&lt;/li&gt;
-  &lt;li&gt;REGEXP_COUNT : 특정 메타문자를 사용하여 정규식에 해당하는 문자의 갯수를 카운트해주는 함수&lt;/li&gt;
+  &lt;li&gt;none : 테두리 선 없음&lt;/li&gt;
+  &lt;li&gt;hidden : 테두리 선 없음&lt;/li&gt;
+  &lt;li&gt;solid : 실선, 단선(일반선)&lt;/li&gt;
+  &lt;li&gt;dotted : 점선(…..)&lt;/li&gt;
+  &lt;li&gt;dashed : 파선(——–)&lt;/li&gt;
+  &lt;li&gt;double : 두 줄선(이중선)&lt;/li&gt;
+  &lt;li&gt;groove : 홈이 파여 있는 선 (안쪽으로 들어가있음)&lt;/li&gt;
+  &lt;li&gt;ridge : 솟은 모양의 선(groove의 반대) (바깥쪽으로 튀어나와있음)&lt;/li&gt;
+  &lt;li&gt;inset : 요소 전체가 들어간 선&lt;/li&gt;
+  &lt;li&gt;outset : 요소 전체가 나온 선&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;정규식 함수를 사용하기 위해서는 메타문자라는 것을 알아야한다. 메타문자는 상당히 복잡하고 외워야할 것도 많다.
-주로 사용하는 메타문자들을 알아보자&lt;/p&gt;
+&lt;p&gt;위와같은 종류들이 있다는 점을 알아두고, 필요할 때 확인하는 것이 좋을 것 같다. 외우는 것은 의미가 없어보인다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;text-shadow : 텍스트에 그림자를 지정하는 속성을 말한다. 가로거리, 세로거리, 번짐정도, 색상을 입력해주어야 한다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;가로거리 : 그림자를 수치만큼 가로이동시킨다. 양수는 오른쪽, 음수는 왼쪽이다. 필수입력값이다.
+세로거리 : 그림자를 수치만큼 세로이동시킨다. 양수는 위로, 음수는 아래이다. 필수입력값이다.
+번짐정도 : 그림자가 번지는 정도를 지정하는데, 수가 클수록 퍼저나가는 정도가 크고, 작을수록 퍼저나가지 않는다. 음수도 가능하다.
+            기본값은 0으로 설정되어져 있다.&lt;/p&gt;
+
+&lt;p&gt;가로거리, 세로거리, 번짐정도는 모두 px 단위로 입력해주어야 한다.&lt;/p&gt;
+
+&lt;p&gt;text-shadow가 텍스트에 그림자를 생성하는 속성이라면 box-shadow는 태그에 그림자를 생성하는 속성이다.
+padding을 기준으로 아래에 그림자가 생성된다. 
+속성값으로는 수평거리, 수직거리, 흐림정도, 번짐정도, 색상이 있으며 흐림정도는 값이 커질수록 부드러운 그림자를
+생성하게 되는 속성값이라고 생각하면 된다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;float
+float 속성을 사용하면 해당 태그를 한 방향으로 띄워주게 된다.
+정확히 말하면 수직적인 요소를 수평적인 요소로 바꿔줄 수 있으며, 왼쪽 구석이나 오른쪽 구석에 배치할 수 있게된다.
+문서의 레이아웃을 구성할 때 자주 사용되며, 상단 탭, 하단 탭에 구현 시 유용하게 사용될 것으로 보인다.
+inline과 비슷한 점을 가지고 있지만, 오른쪽 정렬이 가능하다는 점, 하나의 block 태그에 여러 태그들을 정렬하여
+넣을 수 있다는 점에서 차이점을 보인다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;float 속성의 값으로는 left, right, both가 있는데 both는 양쪽 어느쪽으로도 떠있지 않게 한다는 뜻으로,
+결론적으로 float 속성을 해제하는 뜻을 가진다.
+float 속성을 다 사용하였다면 마지막 태그에는 clear: both를 작성하여 float 속성을 제거해주어야 한다.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;transform 및 브라우저별 접두사
+transform은 태그를 회전시키는 속성을 가지고 있다. transform: rotate(45deg) 방식으로 사용하며,
+rotate 괄호 안에는 회전시킬 각도를 넣어주면 그만큼 회전이 되어 나타난다. 안에 있는 컨텐츠 영역도 회전되어 나타난다.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;transform은 아직 완전히 개발이 완료된 속성은 아니다. 따라서 웹 브라우저마다 다른 방식으로 구현되어 보여지기 때문에,
+속성이름앞에 접두사를 넣어서 브라우저별로 작동을 구분지어서 표현해주는 것이 좋다. 다음은 브라우저별 사용되는 접두사이다.&lt;/p&gt;
+
+&lt;p&gt;-webkit- : 크롬, 사파리
+-moz- : 모질라, 파이어폭스
+-o- : 오페라
+-ms- : 인터넷 익스플로러&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;^ : 해당 문자로 시작하는 데이터를 출력&lt;/li&gt;
-  &lt;li&gt;$ : 해당 문자로 끝나는 데이터 출력&lt;/li&gt;
-  &lt;li&gt;. : 자릿수를 의미한다 EX ) ‘S…E’ S로 시작하여 중간에 3자릿수가 있고 E로 끝나는 데이터&lt;/li&gt;
-  &lt;li&gt;[] : 해당 문자에 해당하는 문자열&lt;/li&gt;
-  &lt;li&gt;[^] : 해당 문자에 해당하지 않는 문자열&lt;/li&gt;
+  &lt;li&gt;기타 속성들 
+line-height: 줄과 줄 사이의 간격을 설정한다. 여러 줄에 걸쳐서 작성된 텍스트에 사용되는 속성
+border-radius: 박스의 모서리를 둥글게 해주는 속성, 보통 px 단위를 사용하여 둥글기를 조절할 수 있다.
+position: 해당 태그의 포지션을 정하는 속성, relative, absolute를 주로 사용하며, relative가 ‘판’이라면 absolute는 ‘판’ 안에서 자유로운 배치를 할 수 있도록 설정하는 속성이다.
+opacity: 태그의 투명도를 설정할 수 있는 태그, 0은 완전한 투명, 1은 완전한 불투명이다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;정규식-이해해보기&quot;&gt;정규식 이해해보기&lt;/h3&gt;
-
-&lt;p&gt;예를 들어 REGEXP_LIKE(TEXT, ‘[A]’) 는 TEXT 컬럼에서 ‘A’를 포함하는 문자를 모두 출력하라는 뜻을 가지고 있다.
-REGEXP_LIKE 는 WHERE 문 뒤에 사용하며, 정규식으로 사용된 ‘[A]’는 []가 해당 문자에 해당하는 문자열을 출력하라는
-의미를 가지고 있으므로 ‘A’가 포함된 문자를 출력하라는 뜻이 된다.&lt;/p&gt;
-
-&lt;p&gt;조금 더 응용하자면 ‘[A-Z]’는 알파벳 대문자를 포함하는 데이터를 출력하라는 뜻이 되고,
-‘[a-zA-Z]’는 모든 알파벳이 포함되어있다면 데이터를 출력하라는 의미가 된다.&lt;/p&gt;
-
-&lt;p&gt;그렇다면 ‘[A-Z] ‘ 의 뜻은 무엇일까? 알파벳 대문자로 시작하고(AND) 뒤에 공백이 있는 데이터를 출력하라는 의미가 된다.
-‘[A-Z] [0-9]’ 는 알파벳 대문자로 시작, 뒤에 공백이 있고 바로 다음에 숫자중 하나가 오는 정규식을 포함하는 데이터를
-출력하라는 의미가 된다.&lt;/p&gt;
-
-&lt;h3 id=&quot;연속적인-글자-수-지정하기--&quot;&gt;연속적인 글자 수 지정하기 : {}&lt;/h3&gt;
-
-&lt;p&gt;‘[A-Z]{2}’의 뜻은 무엇일까? 알파벳 대문자가 연속적으로 2개 오는 데이터를 포함하면 출력하라는 뜻이다.
-중괄호 안에 숫자가 들어가면 앞에 작성한 정규식이 연속으로 몇개 포함되어야하는지를 정할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;응용해보자, ‘[A-Z][0-9]{3}’이 나온다면 무슨 뜻이 될까? 알파벳 대문자와 숫자가 연속으로 오는 3자리의 데이터가 있다면
-출력하라는 뜻을 가지고 있다. 유의해야할 점은 알파벳대문자가 먼저쓰였으므로, 숫자가 먼저나오고 알파벳 대문자가 나오는
-데이터는 포함되지 않는다. 세 자릿수라고 써저있는 부분은 알파벳 대문자가 맨 앞에 나오고, 뒤의 두 자리 중에 숫자가 하나만
-오면 된다.&lt;/p&gt;
-
-&lt;h3 id=&quot;특정-위치를-지정하여-출력---&quot;&gt;특정 위치를 지정하여 출력 : ^, $&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'^[a-zA-Z]'&lt;/code&gt;의 정규식을 이해해보자. ^는 위에서 시작되는 문자를 지정할 때 쓰인다고 했었다.
-알파벳 소문자나 대문자로 시작하는 데이터를 출력하라는 뜻이 된다.
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'^[0-9A-Z]'&lt;/code&gt;의 정규식은 숫자로 시작하거나 알파벳 대문자로 시작하는 데이터를 출력하라는 의미가 된다.&lt;/p&gt;
-
-&lt;p&gt;여기서 한 가지 팁이 있는데, 여러 정규식을 연결할 때 바&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(|)&lt;/code&gt;를 사용하여 연결할 수 있다.
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'^[A-Z]|^[0-9]'&lt;/code&gt;의 정규식은 알파벳 대문자로 시작하거나 숫자로 시작하는 데이터를 출력하라는 뜻이 된다.&lt;/p&gt;
-
-&lt;p&gt;대괄호 밖에 ^를 사용하면 시작위치를 정하는 의미가 된다. 대괄호 안에 ^를 넣으면 반대의 의미가 된다.
-NOT의 의미를 가지는 셈인데, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'[^a-z]'&lt;/code&gt;를 정규식으로 사용한다면, 알파벳 대문자로 이루어지지않은 데이터를 출력하라는 뜻이 된다.&lt;/p&gt;
-
-&lt;p&gt;지금까지 배운 내용들을 응용하여 전화번호의 지역번호 중 서울만 출력하도록 필터링하기로 해보자.,
-서울은 02로 시작하고, 나머지 지역은 3자리로 시작하는 지역번호를 가지고 있다.
-이를 정규식으로 나타내면 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'^[0-9]{2}\)[0-9]{4}'&lt;/code&gt;으로 나타낼 수 있다. ‘)’ 부분은 지역번호 뒤에 ‘)’가 붙어서 써준건데,
-‘)’를 그냥 쓰게되면 함수의 소괄호가 종료되는 것으로 인식될 수 있다. 따라서 ‘)’ 앞에 역슬래시()를 붙여주어 정규식에 사용하는
-소괄호라는 것을 시스템에 인식하도록 해준다. 이를 탈줄자(ESCAPE CASE)라고 한다. 탈출자는 후에 설명한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;특정-조건-제외한-결과를-출력&quot;&gt;특정 조건 제외한 결과를 출력&lt;/h3&gt;
-
-&lt;p&gt;NOT을 사용하면 특정 조건을 제외한 결과를 출력하게 된다. 이전에 WHERE 문에서 NOT을 사용하면 조건식을 제외한 모든
-데이터들이 출력된다 했었는데 그와 같은 것이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;특수문자를-찾기&quot;&gt;특수문자를 찾기&lt;/h3&gt;
-
-&lt;p&gt;데이터값 중에서는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt;이나 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?&lt;/code&gt;같은 특수문자도 들어가있기 마련이다. 하지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_&lt;/code&gt;같은 경우에는 모든 값을 출력하는
-키워드인데, 이를 어떻게 해야 문제없이 문자로 인식하게 할 수 있을까?
-원래 기호의 뜻이 아닌 다른 뜻을 가진 문자를 메타문자라고 하는데, 메타문자로는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?, *&lt;/code&gt; 등이 있다.
-이러한 메타문자를 문자데이터값 그대로 출력하기 위해서는 ‘'를 사용하여야한다. 메타문자 앞에 역슬래시를 붙이면
-문자데이터값 그대로 출력할 수 있다.&lt;/p&gt;</content>
+&lt;p&gt;이후에 JS 강의는 국비수업만으로는 기초적인 개념을 잡기 힘들 것 같아 드림코딩에서 강의하는 
+browser 101 인강을 통해서 따로 학습하였다. 여러가지 미니프로젝트들을 만들어보면서 브라우저가
+데이터를 읽어오는 절차, 공식문서읽기의 중요성 등 개발을 하는데 필요한 본질적인 부분들을 강의하고 있어 
+많은 도움이 되었다.&lt;/p&gt;</content>
 
       
       
@@ -1102,7 +779,7 @@ NOT의 의미를 가지는 셈인데, &lt;code class=&quot;language-plaintext hi
       
 
       
-        <summary type="html">묵시적 형변환, 명시적 형변환</summary>
+        <summary type="html">20210930 수업 내용 정리</summary>
       
 
       
@@ -1110,202 +787,547 @@ NOT의 의미를 가지는 셈인데, &lt;code class=&quot;language-plaintext hi
     </entry>
   
     <entry>
-      <title type="html">조건절 키워드(LIKE, ORDER BY, NOT), 시퀀스, JOIN, DUAL 테이블</title>
-      <link href="https://achasan.github.io/database_2" rel="alternate" type="text/html" title="조건절 키워드(LIKE, ORDER BY, NOT), 시퀀스, JOIN, DUAL 테이블" />
-      <published>2021-09-03T00:00:00+09:00</published>
-      <updated>2021-09-03T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/database_2</id>
-      <content type="html" xml:base="https://achasan.github.io/database_2">&lt;h1 id=&quot;오라클db-공부-20210903&quot;&gt;오라클DB 공부 20210903&lt;/h1&gt;
+      <title type="html">[HTML] form 태그, input 태그, css 박스모델</title>
+      <link href="https://achasan.github.io/html_css_tag" rel="alternate" type="text/html" title="[HTML] form 태그, input 태그, css 박스모델" />
+      <published>2021-09-29T00:00:00+09:00</published>
+      <updated>2021-09-29T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/html_css_tag</id>
+      <content type="html" xml:base="https://achasan.github.io/html_css_tag">&lt;h1 id=&quot;20210929-수업-내용&quot;&gt;20210929 수업 내용&lt;/h1&gt;
 
-&lt;h2 id=&quot;like--특정패턴을-가지고-있는-조건을-검색&quot;&gt;LIKE : 특정패턴을 가지고 있는 조건을 검색&lt;/h2&gt;
-
-&lt;p&gt;LIKE는 WHERE 조건절 뒤에 오는 연산자로, 특정패턴을 가진 데이터를 검색하는 기능을 가지고 있다.&lt;/p&gt;
-
-&lt;p&gt;특정 패턴을 설정하는 방법은 ‘%’와 ‘_‘로 설정할 수 있다.&lt;/p&gt;
+&lt;h2 id=&quot;form-태그-input-태그-세부내용&quot;&gt;form 태그, input 태그 세부내용&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;% : 글자 수, 문자 제한이 없다. 무엇이든 와도 상관없다는 뜻으로 생각하면 편하다.&lt;/li&gt;
-  &lt;li&gt;_ : 글자수에 제한을 두고, 어떤 문자가 와도 상관이 없다.&lt;/li&gt;
+  &lt;li&gt;form 태그 : 사용자에게 입력받을 데이터 양식을 설정하는 태그이다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;EX) WHERE ENAME LIKE ‘%S’ : 이름이 S로 끝나는 데이터를 찾는다. 앞 문자는 어떤 문자가 와도 상관없다.
-WHERE ENAME LIKE ‘__S%’ : 세 번째 글자가 S인 데이터를 찾는다, 첫 번째, 두 번째 문자와 뒷 문자는 어떤 문자가 와도 상관없다.&lt;/p&gt;
+&lt;p&gt;input 태그를 사용하여 사용자로부터 데이터 입력을 받을 수 있는 항목을 만들 수 있다.
+input 태그의 속성을 사용하여 다양한 타입의 데이터 입력항목을 만들 수 있다. 여러가지가 있지만 자주 사용하는
+속성 위주로 정리하였다.&lt;/p&gt;
 
-&lt;h2 id=&quot;order-by--자료-정렬시-사용&quot;&gt;ORDER BY : 자료 정렬시 사용&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;autocomplate : 사용자가 이전에 입력한 값으로 자동완성 기능을 사용할 지 여부, on(default) or off로 설정&lt;/li&gt;
+  &lt;li&gt;autofocus : 페이지가 로드되면 자동으로 포커스를 설정할지 여부를 확인한다.&lt;/li&gt;
+  &lt;li&gt;checked : 양식이 선택되었음을 표시할 지에 대한 여부를 확인 (type 속성값이 radio, checkbox인 경우만 가능)&lt;/li&gt;
+  &lt;li&gt;disabled : 양식을 비활성화할지 여부를 확인한다.&lt;/li&gt;
+  &lt;li&gt;max : 지정 가능한 최댓값을 설정한다. type 속성이 number일 경우만 사용이 가능하고, min 속성보다 큰 값만 허용한다.&lt;/li&gt;
+  &lt;li&gt;min : 지정 가능한 최솟값을 설정한다. type 속성이 number일 경우만 사용이 가능하고, max 속성보다 작은 값만 허용한다.&lt;/li&gt;
+  &lt;li&gt;maxlength : 입력 가능한 최대 문자 수를 설정한다. type 속성값이 text, email, password, tel, url일 경우만 허용&lt;/li&gt;
+  &lt;li&gt;multiple : 둘 이상의 값을 입력할 수 있는지 여부를 설정한다. type 속성값이 email, file일 경우만 허용가능하다. email인 경우 ,로 구분&lt;/li&gt;
+  &lt;li&gt;name : 양식의 이름을 지정한다.&lt;/li&gt;
+  &lt;li&gt;placeholder : 사용자가 입력할 값의 힌트를 설정한다. type 속성값이 text, search, tel, url, email일 경우 가능&lt;/li&gt;
+  &lt;li&gt;readonly : 수정 불가능한 읽기 적용으로 설정&lt;/li&gt;
+  &lt;li&gt;step : 유효한 증감 숫자 간격의 설정&lt;/li&gt;
+  &lt;li&gt;src : 이미지의 url을 설정한다, type 속성값이 image일 경우에 허용된다.&lt;/li&gt;
+  &lt;li&gt;alt : 이미지의 대체 텍스트를 설정한다, type 속성값이 image일 경우에 허용된다.&lt;/li&gt;
+  &lt;li&gt;type : 입력 받을 데이터의 종류를 설정한다, 아래에 type에 대한 내용을 기재한다.&lt;/li&gt;
+  &lt;li&gt;value : 양식의 초기값을 설정&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;SELECT 문장의 맨 마지막에 오는 키워드로, ASC를 입력하면 오름차순, DESC를 입력하면 내림차순으로 정렬하도록 할 수 있다.&lt;/p&gt;
+&lt;p&gt;input 태그의 종류를 설정하는 type 속성에 들어가는 value 값들은 다음과 같다.&lt;/p&gt;
 
-&lt;p&gt;AEC의 경우에는 생략이 가능하다.
-NULL값의 경우 오름차순에서는 제일 나중에 나오고, 내림차순일 경우에는 제일 먼저 나온다.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;button : 일반버튼, onClick이라는 속성이 있는데 자바스크립트 함수 호출 시 사용한다.&lt;/li&gt;
+  &lt;li&gt;checkbox : 체크박스, 여러 개 중에서 다중선택 가능, 비선택 가능, 배열로 값이 전달됨&lt;/li&gt;
+  &lt;li&gt;color : 색상 선택&lt;/li&gt;
+  &lt;li&gt;date : 날짜 선택&lt;/li&gt;
+  &lt;li&gt;email : 이메일 선택&lt;/li&gt;
+  &lt;li&gt;file : 파일 선택&lt;/li&gt;
+  &lt;li&gt;hidden : 보이지 않지만 전송할 데이터를 설정한다, 양식에는 보이지 않지만 값이 전달되는 방식이다.&lt;/li&gt;
+  &lt;li&gt;image : 이미지 제출 버튼&lt;/li&gt;
+  &lt;li&gt;number : 숫자를 선택&lt;/li&gt;
+  &lt;li&gt;password : 비밀번호 입력이 가능하도록 해줌, 입력된 내용이 안보이는 형식&lt;/li&gt;
+  &lt;li&gt;radio : 라디오 버튼, 여러 개 중에서 하나만 선택이 되는 타입&lt;/li&gt;
+  &lt;li&gt;range : 범위 컨트롤을 지정하는 속성	, max/min/step/value(기본값) 속성 사용이 가능하다.&lt;/li&gt;
+  &lt;li&gt;reset : 초기화하는 버튼, 해당 form 태그 범위 내의 모든 양식 값이 초기화된다.&lt;/li&gt;
+  &lt;li&gt;search : 검색기능&lt;/li&gt;
+  &lt;li&gt;submit : 제출 버튼 기능, form 태그 속성 중 action 페이지로 해당 값들을 전송한다.&lt;/li&gt;
+  &lt;li&gt;tel : 전화번호 입력 기능&lt;/li&gt;
+  &lt;li&gt;text : 일반 텍스트 입력 기능&lt;/li&gt;
+  &lt;li&gt;url : url 입력 기능&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT \* FROM MEMBER10 ORDERBY MEMNAME ASC, AGE DESC;
+&lt;p&gt;이 외에도 다양한 input 태그들이 있다. 개인적인 생각으로는 많은 기능들을 일일이 확인할 필요 없이
+무언가를 만들 때 필요한 기능들을 구글링해서 찾아보고, 직접 구현해보는 것이 더 효율적이라고 생각한다.&lt;/p&gt;
+
+&lt;p&gt;또한 type 중에 대다수는 HTML5에서 지원하는 태그들이다. IE에서 지원하는 태그가 있고, 지원하지 않는 태그가 있다.
+과감하게 IE를 버리고 웹페이지를 구현하는 것이 좋을 것 같다. 이미 크롬, 파이어폭스, EDGE 등 IE를 대체할 웹브라우저는 차고 넘친다.&lt;/p&gt;
+
+&lt;h2 id=&quot;시맨틱-태그&quot;&gt;시맨틱 태그&lt;/h2&gt;
+
+&lt;p&gt;시맨틱 태그는 웹 페이지를 만들 때 시맨틱 태그를 이용하여 영역을 나누고, 그 영역에 대한 이름을 부여하는 태그이다.
+같은 div 태그일지라도 그 태그가 어디에 쓰이는지를 알아야 개발자 입장에서 가독성이 높아지고 유지보수하기 쉬워지기 때문이다.&lt;/p&gt;
+
+&lt;p&gt;시맨틱(semantic)은 의미론적이라는 뜻을 가지고 있다. 의미를 부여하는 태그라는 뜻으로,
+HTML5에 도입된 시맨틱 태그는 개발자와 웹 브라우저에 의미가 있는 태그를 제공한다.&lt;/p&gt;
+
+&lt;p&gt;시맨틱 태그로는 header, footer, article, section, aside, nav 태그가 존재한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;header : 웹 브라우저의 상단에 존재하는 태그, 회사의 로고, 회원가입, 로그인 버튼들으 나타내는 태그&lt;/li&gt;
+  &lt;li&gt;footer : 웹 브라우저의 하단에 존재하는 태그, 일반적으로 저작권, 회사의 주소, 연락처, 약관에 대한 정보를 나타냄&lt;/li&gt;
+  &lt;li&gt;article : 일반적으로 웹 문서의 본문에 해당하는 내용을 작성하는 태그&lt;/li&gt;
+  &lt;li&gt;section : 문서의 일반적인 영역을 설정하는 태그, article 태그 사용이 가능&lt;/li&gt;
+  &lt;li&gt;aside : 문서의 별도 컨텐츠 영역, 보통 광고나 기타 링크 등의 사이드바를 설정하는 태그이다.&lt;/li&gt;
+  &lt;li&gt;nav : 다른 페이지 링크를 제공하는 영역, 보통 메뉴(Home, COntent 등) 설정시에 사용한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;비교적 최근에 나온 태그여서 그런지, 대형사이트의 HTML 코드를 봤을 때, 해당 코드를 사용하는 빈도가 많이 없는 것 같다.
+id, class를 사용하는 개발자가 많아서 그런거 일수도 있겠지만, 해당 태그가 만들어진 의도를 알고, 시맨틱 태그를 사용하는 편이
+좋을 것 같다는 생각을 했다.&lt;/p&gt;
+
+&lt;h1 id=&quot;html-css-js-책-공부&quot;&gt;html, css, js 책 공부&lt;/h1&gt;
+
+&lt;p&gt;국비수업은 백엔드 위주여서 그런지 그냥 여러 태그와 선택자, 외부파일 링크하는 방법 위주로 공부하는 듯 하다.
+이미 아는내용이기도 해서 복습한다는 느낌으로 공부를 했다. 물론, 여러 속성들은 충분히 이해하고 넘어갔다.
+어떤 태그가 어떤 기능을 하는지는 도움이 어느정도 되지만, HTML문서를 작성하고, CSS를 좀 더 확장성 있게 활용하는 방법이나
+어떠한 흐름을 가지고 레이아웃을 구성하고, 코드를 짜야하는지에 대한 강의가 부족했다. 그냥 이렇게 만들면 만들어진다 느낌이라서
+책을 보고 제대로 공부해야겠다는 생각이 든다.&lt;/p&gt;
+
+&lt;p&gt;책은 do it! 웹사이트 따라 만들기(김윤미 저) 책을 보고 사용하였다. 웹 퍼블리셔가 실무에서 사용하는 
+HTML, CSS, JS, jQuery, Ajax를 예제를 통해 공부할 수 있는 책이다. 처음에 봤을 때는 무슨 말인지 전혀 이해가 안됐는데,
+국비수업을 진행하고 나서는 어느정도 이해하면서 공부가 가능할 것으로 생각되어 책을 펼쳤다.
+국비에서 배운 내용은 배제하고, 책을 통해서 새로 배운내용을 서술할 생각이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;css-초기화&quot;&gt;CSS 초기화&lt;/h3&gt;
+&lt;p&gt;CSS는 브라우저에 시각적으로 ㅈ어보를 표현하는 방법을 기술한다. 하지만 각각의 브라우저는 서로 다른 렌더링 방식을 가지고 있어,
+의도하지 않은대로 웹페이지가 출력되는 현상이 발생할 수 있다. 따라서 모든 브라우저 페이지가 동일하게 보이도록 CSS에 모든
+태그의 기본스타일을 지우고 각 태그를 초기화시키는 과정을 진행한다.&lt;/p&gt;
+
+&lt;p&gt;그렇다면 초기화 스타일은 어떻게 적용할까? 대표적으로는 에릭 마이어의 CSS 초기화가 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;html&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;div&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;span&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;applet&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;iframe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;h1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;h2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;h3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;h4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;h5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;h6&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;blockquote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;abbr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;acronym&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;big&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;cite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;del&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;dfn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;em&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;img&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ins&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;kbd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;samp&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;small&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;strike&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;strong&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;sup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;tt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;var&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;center&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;dl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;dt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;dd&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;li&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;fieldset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;form&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;legend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;caption&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;tbody&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;tfoot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;thead&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;th&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;td&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;article&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;aside&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;canvas&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;embed&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;figcaption&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;footer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hgroup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;menu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;section&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;mark&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;audio&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;video&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;font&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;inherit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;vertical-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;baseline&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;/* HTML5 display-role reset for older browsers */&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;article&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;aside&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;details&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;figcaption&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; 
+&lt;span class=&quot;nt&quot;&gt;footer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;hgroup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;menu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;nav&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;body&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;ol&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;list-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;blockquote&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;q&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;quotes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;blockquote&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;blockquote&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border-collapse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;collapse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;border-spacing&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;MEMBER10 테이블의 이름을 오름차순으로 정렬한다. 만약 이름이 중복된다면 나이를 내림차순으로 정렬한다.
-ORDER BY에는 여러 개의 컬럼을 정렬할 수 있는데, 맨 앞의 컬럼부터 정렬순위가 정해지는 방식이다.&lt;/p&gt;
+&lt;p&gt;위의 코드가 에릭마이어가 작성한 CSS 초기화이다. 개인적인 초기화방식이 없다면 위의 코드를 사용하여 초기화한다.&lt;/p&gt;
 
-&lt;h2 id=&quot;not--부정의-의미를-가진-키워드&quot;&gt;NOT : 부정의 의미를 가진 키워드&lt;/h2&gt;
+&lt;h2 id=&quot;박스모델-이해하기&quot;&gt;박스모델 이해하기&lt;/h2&gt;
 
-&lt;p&gt;긍정의 쿼리문을 작성 후 NOT을 넣어주어 사용한다. NOT은 관게연산자의 앞에 붙여주며,
-비교연산자를 사용하는 겨웅에는 WHERE 뒤에 붙여준다.&lt;/p&gt;
+&lt;p&gt;“페이지의 모든 태그는 사각형 박스이다”
+CSS를 하면서 가장 궁금했던 개념이다. 국비 수업에서 배운 내용을 바탕으로 여러 포털사이트의 로그인, 회원가입 창을
+클론코딩 해보려 하였으나, 레이아웃을 맞추기가 상당히 까다로웠다. table 태그를 사용하여 기본적인 틀은 만들 수 있었으나,
+보다 세부적인 위치를 조절하기에는 한계가 있었다. 따라서 박스모델을 이해할 필요성을 느끼게 되었다.&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;EX) WHERE ADDR NOT LIKE '경기도%';      경기도로 시작하지 않는 주소를 불러오도록 한다.
-    WHERE NOT OUTPUT_PRICE &amp;lt; 1000000;   출고가가 1000000원 이상인 데이터를 불러온다.
+&lt;p&gt;HTML을 통해 태그를 생성할 때 박스 형태라 생각하고 박스를 맞는 위치에 배치하는 것이 중요하다.
+사각형 박스는 마진(margin), 패딩(padding), 테두리(border), 컨텐츠 영역(width, height)로 구분되어진다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;컨텐츠 영역 : 텍스트나 이미지처럼 실질적인 내용이 담기는 부분, 태그로 입력한 데이터값을 의미한다.&lt;/li&gt;
+  &lt;li&gt;패딩(padding) : 내용과 테두리 사이의 간격을 말한다.&lt;/li&gt;
+  &lt;li&gt;테두리(border) : 테두리는 내용과 패딩 주변을 감싸고 있다. 패딩의 끝부분이 테두리로 되어있다고 보고있다.&lt;/li&gt;
+  &lt;li&gt;바깥쪽 여백(margin) : 마진은 테두리 영역의 바깥쪽을 사각형으로 감싸는 형태이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;block-inline-inline-block&quot;&gt;block, inline, inline-block&lt;/h3&gt;
+&lt;p&gt;block은 레이아웃을 결정하는 HTML SECTIONING 태그에 기본값으로 설정되어있다. 줄바꿈이 되는 요소들이며, 화면 전체를 사용한다.
+width로 따지면 기본값이 100%로 설정되어있는 것이다. 또한 부모태그가 block으로 설정되어있다면 자식태그는 부모태그 이상의
+ width를 가질 수 없다.&lt;/p&gt;
+
+&lt;p&gt;inline은 width를 지정하지 않아도 태그 내의 컨텐츠만큼 width를 차지한다. 또한 줄바꿈이 되지않아 다음에 오는 태그는 오른쪽에 붙는다.
+사용자가 width, height 값을 넣어주어도 반영되지 않는 점이 특징이다.&lt;/p&gt;
+
+&lt;p&gt;inline-block은 기본적으로 inline 형태이지만 block 요소의 속성을 사용하고싶을 때 쓸 수 있는 옵션이다.
+예를 들어 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt;는 block 태그이다. 하지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;a&amp;gt;&lt;/code&gt; 태그는 inline 태그이다.
+각 태그들의 특징은 위에 서술한 것과 같다. block은 상자(3차원 : 가로,세로, 높이)에 비유할 수 있고,
+inline은 상자의 한 면, 즉 가로와 세로로 이루어진 2차원으로 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;inline을 block 처럼 width와 height를 설정할 수 있도록 하는 것이 inline-block이다.
+단, inline속성을 가진 태그가 block 속성을 가지게 되는 것은 아니다. CSS에서 디자인을 변경하기위해서
+사용하는 형태이므로 이 점을 기억하고 있어야한다.&lt;/p&gt;
+
+&lt;h3 id=&quot;padding과-margin의-차이&quot;&gt;padding과 margin의 차이&lt;/h3&gt;
+&lt;p&gt;padding과 margin의 차이점에 주목해야한다. 둘 다 여백을 설정할 수 있다는 점에서 공통점을 갖지만, 
+배경을 지정하는데 있어서는 큰 차이점을 보인다. padding은 안쪽 여백이다. 또한 태그를 ‘포함’하고있다.
+margin은 바깥 여백으로, 태그를 포함하고 있지 않다.
+padding은 태그를 포함하는 여백이기 때문에, padding에 width를 설정하는 것은 컨텐츠영역 + padding의 값을 설정하는 것과 같다.
+margin은 태그를 포함하지않는다. 두 속성의 width를 모두 10px로 놓고 비교한다면, 당연히 padding의 공간이 더 넓은 것을 확인할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이 점을 이용하여 여백을 설정할 때 주의깊게 살펴보아야 한다. 같은 여백이지만 여백의 길이를 측정하는데 있어서 
+차이점을 보이고, 이는 해당 태그의 위, 아래에 붙는 태그의 위치도 달라질 수 있다는 것을 의미한다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Basic" />
+      
+
+      
+        <summary type="html">20210929 수업 내용</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">[HTML] 자주 사용되는 html 태그</title>
+      <link href="https://achasan.github.io/html" rel="alternate" type="text/html" title="[HTML] 자주 사용되는 html 태그" />
+      <published>2021-09-27T00:00:00+09:00</published>
+      <updated>2021-09-27T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/html</id>
+      <content type="html" xml:base="https://achasan.github.io/html">&lt;h1 id=&quot;html-수업-9월-27일28일&quot;&gt;HTML 수업 9월 27일~28일&lt;/h1&gt;
+
+&lt;p&gt;아직 HTML, CSS와 관련된 책을 학원에서 교부받지 못했다.
+교부받는대로 강의에서 배우지 않은 내용은 책에서 보면서 공부할 예정이다.&lt;/p&gt;
+
+&lt;h1 id=&quot;html-문서-형식&quot;&gt;HTML 문서 형식&lt;/h1&gt;
+&lt;pre&gt;
+HTML 을 작성할 때 웹 표준에 맞춘 형식이 있다. 대부분의 HTML 사이트는 W3C에서 정의한 웹 표준을 따라서 작성되며,
+HTML의 가장 최신버전인 HTML5 버전의 형식은 다음과 같다.
+
+
+&amp;lt;!DOCTYPE html&amp;gt; : 문서가 HTML 형식으로 작성되었다는 점을 명시
+&lt;html lang=&quot;en&quot;&gt; : HTML 태그, 웹 문서의 시작을 알린다. 언어가 english로 설정되어있음
+
+&lt;head&gt; : 머릿말, 문서의 정보나 웹 문서에 필요한 외부 파일과의 옵션을 설정하는 공간, 기본적으로 meta, title태그가  있음
+
+    &lt;meta charset=&quot;UTF-8&quot; /&gt; : meta 태그는 문서의 타입이나 인코딩 문자를 지정하는 옵션을 설정하는 태그이다.
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+    &lt;title&gt;Document&lt;/title&gt; : title 태그는 웹 브라우저에 제목 표시줄에 나타나는 글자를 말한다.
+
+&lt;/head&gt; : 머릿말 태그의 끝
+
+&lt;body&gt; : 문서의 본문이 시작되는 태그이다. 웹 브라우저에 출력될 표현들은 여기에 들어가게 된다.
+    
+&lt;/body&gt; : 본문 태그 끝
+&lt;/html&gt; : HTML 태그 끝
+&lt;/pre&gt;
+
+&lt;h1 id=&quot;html에서-자주-사용하는-태그&quot;&gt;HTML에서 자주 사용하는 태그&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;h1 ~ h6 태그 : 제목을 설정하는 태그이다. 크기는 1부터 6까지 지원하며, 문서에서 큰 제목을 작성 시에 사용된다. 제목태그는 글자가 굵게 나타나며, 상단과 하단에 여백이 발상하게된다. 숫자가 커질수록 크기는 작아지고, 그만큼 중요도는 떨어진다. 제목 태그를 사용시에는 숫자를 건너띄는 방법을 피하는 것이 좋다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;p(paragraph) 태그 : 하나의 문단(문장, 단락)을 사용하는 태그이며, 글을 쓸 때 문단을 만들어서 보기 좋게 써야될 때 주로 사용한다. 문단이나 문장의 하단에 여백이 생기게 된다. 따로 줄바꿈을 지원하지 않는 태그이기 때문에 줄바꿈을 해주는 태그인 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;br&amp;gt;&lt;/code&gt;을 사용하여야 한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;br 태그 : 줄바꿈을 해주는 언어, 문장을 작성한 다음 br키워드를 사용하면 이후의 텍스트는 다음 줄에 작성되게 된다. br 태그는 닫는 태그없이 혼자만 사용하는 단독태그이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;pre 태그 : html은 문자와 문자 사이에 아무리 많은 공백을 만들더라도 하나만 인식하여 출력한다. 따라서 작성한 그대로 문자를 출력하고 싶을 때는 pre 태그를 사용하여 출력하는 것이 좋다. 한 가지 주의할 점이라면, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;pre&amp;gt;&lt;/code&gt; 태그 안에는 모든 공백도 그대로 출력하기 떄문에 가독성을 높이기 위해 들여쓰기를 했을 경우에는 들여쓰기를 빼주는 것이 좋다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;font 태그 : 글자와 관련된 태그로, 글자의 크기나 색, 글자체를 바꿀 수 있는 태그이다. 각 속성값은 size, color, face이다. size는 1~7까지만 지원한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;hr 태그 : 가로로 선을 그어주는 태그이다. 구분선을 넣을 때 주로 사용된다. width 속성을 사용하면 얼만큼 구분선을 넣을지 결정할 수 있으며, 단위는 px, %를 쓸 수 있다. 여기서 %가 꽤 중요한 단위인데, 웹 브라우저 창 크기에 따라서 그려지는 태그가 달라진다. 이는 반응형 웹을 만드는데 중요한 단위이고, PC와 모바일 모두 대응할 수 있어 중요하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;a 태그 : 다른 웹페이지, 파일, 이메일주소, 전화번호 등 다른 URL로 연결(이동)할 수 있는 하이퍼링크 태그이다. href 속성을 사용하면 어떤 것을 가져올 지 설정할 수 있다. 파일, URL, 메일주소, 전화번호를 적을 수 있다. target 속성을 또 알아야하는데, “self”는 현재 구동중인 창에서 클릭한 하이퍼링크로 이동하는 것이다. 기본값으로 되어있다. “blank”는 새 창을 열어서 새 창에 하이퍼링크를 띄워주는 속성이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;텍스트와 관련된 태그
+    &lt;ul&gt;
+      &lt;li&gt;b = 텍스트를 bold체로 만든다.&lt;/li&gt;
+      &lt;li&gt;i = 텍스트를 Italic으로 만든다.&lt;/li&gt;
+      &lt;li&gt;small = 텍스트를 작은 글자로 만든다. (해당 태그의 글자 기준에서 작게 출력된다.)&lt;/li&gt;
+      &lt;li&gt;sub 태그 : 텍스트를 아랫첨자로 만든다. (원소기호를 출력할 때 이용된다.)&lt;/li&gt;
+      &lt;li&gt;sup 태그 : 텍스트를 윗첨자로 만든다. (제곱을 표현할 때 사용된다.)&lt;/li&gt;
+      &lt;li&gt;ins 태그 : 텍스트에 밑줄을 그어주는 태그이다.&lt;/li&gt;
+      &lt;li&gt;del 태그 : 텍스트에 취소선을 그어주는 태그이다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;목록태그
+    &lt;ul&gt;
+      &lt;li&gt;ul(unordered list) = 순서가 없는 (정렬이 되지 않은) 목록 태그&lt;/li&gt;
+      &lt;li&gt;ol(ordered list) = 순서가 있는 (정렬된) 목록 태그(작성된 순서대로 번호가 부여된다.)&lt;/li&gt;
+      &lt;li&gt;li = 리스트의 목록&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;순서가 없는 태그의 경우&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;square&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;하나&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;둘&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;셋&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;넷&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h1 id=&quot;주로-사용하는-그룹함수&quot;&gt;주로 사용하는 그룹함수&lt;/h1&gt;
-
 &lt;ul&gt;
-  &lt;li&gt;AVG() : 평균값을 구해주는 함수, 매개값으로 컬럼을 넣어줄 수 있다.&lt;/li&gt;
-  &lt;li&gt;COUNT() : 행의 갯수를 구해주는 함수이다. NULL은 COUNT에 포함되지 않는다.&lt;/li&gt;
-  &lt;li&gt;MAX() : 컬럼의 값들 중 최댓값을 구해주는 함수이다.&lt;/li&gt;
-  &lt;li&gt;MIN() : 컬럼의 값들 중 최솟값을 구해주는 함수이다.&lt;/li&gt;
-  &lt;li&gt;SUM() : 컬럼들의 데이터 값들을 합한 값을 구해주는 함수이다.&lt;/li&gt;
+  &lt;li&gt;순서있는 태그의 경우&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;시퀀스sequence&quot;&gt;시퀀스(SEQUENCE)&lt;/h1&gt;
-
-&lt;p&gt;오라클에서는 자동순번을 부여하는 기능이 없는데, 대신 시퀀스를 사용할 수 있다.
-시퀀스는 순번을 정할 때 사용하는 문법을 말한다. 시퀀스를 사용하는 이유는 스레드와 관련이 있는데,
-A, B, C, D 라는 유저가 게시물을 작성하고 있다. 왼쪽부터 먼저 들어온 순서대로 게시물을 작성하였으나,
-게시글을 업로드한 순서는 C, B, A, D 순서가 되었다. 이 경우, 게시물 순번은 업로드가 먼저 이루어진 C부터 순번이 부여되어야 한다.
-따라서 순번을 업로드 된 순서대로 부여하기 위해 시퀀스를 사용한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;시퀀스-생성&quot;&gt;시퀀스 생성&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;CREATE SEQUENCE (시퀀스이름) START WITH (시작 수) INCREMENT BY (증가할 수);
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;i&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;하나&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;둘&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;셋
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;a&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;b&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;c&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&amp;gt;&lt;/span&gt;넷&lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;ol&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;시퀀스를 생성하기 위해서는 시퀀스 이름을 생성하고, 시퀀스의 시작하는 수와, 몇 씩 수를 증가시킬 지를 정해서 생성할 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;cache_size&quot;&gt;CACHE_SIZE&lt;/h2&gt;
-
-&lt;p&gt;시퀀스를 생성하면 시퀀스 정보에 CACHE_SIZE 항목을 볼 수 있다. 기본값은 20으로 설정되어있는데, 20의 용량만큼 데이터를 임시저장하여
-사용한다는 뜻이다. 캐시메모리는 휘발성 메모리로, 만약 서버(컴퓨터)가 갑자기 꺼지는 상황이 발생하면 캐시메모리에 저장되어있던
-20의 용량에 있던 값들은 사라지게 된다. 순번20번 까지를 캐시메모리에 미리 저장해놓은 상태에서 게시글이 10개가 작성되어 순번이 10까지 부여되어 DB에 저장되어있었는데, 컴퓨터가 꺼진다면
-다시 서버를 동작시켰을 때 시퀀스는 21부터시작하게 된다. 이러한 문제가 발생할 수 있기 때문에 캐시메모리는 안 사용하는 것을 권장한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;시퀀스이름nextval--시퀀스의-다음-번호를-부여하는-문법&quot;&gt;시퀀스이름.NEXTVAL : 시퀀스의 다음 번호를 부여하는 문법&lt;/h3&gt;
-
-&lt;h2 id=&quot;join--on&quot;&gt;JOIN ~ ON&lt;/h2&gt;
-
-&lt;p&gt;테이블과 테이블을 결합한, 특정데이터를 불러오고 싶을 떄 사용하는 키워드이다.
-JOIN의 종류에는 4가지 종류가 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;CROSS JOIN : 2개 이상의 테이블이 조인되었을 때 조건없이 모두 결합된다. 테이블의 전체 행과 컬럼이 조인되기 때문에 중복값이 많아진다.&lt;/p&gt;
-
-    &lt;p&gt;SELECT * FROM EMP, DEPT;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;단순히 EMP와 DEPT의 테이블을 합친 데이터들이 출력된다. 조건없이 결합되기 때문에 중복값이 많아져 효율적인 데이터이지 못하다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;EQUI JOIN : 조인이 대상이 되는 두 테이블에서 공통으로 존재하는 컬럼을 연결하여 결과를 생성하는 방법이다.
-공통되는 컬럼은 컬럼이름이 일치할 수 있기 때문에 따로 별칭을 설정하여 구분해 주는 것이 좋다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;EX) EMP테이블에서 사원의 사번, 이름, 담당업무, 부서번호, 부서명, 근무 위치를 출력해야할 때, EMP 테이블에는 부서명, 근무위치가 없어서 DEPT 테이블에서 가져와야하는 상황이 생긴다.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;SELECT E.EMPNO, E.ENAME, E.JOB, E.DEPTNO, D.DNAME, D.LOC
-FROM EMP &quot;E&quot;
-JOIN &quot;DEPT&quot;
-ON E.DEPTNO = D.DEPTNO;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 경우 JOIN 키워드를 사용하여 DEPT 테이블을 불러온 후 , ON 키워드를 사용하여 공통된 컬럼인 DEPTNO를 ‘=’ 연산자로 연결해주어 각 테이블을 연동시킨다. FROM과 JOIN에 작성한 테이블의 별칭을 정해주면 테이블.컬럼명을 통해 같은 컬럼이라도 구분할 수 있게 문장을 작성할 수 있다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;SELF JOIN : 자기 자신의 테이블을 조인하는 방법이다. 오라클DB 특성상 자기 자신의 DB를 FROM문에서 2번 작성하는 것이 불가능하기 때문에 셀프조인을 사용한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;SELECT E1.ENAME, E1.JOB, E2.ENAME &quot;MANAGER&quot;
-FROM EMP &quot;E1&quot;
-JOIN EMP &quot;E2&quot; ON E1.MGR = E2.ENAME
-WHERE E1.JOB = 'CLERK';
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;만약 직무가 ‘CLERK’인 직원의 관리자 이름을 알고 싶을 때 어떻게 해야할까? 각 직원의 관리자는 사번으로 되어있어 이름을 알기가 힘들다. 따라서 셀프조인을 통해 E1의 MGR과 E2의 ENAME을 연결시켜서 사번 대신에 관리자의 이름이 나오도록 설정하는 것이 가능하다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;OUTER JOIN : 2개 이상의 테이블이 조인이 될 때 어느 한 쪽 테이블에는 해당하는 데이터가 다른쪽 테이블에 존재하지 않을 경우 그 데이터가 출력되지 않을 수 있다. 따라서, 정보가 부족한 테이블의 칼럼 뒤에 ‘(+)’ 기호를 붙여서 데이터가 출력되도록 할 수 있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;SELECT E1.ENAME &quot;NAME&quot; , E2.ENAME &quot;MANAGER&quot; FROM EMP &quot;E1&quot; JOIN EMP &quot;E2&quot; ON E1.MGR = E2.EMPNO(+);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;EMP의 관리자와 사번을 조인하려고 한다. 근데 직원 중에 CEO 직급인 KING 사원의 경우에는 관리자가 없어서 데이터 값이 NULL이다. 이 경우, 출력이 되지 않는다. 따라서 EMPNO에 (+)기호를 달아서 NULL 값인 데이터도 출력이 되도록 하였다.&lt;/p&gt;
-
-&lt;h1 id=&quot;dual-table--오라클에서-제공하는-함수&quot;&gt;DUAL TABLE : 오라클에서 제공하는 함수&lt;/h1&gt;
-
-&lt;p&gt;DUAL TABLE에는 오라클에서 제공하는 함수들을 사용할 수 있다. 간단하게 함수를 만들어서 사용할 수 있는 하나의 행, 하나의 컬럼만들 담고있는 테이블로, 계산 및 데이터를 가공하기 위해서 사용되는 함수이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;날짜와-관련된-함수&quot;&gt;날짜와 관련된 함수&lt;/h2&gt;
+&lt;p&gt;이런 식으로 표현가능하다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;SYSDATE : 현재 시스템의 날짜를 불러온다. 오라클 DB에서는 날짜 간에 +,-를 통한 연산이 가능한데, +는 다음 날짜, -는 이전 날짜로 계산이 되어진다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ADD_MONTHS(DATE, MONTH) : DATE 자료형에 월 을 더할 수 있는 함수이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;NEXT_DAY(DATE, ‘요일’) : DATE 데이터를 기준으로 요일을 체크하여 요일이 지났으면 다음주 요일, 지나지 않았으면 이번주 요일을 DATE 형식으로 표기한다. 한국어로 설정되어있어서 그런지 ‘요일’은 한글로 입력해야한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;LAST_DAY(DATE) : 달의 마지막 날을 구해주는 함수이다. DATE 자료형을 넣어주면 그 달의 마지막 날을 출력하여 보여준다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;MONTHS_BETWEEN() : 두 날짜 사이의 개월 수 차이를 구하는 함수이다. 계산이 되면 일 단위로 출력되며, 뒤에 무수히 많은 소수점이 출력되는 것으로 보아 시간 단위까지 계산이 되는 것으로 보인다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;TO_CHAR() : 형식에 맞게 문자열로 날짜를 출력할 수 있도록 해주는 함수이다. WINDOW에서는 기본적으로 YY/MM/DD 형식으로 되어있는데, 이 형식을 다른 형식으로 바꿀 수 있다.&lt;/p&gt;
-
-    &lt;p&gt;SELECT TO_CHAR(SYSDATE, ‘yyyy-MM-dd’) FROM DUAL;&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;img 태그 : 이미지를 불러오는 태그, 사용법은 a 태그와 유사하다. 단 href를 src로 바꿔서 사용하여야한다. title 속성을 입력하면 사진 위에 마우스를 올릴 시 설명텍스트가 나오게 된다. alt 속성을 입력하면 사진이 로드되지 못할 경우 대신 띄워질 텍스트를 출력한다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;현재 날짜를 ‘yyyy-MM-dd’ 형식으로 바꾼다.&lt;/p&gt;
+&lt;h2 id=&quot;테이블-태그&quot;&gt;테이블 태그&lt;/h2&gt;
 
-&lt;h2 id=&quot;문자와-관련된-함수&quot;&gt;문자와 관련된 함수&lt;/h2&gt;
+&lt;p&gt;테이블태그는 웹 개발을하면서 가장 많이 사용될 태그이다.
+수업시간에 강사님이 강조한 만큼 테이블 태그를 잘 다룰수 있어야한다.
+데이터 표를 만드는 태그로 여러가지 기능들을 가지고 있는 태그이다.&lt;/p&gt;
+
+&lt;p&gt;table 태그를 작성한 다음에 태그 내부에 tr, td, th 태그를 사용하여 행과 열, header를 설정할 수 있다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;UPPER(), LOWER(), INITCAP() : 영문자에 사용되는 함수, 대문자, 소문자로 바꿀 수 있는 함수이며 INITCAP() 함수와 같은 경우 첫 영문자만 대문자로 바뀌고 나머지는 강제로 소문자로 바뀐다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;LENGTH(), LENGTHB() : 문자의 길이를 구하는 함수이다. LENGTH()는 자바에서도 많이 사용한 메소드인데, 단순히 문자의 길이를 구하기 때문에 이해가 빨리 될 것이고, LENGTHB() 함수는 문자의 바이트 수를 구하는 함수이다. 보통 한글은 한 글자에 2바이트로 계산이 되고, 숫자나 영문자는 1바이트로 계산이 된다.
-단, 인코딩방식이 UTF-8인 경우에는 3씩 바이트가 잡히니, 유념해야한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;CONCAT(), &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;||&lt;/code&gt; : 문자열을 연결해주는 함수이다. 보통 CONCAT() 보다는 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;||&lt;/code&gt; 가 범용성이 더 좋기 때문에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;||&lt;/code&gt;를 더 많이 사용한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;LPAD(‘STR’, ‘전체자릿수’, ‘늘어난 자릿수에 채울 문자’), RPAD() : 문자의 자릿수를 늘려주는 함수이다. LPAD는 왼쪽, RPAD는 오른쪽의 자릿수를 늘린다. 문자열이나 컬럼을 매개값으로 넣어주고, 늘릴 자릿수와 늘어난 자릿수에 채울 문자를 써주면 되는데, 데이터의 자릿수를 강제로 맞추기 때문에 자릿수에 채워줄 문자를 적어주는 것이 좋다.&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;tr 태그 : 행을 만든다. tr 태그를 만들어서 행을 만든 다음에 내부에 td 태그를 넣어서 열을 생성하는 방식&lt;/li&gt;
+  &lt;li&gt;td 태그 : 열을 말든다. tr 태그 안에서 사용해야한다.&lt;/li&gt;
+  &lt;li&gt;th 태그 : 테이블의 header 역할을 하는 태그, 마찬가지로 tr 태그 안에서 사용되어진다. th 태그가 사용되면 가운데 정렬이 되고, bold 처리가 되어 출력된다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  SELECT LPAD(ENAME, 10, '\*') FROM EMP;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;table 태그에도 속성을 부여할 수 있는데, border는 테이블의 각 셀에 구분선을 넣는 것이다.
+cellspacing은 셀과 셀간의 간격을 의미한다. 결과적으로는 구분선의 두께가 된다.
+cellpadding은 셀 안의 글자(value)와 셀 간의 공간을 설정하는 속성이다.&lt;/p&gt;
+
+&lt;p&gt;테이블 태그에서는 각 셀을 병합하는 기능도 제공하는데, rowspan과 colspan 속성을 이용하여 병합할 수 있다.
+두 속성 모두 td 태그에서 사용한다. rowspan은 행, colspan은 열이다.
+예를들어 5x5의 테이블을 만들었다고 가정했을 때, 1행의 첫 번째, 두 번째 컬럼을 병합했을 때 두 번째 td태그는 생략해주어야 한다.
+이미 첫 번째 tr태그에 있는 td태그에서 병합이 진행되었기 때문에 쓸 필요가 없다. 만약 쓰게되면 그 셀은 밖으로 밀려나게 된다.
+colspan을 써도 마찬가지이다. 병합된 부분의 셀은 작성되면 바깥으로 밀려나게 되므로 작성하지 않아야한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;iframe-frameset-태그&quot;&gt;iframe, frameset 태그&lt;/h2&gt;
+
+&lt;p&gt;iframe과 frameset 태그는 화면을 분할해주는 태그이다. iframe에 경우 HTML 문서 내부에 또 다른 HTML 문서를 보여주고 싶을 때 사용하며,
+frameset은 iframe보다 더 많은 HTML 파일들을 내부에서 보여줄 수 있는 태그이다.&lt;/p&gt;
+
+&lt;p&gt;iframe 태그의 속성으로는 여러가지가 있지만 자주 사용하는 속성을 나열해보면&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;ENAME 컬럼의 자릿수를 10자리로 설정, 왼쪽부터 빈 값은 ‘*‘로 채운다.&lt;/li&gt;
+  &lt;li&gt;src : iframe 태그에 삽입될 문서의 주소&lt;/li&gt;
+  &lt;li&gt;width : iframe 태그의 너비 지정 (px or %)&lt;/li&gt;
+  &lt;li&gt;height : iframe 태그의 높이 지정 (px or %)&lt;/li&gt;
+  &lt;li&gt;scrolling : iframe 태그에 스크롤 버튼 설정 유무 지정 (yes, no, auto가 있음.) JScrollPane과 유사한 점이 있다.&lt;/li&gt;
+  &lt;li&gt;frameborder : iframe 태그의 테두리를 표시할 지 여부를 선택한다 (1=테두리 설정, 0=테두리 미설정)&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-SQL&quot;&gt;  SELECT RPAD(ENAME, 10, '1234567890') FROM EMP;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;frameset 속성은 전체 HTML 페이지의 화면구조를 바꾸기 때문에 body 태그 내에서는 사용이 불가하다.
+body태그 밖에서 사용이 되어야한다는 점을 알아두도록 하자. frameset의 속성으로는&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;cols : 수직으로 나누고자 하는 프레임의 크기를 픽셀이나 비율(%)을 이용하여 순서대로 지정&lt;/li&gt;
+  &lt;li&gt;rows : 수평으로 나누고자 하는 프레임의 크기를 픽셀이나 비율(%)을 이용하여 순서대로 지정&lt;/li&gt;
+  &lt;li&gt;frameborder : 프레임을 나눈 경계선의 두께를 지정하고, 0으로 설정하면 보이지 않도록 할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;정도가 있다. frameset으로 화면을 나눈 다음 frameset 태그 내부에 frame 태그를 사용하여 해당 프레임에 어떤
+형식의 문서를 넣을지 결정해야한다. src 속성을 사용하여 추가할 수 있다.
+frameset 태그 내부에 또 frameset 태그를 사용하여 화면분할을 늘릴 수 있다. 이 경우 복잡해질 수 있다.&lt;/p&gt;
+
+&lt;h2 id=&quot;태그에-속성-부여하기&quot;&gt;태그에 속성 부여하기&lt;/h2&gt;
+
+&lt;p&gt;모든 태그에는 속성을 부여할 수 있다. 시작태그를 띄어쓰기하고 속성=”값” 형식으로 넣어주면 된다.
+예시 : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;a href=&quot;images/apple.jpg&quot;&amp;gt;&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;a 태그에 href라는 속성을 통해 해당 경로에 있는 파일을 불러오도록 하였다. 각 태그마다 사용할 수 있는 속성이
+다 다르며, 공통적으로 사용가능한 속성 또한 존재한다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Basic" />
+      
+
+      
+        <summary type="html">HTML 수업 9월 27일~28일</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">WEB의 역사, HTML5 주요 기능, UI/UX</title>
+      <link href="https://achasan.github.io/web" rel="alternate" type="text/html" title="WEB의 역사, HTML5 주요 기능, UI/UX" />
+      <published>2021-09-27T00:00:00+09:00</published>
+      <updated>2021-09-27T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/web</id>
+      <content type="html" xml:base="https://achasan.github.io/web">&lt;h1 id=&quot;20210927-수업-내용&quot;&gt;2021.09.27 수업 내용&lt;/h1&gt;
+
+&lt;h3 id=&quot;인터넷-vs-웹&quot;&gt;인터넷 vs 웹&lt;/h3&gt;
+&lt;p&gt;인터넷은 전 세계를 연결하는 국제 정보 통신망이다. 컴퓨터나 스마트폰 같은
+디지털기기로 연결되어 사람드링 정보를 공유할 수 있는 공간이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;웹은 인터넷 공간에서 제공하는 서비스로, 인터넷 안에 웹이 포함되어 있는 개념이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;최초-웹-개발자-팀-버너스-리&quot;&gt;최초 웹 개발자 팀 버너스 리&lt;/h3&gt;
+&lt;p&gt;팀 버너스 리는 웹의 아버지로 불리며, W3CWord Wide Web Consotium을 창설하였으며,
+이는 HTML 표준을 비롯한 웹 표준안을 제작하고 제안하는 일을 하는 국제적인 웹표준화 단체이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;웹의-간단한-역사&quot;&gt;웹의 간단한 역사&lt;/h3&gt;
+&lt;p&gt;미국의 신기술을 연구하는 ARPA에서 웹의 모태가 되는 아파넷(ARPANET)을 1969년에 개발하였으며, 
+1991년에 팀 버너스 리에 의해 처음 HTML이 발표되면서 웹 브라우저의 경쟁이 시작된다.
+NCSA는 1993년에 모자이크라는 GUI 웹 브라우저를 최초로 발표하였고, 넷스케이프 커뮤니케이션에서
+넷스케이프 웹 브라우저를 발표한다. 또한 마이크로소프트의 인터넷 익스플로러도 이 때 등장하였다.&lt;/p&gt;
+
+&lt;p&gt;인터넷 익스플로러는 당시 운영체제였던 윈도우에 강제로 설치되게 함으로써 점유율을 빠르게 늘리는데 성공한다.
+이에 대응하기위해 넷스케이프는 소스코드를 공개하고 모질라 재단을 설립하였으나, 점차 하락하여 붕괴한다.&lt;/p&gt;
+
+&lt;p&gt;이후 웹 브라우저와 연동되는 프로그램을 사용자의 PC에 추가로 설치해 웹 브라우저의 기능을 확장하는 플러그인이라는
+기능이 도입되었으며, 대표적으로 어도비플래시나, ActiveX가 있다. 주로 공인인증서를 사용하거나, 툴바 등 
+웹에서 사용하지 못하는 기능들을 플러그인을 통하여 사용가능하도록 하였다.&lt;/p&gt;
+
+&lt;p&gt;서로 다른 사용자가 함께 새로운 컨텐츠를 창조할 수 있는 웹 2.0 시대가 개막되게되면서
+유튜브, 위키피디아, 깃헙 등 많은 서비스들이 등장하게 된다. 또한, 점유율이 가장 높았던 브라우저인
+인터넷 익스플로러가 플러그인을 사용함에따라 프로그램이 무거워지는 단점도 부각되게 되었다.&lt;/p&gt;
+
+&lt;p&gt;따라서 2004년 W3C(World Web Consortium) 회의에서 모질라 재단과 오페라 소프트웨어가 새로운 HTML을 제안하지만 거절당하고,
+웹 브라우저 제공기업인 애플, 모질라, 오페라 소프트웨어에서 2004년 6월 새로운 웹 표준 기관인
+WHATWG(Web Hypertext Application Technology Working Group)을 설립하고, Web Application 1.0 표준을 작성하게된다.&lt;/p&gt;
+
+&lt;p&gt;W3C에서는 웹 표준으로 Web Application 1.0 표준을 채택하고, HTML5 표준으로 변경하게되었고,
+인터넷 익스플로러가 최신 표준을 지원하지 못하는 현상이 일어나게 된다.
+또한 웹 표준이 업데이트되게되면서 웹으로 다양한 표현이 가능해졌고, 다양한 웹 브라우저 마케팅이 등장하게 되었다.&lt;/p&gt;
+
+&lt;h3 id=&quot;웹-용어&quot;&gt;웹 용어&lt;/h3&gt;
+
+&lt;p&gt;웹은 기본적으로 클라이언트의 요청과 서버가 응답하는 방식으로 진행된다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;URL: 어떤 대상을 구분하는 주소&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;서버 프로그램(백엔드 프로그램)은 주로 자바, C#, 루비, 파이썬, 자바스크립트 등이 사용되며,
+웹 프레임워크(ASP.NET, JSP, PHP), MVC 프레임워크(ASP.NET MVC, Spring MVC, Ruby on Rails 등), 비동기 프레임워크(Node.js, Express, Jetty)로 나뉜다.&lt;/p&gt;
+
+&lt;p&gt;클라이언트 프로그램(프론트엔드 프로그램)은 HTML, CSS, 자바스크립트로 개발되며, 이번에 배울 내용은 여기에 해당된다.&lt;/p&gt;
+
+&lt;p&gt;웹 표준 기술은 HTML5, CSS3, 자바스크립트 총 세 가지의 언어를 총칭하는 언어이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;HTML : 웹페이지를 구성하는 뼈대&lt;/li&gt;
+  &lt;li&gt;CSS(Cascading Style Sheets) : HTML 페이지에 스타일을 지정하는 스타일 시트를 작성할 때 사용하는언어&lt;/li&gt;
+  &lt;li&gt;JavaScript : 표준 명칭은 EMCAScript이며, 사용자의 반응을 처리하는 스크립트를 작성하는 언어이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;html5의-주요-기능&quot;&gt;HTML5의 주요 기능&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;멀티미디어 기능 : 플러그인의 도움 없이 스스로 음악, 동영상 재생이 가능&lt;/li&gt;
+  &lt;li&gt;그래픽 기능 : 2차원, 3차원(CSS, 자바스크립트를) 그래픽 구현이 가능하다.&lt;/li&gt;
+  &lt;li&gt;통신 기능 : 서버와 실시간으로 쌍방향 통신을 수행하며, IRC, 게임, 고객센터 실시간 문의/답변이 가능&lt;/li&gt;
+  &lt;li&gt;장치 접근 : 장치에 접근하여 정보와 기능을 사용한다. (배터리정보, 현재 위치, 알람 등)&lt;/li&gt;
+  &lt;li&gt;오프라인 및 저장소 : 인터넷이 연결되지 않은 상태에서도 응용프로그램을 동작할 수 있고, 따라서 HTML5를 응용 프로그램의 중심으로 사용하는 운영체제가 등장하였다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;웹-개발-세팅&quot;&gt;웹 개발 세팅&lt;/h3&gt;
+
+&lt;p&gt;국비수업에서는 Eclipse Enterprise Edition IDE(EclipseEE)를 사용하여 수업한다.
+VSC로 수업하지 않는 이유가 궁금했지만 아무래도 후에 JSP 수업을위해서 아파치 톰캣을 사용해야하고, 
+Eclipse를 통해서 수업하는게 JSP수업 시 효율적으로 관리할 수 있어서 인 것 같다.&lt;/p&gt;
+
+&lt;p&gt;이전의 Eclipse는 Standard Edition으로, 오직 자바언어만 다룰 수 있도록 만들어진 에디션이다.
+따라서 웹 분야까지 다루기 위해서는 Enterprise Edition이 필요하다.&lt;/p&gt;
+
+&lt;p&gt;아파치 톰캣은 아파치 소프트웨어 재단에서 개발하는 Java 기반 서블릿 컨테이너이다.
+후에 웹서버를 구동하거나 JSP/Spring으로 웹사이트를 구축한다면 반드시 사용되어진다고 한다.
+HTML, CSS, JavaScript를 통해 웹페이지를 만들고 구동해볼 때 console에서 구동하는 것이 아닌, 웹페이지를
+구동시켜야하기 때문에 직접 로컬컴퓨터를 웹서버로 지정하여 테스트 할 때 사용될 것 같다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트할 때에는 아파치 톰캣에 대해 자세히 알아보아야할 필요가 있을 것으로 생각된다.&lt;/p&gt;
+
+&lt;p&gt;참고로, HTML,CSS,JavaScript를 다룰 수 있는 편집기를 웹 에디터라고 한다. 여기서는 EclipseEE가 해당된다.&lt;/p&gt;
+
+&lt;h1 id=&quot;ui--ux&quot;&gt;UI / UX&lt;/h1&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;ENAME 컬럼의 자릿수를 10자리로 설정, 오른쪽부터 빈 값은 ‘123456789’로 채운다. 예를 들어 빈 값이 3자리일 경우 ‘123’만 채워지는 방식이다.&lt;/p&gt;
+    &lt;p&gt;UI(User Interface)는 사용자가 특정 컨텐츠를 이용할 때 만나는 접점, 즉 사용자의 환경을 뜻하는 말이다.
+컴퓨터가 바탕화면의 아이콘과 툴바 또는 모바일 화면의 앱 아이콘을 클릭하는 것들 모두 UI라고 정의할 수 있다.
+사람들이 특정 컨텐츠를 이용할 대 만나게 되는 도구와 사용환경을 UI라고 하며, 웹페이지의 경우, 웹페이지 상단의 로고와 메뉴,
+배너와 이미지 섬네일 둘이 UI에 해당된다 볼 수 있다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;LTRIM(), RTRIM() : 문자를 지워주는 함수이다. 왼쪽 오른쪽 함수 2가지로 구분한다.&lt;/p&gt;
+    &lt;p&gt;UX(User Experience)는 사용자가 특정 컨텐츠를 사용할 때 UI에서 느낄 수 있는 사용자 경험을 말한다.
+예를 들자면, 게시판에 접근할 때 A라는 웹페이지는 메뉴를 3번 클릭해야하지만, B라는 웹페이지에서는
+1회만 클릭해도 된다면 B라는 웹페이지의 사용자 경험이 더 좋다고 볼 수 있다. 특정 UI를 이용하여 컨텐츠를 사용할 때
+느끼는 사용자의 경험을 UX라고 말한다. 개발자는 기능을 구현할 때 UX를 염두하고 만들어야할 필요가 있다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;REPLACE(컬럼/문자, 찾을문자열, 변경할문자열) : 문자열을 교체해 주는 함수이다. 컬럼에 저장되어있는 전체 데이터값중에 찾을 분자열을 변경할 문자열로 전부 바꿔주는 함수.&lt;/p&gt;
+    &lt;p&gt;UI와 UX를 합쳐 사용자와 상호작용하는 여러 모션과 동적인 컨텐츠를 사용하는 환경을 구축할 수 있다.
+예를들면, 모바일 환경에서 화면을 좌우로 밀면 컨텐츠 화면이 슬라이드 되면서 바뀌거나, 웹페이지에서 특정 버튼을 클릭하면
+모션이 나타나 방문자의 시선을 끄는 환경을 말한다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;</content>
 
@@ -1328,7 +1350,7 @@ WHERE E1.JOB = 'CLERK';
       
 
       
-        <summary type="html">오라클DB 공부 20210903</summary>
+        <summary type="html">2021.09.27 수업 내용</summary>
       
 
       
@@ -1336,185 +1358,145 @@ WHERE E1.JOB = 'CLERK';
     </entry>
   
     <entry>
-      <title type="html">DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절</title>
-      <link href="https://achasan.github.io/database_1" rel="alternate" type="text/html" title="DB 기본개념, 주요 자료형, 테이블, 제약조건, 조건절" />
-      <published>2021-09-02T00:00:00+09:00</published>
-      <updated>2021-09-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/database_1</id>
-      <content type="html" xml:base="https://achasan.github.io/database_1">&lt;h1 id=&quot;오라클db-공부-20210902&quot;&gt;오라클DB 공부 20210902&lt;/h1&gt;
+      <title type="html">Github 기본적인 개념 정리</title>
+      <link href="https://achasan.github.io/github_jdbc" rel="alternate" type="text/html" title="Github 기본적인 개념 정리" />
+      <published>2021-09-14T00:00:00+09:00</published>
+      <updated>2021-09-14T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/github_jdbc</id>
+      <content type="html" xml:base="https://achasan.github.io/github_jdbc">&lt;h1 id=&quot;github-협업-20210914&quot;&gt;GitHub 협업 (20210914)&lt;/h1&gt;
 
-&lt;p&gt;SQL : Structed Query Language. 사람이 원하는 바를 DBMS 프로그램에 알려주는 언어&lt;/p&gt;
+&lt;p&gt;월요일부터 시작한 자바프로젝트를 진행하면서 파일병합, 버전관리에 대한 불편함을 처음 느꼈다.
+조원들이 작업해야할 내용들을 모아서 병합을 진행하는데, 이미지파일 불러오는 것에서 처음 막히고,
+병합한 파일을 조원들에게 공유했는데 조원들 간에 실행이 안되서 한 시간 동안 맥빠지게 고쳤었다.&lt;/p&gt;
 
-&lt;p&gt;데이터 모델에는 여러가지 종류가 있다. 계층형 모델, 네트워크형 모델, 관계형 데이터 모델, 객체지향형 모델
-그 중 관계형 데이터 모델을 가장 많이 사용하는데, 데이터 간의 관계에 초점을 맞춘 데이터 모델이다.&lt;/p&gt;
+&lt;p&gt;에러는 기본클래스가 없다는 오류가 뜨는데 왜 오류가 뜨는지에대한 경우의 수가 너무 많았다.
+코드에서 에러가 난 줄 알았는데 내 컴퓨터에 설치된 jdbc 버전과 조원들의 버전이 달라서 일어난 오류였다.&lt;/p&gt;
 
-&lt;p&gt;예를들어 부서와 관련된 정보를 부서코드로 변환하여 모든 직원의 부서 정보를 변경해야할 경우가 있을 경우
-부서 코드의 내용만 변경하여 간단하게 관리하게끔 하는 것이 관계형 데이터 모델이다.
-관계형 데이터 모델은 기본키와 외래키로 구성되어있는데, 이는 나중에 설명&lt;/p&gt;
+&lt;p&gt;병합하면서 든 생각은 매 번 병합관리할 때마다 이런 과정을 거쳐야 한다는 점이 프로젝트의 진행에
+큰 차질을 빚게 될 것이라고 생각이 들어서 조원들에게 깃헙을 배워서 쓰자는 의견을 제시했다.
+학원에서는 깃헙의 깃자도 꺼낸 적이 없었고, 그저 개발자를 할 생각이면 깃헙이 협업하는데 꼭 필요하니
+프로젝트 때 사용하는 법을 배우라고만 어디에서 본 기억이 있었다.&lt;/p&gt;
 
-&lt;p&gt;관계형 DB의 구성요소로는 TABLE, ROW, COLUMN이 있다.
-관계형 DB는 기본적으로 데이터를 2차원 표 형태로 저장하고 관리한다. 이를 TABLE이라고 한다.
-TABLE은 행과 열로 구성되어있는데, 행(ROW)은 저장하려는 하나의 객체를 구성하는 값이다.
-열(COLUMN)은 저장하는 데이터를 대표하는 이름과 공통특성을 정의한 것으로, 저장 정보의 종류와 자료의
-저장가능한 최대크기, 중복여부를 설정할 수 있다.&lt;/p&gt;
+&lt;p&gt;혼자 공부한 내용을 커밋하고, 코드 작성한 내용을 커밋하면서 깃헙에 익숙해져있었지만,
+깃헙의 꽃이라 할 수 있는 브랜치 생성, 풀 리퀘스트같은 메인기능들을 사용하려니 약간 긴장되기도 했지만
+좋은 경험이라고 생각하고 조원들과 같이 진행해보려고 하였다.&lt;/p&gt;
 
-&lt;p&gt;오라클 세팅은 CMD를 통해서 한다.
-CREATE USER (ID) IDENTIFIED BY (PW); &amp;gt; 사용자를 생성하는 것으로 DB에 엑세스하고 관리, 수정할 수 있는 사용자를 추가하는 것이다.
-GRANT CONNECT, RESOURCE, DBA TO (ID) &amp;gt; 만든 ID에 데이터와 관련된 권한을 부여한다.&lt;/p&gt;
+&lt;h3 id=&quot;git-clone-하기&quot;&gt;git clone 하기&lt;/h3&gt;
 
-&lt;h2 id=&quot;오라클-column에-입력하는-주요-자료형data-type&quot;&gt;오라클 COLUMN에 입력하는 주요 자료형(DATA TYPE)&lt;/h2&gt;
+&lt;p&gt;깃헙에 프로젝트파일을 업로드했다면 이제 조원들이 프로젝트파일을 clone해서 사용할 수 있게 해야한다.
+여기서부터 많이 해맸는데, 이클립스 기준으로는 git 인터페이스로 접근해서 git repository를 만들고,
+‘Clone a Git Repository and add this clone view’를 클릭하여 깃헙 URL주소를 입력하면 된다.&lt;/p&gt;
+
+&lt;p&gt;처음 프로젝트폴더를 생성하고 clone을 한다면 master 브랜치밖에 없을 것이다. git clone을 한 조원은
+branch를 생성할 수 있고, branch를 깃헙에 바로 업로드할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;가끔 URL입력 후 아래 계정정보를 입력했는데 clone이 안되는 경우가 있다. 이 경우에는 github 토큰을 발행해서
+비밀번호 대신 토큰을 넣어주어야한다. clone이 제대로 진행되었다면 원격저장소인 Remote Tracking을 확인하여
+master 브랜치가 있는지 확인하자.&lt;/p&gt;
+
+&lt;h3 id=&quot;브랜치-생성&quot;&gt;브랜치 생성&lt;/h3&gt;
+
+&lt;p&gt;git clone을 했다면 clone을 한 조원 누구나 브랜치를 생성할 수 있고, branch에서 작업한 내용을 github에 push 할 수 있다.
+git clone이 되면 Branches라는 탭이 보이는데, 거기에는 Local, Remote Tracking 폴더가 있다.
+로컬저장소, 원격저장소를 뜻하는데, Remote Tracking에는 프로젝트 파일을 업로드한 사람의 최초 브랜치인 master 브랜치가 있을 것이다.
+master 브랜치로 이동하게되면 프로젝트 파일들을 관리할 수 있는데, 하나의 브랜치로 이동하는 것을 체크아웃이라고 한다.&lt;/p&gt;
+
+&lt;p&gt;master 브랜치로 체크아웃하게되면 브랜치를 로컬저장소로 복사할 것인지, 원격저장소에 있는대로 사용할 것인지를 물어본다.
+조원들이 다 같이 협업하는 방식이기 때문에 master브랜치는 merge용 브랜치로만 사용하고, 조원마다 서로 다른 branch를 만들어서
+작업하는 것이 좋다. 따라서 로컬저장소로 master 브랜치를 복사한 다음에, 새로운 브랜치를 만들어서 작업하는 것이 좋다.&lt;/p&gt;
+
+&lt;p&gt;로컬저장소 뿐만 아니라 모든 브랜치를 우클릭하면 Switch To라는 탭이 있는데, 로컬저장소에 있는 브랜치마다
+체크아웃하여 원활하게 개발을 진행할 수 있다.
+새로운 브랜치를 만들어서 작업한 내용을 github에 push하면 새로운 브랜치가 생성되면서 그 브랜치에 자신이 작업한 결과물이
+업로드 되게 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;만든-브랜치를-하나로-합치기-merge&quot;&gt;만든 브랜치를 하나로 합치기, merge&lt;/h3&gt;
+
+&lt;p&gt;지금 자바프로젝트를 진행중인 조원은 총 4명이다. 4명의 조원이 각자의 브랜치를 가지고 작업을 한 다음,
+브랜치를 깃헙에 업로드하면 master브랜치를 포함한 5개의 브랜치가 생성되게 된다.
+이제 각자 개발한 기능들을 master 브랜치로 통합하는 merge 작업을진행해야한다.
+브랜치들을 각각 하나로 합치기 위해서는 pull request라는 과정을 거치게 되는데, pull request는 간단히 말하면
+‘내가 작업한 브랜치를 push(업로드) 했으니 master 브랜치와 비교하여 겹치는 부분이 있는지 확인한다음 넣어주세요’ 이다.&lt;/p&gt;
+
+&lt;p&gt;pull request가 들어오면 프로젝트를 생성한 사람이 master 브랜치에 합치는데 문제가 없는지 확인하고, 수락하면
+조원이 만든 브랜치가 master 브랜치에 합병되게 된다. 합병된 다음에는 조원이 만들었던 브랜치를 삭제할 것인지 물어보는데,
+브랜치를 깔끔하게 다루기 위해서는 삭제하는 것이 좋지만, 나중을 위해 남겨둘 수도 있다.&lt;/p&gt;
+
+&lt;p&gt;다시 pull request로 돌아가자면, github은 기본 브랜치(master)와 조원이 생성한 브랜치를 비교하여 병합할 때 생길 수 있는
+문제점들을 체크해서 코드 충돌이 일어나는 파일, 위치가 어디인지 알려준다. 충돌나는 지점을 보고 직접 코드를 수정하여
+comflict resolve 버튼을 누르면 문제가 해결되고, 병합을 진행할 수 있게된다. github의 가장 큰 이점중에 하나인 기능인 것 같다.
+지금 자바프로젝트는 같은 수업을 듣고있는 조원들끼리 진행하기때문에 큰 문제없이 잘 진행되고있지만 만약 모르는 익명의 사람들과
+협업을 진행할 때는 pull request 기능을 잘 활용할 수 있을 것 같다는 생각이 든다.&lt;/p&gt;
+
+&lt;p&gt;무엇보다 협업하는 사람들끼리 코드에 문제가 생길일은 없는지, 효율적인 코드인지 코드리뷰도 서로 진행하면서 의견을 나눌 수 있고,
+merge를 하는 과정에서 생기는 활발한 커뮤니케이션이 개발역량을 늘릴 수 있는 행동이라고 생각하기 때문이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;병합된-master-브랜치를-다시-가져오기-pull&quot;&gt;병합된 master 브랜치를 다시 가져오기, pull&lt;/h3&gt;
+
+&lt;p&gt;매일 push만 해서 그런지 pull은 익숙하지 않았는데, 이번 기회를 통해 pull에 대해 구체적으로 알게 되었다.
+병합한 master 브랜치를 조원들이 받아와야한다. 근데 Java 이클립스는 병합을 하는 과정에서 신경써서 세팅해줘야하는 부분들이 있었다.&lt;/p&gt;
+
+&lt;p&gt;이클립스에서 pull하는 과정을 정리하면 다음과 같다.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;NUMBER(N, N1) : N은 전체 자릿수를 의미하고 N1은 소수 자릿수를 의미한다. N-N1은 정수 자릿수를 의미한다.
-정수는 1~38자리까지 표현가능하고, 실수는 -84~127자리까지 표현이 가능하다.
-예를들어, NUMBER(7,2)는 전체 7자리, 정수를 5자리, 실수를 2자리 표시할 수 있는 자료형이다.&lt;/p&gt;
+    &lt;p&gt;깃 레포지토리를 우클릭하고 pull을 누른다. 원격저장소에 있는 브랜치 정보를 갱신&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;CHAR(N) : 문자열이 n개 저자오디는 자료형으로, 고정자료형이다. 자릿수를 채우지 않아도 공간이 남기 때문에 비효율적이다.&lt;/p&gt;
+    &lt;p&gt;로컬저장소(Local)에 ‘master’ 브랜치가 있으면 삭제한다. 이미 이전버전의 브랜치이기 때문에 삭제해도 상관없다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;VARCHAR(N) : 문자열이 N개 저장되는 자료형이다. 지금은 사용하지 않는 자료형&lt;/p&gt;
+    &lt;p&gt;원격저장소(Remote Tracking)에 있는 master 브랜치를 우클릭하여 ‘Create Branch’를 클릭하여 브랜치를 생성한다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;VARCHAR2(N) : 문자열이 N개 저장되는 자료형으로 가변자료형이다. 쓰이지 않은 공간은 없애버리기 때문에 CHAR에 비해 효율적&lt;/p&gt;
+    &lt;p&gt;로컬저장소에 브랜치가 생성되었는지 확인한다. 원격저장소에있는 master 브랜치를 컴퓨터에 저장하는 것이다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;DATE : 날짜가 저장되는 자료형으로 시스템의 현재 날자 및 시간이 저장된다.&lt;/p&gt;
+    &lt;p&gt;master 브랜치가 로컬저장소에 생성되었으면 수정한 코드로 바뀐 상태인지 확인해본다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;db관련-개념&quot;&gt;DB관련 개념&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;무결성(INTEGRITY) : DB에 저장된 값이 실제 현실에서의 수치와 같아야하는 데이터의 특징. 결성이 없는 것.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;무결성 제약조건 : DB에 저장된 값의 정확성을 보장하기 위해 정확하지 않은 데이터의 저장을 방지하기 위한 조건을 말한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;제약조건의-종류&quot;&gt;제약조건의 종류&lt;/h3&gt;
+&lt;p&gt;여기까지는 공통사항이다. 아래는 자바프로젝트를 진행하면서 조원들끼리 세팅해야했던 항목들이다.&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
-    &lt;p&gt;UNIQUE 제약 조건 : 중복이 되면 안되는 제약조건으로, 중복이 있을 경우에는 에러가 발생한다. 단, NULL은 중복에 포함되지 않는다.&lt;/p&gt;
+    &lt;p&gt;image 패키지안에 이미지파일이 있는지 확인한다. 프로젝트 폴더에 있는 image 파일들을 사용하려면 image 패키지를 추가해주어야한다.
+src - New - Folder 를 클릭하고, 아래에 Advanced를 클릭, Link to alternate location(Linked Folder) 선택 후
+image 폴더가 있는 곳을 경로로 지정한다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;NOT NULL 제약 조건 : 지정된 열에 NULL을 허용하지 않는 제약 조건, 공백을 허용하지 않는다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;CHECK 제약 조건 : 설정한 데이터값만 가져오게 할 수 있는 제약조건이다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;PRIMARY KEY 제약 조건 : UNIQUE + NOT NULL을 합친 조건이다. PRIMARY KEY는 기본키라고 불리고, 해당 테이블을 대표하는
-컬럼으로서의 역할을 수행하며, 다른테이블에서 외래키들이 참조할 수 있는 키로서의 자격을 가지게 된다.
-(외래키 : 컬럼이 다른 테이블에서 정의된 데이터를 참조하는 것)&lt;/p&gt;
+    &lt;p&gt;다음은 ojdbc8.jar 파일을 체크. 프로젝트 폴더 우클릭 - Build Path - Configure Build Path 클릭 - Libraries 탭 클릭
+ojdbc8.jar 파일의 경로가 제대로 설정되어있는지 확인한다. 파일아이콘에 X표시가 되어있으면 경로설정이 제대로 안되있으므로
+파일을 선택하여 remove 하고 다시 추가해주어야 한다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h2 id=&quot;테이블&quot;&gt;테이블&lt;/h2&gt;
+&lt;h3 id=&quot;push가-되지-않게-무시하도록-설정-gitignore-파일&quot;&gt;push가 되지 않게 무시하도록 설정, .gitignore 파일&lt;/h3&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;테이블 생성 : CREATE TABLE 테이블이름(컬럼 자료형 제약조건);
-한번에 여러개의 컬럼을 생성할 수 있다. 제약조건은 쓰지 않아도 생성할 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;테이블에 컬럼 추가 : ALTER TABLE 테이블이름 ADD(컬럼 자료형 제약조건);&lt;/li&gt;
-  &lt;li&gt;테이블 내 컬럼 수정 : ALTER TABLE 테이블이름 MODIFY(컬럼이름 자로형 제약조건);&lt;/li&gt;
-  &lt;li&gt;테이블 내 컬럼명 수정 : ALTER TABLE 테이블이름 RENAME COLUMN 컬럼 TO 새이름;&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;테이블 내 컬럼 삭제 : ALTER TABLE 테이블이름 DROP COLUMN 컬럼;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;테이블에 데이터 추가 : INSERT INTO 테이블이름 VALUES(컬럼1, 컬럼2, 컬럼3, … , 컬럼N);
-테이블에 생성되어있는 컬럼에 데이터를 넣는다. 컬럼갯수가 맞지 않으면 뒤의 컬럼은 NULL 상태가 된다.
-제약조건이 있을 경우 에러가 날 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;지정한 컬럼에만 데이터 추가 : INSERT INTO 테이블이름(컬럼1, 컬럼2, 컬럼3, 컬럼4, … , 컬럼N)
-VALUES(컬럼데이터1, 컬럼데이터2, 컬럼데이터3, 컬럼데이터4, … , 컬럼데이터N);
-테이블이름 뒤에 소괄호로 컬럼을 작성하고 VALUES 뒤에 컬럼과 관련된 데이터를 작성하는 방식
-테이블 이름 뒤에 작성한 컬럼과 형식이 동일한 자료형을 입력해야한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;테이블의 데이터 값 수정 : UPDATE, SET 사용
-UPDATE 테이블이름 SET 컬럼 = 데이터값 WHERE 조건에 맞는 행
-조건에 맞는 행은 기본값을 써주어도되고, 원하는 행에 해당하는 데이터 값을 조건으로 맞춰주면된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;특정 데이터 행 삭제 : DELETE FROM 테이블 WHERE 조건식;
-조건식에 맞는 행을 테이블에서 제거한다.&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;프로젝트를 생성한 조장이 master 브랜치로 병합하고 조원들이 만들었던 브랜치는 삭제하여 이제 브랜치는 다시 master
+브랜치만 남게 되었다. 병합된 브랜치를 다시 조원들이 원격저장소를 통해 불러와야하는데 여기에서 상당한 시간을 소비했다.&lt;/p&gt;
 
-&lt;h3 id=&quot;null값을-가진-데이터와-연신-시에는-null값이-출력된다&quot;&gt;NULL값을 가진 데이터와 연신 시에는 NULL값이 출력된다.&lt;/h3&gt;
+&lt;p&gt;무엇보다 가장 힘들었던 점은 조원들마다 설치된 이클립스 경로나 jdbc파일 경로, 깃 레포지토리를 저장하는 경로가 모두 다르기 때문에
+병합하는 과정에서 조장의 컴퓨터로 세팅이 되어있기 때문에 이 부분을 수정하는데 많은 시간이 걸렸다.&lt;/p&gt;
 
-&lt;p&gt;따라서 NULL값을 가진 데이터와 연산 시에는 NULL값을 특정값으로 변경하는 함수를 사용해야하는데
-NVL() 함수를 통해서 사용할 수 있다. NVL() 함수를 통해 연산 시에는 자료형을 일치시켜주어야 한다.&lt;/p&gt;
+&lt;p&gt;프로젝트 파일을 생성하면 폴더에는 .project와 .classpath 라는 파일이 생성되는데, 프로젝트 폴더의 정보와 링크된 이미지폴더의 경로 등이 담긴
+파일들이다. 이 파일들은 협업을 진행할 때 .ignore이라는 폴더에 추가하여 커밋이 되지 않도록 설정해주어야 한다.
+조원들 각자 사용하는 컴퓨터, 이클립스 설치경로, 깃 폴더 경로가 각각 다르기 때문에 병합을 하더라도 따로 세팅을 해줘야해서
+병합관리를하는데 굉장히 힘들어진다.&lt;/p&gt;
 
-&lt;p&gt;NVL(NULL값이 있는 칼럼, 변경 값);&lt;/p&gt;
+&lt;p&gt;따로 구글링을 해본 결과 https://gitignore.io/ 라는 사이트가 있었다. 어떤 툴로 협업을 진행하는지 키워드를 적으면
+git ignore를 해야하는 파일들의 리스트를 정리해서 텍스트로 띄워준다. 텍스트를 전부 복사해서
+git repository에 있는 .gitignore 파일에 붙여넣기해주면 push할 때 해당 파일리스트들은 무시한다.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;NVL2() : JAVA의 삼항연산자와 사용방법이 비슷하다. NVL2(컬럼명, EXPR1, EXPR2)
-NULL이 아닌 경우 EXPR1을 출력하고, NULL인 경우에는 EXPR2를 출력한다.&lt;/li&gt;
-&lt;/ul&gt;
+&lt;p&gt;gitignore.io 에서도 .project 파일과 .classpath 파일을 ignore하는 항목이 없어서 따로 추가해 주었다.&lt;/p&gt;
 
-&lt;h2 id=&quot;컬럼에-별칭-부여&quot;&gt;컬럼에 별칭 부여&lt;/h2&gt;
+&lt;p&gt;# Eclipse Core
+   .project&lt;/p&gt;
 
-&lt;p&gt;여러 데이터를 가지고 연산을 하면 연산된 칼럼의 이름을 수정해주어야 하는데, 이를 컬럼에 별칭을 준다고 한다.
-연산한 컬럼, 또는 함수를 사용한 컬럼 되에 AS 키워드를 쓰고, 그 뒤에 “별칭”을 작성하면 된다.
-EX) SELECT NVL(SAL, 0) AS “SAL” FROM EMP;&lt;/p&gt;
+&lt;p&gt;# JDT-specific (Eclipse Java Development Tools)
+   .classpath&lt;/p&gt;
 
-&lt;h2 id=&quot;중복을-제거해주는-함수--distinct&quot;&gt;중복을 제거해주는 함수 : DISTINCT&lt;/h2&gt;
-
-&lt;p&gt;SELECT 바로 뒤에 쓰여야하는 함수로, 중복된 값을 제거하고 하나만 출력하는 함수이다.&lt;/p&gt;
-
-&lt;h2 id=&quot;literal-작업--&quot;&gt;LITERAL 작업 : ||&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;||&lt;/code&gt; 를 사용하여 데이터를 문자열과 연결하여 출력할 수 있다. 이는 CONCAT() 함수와 같은 기능이지만
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;||&lt;/code&gt; 가 편하기 때문에 더 많이 사용한다.&lt;/p&gt;
-
-&lt;h2 id=&quot;where-조건절--작성한-조건식에-맞는-데이터를-필터링&quot;&gt;WHERE 조건절 : 작성한 조건식에 맞는 데이터를 필터링&lt;/h2&gt;
-
-&lt;p&gt;WHERE 조건절에 사용할 수 있는 연산자가 다양하게 존재한다.
-JAVA에서 비교연산자는 익숙해서 SQL에서 사용하는 연산자를 알아보았다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;BETWEEN a AND b : A와 B 사이에 있는 범위 값을 모두 검색한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;IN(a, b, c) : A이거나 B이거나 C인 조건을 검색한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;LIKE : 특정 패턴을 가지고 있는 조건을 검색한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;IS NULL / IS NOT NULL : NULL값을 검색 / NULL이 아닌 값을 검색&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A AND B : A조건과 B 조건을 모두 만족하는 값을 검색(A와 B는 조건이 들어간다.)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;A OR B : A 조건이나 B 조건 중 한 가지라도 만족하는 값을 검색한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;NOT A : A가 아닌 모든 조건을 검색한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;여기서 LIKE 연산자를 어떻게 사용하는지가 궁금하였는데 %와 _를 사용하여 비슷한 데이터값들을 찾을 수 있는 연산자이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;% : 글자 수에 제한이 없고 어떤 글자가 와도 상관없는 경우&lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;_ : 글자 수는 한 글자만 올 수 있고 어떤 글자가 와도 상관없는 경우&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;EX) WHERE SAL LIKE ‘1%’ : SAL 컬럼에서 앞자리가 1인 데이터를 출력, 뒤에는 어떤 수가 와도 상관없다.&lt;/li&gt;
-  &lt;li&gt;EX) WHERE HIREDATE LIKE *__12% : 입사일이 12월인 직원의 데이터를 출력하고 싶을 때 *를 사용한다.
-DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이므로,
-12를 썼고, 뒤에는 아무내용이나 와도 상관없으므로 %를 사용.&lt;/li&gt;
-&lt;/ul&gt;</content>
+&lt;p&gt;위 항목들을 .gitignore 파일에 추가해주면 .project와 .classpath 파일이 push 할 때 적용되지 않는다.&lt;/p&gt;</content>
 
       
       
@@ -1535,7 +1517,332 @@ DATE 자료형의 형식은 YY/MM/DD 이므로, YY/ 뒤의 두 자리가 월 이
       
 
       
-        <summary type="html">오라클DB 공부 20210902</summary>
+        <summary type="html">GitHub 협업 (20210914)</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">[JDBC] Swing에 DB연동 2</title>
+      <link href="https://achasan.github.io/jdbc_swing_2" rel="alternate" type="text/html" title="[JDBC] Swing에 DB연동 2" />
+      <published>2021-09-10T00:00:00+09:00</published>
+      <updated>2021-09-10T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/jdbc_swing_2</id>
+      <content type="html" xml:base="https://achasan.github.io/jdbc_swing_2">&lt;h1 id=&quot;20210910-수업-내용-정리&quot;&gt;20210910 수업 내용 정리&lt;/h1&gt;
+
+&lt;p&gt;오늘은 새로 배운 내용은 크게 없었다.
+GUI와 DB연동하는 내용의 연장선이라고 보면 될 것 같다.
+특히 사용자가 입력할 테이터 값의 범위가 적은 컬럼에
+JComboBox를 사용하여 특정 데이터만 선택하여 넣을 수 있다는 것을 배운 것이
+오늘 수업의 가장 중요한 점인 것 같다.&lt;/p&gt;
+
+&lt;p&gt;JComboBox를 선택할 리스트를 가져오는 것도 직접 코드를 입력하는 것이 아니라,
+DB에 있는 특정 테이블의 컬럼데이터를 JComboBox로 불러와서 입력해야되기 때문에
+만들어야할 메소드도 많아지고, 로직도 약간 더 복잡해진다는 느낌을 받았다.&lt;/p&gt;
+
+&lt;p&gt;배운 내용을 차근차근 정리해야겠다.&lt;/p&gt;
+
+&lt;h1 id=&quot;jcombobox에-db리스트-추가&quot;&gt;JComboBox에 DB리스트 추가&lt;/h1&gt;
+
+&lt;p&gt;일단 JComboBox를 사용하면 JTextField보다 선택할 수 있는 데이터의 범위가 좁아져
+데이터의 무결성을 유지하는데 큰 도움이 된다. JTextField를 사용하면, 같은 데이터라도
+사용자가 어떻게 입력하느냐에 따라 DB에는 다르게 입력될 수 있는데, 이런 상황을 방지할 수 있어서
+JComboBox를 사용한다.&lt;/p&gt;
+
+&lt;p&gt;프로그램을 동적으로 만들기 위해 JComboBox에 직접 데이터를 넣어주지 않고 DB와 연동하여 쿼리문을 통해
+가져온 컬럼데이터를 JComboBox에 넣어주었다. 전체적인 코드의 내용은 어제 배웠던 내용과 동일하고,
+JComboBox부분만 구현하는 것에 중점을 맞추었다.&lt;/p&gt;
+
+&lt;p&gt;일단 구현은 GUI가 구현되어있는 생성자에 JComboBox 컴포넌트에 addItem() 메소드를 사용하여 
+각 컬럼에 선택할 수 있는 데이터들을 추가해주는 것이다. EMP테이블에서 JComboBox를 사용할 컬럼은
+3개이므로, 3개의 메소드를 만들어서 생성자에 넣어주어 GUI창이 나올 시 데이터를 선택할 수 있도록 구현하였다.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;comboJob&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;SELECT DISTINCT JOB FROM EMP ORDER BY JOB&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;ps&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;connection&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;prepareStatement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ps&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;executeQuery&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;job2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addItem&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;JOB&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;rs&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ps&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;SQLException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래는 JComboBox에 데이터를 집어넣기 위한 메소드 중의 한 예시이다 EMP 테이블의 JOB 컬럼의 데이터를 가져와서
+JComboBox에 집어넣는 식이다. 겹치는 데이터가 없도록 DINTINCT 키워드를 사용한 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;사용자가 선택한 데이터를 가져오는 메소드는 getSelectedItem() 메소드를 사용하면 데이터를 얻어올 수 있다.
+가져온 데이터를 수정하여 쿼리문의 변수로 사용하면 JComboBox를 활용하여 DB와 연동하는 GUI를 구현할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;오늘 배운 내용을 토대로 구현한 내용은 다음 링크에 정리해놓았다.
+https://github.com/Achasan/Study/blob/main/9월/JDBC%20내용%20(9.7~/Java%20파일/20210910/EMP.java&lt;/p&gt;
+
+&lt;h1 id=&quot;프로젝트-대비-연습&quot;&gt;프로젝트 대비 연습&lt;/h1&gt;
+
+&lt;p&gt;다음주 월요일부터 Swing을 이용한 Java와 DB연동 프로젝트를한다.
+강사님이 이전 기수에서 프로젝트를 한 샘플들을 보여주셨는데, 샘플들을 보고 나니,
+이전에 배웠던 내용을 복습을 충분히 해야겠다는 생각이 들었다.&lt;/p&gt;
+
+&lt;p&gt;이전에 강사님이 Swing으로 GUI를 구현할 때, Window Builder를 사용하는 것이 좋다고
+말했던 적이 있었다. 따라서 Window Builder를 사용하여 연습겸 프로젝트를 미리 만들어보려고 한다.&lt;/p&gt;
+
+&lt;p&gt;공익근무를 할 때 주민센터 문화강좌 수강생 관리를 엄청했었는데, 따로 프로그램없이 수기로 작성한
+문서를 엑셀에 일일이 다 옮겨야하니 되게 불편했었던 경험이 있었다. 그래서 주제를 문화강좌 수강생
+관리 프로그램으로 하려고 했었는데 이미 전 기수에서 그 주제로 만든 프로젝트가 있었다.&lt;/p&gt;
+
+&lt;p&gt;강사님이 따로 프로그램을 보여주시진 않고, 프로젝트 발표 PPT만 보여주셔서 대충 가닥만 보고 
+프로젝트를 하기 전에 연습 겸 화면전환하는 GUI들을 구현해보아야 겠다고 생각하였다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Basic" />
+      
+
+      
+        <summary type="html">20210910 수업 내용 정리</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">[JDBC] Swing에 DB연동</title>
+      <link href="https://achasan.github.io/jdbc_swing_db" rel="alternate" type="text/html" title="[JDBC] Swing에 DB연동" />
+      <published>2021-09-09T00:00:00+09:00</published>
+      <updated>2021-09-09T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/jdbc_swing_db</id>
+      <content type="html" xml:base="https://achasan.github.io/jdbc_swing_db">&lt;h1 id=&quot;20210909-수업-내용&quot;&gt;20210909 수업 내용&lt;/h1&gt;
+
+&lt;p&gt;JDBC를 GUI에 적용시키는 수업을 진행하였다.
+프레임에 컴포넌트를 올려서 GUI를 구현하고, 컴포넌트와 상호작용할 때,
+JDBC를 통해 DB를 가져오는 연동하는 것을 구현하였다.&lt;/p&gt;
+
+&lt;p&gt;코드는 크게 생성자를 통해 GUI를 생성하는 것과,
+DB연결, SELECT문, INSERT문, UPDATE문, DELETE문을 메소드로 구현하여
+각 버튼을 클릭했을 때 ActionListener를 통해 메소드와 연결시켜서 DB를 불러내도록 하였다.&lt;/p&gt;
+
+&lt;p&gt;기능을 구현하는 것 자체는 어렵지 않았지만 JTable을 통해 DB리스트를 보여줄 때 사용하는
+메소드나 문법에 대해서 새로 알게된 사실들이 많았다. 구현하면서 새로 배운 메소드를 
+정리해보려고 한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;jtable과-관련된-객체-메소드&quot;&gt;JTable과 관련된 객체, 메소드&lt;/h2&gt;
+
+&lt;p&gt;JTable은 엑셀과 비슷한 형식으로 데이터의 리스트를 출력해주는 컴포넌트인데,
+행과 열로 구성되어있고, 각 행과 열에 데이터를 출력하여 보여주는 방식이다.&lt;/p&gt;
+
+&lt;p&gt;JTable 객체를 생성하면 하얀 창 밖에 보이질 않는데, 사용자가 흰 화면만 보았을 때는
+이게 무슨 기능을 위해 있는 컴포넌트인지 식별하기 어렵다. 따라서 각 행의 제목도 같이 출력을 해주어야하는데,
+행을 출력하는 것은 JTable이 아닌 DefaultTabelModel이라는 객체를 사용하여 출력시켜주어야 한다.&lt;/p&gt;
+
+&lt;p&gt;JTable이 테이블 형태를 가지고 있는 컴포넌트 자체를 의미한다면, DefaultTableModel은 JTable에
+출력되어있는 데이터를 읽고, 편집 등 JTable을 통한 다양한 기능들을 수행할 수 있게 해주는 객체이다.
+따라서 JTable 컴포넌트를 생성한다면 DefaultTableModel 객체를 사용하지 않을 수 없을 것이다.&lt;/p&gt;
+
+&lt;p&gt;JTable 컴포넌트 객체와 DefaultTableModel 객체를 연결해주는 방법은 간단하다.
+DefaultModelTable 객체를 생성하고 JTable 컴포넌트를 생성할 때 객체값으로 DefaultModelTable 객체를 넣어주면 된다.&lt;/p&gt;
+
+&lt;p&gt;DefaultTableModel dtm = new DefaultTableModel();
+JTable table = new JTable(dtm);&lt;/p&gt;
+
+&lt;h3 id=&quot;jtable-컴포넌트-상단에-컬럼제목-생성&quot;&gt;JTable 컴포넌트 상단에 컬럼제목 생성&lt;/h3&gt;
+
+&lt;p&gt;위의 방식으로 객체를 생성하면 JTable이 DefaultTableModel 객체를 참조하도록 설정된 것이다.&lt;/p&gt;
+
+&lt;p&gt;이제 소제목을 달아보자, 소제목을 달기 위해서는 DefaultTableModel 객체를 생성할 때, 매개값을 넣어주어야 한다.
+DefaultTableModel은 다양한 매개값을 넣을 수 있도록 오버로딩 되어있는데, 
+우리가 사용할 매개값은 DefaultTableModel(Object[] columnNames, int rowCount) 이다.
+매개값 타입을 보면 첫 번쨰 인덱스에 columnNames인 오브젝트 타입의 배열이 오는 것을 확인할 수 있는데, 배열의 각 인덱스가
+컬럼의 제목이 된다. 오브젝트타입이므로 배열 안에는 다양한 자료형타입이 올 수 있다. rowCount는 행 위치를 이야기한다.  &lt;br /&gt;
+우리는 컬럼 제목을 배열로 작성해주어 JTable의 상단에 출력할 것이므로 rowCount는 0으로 했다.&lt;/p&gt;
+
+&lt;p&gt;String[] header = {“학번”, “이름”, “학과”, “학년”, “나이”, “연락처”, “가입일”, “주소”};
+DefaultTableModel dtm = new DefaultTableModel(header, 0);
+JTable table = new JTable(dtm);&lt;/p&gt;
+
+&lt;p&gt;위의 내용을 바탕으로 코드를 작성하였다. header 오브젝트 배열을 토대로 0 인덱스 행에 8개의 컬럼 제목이 추가되었다.
+프레임 배치는 BorderLayout.CENTER 로 배치했기 때문에 프레임의 setBounds() 메소드의 widh에 맞춰서 사이즈가 설정된다.&lt;/p&gt;
+
+&lt;p&gt;이제 JDBC를 사용하여 CRUD를 구현하면 JTable에 데이터들을 출력할 수 있다. 
+출력된 데이터리스트를 DefaultTableModel 객체에서 제공하는 메소드를 통해 데이터값을 가져올 수 있다.&lt;/p&gt;
+
+&lt;p&gt;이제 DefaultTableModel 객체에서 사용할 수 있는 메소드를 알아보자.&lt;/p&gt;
+
+&lt;h3 id=&quot;getvalueatint-row-int-column-getselctedrow-getselectedcolumn&quot;&gt;getValueAt(int row, int column), getSelctedRow(), getSelectedColumn()&lt;/h3&gt;
+
+&lt;p&gt;DefaultTabelModel에서 제공하는 메소드로, 매개값에 행과 열의 위치를 넣어주면 그 위치에 적혀있는데
+데이터 값을 가져온다. 어떠한 자료형도 올 수 있기 때문에 Object 타입을 리턴한다.&lt;/p&gt;
+
+&lt;p&gt;따라서 변수에 따로 저장할 경우에는 그 변수타입에 맞게 캐스팅을 해서 사용하는 것이 좋다.
+사용자가 선택한 셀을 알기위해서는 JTable 객체에 있는 getSelectedRow()와 getSelectedColumn() 메소드를 같이 사용하여 구할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;코드로 정리하면&lt;/p&gt;
+
+&lt;p&gt;dtm.getValueAt(table.getSelectedRow(), table.getSelectedColumn());&lt;/p&gt;
+
+&lt;p&gt;위와 같은 형식이다. 이 코드를 사용하면 보다 동적으로 프로그램을 만들 수 있다.
+위의 기능을 DELETE부분에서 구현했는데, 수업 내용에서 만든 코드를 조금 더 손 보면, UPDATE 부분에서도
+SWITCH 문을 사용하여 각 컬럼에 따른 데이터만 수정할 수 있도록 구현할 수 있지 않을까 싶다.&lt;/p&gt;
+
+&lt;h3 id=&quot;addrowobject-rowdata-setrowcountint-a&quot;&gt;addRow(object[] rowData), setRowCount(int a)&lt;/h3&gt;
+
+&lt;p&gt;CRUD 중에 SELECT 문에 사용한 메소드이다. 
+쿼리문을 보내서 DB를 통해 가져온 데이터 결과값들을 JTable에 출력시키기 위해서 사용하였다.
+DefaultTableModel에 addRow() 메소드의 매개값에 데이터를 집어넣어주면 JTable에서 컴포넌트에 출력하는 방식이다.&lt;/p&gt;
+
+&lt;p&gt;매개값은 오브젝트타입의 배열이 오기 때문에 어떤 자료형이 오더라도 행에 추가할 수 있다.
+쿼리문을 통해 가져온 각 칼럼의 데이터 값들을 Object 타입의 배열에 담아서 addRow() 메소드를 사용하여 GUI에 출력할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;데이터를 출력하기 전에 JTable을 초기값으로 초기화 시켜주어야한다. 왜 초기화하는지는 후에 기술한다.
+초기화를 위해 사용할 메소드는 setRowCount()이다. 매개값으로 int 값을 주면 되는데, 출력되어있는 데이터중에
+매개값의 행만 남기고 나머지는 다 지운다는 뜻이다. 매개값을 0으로 주면 출력되어있는 데이터가 전부 사라지기 때문에
+초기화가 가능하다.&lt;/p&gt;
+
+&lt;p&gt;여기까진 수업을 하면서 새로 보게 된 메소드들이다. 
+다음 내용은 GUI를 구현하면서 불편했던 점들을 개선해보고자 찾아본 객체, 메소드이다.&lt;/p&gt;
+
+&lt;h1 id=&quot;jtable-셀-양식-컬럼-폭-조절-관련-공부&quot;&gt;JTable 셀 양식, 컬럼 폭 조절 관련 공부&lt;/h1&gt;
+
+&lt;p&gt;수업시간에 배운 내용을 토대로 GUI를 짜봤는데, JTable이 너무 공간을 비효율적으로 쓰는 것 같아서
+괜찮은 방법이 없을까 구글링을 하다가 찾은 방법들이다.
+먼저 각 셀을 가운데 정렬해서 바로바로 눈에 띄도록 하고 싶었다(주소 컬럼은 제외).
+그리고 학년, 나이는 숫자 1~2자리인데 너무 폭을 넓게 잡아서 이 또한 줄일 수 있는 메소드를 찾아보았다.&lt;/p&gt;
+
+&lt;h2 id=&quot;defaulttablecellrenderer-객체&quot;&gt;DefaultTableCellRenderer 객체&lt;/h2&gt;
+
+&lt;p&gt;먼저 셀을 가운데 정렬하기 위해 DefaultTableCellRenderer 를 알아보았다.&lt;/p&gt;
+
+&lt;p&gt;DefaultTableCellRenderer 객체는 JTable의 셀을 설정하는 것과 관련된 정보를 가지고 있는 객체이다.
+예를들면 JTable의 특정 셀을 가운데 정렬을 한다던지, 오른쪽 정렬을 한다던지 하는 식이다.
+DefaultTableCellRenderer 객체를 먼저 생성한 뒤에, 객체의 메소드를 사용하여 이 객체가 어떤 정보를 담을 것인지를 정할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;예시를 보자면,
+DefaultTableCellRenderer dtc = new DefaultTableCellRenderer();&lt;/p&gt;
+
+&lt;p&gt;dtc.setHorizontalAlignment(JLabel.CENTER);&lt;/p&gt;
+
+&lt;p&gt;먼저 dtc 변수에 객체를 생성한 다음, DefaultTableCellRenderer 객체의 메소드인 
+setHorizontalAlignment 메소드를 사용하였다. 셀의 데이터를 어느쪽으로 정렬할지를 물어보는건데,
+매개값은 상수 JLabel.CENTER를 사용하여 가운데 정렬을 하였다. JLabel의 상수를 사용하는 이유는
+이 클래스가 JLabel을 상속하기 때문이다. JTable의 특수한 매커니즘 때문인지 사용이 가능한 것 같다.&lt;/p&gt;
+
+&lt;p&gt;객체에 셀의 양식을 설정해 주었다면 이제 JTable에서 설정해보자,&lt;/p&gt;
+
+&lt;p&gt;table.getColumnModel().getColumn(n).setCellRenderer(dtc);&lt;/p&gt;
+
+&lt;p&gt;getColumnModel() 메소드는 Jtable이 현재 가지고 있는 모든 컬럼의 정보를 가져오는 메소드이다.
+모든 컬럼을 가져오고, 특정 컬럼을 가져오기 위해서는 getColumn(n) 메소드를 사용하면된다.
+특정 컬럼을 불러왔다면 setCellRenderer() 메소드를 사용하여 매개값으로 DefaultTableCellRenderer 객체인
+dtc 변수를 넣어주면 가운데 정렬이 될 것이다. 모든 컬럼이 아니고 개별적으로 컬럼을 설정해주어야 한다.
+컬럼이 많을 경우 반복문을 사용하는 것을 권장한다.&lt;/p&gt;
+
+&lt;h2 id=&quot;jtable의-각-컬럼-폭-설정하는-메소드&quot;&gt;JTable의 각 컬럼 폭 설정하는 메소드&lt;/h2&gt;
+
+&lt;p&gt;JTable의 컬럼이 가진 폭을 각각 수정하려고 했었는데, 특정 컬럼의 폭을 줄이면 다른 컬럼이 늘어나게 되서
+짜증이 났었다. 왜 그런지를 알아봤는데, 기본적으로 컬럼을 생성하면 autoResizeMode가 켜져있어서
+컬럼을 조절하더라도 JTable 컴포넌트의 전체 폭이 줄어들지 않도록 각 컬럼의 길이가 자체적으로 변해서 그런것이었다.
+따라서 autoResizeMode를 꺼주고, 각 컬럼들의 길이를 설정하는 메소드를 찾아서 수정하였다.
+기본적으로 JTable에서 지원하는 메소드이다.&lt;/p&gt;
+
+&lt;p&gt;.setAutoResizableMode() : 기본적으로 켜져있는 모드이다. 특정 컬럼의 폭을 조절하더라도 전체 폭의 길이는 줄어들지 않도록
+                    다른 컬럼들이 폭의 길이를 자동조절하여 전체 폭의 길이를 유지하는 모드라고 보면 된다. 
+                    매개값으로는 JTable.AUTO_RESIZE_OFF 라는 상수를 넣어주면 해당 모드를 끌 수 있다.&lt;/p&gt;
+
+&lt;p&gt;.getColumnModel().getColumn(n).setPreferredWidth(65)&lt;/p&gt;
+
+&lt;p&gt;getColumnModel()메소드와 getColumn() 메소드는 위에서 설명했으므로 생략한다.
+setPreferredWidth() 메소드는 특정 컬럼의 폭을 설정할 수 있는 메소드이다.
+매개값으로는 픽셀값을 주면 된다. 픽셀값을 주어야되서 길이조정이 상당히 까다로운점은 단점이다.
+컴포넌트의 길이를 고려해서 특정 컬럼별로 길이를 설정해 주는 것이 좋다. 테이블의 전체길이를
+넘어서면 Scroll이 뜨기 때문에 보기 안좋다.&lt;/p&gt;
+
+&lt;p&gt;당연히 setPreferredHeight() 메소드도 있다. 높이를 설정하는 메소드이며, 나중에 쓸일이 있을지는 모르겠다.&lt;/p&gt;
+
+&lt;h1 id=&quot;숙지해야할-내용-borderlayout-짜기&quot;&gt;숙지해야할 내용, BorderLayout 짜기&lt;/h1&gt;
+
+&lt;p&gt;아직 레이아웃을 짜는데 익숙하지가 않은 것 같다. 컴포넌트를 만들고, 각 컴포넌트들을 컨테이너에 올리고,
+컨테이너들을 합쳐서 다른 컨테이너에 올리면서 복잡해지는 레이아웃을 관리하는 방법을 정리해야 겠다는 생각이 들었다.&lt;/p&gt;
+
+&lt;p&gt;예를 들어, 
+BorderLayout.NORTH에 컨테이너 2개를 합친 컨테이너 하나를 올리고,
+BorderLayout.CENTER에 JTable을 올리고,
+BorderLayout.SOUTH에 컨테이너 하나를 올린다고 가정했을 때,
+CENTER와 SOUTH는 문제없이 프레임에 올라가는데, NORTH가 문제다. 컨테이너 2개를 묶은 컨테이너에 올리고, 그걸 프레임에 올리면
+컨테이너가 하나만 나타나는 문제가 생겨서 이를 순서대로 정리하고자 한다.&lt;/p&gt;
+
+&lt;p&gt;먼저 JPanel 객체 2개를 생성한다.&lt;/p&gt;
+
+&lt;p&gt;JPanel panel1 = new JPanel();
+JPanel panel2 = new Jpanel();&lt;/p&gt;
+
+&lt;p&gt;2개의 JPanel을 묶을 JPanel객체인 panel3을 생성한다.
+여기서, panel3은 생성할 때 매개값에 BorderLayout 을 생성해주어야 한다.
+그래야 패널들이 서로 꼬이지 않고 제대로 출력된다.&lt;/p&gt;
+
+&lt;p&gt;JPanel panel3 = new JPanel(new BorderLayout());&lt;/p&gt;
+
+&lt;p&gt;각 컴포넌트들을 만들고 panel1, panel2에 넣어준다. (이 부분은 이미 익숙하므로 생략.)&lt;/p&gt;
+
+&lt;p&gt;panel1, panel2를 panel3에 넣어준다.
+넣어줄 때 주의해야할 점이 있다. panel1은 BorderLayout.NORTH로, panel2는 BorderLayout.CENTER로 넣어주어야 한다.
+panel3라는 패널에 두 패널 올리는 것이므로 두 패널의 레이아웃을 panel3에서 먼저 정해주는 것이다.&lt;/p&gt;
+
+&lt;p&gt;panel3.add(panel1, BorderLayout.NORTH); panel3.add(panel2, BorderLayout.CENTER);&lt;/p&gt;
+
+&lt;p&gt;그리고 panel3를 프레임에 올려준다&lt;/p&gt;
+
+&lt;p&gt;add(panel3, BorderLayout.CENTER);&lt;/p&gt;
+
+&lt;p&gt;이 과정에 익숙해져야될 것 같다. GUI를 구현하면서 가장 취약한 부분이여서 잘 짚고 넘어가야겠다.&lt;/p&gt;
+
+&lt;p&gt;배운 내용을 토대로 작성한 코드를 Java폴더에 업로드 하였다. Student.java는 수업 내용만을 가지고 만든 코드,
+Student2.java는 셀 양식과 컬럼 폭을 좀 더 수정하여 보기 좋게 만든 버전이다.&lt;/p&gt;
+
+&lt;p&gt;글 내용을 토대로 만든 코드 : https://github.com/Achasan/Study/tree/main/9월/JDBC%20내용%20(9.7~/Java%20파일/20210909&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Basic" />
+      
+
+      
+        <summary type="html">20210909 수업 내용</summary>
       
 
       
