@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "CookieRun-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "CookieRun-Regular";
+}
+
+body {
+  background-color: beige;
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  background-image: url("img/background.png");
+  background-size: cover;
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.info {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.play_pause {
+  background-color: beige;
+  width: 70px;
+  height: 70px;
+  border: 3px solid black;
+  border-radius: 10px;
+  font-size: 50px;
+  margin: 0 auto;
+}
+
+.play_pause:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.fas.fa-play-circle,
+.fas.fa-stop-circle {
+  margin-top: 10px;
+}
+
+.timer {
+  width: 80px;
+  height: 40px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 15px auto;
+  font-size: 30px;
+}
+
+.count {
+  width: 50px;
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 50px;
+  background-color: #ffa65d;
+  font-size: 35px;
+  margin: 0 auto;
+}
+
+.field {
+  width: 900px;
+  height: 300px;
+  margin: 30px auto;
+}
+
+.carrot {
+  display: inline-block;
+  position: absolute;
+  width: 55px;
+}
+
+.bug {
+  position: absolute;
+  width: 50px;
+  z-index: 5;
+}
+
+.carrot:hover,
+.bug:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.gameover {
+  position: fixed;
+  text-align: center;
+  width: 500px;
+  height: 200px;
+  background-color: #f4f5f6;
+  opacity: 0.8;
+  color: salmon;
+  font-size: 50px;
+  border-radius: 10px;
+  margin: 50px 0 50px 200px;
+  z-index: 20;
+  visibility: hidden;
+}
+
+.gameover span {
+  display: block;
+  margin-top: 30px;
+}
+
+.gameover button {
+  border-radius: 10px;
+  border: 1px solid gray;
+  width: 150px;
+  height: 50px;
+  background-color: beige;
+  font-size: 25px;
+}
+
+.gameover button:hover {
+  background-color: burlywood;
+}
