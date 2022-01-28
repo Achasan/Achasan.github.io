@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>Toast ui Editor 이미지 업로드 구현방법</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/toast_ui_2" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Toast ui Editor 이미지 업로드 구현방법" />
+    <meta property="og:description" content="위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현 지난 글에서는 Toast ui Editor(Tui)를 CDN 방식으로 불러오는 방법에 관한 글에 이어서 이미지 업로드 기능을 구현하는 방법을 알아보기위해 작성한 글이다. Tui는 기본적으로 이미지 업로드 기능을 지원한다. 이미지를 업로드할 경우 base64의 형태로 변환하여 이미지를 업로드 한다. 이 기능은 치명적인 단점이 있는데, 이미지의" />
+    <meta property="og:url" content="https://achasan.github.io/toast_ui_2" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/toast_ui.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2022-01-07T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-01-07T00:00:00+09:00" />
+    <meta property="article:tag" content="Etc" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Toast ui Editor 이미지 업로드 구현방법" />
+    <meta name="twitter:description" content="위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현 지난 글에서는 Toast ui Editor(Tui)를 CDN 방식으로 불러오는 방법에 관한 글에 이어서 이미지 업로드 기능을 구현하는 방법을 알아보기위해 작성한 글이다. Tui는 기본적으로 이미지 업로드 기능을 지원한다. 이미지를 업로드할 경우 base64의 형태로 변환하여 이미지를 업로드 한다. 이 기능은 치명적인 단점이 있는데, 이미지의" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/toast_ui.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Etc" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/toast_ui_2",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/toast_ui.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/toast_ui_2"
+    },
+    "description": "위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현 지난 글에서는 Toast ui Editor(Tui)를 CDN 방식으로 불러오는 방법에 관한 글에 이어서 이미지 업로드 기능을 구현하는 방법을 알아보기위해 작성한 글이다. Tui는 기본적으로 이미지 업로드 기능을 지원한다. 이미지를 업로드할 경우 base64의 형태로 변환하여 이미지를 업로드 한다. 이 기능은 치명적인 단점이 있는데, 이미지의"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="Toast ui Editor 이미지 업로드 구현방법" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+
+        <article class="post-full  tag-etc post tag-ETC ">
+
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime=" 7 January 2022"> 7 January 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                                <a href='/tag/etc/'>ETC</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">Toast ui Editor 이미지 업로드 구현방법</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/toast_ui.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <h1 id="위지윅-에디터-toast-ui-editor-이미지-업로드-기능-구현">위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현</h1>
+
+<p><br /></p>
+
+<p><a href="https://achasan.github.io/toast_ui_1">지난 글</a>에서는 Toast ui Editor(Tui)를 CDN 방식으로 불러오는 방법에 관한 글에 이어서 이미지 업로드 기능을 구현하는 방법을 알아보기위해 작성한 글이다.</p>
+
+<p>Tui는 기본적으로 이미지 업로드 기능을 지원한다. 이미지를 업로드할 경우 base64의 형태로 변환하여 이미지를 업로드 한다. 이 기능은 치명적인 단점이 있는데, 이미지의 용량이 커질수록 변환된 base64 텍스트의 길이는 기하급수적으로 높아진다. 만약 base64로 변환된 이미지 그대로 DB에 저장한다고 했을 경우, 엄청난 길이의 텍스트로 인해 DB에 심한 부담을 줄 것이다.</p>
+
+<p>따라서 사용자가 이미지를 업로드할 경우 이미지를 서버에 저장하고 저장된 이미지의 주소를 리턴하여 이미지가 출력되도록 해야한다. Spring을 사용하여 이미지를 서버에 저장하고 주소를 리턴하도록 해보자.</p>
+
+<p><br /></p>
+
+<h2 id="1-이미지를-업로드-했을-때-콜백함수로-로직구현">1. 이미지를 업로드 했을 때 콜백함수로 로직구현</h2>
+
+<p><br /></p>
+
+<p>Tui 공식문서에서는 에디터를 사용할 때 특정 행동을 할 때 콜백함수가 작동되도록하는 hooks라는 함수를 지원한다. hooks에는 여러 hook이 존재하는데, 그 중 <code class="language-plaintext highlighter-rouge">addImageBlobHook</code>을 사용하면 이미지를 업로드 했을 때 콜백함수가 작동하도록 할 수 있다.</p>
+
+<p>먼저 Editor를 불러올 때 작성한 코드에 <code class="language-plaintext highlighter-rouge">addImageBlobHook</code>을 추가해보자.</p>
+
+<p><br /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">editor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">toastui</span><span class="p">.</span><span class="nx">Editor</span><span class="p">({</span>
+  <span class="na">el</span><span class="p">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">"</span><span class="s2">#editor</span><span class="dl">"</span><span class="p">),</span>
+  <span class="na">height</span><span class="p">:</span> <span class="dl">"</span><span class="s2">500px</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">initialEditType</span><span class="p">:</span> <span class="dl">"</span><span class="s2">wysiwyg</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">placeholder</span><span class="p">:</span> <span class="dl">"</span><span class="s2">내용을 입력해주세요</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">hooks</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">addImageBlobHook</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">blob</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">formData</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FormData</span><span class="p">();</span>
+      <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">,</span> <span class="nx">blob</span><span class="p">);</span>
+      <span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">uri</span><span class="dl">"</span><span class="p">,</span> <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">);</span>
+      <span class="kd">const</span> <span class="nx">imageURL</span> <span class="o">=</span> <span class="nx">imageUpload</span><span class="p">(</span><span class="nx">formData</span><span class="p">);</span>
+      <span class="nx">callback</span><span class="p">(</span><span class="nx">imageURL</span><span class="p">,</span> <span class="dl">"</span><span class="s2">image</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="na">language</span><span class="p">:</span> <span class="dl">"</span><span class="s2">ko-KR</span><span class="dl">"</span><span class="p">,</span>
+<span class="p">});</span>
+
+<span class="kd">function</span> <span class="nx">imageUpload</span><span class="p">(</span><span class="nx">formData</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">imageURL</span><span class="p">;</span>
+
+  <span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+    <span class="na">type</span><span class="p">:</span> <span class="dl">"</span><span class="s2">post</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">url</span><span class="p">:</span> <span class="dl">"</span><span class="s2">/bombom/image_upload.do</span><span class="dl">"</span><span class="p">,</span>
+    <span class="na">async</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">data</span><span class="p">:</span> <span class="nx">formData</span><span class="p">,</span>
+    <span class="na">processData</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">contentType</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="na">success</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">imageURL</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">imageURL</span><span class="p">);</span>
+    <span class="p">},</span>
+    <span class="na">error</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">status</span><span class="p">,</span> <span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">alert</span><span class="p">(</span><span class="nx">request</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">status</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">, </span><span class="dl">"</span> <span class="o">+</span> <span class="nx">error</span><span class="p">);</span>
+    <span class="p">},</span>
+  <span class="p">});</span>
+
+  <span class="k">return</span> <span class="nx">imageURL</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p><code class="language-plaintext highlighter-rouge">addImageBlobHook</code> hook을 사용할 경우 작동할 함수를 작성해주었다. 파라미터로는 blob과 callback이 들어가게되는데, blob은 사용자가 업로드하려고 하는 이미지, 콜백은 비즈니스 로직이 수행된 다음에 사용자에게 리턴할 이미지 URL을 리턴해주면 에디터에서 이미지를 출력하게되는 원리이다.</p>
+
+<p>서버에 이미지를 업로드해야하므로 ajax를 사용하여 서버로 이미지를 넘기도록 하였다. post방식으로 서버에 데이터를 넘기게 되고, form 태그를 통해 보통 데이터를 넘기지만 여기서는 form 태그를 사용할 수 없기 때문에 JavaScript에서 제공하는 formData 객체를 사용하여 해당 객체 안에 데이터를 넣어서 전달하도록 하였다.</p>
+
+<p>async를 true로 설정했을 때 데이터가 넘겨지지 않아서 false로 설정하고 넘겼더니 문제없이 잘 구동 되었다. 아마 비동기일 때 사용자가 데이터를 넘기는 시점이 달라서 안되는 것 같다. async를 false로 사용할 때 비권장된다는 경고메시지가 나오긴하지만 일단 기능구현이 되므로 이렇게 사용하기로 했다.</p>
+
+<p><br /></p>
+
+<h2 id="2-서버에서-전달받은-이미지-저장하기">2. 서버에서 전달받은 이미지 저장하기</h2>
+
+<p>이제 Controller에서 이미지를 어떻게 처리하는지 코드를 통해 알아보자,</p>
+
+<p><br /></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.time.LocalDate</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.slf4j.Logger</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.slf4j.LoggerFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.stereotype.Controller</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMapping</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestMethod</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RequestParam</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.ResponseBody</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.web.multipart.MultipartFile</span><span class="o">;</span>
+
+<span class="nd">@Controller</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EditorController</span> <span class="o">{</span>
+
+	<span class="kd">private</span> <span class="nc">Logger</span> <span class="n">logger</span> <span class="o">=</span> <span class="nc">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">());</span>
+
+	<span class="cm">/**
+	 * 파일이름 추출하기
+	 * 1. 업로드한 파일의 확장자명 알아내기
+	 * 2. (오늘날짜)_currentTimeMillis + 확장자 방식으로 파일명 생성
+	 * 3. 파일 경로에 등록
+	 * 4. 주소값 리턴 (https://localhost:8080/bombom/resources/upload/파일)
+	 */</span>
+	<span class="nd">@ResponseBody</span>
+	<span class="nd">@RequestMapping</span><span class="o">(</span><span class="n">value</span> <span class="o">=</span> <span class="s">"/image_upload.do"</span><span class="o">,</span> <span class="n">method</span> <span class="o">=</span> <span class="nc">RequestMethod</span><span class="o">.</span><span class="na">POST</span><span class="o">)</span>
+	<span class="kd">public</span> <span class="nc">String</span> <span class="nf">imageUpload</span><span class="o">(</span><span class="nd">@RequestParam</span><span class="o">(</span><span class="s">"image"</span><span class="o">)</span><span class="nc">MultipartFile</span> <span class="n">multipartFile</span><span class="o">,</span>
+							  <span class="nd">@RequestParam</span> <span class="nc">String</span> <span class="n">uri</span><span class="o">,</span> <span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">)</span> <span class="o">{</span>
+
+		<span class="k">if</span><span class="o">(</span><span class="n">multipartFile</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+			<span class="n">logger</span><span class="o">.</span><span class="na">warn</span><span class="o">(</span><span class="s">"user_write image upload detected, but there's no file."</span><span class="o">);</span>
+			<span class="k">return</span> <span class="s">"not found"</span><span class="o">;</span>
+		<span class="o">}</span>
+
+		<span class="nc">String</span> <span class="n">directory</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getSession</span><span class="o">().</span><span class="na">getServletContext</span><span class="o">().</span><span class="na">getRealPath</span><span class="o">(</span><span class="s">"resources/upload/talk/"</span><span class="o">);</span>
+
+		<span class="nc">String</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">multipartFile</span><span class="o">.</span><span class="na">getOriginalFilename</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">lastIndex</span> <span class="o">=</span> <span class="n">fileName</span><span class="o">.</span><span class="na">lastIndexOf</span><span class="o">(</span><span class="s">"."</span><span class="o">);</span>
+		<span class="nc">String</span> <span class="n">ext</span> <span class="o">=</span> <span class="n">fileName</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">lastIndex</span><span class="o">,</span> <span class="n">fileName</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+		<span class="nc">String</span> <span class="n">newFileName</span> <span class="o">=</span> <span class="nc">LocalDate</span><span class="o">.</span><span class="na">now</span><span class="o">()</span> <span class="o">+</span> <span class="s">"_"</span> <span class="o">+</span> <span class="nc">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">+</span> <span class="n">ext</span><span class="o">;</span>
+
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="nc">File</span> <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">File</span><span class="o">(</span><span class="n">directory</span> <span class="o">+</span> <span class="n">newFileName</span><span class="o">);</span>
+
+			<span class="n">multipartFile</span><span class="o">.</span><span class="na">transferTo</span><span class="o">(</span><span class="n">image</span><span class="o">);</span>
+
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IllegalStateException</span> <span class="o">|</span> <span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+		<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+			<span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"uri : {}"</span><span class="o">,</span> <span class="n">uri</span><span class="o">);</span>
+			<span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Image Path : {}"</span><span class="o">,</span> <span class="n">directory</span><span class="o">);</span>
+			<span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"File_name : {}"</span><span class="o">,</span> <span class="n">newFileName</span><span class="o">);</span>
+		<span class="o">}</span>
+
+		<span class="c1">// 주소값 알아내기</span>
+		<span class="nc">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getContextPath</span><span class="o">();</span>
+		<span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestURL</span><span class="o">().</span><span class="na">indexOf</span><span class="o">(</span><span class="n">path</span><span class="o">);</span>
+		<span class="nc">String</span> <span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getRequestURL</span><span class="o">().</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">index</span><span class="o">);</span>
+
+		<span class="c1">// https://localhost:8080/bombom/resources/upload/파일이름</span>
+
+		<span class="k">return</span> <span class="n">url</span> <span class="o">+</span> <span class="n">request</span><span class="o">.</span><span class="na">getContextPath</span><span class="o">()</span> <span class="o">+</span> <span class="s">"/resources/upload/talk/"</span> <span class="o">+</span> <span class="n">newFileName</span><span class="o">;</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><br /></p>
+
+<p>로직은 크게 4개로 나눌 수 있다.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">@RequestParam</code> 어노테이션을 사용하여 이미지 가져오기</li>
+  <li>이미지를 저장할 경로 설정하기</li>
+  <li>저장할 이미지의 이름 재설정하기</li>
+  <li>이미지를 서버 경로에 저장하기</li>
+  <li>주소값 리턴하기</li>
+</ol>
+
+<p>이미지는 보통 MultipartFile 객체를 통해 받아오게 된다. <code class="language-plaintext highlighter-rouge">@RequestParam</code> 어노테이션을 사용하여 이미지를 받아와서 비즈니스 로직에 사용할 수 있도록 했다.</p>
+
+<p>그 다음은 경로를 지정해주어야하는데, 경로는 HttpServletRequest 객체를 사용하여 <code class="language-plaintext highlighter-rouge">getSession()</code>, <code class="language-plaintext highlighter-rouge">getServletContext()</code>, <code class="language-plaintext highlighter-rouge">getRealPath()</code> 메서드를 사용하여 서버 내에 저장할 경로를 지정해 주었다.</p>
+
+<p>파일이름은 이름이 중복되는 것을 피하기 위해서 오늘 날짜 + currentTimeMillis() 메서드를 사용해주었다.</p>
+
+<p>위의 세 절차를 모두 완료했다면, 경로와 파일이름으로 된 File 객체를 생성하고, transferTo() 메서드를 사용하여 이미지를 지정한 경로로 이동시켜준다.</p>
+
+<p>마지막으로 HttpServletRequest 객체를 사용하여 메서드를 사용하여 리턴할 주소값을 가공하여 전달하면 된다.</p>
+
+<p><br /></p>
+
+<h2 id="3-결과">3. 결과</h2>
+
+<p><img src="/assets/images/ETC/Tui_Editor/2022-01-28-10-57-06.gif" alt="" /></p>
+
+<p>현재 진행중인 봄봄프로젝트에서 구현한 게시판 글쓰기 기능이다. 이미지 업로드와 글 등록까지 정상적으로 수행되는 것을 볼 수 있다. 글 등록은 따로 Controller를 만들어서 로직을 처리했기 때문에 만약 이미지 업로드가 잘 된다면 글 등록까지 무난하게 구현할 수 있을 것이라고 생각한다.</p>
+
+<p>에디터를 사용하면서 이미지 업로드를 어떻게 처리해야할지 막막했다. 열심히 구글링을 하면서 찾아본 결과 끝내 구현할 수 있었다. 대부분의 글들은 리액트를 사용하기 때문에 작성하는 코드가 내가 구현하려는 것과 많이 달랐지만, 공식문서와 같이 참조하면서 삽질한 결과 기능을 구현할 수 있었다.</p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- Utterance script -->
+            <script src="https://utteranc.es/client.js"
+                repo="Achasan/achasan.github.io"
+                issue-term="url"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+                    <article class="read-next-card"
+                        
+                            style="background-image: url(/assets/images/Algorhythm.jpg)"
+                        
+                    >
+                        <header class="read-next-card-header">
+                            <small class="read-next-card-header-sitetitle">&mdash; Memory Repo. &mdash;</small>
+                            
+                                <h3 class="read-next-card-header-title"><a href="/tag/etc/">Etc</a></h3>
+                            
+                        </header>
+                        <div class="read-next-divider"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/></svg>
+</div>
+                        <div class="read-next-card-content">
+                            <ul>
+                                
+                                
+                                  
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/toast_ui_1">Toast ui Editor 사용하기</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/OOP_4">객체지향의 사실과 오해 3장 : 타입</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                            <li><a href="/OOP_3">객체지향의 사실과 오해 3장 : 추상화</a></li>
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                                  
+                                
+                            </ul>
+                        </div>
+                        <footer class="read-next-card-footer">
+                            <a href="/tag/etc/">
+                                
+                                    See all 7 posts  →
+                                
+                            </a>
+                        </footer>
+                    </article>
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/toast_ui_1">
+                <div class="post-card-image" style="background-image: url(/assets/images/toast_ui.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/toast_ui_1">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Etc</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">Toast ui Editor 사용하기</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>위지윅 에디터 Toast ui Editor 사용법
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        5 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Toast ui Editor 이미지 업로드 구현방법</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=Toast+ui+Editor+%EC%9D%B4%EB%AF%B8%EC%A7%80+%EC%97%85%EB%A1%9C%EB%93%9C+%EA%B5%AC%ED%98%84%EB%B0%A9%EB%B2%95&amp;url=https://achasan.github.io/toast_ui_2"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.io/toast_ui_2"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

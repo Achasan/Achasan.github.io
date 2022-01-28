@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://achasan.github.io/tag/basic/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-23T20:11:40+09:00</updated>
+  <updated>2022-01-28T23:06:32+09:00</updated>
   <id>https://achasan.github.io/tag/basic/feed.xml</id>
 
   
@@ -348,8 +348,8 @@ last() 함수는 당연히 마지막 태그를 선택한다.&lt;/p&gt;
 &lt;p&gt;홀수 요소들을 선택할 때는 odd() 함수를 선택하여 홀수index에 있는 요소들을 한번에 선택이 가능하고 even() 함수는 반대로 짝수 요소들을 한번에 선택한다.&lt;/p&gt;
 
 &lt;p&gt;특정 숫자요소를 선택하기 위해서는 nth-child()를 사용하는데, 이것은 함수라기보다는 태그선택자에 사용하는 키워드라고 보는것이 좋다.
-예를들어 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(&apos;li:nth-child(3)&apos;).css(&apos;color&apos;, &apos;blue&apos;);&lt;/code&gt; 와 같이 작성했을 때는 li 태그 중 세 번째 태그를 선택하게 된다. 여기서 주의해야할 점은 0부터 시작하지 않고 1부터 시작한다는 점이다.
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$(&apos;li:nth-child(3n)&apos;).css(&apos;color&apos;, &apos;blue&apos;);&lt;/code&gt; 3의 배수마다 태그를 지정하기위해서는 n을 뒤에 붙여주면 된다.&lt;/p&gt;
+예를들어 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$('li:nth-child(3)').css('color', 'blue');&lt;/code&gt; 와 같이 작성했을 때는 li 태그 중 세 번째 태그를 선택하게 된다. 여기서 주의해야할 점은 0부터 시작하지 않고 1부터 시작한다는 점이다.
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$('li:nth-child(3n)').css('color', 'blue');&lt;/code&gt; 3의 배수마다 태그를 지정하기위해서는 n을 뒤에 붙여주면 된다.&lt;/p&gt;
 
 &lt;p&gt;요소를 선택하는 선택자도 있는데, 다음과 같다.&lt;/p&gt;
 
@@ -631,8 +631,8 @@ keydown, keypress, keyup&lt;/li&gt;
 &lt;p&gt;각 홈페이지에서 사용할 폰트를 누르면 웹폰트로 사용이라는 탭이 보이는데 여기서 CSS형식으로 폰트정보를 제공한다.&lt;/p&gt;
 
 &lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;@font-face&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&apos;Dongle-Regular&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url(&apos;https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108_2@1.0/Dongle-Regular.woff&apos;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&apos;woff&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;font-family&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;'Dongle-Regular'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nl&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;sx&quot;&gt;url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108_2@1.0/Dongle-Regular.woff')&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;'woff'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
     &lt;span class=&quot;nl&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;nl&quot;&gt;font-style&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;normal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -936,7 +936,7 @@ HTML, CSS, JS, jQuery, Ajax를 예제를 통해 공부할 수 있는 책이다. 
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;blockquote&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;blockquote&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:before&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:after&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-	&lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&apos;&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;''&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 	&lt;span class=&quot;nl&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;none&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nt&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
