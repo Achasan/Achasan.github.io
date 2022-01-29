@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://achasan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://achasan.github.io/" rel="alternate" type="text/html" /><updated>2022-01-29T17:15:29+09:00</updated><id>https://achasan.github.io/feed.xml</id><title type="html">Memory Repo.</title><subtitle>by Achasan</subtitle><entry><title type="html">Toast ui Editor 이미지 업로드 구현방법</title><link href="https://achasan.github.io/toast_ui_2" rel="alternate" type="text/html" title="Toast ui Editor 이미지 업로드 구현방법" /><published>2022-01-07T00:00:00+09:00</published><updated>2022-01-07T00:00:00+09:00</updated><id>https://achasan.github.io/toast_ui_2</id><content type="html" xml:base="https://achasan.github.io/toast_ui_2">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-이미지-업로드-기능-구현&quot;&gt;위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://achasan.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://achasan.github.io/" rel="alternate" type="text/html" /><updated>2022-01-29T17:41:29+09:00</updated><id>https://achasan.github.io/feed.xml</id><title type="html">Memory Repo.</title><subtitle>by Achasan</subtitle><entry><title type="html">Toast ui Editor 이미지 업로드 구현방법</title><link href="https://achasan.github.io/toast_ui_2" rel="alternate" type="text/html" title="Toast ui Editor 이미지 업로드 구현방법" /><published>2022-01-07T00:00:00+09:00</published><updated>2022-01-07T00:00:00+09:00</updated><id>https://achasan.github.io/toast_ui_2</id><content type="html" xml:base="https://achasan.github.io/toast_ui_2">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-이미지-업로드-기능-구현&quot;&gt;위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -758,19 +758,11 @@
 
 &lt;h2 id=&quot;1-gitignore-세팅하기&quot;&gt;1. gitignore 세팅하기&lt;/h2&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-13-27.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;먼저 gitignore를 세팅해주어야 한다. 세팅방법은 생각보다 간단하다. &lt;a href=&quot;https://www.toptal.com/developers/gitignore&quot;&gt;gitignore.io&lt;/a&gt;사이트에서 자신이 사용하고 있는 스택을 적으면 이에 맞는 gitignore 코드를 생성해준다.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-13-51.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;생성된 코드를 복사해준다. 이 코드는 GitHub에서 새로운 프로젝트를 만들면서 생성한 gitignore 파일에 추가해줄 것이다.&lt;/p&gt;
 
@@ -778,39 +770,23 @@
 
 &lt;h2 id=&quot;2-github에서-새로운-프로젝트-생성&quot;&gt;2. GitHub에서 새로운 프로젝트 생성&lt;/h2&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-24-02.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;세팅이 완료되면 GitHub에서 새로운 저장소를 생성해준다. gitignore 파일을 추가해주고 파일 템플릿은 임의로 Java로 선택한다음 저장소를 생성해주었다.&lt;/p&gt;
 
 &lt;p&gt;프로젝트가 생성되면 Eclipse에서 저장소를 clone해와야한다.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-26-17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;정상적으로 clone이 되었다면 아래와 같이 working tree에 .gitignore 파일이 있어야한다. .gitignore파일에 있는 내용을 전부 지우고 gitignore.io에서 생성한 코드를 붙여넣기 해준다.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-27-00.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;3-프로젝트와-github-저장소-연결&quot;&gt;3. 프로젝트와 GitHub 저장소 연결&lt;/h2&gt;
 
 &lt;p&gt;여기까지 되었다면 이제 연동하려는 프로젝트를 우클릭 후 [Team] - [Share Project]를 클릭한 후clone한 원격저장소와 연결시켜주면 된다. Finish를 누르기 전에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Use or create repository in parent of project&lt;/code&gt; 문항을 체크할지를 결정하자. 웬만하면 체크를 해제하고 진행하는 것이 좋다.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-16-44-16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;이후 git staging에서 push하려는 파일이 올바르게 올라와 있는지 확인 후 push하면 원격저장소로 프로젝트 파일이 push되게 된다.&lt;/p&gt;
 
@@ -822,15 +798,9 @@
 
 &lt;p&gt;원격저장소 URL을 가지고 clone한 다음, working tree에 있는 소스파일 폴더 이름을 우클릭 한 후 [import projects]를 클릭하여 소스폴더를 import 해올 수 있다.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-17-07-15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
 &lt;p&gt;import를 하면 자동적으로 프로젝트가 생성되고, src 폴더 안에 소스파일이 포함되어 있는 것을 볼 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-17-09-15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
