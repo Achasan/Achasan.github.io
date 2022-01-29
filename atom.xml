@@ -98,6 +98,21 @@
     
       
       <item>
+        <title>Spring framework 환경에서 git 세팅</title>
+        
+          <description>&lt;p&gt;기나긴 삽질 끝에 Spring을 사용하여 git 세팅하는 방법을 찾아냈다. 이전 프로젝트처럼 세팅하여 사용하면 될 줄 알았으나 JSP와 다르게 Spring에서는 Maven이라는 빌드 툴이 있어서 그런지 좀 더 디테일한 세팅이 필요한 것 같았다.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Wed, 29 Dec 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/spring_git_setting</link>
+        <guid isPermaLink="true">https://achasan.github.io/spring_git_setting</guid>
+      </item>
+      
+    
+      
+      <item>
         <title>[PRO] LV2 : 가장 큰 수</title>
         
           <description>&lt;h1 id=&quot;프로그래머스-lv2--가장-큰-수&quot;&gt;프로그래머스 Lv2 : 가장 큰 수&lt;/h1&gt;
@@ -228,6 +243,20 @@
         <link>
         https://achasan.github.io/OOP_1</link>
         <guid isPermaLink="true">https://achasan.github.io/OOP_1</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>Gitignore_pull</title>
+        
+          <description>
+</description>
+        
+        <pubDate>Sun, 21 Nov 2021 00:00:00 +0900</pubDate>
+        <link>
+        https://achasan.github.io/gitignore_pull</link>
+        <guid isPermaLink="true">https://achasan.github.io/gitignore_pull</guid>
       </item>
       
     
@@ -1069,20 +1098,6 @@
         <link>
         https://achasan.github.io/java_control</link>
         <guid isPermaLink="true">https://achasan.github.io/java_control</guid>
-      </item>
-      
-    
-      
-      <item>
-        <title>Gitignore_pull</title>
-        
-          <description>
-</description>
-        
-        <pubDate>Mon, 18 Jan 2021 00:00:00 +0900</pubDate>
-        <link>
-        https://achasan.github.io/gitignore_pull</link>
-        <guid isPermaLink="true">https://achasan.github.io/gitignore_pull</guid>
       </item>
       
     

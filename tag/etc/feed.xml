@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://achasan.github.io/tag/etc/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-01-28T23:06:32+09:00</updated>
+  <updated>2022-01-29T17:15:29+09:00</updated>
   <id>https://achasan.github.io/tag/etc/feed.xml</id>
 
   
@@ -707,135 +707,6 @@
     </entry>
   
     <entry>
-      <title type="html">객체지향의 사실과 오해 2장 : 상태</title>
-      <link href="https://achasan.github.io/OOP_2" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 상태" />
-      <published>2022-01-01T00:00:00+09:00</published>
-      <updated>2022-01-01T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_2</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_2">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--상태&quot;&gt;객체지향의 사실과 오해 2장 : 상태&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;2장에서의 핵심은 &lt;strong&gt;객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것&lt;/strong&gt;이다. 객체의 상태와 행동을 통해 여러 객체들이 서로 협력하며 하나의 목표를 달성하는 원리들을 설명하면서, 현실과 객체지향의 차이점을 보여주어 어떻게 소프트웨어를 설계해야하는지 방향을 제시해준다.&lt;/p&gt;
-
-&lt;p&gt;이를 설명하기위해 글쓴이는 이상한 나라의 앨리스를 예시로 들어 설명한다. 요약하자면 다음과 같다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 아름다운 정원을 발견했다. 정원에 들어가는 문이 40센티미터 이하여서 들어갈 수 없다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 주변에 ‘마셔라’가 적혀있는 병에있는 액체를 마시자 키가 24센티미터로 줄어들었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;정원으로가는 문을 열려면 열쇠를 사용해야한다. 너무 작아져서 열쇠를 사용할 수 없게되었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이번엔 탁자 아래 케이크가 있어서 먹었더니 몸이 천장에 닿을만큼 훨씬 커지게되었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이 때 주변을 지나가던 토끼가 놀라 부채를 떨어뜨렸다. 앨리스는 더워서 부채를 부쳤는데 키가 60센티미터로 다시 줄었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;주변을 걸어가던 앨리스는 쐐기벌레를 만난다. 쐐기벌레는 버섯을 하나 주는데, 한쪽을 먹으면 크기가 작아지고, 반대쪽을 먹으면 크기가 커지는 버섯이었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 지금까지 얻은 물건을 통해 몸의 크기를 조절해 문을 열고 아름다운 정원으로 들어갔다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;앨리스-객체&quot;&gt;앨리스 객체&lt;/h2&gt;
-
-&lt;p&gt;위의 이야기에서 주목해야할 점은 앨리스의 키의 변화이다. 정원으로 들어가기 위한 조건을 충족시키기위해 시간의 흐름에 따라 앨리스의 &lt;strong&gt;상태&lt;/strong&gt;는 바뀌게 된다. 앨리스의 상태를 변화시키는 것은 앨리스의 &lt;strong&gt;행동&lt;/strong&gt;이다. 버섯을 먹고, 음료수를 마시고, 부채질을 하고, 케이크를 먹으면서 앨리스의 키, 즉 상태는 변화한다.&lt;/p&gt;
-
-&lt;p&gt;또한 앨리스의 행동으로 앨리스의 키가 커지거나 작아지게되는데, 행동을 하기 전에 앨리스의 키가 얼마였느냐가 행동 후의 앨리스의 상태를 결정하게된다. &lt;strong&gt;앨리스가 한 행동의 결과는 앨리스의 상태에 의존적이다&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;앨리스의 행동으로 상태가 변화하게되고, 아름다운 정원으로 들어가기위해 앨리스는 적절한 행동을 통해 문을 통과할 수 있는 상태를 만들어야할 것이다. 이는 행동 간의 순서가 중요하다는 것을 의미한다. 문을 통과하려면 케이크나 음료수를 마시는 행동이 선행되어야한다.&lt;/p&gt;
-
-&lt;p&gt;그렇다면 지금까지의 내용을 정리해보자. 지금까지의 내용이 객체와 중요한 공통점을 공유하게될 것이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 상태를 가지며 상태는 변경가능하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;앨리스의 상태를 변경시키는 것은 앨리스의 행동이다.
-    &lt;ul&gt;
-      &lt;li&gt;행동의 결과는 상태에 의존적이고, 상태를 이용해 서술가능하다.&lt;/li&gt;
-      &lt;li&gt;행동의 순서가 결과에 영향을 미친다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;앨리스는 어떤상태에 있더라도 유일하게 식별 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;객체--상태와-행동&quot;&gt;객체 : 상태와 행동&lt;/h2&gt;
-
-&lt;p&gt;객체의 다양한특성을 효과적으로 설명하기 위해서는 객체를 상태, 행동, 식별자를 지닌 식체로 보는 것이 가장 효과적이다. 이 책에서는 객체를 다음과 같이 정의한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;객체란 식별가능한 개체 또는 사물이다. 객체는 자동차처럼 만질 수 있는 구체적인 사물일 수도 있고, 시간처럼 추상적인 개념일 수도 있다. 객체는 구별가능한 식별자, 특징적인 행동, 변경 가능한 상태를 가진다. 소프트웨어 안에서 객체는 저장된 상태와 실행가능한 코드를 통해 구현된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;상태&quot;&gt;상태&lt;/h3&gt;
-
-&lt;p&gt;객체가 주변 환경과의 상호작용에 어떻게 반응하는가는 그 시점까지 객체에 어떤 일이 발생했느냐에 좌우된다. 예를 들면 비행기를 타기 위해서는 항공권을 발권해야한다. 없다면 비행기를 탈 수 없고, 있다면 탈 수 있게될 것이다. 비행기를 발권여부에 대한 행동이 비행기 탑승에 영향을 미친다.&lt;/p&gt;
-
-&lt;p&gt;과거에 발생한 행동의 이력을 통해 현재 발생한 행동의 결과를 판단하는 방식은 복잡하고 번거로우며, 이해하기 쉽지 않다. 이를 단순하게 하기위해 &lt;strong&gt;상태&lt;/strong&gt;라는 개념을 만들게 된다. 위의 예시로 따지자면 항공권 소유여부를 상태로 만들어 이전에 비행기를 발권하는 행동을 했는지 설명과 예측이 가능해진다.&lt;/p&gt;
-
-&lt;p&gt;상태를 사용하면 과거에 얽매이지 않을 수 있다. 세상의 복잡성을 완화하고 인지 과부화를 줄이는 중요한 개념이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;상태와-프로퍼티&quot;&gt;상태와 프로퍼티&lt;/h3&gt;
-
-&lt;p&gt;모든 것을 객체로 표현할 수는 없다. 앨리스의 키는 객체가 아니다. 음료와 케이크의 양은 객체가 아니다. 상태로 표현되는 것들이다. 이러한 단순한 값들은 객체가 아니지만 객체의 상태를 표현하는 중요한 수단이 된다.&lt;/p&gt;
-
-&lt;p&gt;때로는 객체를 사용해 다른 객체의 상태를 표현해야할 수도 있다. 가장 간단하고 직관적이 방법은 앨리스의 상태 일부를 음료라는 객체를 이용해 표현하는 것이다. 앨리스가 음료를 들고 있을 경우 음료 객체를 상태로 표현하여 앨리스가 음료를 들고 있는 상태임을 나타내게할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;앨리스가 음료를 들고 있게될 경우, 앨리스와 음료 객체는 서로 연결되게된다.&lt;/p&gt;
-
-&lt;p&gt;결론적으로 모든 객체의 상태는 단순한 값과 객체의 조합으로 표현되며, 객체의 상태를 구성하는 모든 특징을 통틀어 객체의 &lt;strong&gt;프로퍼티(property)&lt;/strong&gt;라고한다. 일반적으로 프로퍼티는 변경되지 않고 고정되기 때문에 ‘정적’이다. 하지만 &lt;strong&gt;프로퍼티 값(property value)&lt;/strong&gt;은 시간의 흐름에 따라 변경되어 ‘동적’이다.&lt;/p&gt;
-
-&lt;p&gt;앨리스가 음료를 들고 있을 경우 두 객체는 서로 연결되어있다. 앨리스가 음료를 마시게 될 경우, 앨리스는 음료를 마셨다는 메시지를 음료 객체에 전달하게되고, 음료 객체는 이에 따라 상태를 변화시킬 것이다. 객체와 객체사이의 의미 있는 연결을 &lt;strong&gt;링크(link)&lt;/strong&gt;라고 한다.&lt;/p&gt;
-
-&lt;p&gt;링크와 달리 객체를 구성하는 단순한 값은 &lt;strong&gt;속성(attribute)&lt;/strong&gt;이라고 부른다. 앨리스의 키, 음료수의 양은 단순한 값으로 표현되므로 속성이다.&lt;/p&gt;
-
-&lt;p&gt;객체의 상태를 정의해보자, 이 책에서는 다음과 같이 정의한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;상태는 특정 시점에 객체가 가지고 있는 정보의 집합으로 객체의 구조적인 특징을 표현한다. 객체의 상태는 객체에 존재하는 정적인 프로퍼티와 동적인 프로퍼티 값으로 구성된다. 객체의 프로퍼티는 단순한 값과 다른 객체를 참조하는 링크로 구분할 수 있다.&lt;/p&gt;
-&lt;/blockquote&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="ETC" />
-      
-
-      
-        <summary type="html">객체지향의 사실과 오해 2장 : 상태</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자</title>
       <link href="https://achasan.github.io/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자" />
       <published>2022-01-01T00:00:00+09:00</published>
@@ -977,6 +848,257 @@
 
       
         <summary type="html">객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">객체지향의 사실과 오해 2장 : 상태</title>
+      <link href="https://achasan.github.io/OOP_2" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 상태" />
+      <published>2022-01-01T00:00:00+09:00</published>
+      <updated>2022-01-01T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/OOP_2</id>
+      <content type="html" xml:base="https://achasan.github.io/OOP_2">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--상태&quot;&gt;객체지향의 사실과 오해 2장 : 상태&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;2장에서의 핵심은 &lt;strong&gt;객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것&lt;/strong&gt;이다. 객체의 상태와 행동을 통해 여러 객체들이 서로 협력하며 하나의 목표를 달성하는 원리들을 설명하면서, 현실과 객체지향의 차이점을 보여주어 어떻게 소프트웨어를 설계해야하는지 방향을 제시해준다.&lt;/p&gt;
+
+&lt;p&gt;이를 설명하기위해 글쓴이는 이상한 나라의 앨리스를 예시로 들어 설명한다. 요약하자면 다음과 같다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 아름다운 정원을 발견했다. 정원에 들어가는 문이 40센티미터 이하여서 들어갈 수 없다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 주변에 ‘마셔라’가 적혀있는 병에있는 액체를 마시자 키가 24센티미터로 줄어들었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;정원으로가는 문을 열려면 열쇠를 사용해야한다. 너무 작아져서 열쇠를 사용할 수 없게되었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이번엔 탁자 아래 케이크가 있어서 먹었더니 몸이 천장에 닿을만큼 훨씬 커지게되었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 때 주변을 지나가던 토끼가 놀라 부채를 떨어뜨렸다. 앨리스는 더워서 부채를 부쳤는데 키가 60센티미터로 다시 줄었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주변을 걸어가던 앨리스는 쐐기벌레를 만난다. 쐐기벌레는 버섯을 하나 주는데, 한쪽을 먹으면 크기가 작아지고, 반대쪽을 먹으면 크기가 커지는 버섯이었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 지금까지 얻은 물건을 통해 몸의 크기를 조절해 문을 열고 아름다운 정원으로 들어갔다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;앨리스-객체&quot;&gt;앨리스 객체&lt;/h2&gt;
+
+&lt;p&gt;위의 이야기에서 주목해야할 점은 앨리스의 키의 변화이다. 정원으로 들어가기 위한 조건을 충족시키기위해 시간의 흐름에 따라 앨리스의 &lt;strong&gt;상태&lt;/strong&gt;는 바뀌게 된다. 앨리스의 상태를 변화시키는 것은 앨리스의 &lt;strong&gt;행동&lt;/strong&gt;이다. 버섯을 먹고, 음료수를 마시고, 부채질을 하고, 케이크를 먹으면서 앨리스의 키, 즉 상태는 변화한다.&lt;/p&gt;
+
+&lt;p&gt;또한 앨리스의 행동으로 앨리스의 키가 커지거나 작아지게되는데, 행동을 하기 전에 앨리스의 키가 얼마였느냐가 행동 후의 앨리스의 상태를 결정하게된다. &lt;strong&gt;앨리스가 한 행동의 결과는 앨리스의 상태에 의존적이다&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;앨리스의 행동으로 상태가 변화하게되고, 아름다운 정원으로 들어가기위해 앨리스는 적절한 행동을 통해 문을 통과할 수 있는 상태를 만들어야할 것이다. 이는 행동 간의 순서가 중요하다는 것을 의미한다. 문을 통과하려면 케이크나 음료수를 마시는 행동이 선행되어야한다.&lt;/p&gt;
+
+&lt;p&gt;그렇다면 지금까지의 내용을 정리해보자. 지금까지의 내용이 객체와 중요한 공통점을 공유하게될 것이다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 상태를 가지며 상태는 변경가능하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;앨리스의 상태를 변경시키는 것은 앨리스의 행동이다.
+    &lt;ul&gt;
+      &lt;li&gt;행동의 결과는 상태에 의존적이고, 상태를 이용해 서술가능하다.&lt;/li&gt;
+      &lt;li&gt;행동의 순서가 결과에 영향을 미친다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;앨리스는 어떤상태에 있더라도 유일하게 식별 가능하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;객체--상태와-행동&quot;&gt;객체 : 상태와 행동&lt;/h2&gt;
+
+&lt;p&gt;객체의 다양한특성을 효과적으로 설명하기 위해서는 객체를 상태, 행동, 식별자를 지닌 식체로 보는 것이 가장 효과적이다. 이 책에서는 객체를 다음과 같이 정의한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;객체란 식별가능한 개체 또는 사물이다. 객체는 자동차처럼 만질 수 있는 구체적인 사물일 수도 있고, 시간처럼 추상적인 개념일 수도 있다. 객체는 구별가능한 식별자, 특징적인 행동, 변경 가능한 상태를 가진다. 소프트웨어 안에서 객체는 저장된 상태와 실행가능한 코드를 통해 구현된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;상태&quot;&gt;상태&lt;/h3&gt;
+
+&lt;p&gt;객체가 주변 환경과의 상호작용에 어떻게 반응하는가는 그 시점까지 객체에 어떤 일이 발생했느냐에 좌우된다. 예를 들면 비행기를 타기 위해서는 항공권을 발권해야한다. 없다면 비행기를 탈 수 없고, 있다면 탈 수 있게될 것이다. 비행기를 발권여부에 대한 행동이 비행기 탑승에 영향을 미친다.&lt;/p&gt;
+
+&lt;p&gt;과거에 발생한 행동의 이력을 통해 현재 발생한 행동의 결과를 판단하는 방식은 복잡하고 번거로우며, 이해하기 쉽지 않다. 이를 단순하게 하기위해 &lt;strong&gt;상태&lt;/strong&gt;라는 개념을 만들게 된다. 위의 예시로 따지자면 항공권 소유여부를 상태로 만들어 이전에 비행기를 발권하는 행동을 했는지 설명과 예측이 가능해진다.&lt;/p&gt;
+
+&lt;p&gt;상태를 사용하면 과거에 얽매이지 않을 수 있다. 세상의 복잡성을 완화하고 인지 과부화를 줄이는 중요한 개념이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;상태와-프로퍼티&quot;&gt;상태와 프로퍼티&lt;/h3&gt;
+
+&lt;p&gt;모든 것을 객체로 표현할 수는 없다. 앨리스의 키는 객체가 아니다. 음료와 케이크의 양은 객체가 아니다. 상태로 표현되는 것들이다. 이러한 단순한 값들은 객체가 아니지만 객체의 상태를 표현하는 중요한 수단이 된다.&lt;/p&gt;
+
+&lt;p&gt;때로는 객체를 사용해 다른 객체의 상태를 표현해야할 수도 있다. 가장 간단하고 직관적이 방법은 앨리스의 상태 일부를 음료라는 객체를 이용해 표현하는 것이다. 앨리스가 음료를 들고 있을 경우 음료 객체를 상태로 표현하여 앨리스가 음료를 들고 있는 상태임을 나타내게할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;앨리스가 음료를 들고 있게될 경우, 앨리스와 음료 객체는 서로 연결되게된다.&lt;/p&gt;
+
+&lt;p&gt;결론적으로 모든 객체의 상태는 단순한 값과 객체의 조합으로 표현되며, 객체의 상태를 구성하는 모든 특징을 통틀어 객체의 &lt;strong&gt;프로퍼티(property)&lt;/strong&gt;라고한다. 일반적으로 프로퍼티는 변경되지 않고 고정되기 때문에 ‘정적’이다. 하지만 &lt;strong&gt;프로퍼티 값(property value)&lt;/strong&gt;은 시간의 흐름에 따라 변경되어 ‘동적’이다.&lt;/p&gt;
+
+&lt;p&gt;앨리스가 음료를 들고 있을 경우 두 객체는 서로 연결되어있다. 앨리스가 음료를 마시게 될 경우, 앨리스는 음료를 마셨다는 메시지를 음료 객체에 전달하게되고, 음료 객체는 이에 따라 상태를 변화시킬 것이다. 객체와 객체사이의 의미 있는 연결을 &lt;strong&gt;링크(link)&lt;/strong&gt;라고 한다.&lt;/p&gt;
+
+&lt;p&gt;링크와 달리 객체를 구성하는 단순한 값은 &lt;strong&gt;속성(attribute)&lt;/strong&gt;이라고 부른다. 앨리스의 키, 음료수의 양은 단순한 값으로 표현되므로 속성이다.&lt;/p&gt;
+
+&lt;p&gt;객체의 상태를 정의해보자, 이 책에서는 다음과 같이 정의한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;상태는 특정 시점에 객체가 가지고 있는 정보의 집합으로 객체의 구조적인 특징을 표현한다. 객체의 상태는 객체에 존재하는 정적인 프로퍼티와 동적인 프로퍼티 값으로 구성된다. 객체의 프로퍼티는 단순한 값과 다른 객체를 참조하는 링크로 구분할 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ETC" />
+      
+
+      
+        <summary type="html">객체지향의 사실과 오해 2장 : 상태</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">Spring framework 환경에서 git 세팅</title>
+      <link href="https://achasan.github.io/spring_git_setting" rel="alternate" type="text/html" title="Spring framework 환경에서 git 세팅" />
+      <published>2021-12-29T00:00:00+09:00</published>
+      <updated>2021-12-29T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/spring_git_setting</id>
+      <content type="html" xml:base="https://achasan.github.io/spring_git_setting">&lt;p&gt;기나긴 삽질 끝에 Spring을 사용하여 git 세팅하는 방법을 찾아냈다. 이전 프로젝트처럼 세팅하여 사용하면 될 줄 알았으나 JSP와 다르게 Spring에서는 Maven이라는 빌드 툴이 있어서 그런지 좀 더 디테일한 세팅이 필요한 것 같았다.&lt;/p&gt;
+
+&lt;p&gt;가장 중요한 점은 gitignore를 사용하여 메타데이터가 원격저장소에 push 되지 않도록 해야한다는 것이다. gitignore를 세팅하지않고 사용했더니 나중에는 다른 팀원들이 프로젝트를 불러오지 못하게되어, 결국 원격저장소를 새로 만들어야하는 상황까지 나오게 되었다.&lt;/p&gt;
+
+&lt;p&gt;Eclipse를 기준으로 스프링에서 git 세팅을 어떻게하는지 알아보자.&lt;/p&gt;
+
+&lt;h1 id=&quot;원격저장소로-프로젝트-파일-저장하기&quot;&gt;원격저장소로 프로젝트 파일 저장하기&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;1-gitignore-세팅하기&quot;&gt;1. gitignore 세팅하기&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-13-27.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;먼저 gitignore를 세팅해주어야 한다. 세팅방법은 생각보다 간단하다. &lt;a href=&quot;https://www.toptal.com/developers/gitignore&quot;&gt;gitignore.io&lt;/a&gt;사이트에서 자신이 사용하고 있는 스택을 적으면 이에 맞는 gitignore 코드를 생성해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-13-51.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;생성된 코드를 복사해준다. 이 코드는 GitHub에서 새로운 프로젝트를 만들면서 생성한 gitignore 파일에 추가해줄 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;2-github에서-새로운-프로젝트-생성&quot;&gt;2. GitHub에서 새로운 프로젝트 생성&lt;/h2&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-24-02.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;세팅이 완료되면 GitHub에서 새로운 저장소를 생성해준다. gitignore 파일을 추가해주고 파일 템플릿은 임의로 Java로 선택한다음 저장소를 생성해주었다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트가 생성되면 Eclipse에서 저장소를 clone해와야한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-26-17.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;정상적으로 clone이 되었다면 아래와 같이 working tree에 .gitignore 파일이 있어야한다. .gitignore파일에 있는 내용을 전부 지우고 gitignore.io에서 생성한 코드를 붙여넣기 해준다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-11-27-00.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;3-프로젝트와-github-저장소-연결&quot;&gt;3. 프로젝트와 GitHub 저장소 연결&lt;/h2&gt;
+
+&lt;p&gt;여기까지 되었다면 이제 연동하려는 프로젝트를 우클릭 후 [Team] - [Share Project]를 클릭한 후clone한 원격저장소와 연결시켜주면 된다. Finish를 누르기 전에 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Use or create repository in parent of project&lt;/code&gt; 문항을 체크할지를 결정하자. 웬만하면 체크를 해제하고 진행하는 것이 좋다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-16-44-16.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;이후 git staging에서 push하려는 파일이 올바르게 올라와 있는지 확인 후 push하면 원격저장소로 프로젝트 파일이 push되게 된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;원격-저장소에서-프로젝트-불러오기&quot;&gt;원격 저장소에서 프로젝트 불러오기&lt;/h1&gt;
+
+&lt;p&gt;push된 원격저장소를 다른 컴퓨터에서 간단하게 import 하는 방법을 알아보도록 하자.&lt;/p&gt;
+
+&lt;p&gt;원격저장소 URL을 가지고 clone한 다음, working tree에 있는 소스파일 폴더 이름을 우클릭 한 후 [import projects]를 클릭하여 소스폴더를 import 해올 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-17-07-15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;import를 하면 자동적으로 프로젝트가 생성되고, src 폴더 안에 소스파일이 포함되어 있는 것을 볼 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/spring_gitSetting/2022-01-29-17-09-15.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;생성된 프로젝트 폴더는 자동으로 원격저장소와 연결되며, 변경된 사항이 있을 경우 push하여 원격저장소에 저장할 수 있다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ETC" />
+      
+
+      
+        <summary type="html">기나긴 삽질 끝에 Spring을 사용하여 git 세팅하는 방법을 찾아냈다. 이전 프로젝트처럼 세팅하여 사용하면 될 줄 알았으나 JSP와 다르게 Spring에서는 Maven이라는 빌드 툴이 있어서 그런지 좀 더 디테일한 세팅이 필요한 것 같았다.</summary>
       
 
       
