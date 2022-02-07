@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/spring_basic_2" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/spring_basic_2" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[Spring:2] 컨테이너에서 빈 조회, XML 설정, 싱글턴, 컴포넌트 스캔과 DI" />
     <meta property="og:description" content="20211024 TIL : Spring Boot 컨테이너에 등록된 모든 빈 조회 AnnotationConfigApplicationContext 객체를 생성, 등록한 Application Bean을 조회할 수 있다. getBeanDefinitionNames() : 등록한 Bean의 이름을 배열로 리턴한다. String[] 으로 받아주는 것이 좋다. getBean(String beanName) : 파라미터의 이름을 가진 Bean의 객체주소를 반환한다. Object 타입으로 반환한다. getBeanDefinition(String beanName) : Bean의 대한 메타정보 객체를" />
-    <meta property="og:url" content="https://achasan.github.io/spring_basic_2" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta property="og:url" content="http://localhost:4000/spring_basic_2" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/spring.png" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-10-24T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[Spring:2] 컨테이너에서 빈 조회, XML 설정, 싱글턴, 컴포넌트 스캔과 DI" />
     <meta name="twitter:description" content="20211024 TIL : Spring Boot 컨테이너에 등록된 모든 빈 조회 AnnotationConfigApplicationContext 객체를 생성, 등록한 Application Bean을 조회할 수 있다. getBeanDefinitionNames() : 등록한 Bean의 이름을 배열로 리턴한다. String[] 으로 받아주는 것이 좋다. getBean(String beanName) : 파라미터의 이름을 가진 Bean의 객체주소를 반환한다. Object 타입으로 반환한다. getBeanDefinition(String beanName) : Bean의 대한 메타정보 객체를" />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/spring.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/spring_basic_2",
+    "url": "http://localhost:4000/spring_basic_2",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/spring.png",
+        "url": "http://localhost:4000/assets/images/spring.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/spring_basic_2"
+        "@id": "http://localhost:4000/spring_basic_2"
     },
     "description": "20211024 TIL : Spring Boot 컨테이너에 등록된 모든 빈 조회 AnnotationConfigApplicationContext 객체를 생성, 등록한 Application Bean을 조회할 수 있다. getBeanDefinitionNames() : 등록한 Bean의 이름을 배열로 리턴한다. String[] 으로 받아주는 것이 좋다. getBean(String beanName) : 파라미터의 이름을 가진 Bean의 객체주소를 반환한다. Object 타입으로 반환한다. getBeanDefinition(String beanName) : Bean의 대한 메타정보 객체를"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[Spring:2] 컨테이너에서 빈 조회, XML 설정, 싱글턴, 컴포넌트 스캔과 DI</a>
+    <ul><li><a href="#20211024-til--spring-boot">20211024 TIL : Spring Boot</a><ul><li><a href="#컨테이너에-등록된-모든-빈-조회">컨테이너에 등록된 모든 빈 조회</a></li><li><a href="#xml-설정-사용">XML 설정 사용</a></li><li><a href="#스프링-빈-설정-메타-정보---beandefinition">스프링 빈 설정 메타 정보 - BeanDefinition</a></li><li><a href="#싱글턴-패턴">싱글턴 패턴</a></li><li><a href="#싱글턴-컨테이너">싱글턴 컨테이너</a></li><li><a href="#싱글턴-방식의-주의점">싱글턴 방식의 주의점</a></li><li><a href="#configuration과-싱글톤">@Configuration과 싱글톤</a><ul><li><a href="#configuration을-사용하는-이유">@Configuration을 사용하는 이유</a></li></ul></li><li><a href="#컴포넌트-스캔과-의존관계-자동-주입">컴포넌트 스캔과 의존관계 자동 주입</a></li><li><a href="#정리">정리</a></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-springboot post tag-SpringBoot ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="24 October 2021">24 October 2021</time>
@@ -664,6 +674,13 @@ ac.getBean(MemberRepository.class)와 같다.</p>
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -730,7 +747,7 @@ ac.getBean(MemberRepository.class)와 같다.</p>
                         <footer class="read-next-card-footer">
                             <a href="/tag/springboot/">
                                 
-                                    See all 16 posts  →
+                                    See all 17 posts  →
                                 
                             </a>
                         </footer>
@@ -798,12 +815,12 @@ ac.getBean(MemberRepository.class)와 같다.</p>
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/spring_basic_1">
+            <a class="post-card-image-link" href="/thymeleaf">
                 <div class="post-card-image" style="background-image: url(/assets/images/spring.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/spring_basic_1">
+            <a class="post-card-content-link" href="/thymeleaf">
                 <header class="post-card-header">
                     
                         
@@ -813,12 +830,11 @@ ac.getBean(MemberRepository.class)와 같다.</p>
                         
                     
 
-                    <h2 class="post-card-title">[Spring:1] 등장배경, 객체지향 설계 5원칙(SOLID)</h2>
+                    <h2 class="post-card-title">[Spring MVC2] Thymeleaf 문법정리</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>20211019 TIL : Spring
-
+                        <p>
 </p>
                     
                 </section>
@@ -837,7 +853,7 @@ ac.getBean(MemberRepository.class)와 같다.</p>
                 <span class="reading-time">
                     
                     
-                        4 min read
+                        1 min read
                     
                 </span>
             </footer>
@@ -853,7 +869,7 @@ ac.getBean(MemberRepository.class)와 같다.</p>
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -895,7 +911,7 @@ ac.getBean(MemberRepository.class)와 같다.</p>
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

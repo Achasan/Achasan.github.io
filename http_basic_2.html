@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/http_basic_2" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/http_basic_2" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름" />
     <meta property="og:description" content="HTTP 웹 기본 지식 2 URI? URL? URN? 웹 공부를 하면서 URI, URL은 흔하게 들어보았으나 URN은 처음 들어봤다. 세 키워드의 차이점이 무엇인지 알아보자. URI URI(Uniform Resource Identifier)는 리소스를 식별하는 통합된 방법이다. Uniform : 리소스를 식별하는 통일된 방식 Resource : 자원, URI로 식별할 수 있는 모든 것(제한없음) Identifier : 다른 항목과" />
-    <meta property="og:url" content="https://achasan.github.io/http_basic_2" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta property="og:url" content="http://localhost:4000/http_basic_2" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/httpCover.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-10-29T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름" />
     <meta name="twitter:description" content="HTTP 웹 기본 지식 2 URI? URL? URN? 웹 공부를 하면서 URI, URL은 흔하게 들어보았으나 URN은 처음 들어봤다. 세 키워드의 차이점이 무엇인지 알아보자. URI URI(Uniform Resource Identifier)는 리소스를 식별하는 통합된 방법이다. Uniform : 리소스를 식별하는 통일된 방식 Resource : 자원, URI로 식별할 수 있는 모든 것(제한없음) Identifier : 다른 항목과" />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/httpCover.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/httpCover.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/http_basic_2",
+    "url": "http://localhost:4000/http_basic_2",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/httpCover.jpg",
+        "url": "http://localhost:4000/assets/images/httpCover.jpg",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/http_basic_2"
+        "@id": "http://localhost:4000/http_basic_2"
     },
     "description": "HTTP 웹 기본 지식 2 URI? URL? URN? 웹 공부를 하면서 URI, URL은 흔하게 들어보았으나 URN은 처음 들어봤다. 세 키워드의 차이점이 무엇인지 알아보자. URI URI(Uniform Resource Identifier)는 리소스를 식별하는 통합된 방법이다. Uniform : 리소스를 식별하는 통일된 방식 Resource : 자원, URI로 식별할 수 있는 모든 것(제한없음) Identifier : 다른 항목과"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름</a>
+    <ul><li><a href="#http-웹-기본-지식-2">HTTP 웹 기본 지식 2</a><ul><li><a href="#uri-url-urn">URI? URL? URN?</a><ul><li><a href="#uri">URI</a></li><li><a href="#url">URL</a></li><li><a href="#urn">URN</a></li></ul></li><li><a href="#urluri-분석하기">URL(URI) 분석하기</a></li><li><a href="#웹-브라우저-요청-흐름">웹 브라우저 요청 흐름</a></li><li><a href="#웹-브라우저-요청-전체적인-흐름-총-정리">[웹 브라우저 요청 전체적인 흐름 총 정리]</a></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-springboot post tag-SpringBoot ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="29 October 2021">29 October 2021</time>
@@ -616,6 +626,13 @@ Host: www.google.com</p>
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -682,7 +699,7 @@ Host: www.google.com</p>
                         <footer class="read-next-card-footer">
                             <a href="/tag/springboot/">
                                 
-                                    See all 16 posts  →
+                                    See all 17 posts  →
                                 
                             </a>
                         </footer>
@@ -805,7 +822,7 @@ Host: www.google.com</p>
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -847,7 +864,7 @@ Host: www.google.com</p>
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

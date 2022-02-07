@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/spring_basic_1" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/spring_basic_1" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[Spring:1] 등장배경, 객체지향 설계 5원칙(SOLID)" />
     <meta property="og:description" content="20211019 TIL : Spring 인프런에 정리한 내용은 여기 스프링 탄생 배경? 아무리 기술이 복잡하고 개념이 많더라도 처음에 나오는 핵심 컨셉은 굉장히 단순하게 시작한다. Spring도 처음에는 3만줄의 코드로 시작했지만 현재는 모든 것을 다 알기 힘들 정도의 거대한 생태계를 자랑한다. 왜 Spring이 좋은 기술이되었고 무엇때문에 이렇게까지 많은 프레임워크와 기술들이 발달하게 되었는지를 알아야한다." />
-    <meta property="og:url" content="https://achasan.github.io/spring_basic_1" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta property="og:url" content="http://localhost:4000/spring_basic_1" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/spring.png" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-10-19T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[Spring:1] 등장배경, 객체지향 설계 5원칙(SOLID)" />
     <meta name="twitter:description" content="20211019 TIL : Spring 인프런에 정리한 내용은 여기 스프링 탄생 배경? 아무리 기술이 복잡하고 개념이 많더라도 처음에 나오는 핵심 컨셉은 굉장히 단순하게 시작한다. Spring도 처음에는 3만줄의 코드로 시작했지만 현재는 모든 것을 다 알기 힘들 정도의 거대한 생태계를 자랑한다. 왜 Spring이 좋은 기술이되었고 무엇때문에 이렇게까지 많은 프레임워크와 기술들이 발달하게 되었는지를 알아야한다." />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/spring.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/spring_basic_1",
+    "url": "http://localhost:4000/spring_basic_1",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/spring.png",
+        "url": "http://localhost:4000/assets/images/spring.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/spring_basic_1"
+        "@id": "http://localhost:4000/spring_basic_1"
     },
     "description": "20211019 TIL : Spring 인프런에 정리한 내용은 여기 스프링 탄생 배경? 아무리 기술이 복잡하고 개념이 많더라도 처음에 나오는 핵심 컨셉은 굉장히 단순하게 시작한다. Spring도 처음에는 3만줄의 코드로 시작했지만 현재는 모든 것을 다 알기 힘들 정도의 거대한 생태계를 자랑한다. 왜 Spring이 좋은 기술이되었고 무엇때문에 이렇게까지 많은 프레임워크와 기술들이 발달하게 되었는지를 알아야한다."
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[Spring:1] 등장배경, 객체지향 설계 5원칙(SOLID)</a>
+    <ul><li><a href="#20211019-til--spring">20211019 TIL : Spring</a><ul><li><a href="#스프링-탄생-배경">스프링 탄생 배경?</a></li><li><a href="#좋은-객체-지향-설계의-5가지-원칙solid">좋은 객체 지향 설계의 5가지 원칙(SOLID)</a></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-springboot post tag-SpringBoot ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="19 October 2021">19 October 2021</time>
@@ -525,6 +535,13 @@ into the {body} of the default.hbs template -->
                                 
                                   
                                     
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
+                                    
                                   
                                 
                                   
@@ -594,7 +611,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/springboot/">
                                 
-                                    See all 16 posts  →
+                                    See all 17 posts  →
                                 
                             </a>
                         </footer>
@@ -608,12 +625,12 @@ into the {body} of the default.hbs template -->
 
     <article class="post-card post-template">
         
-            <a class="post-card-image-link" href="/spring_basic_2">
+            <a class="post-card-image-link" href="/thymeleaf">
                 <div class="post-card-image" style="background-image: url(/assets/images/spring.png)"></div>
             </a>
         
         <div class="post-card-content">
-            <a class="post-card-content-link" href="/spring_basic_2">
+            <a class="post-card-content-link" href="/thymeleaf">
                 <header class="post-card-header">
                     
                         
@@ -623,12 +640,11 @@ into the {body} of the default.hbs template -->
                         
                     
 
-                    <h2 class="post-card-title">[Spring:2] 컨테이너에서 빈 조회, XML 설정, 싱글턴, 컴포넌트 스캔과 DI</h2>
+                    <h2 class="post-card-title">[Spring MVC2] Thymeleaf 문법정리</h2>
                 </header>
                 <section class="post-card-excerpt">
                     
-                        <p>20211024 TIL : Spring Boot
-
+                        <p>
 </p>
                     
                 </section>
@@ -647,7 +663,7 @@ into the {body} of the default.hbs template -->
                 <span class="reading-time">
                     
                     
-                      13 min read
+                      1 min read
                     
                 </span>
             </footer>
@@ -717,7 +733,7 @@ into the {body} of the default.hbs template -->
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -759,7 +775,7 @@ into the {body} of the default.hbs template -->
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

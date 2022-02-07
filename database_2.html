@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/database_2" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/database_2" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="조건절 키워드(LIKE, ORDER BY, NOT), 시퀀스, JOIN, DUAL 테이블" />
     <meta property="og:description" content="오라클DB 공부 20210903 LIKE : 특정패턴을 가지고 있는 조건을 검색 LIKE는 WHERE 조건절 뒤에 오는 연산자로, 특정패턴을 가진 데이터를 검색하는 기능을 가지고 있다. 특정 패턴을 설정하는 방법은 ‘%’와 ‘_‘로 설정할 수 있다. % : 글자 수, 문자 제한이 없다. 무엇이든 와도 상관없다는 뜻으로 생각하면 편하다. _ : 글자수에 제한을 두고," />
-    <meta property="og:url" content="https://achasan.github.io/database_2" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/database.png" />
+    <meta property="og:url" content="http://localhost:4000/database_2" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/database.png" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-09-03T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="조건절 키워드(LIKE, ORDER BY, NOT), 시퀀스, JOIN, DUAL 테이블" />
     <meta name="twitter:description" content="오라클DB 공부 20210903 LIKE : 특정패턴을 가지고 있는 조건을 검색 LIKE는 WHERE 조건절 뒤에 오는 연산자로, 특정패턴을 가진 데이터를 검색하는 기능을 가지고 있다. 특정 패턴을 설정하는 방법은 ‘%’와 ‘_‘로 설정할 수 있다. % : 글자 수, 문자 제한이 없다. 무엇이든 와도 상관없다는 뜻으로 생각하면 편하다. _ : 글자수에 제한을 두고," />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/database.png" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/database.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/database_2",
+    "url": "http://localhost:4000/database_2",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/database.png",
+        "url": "http://localhost:4000/assets/images/database.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/database_2"
+        "@id": "http://localhost:4000/database_2"
     },
     "description": "오라클DB 공부 20210903 LIKE : 특정패턴을 가지고 있는 조건을 검색 LIKE는 WHERE 조건절 뒤에 오는 연산자로, 특정패턴을 가진 데이터를 검색하는 기능을 가지고 있다. 특정 패턴을 설정하는 방법은 ‘%’와 ‘_‘로 설정할 수 있다. % : 글자 수, 문자 제한이 없다. 무엇이든 와도 상관없다는 뜻으로 생각하면 편하다. _ : 글자수에 제한을 두고,"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">조건절 키워드(LIKE, ORDER BY, NOT), 시퀀스, JOIN, DUAL 테이블</a>
+    <ul><li><a href="#오라클db-공부-20210903">오라클DB 공부 20210903</a><ul><li><a href="#like--특정패턴을-가지고-있는-조건을-검색">LIKE : 특정패턴을 가지고 있는 조건을 검색</a></li><li><a href="#order-by--자료-정렬시-사용">ORDER BY : 자료 정렬시 사용</a></li><li><a href="#not--부정의-의미를-가진-키워드">NOT : 부정의 의미를 가진 키워드</a></li></ul></li><li><a href="#주로-사용하는-그룹함수">주로 사용하는 그룹함수</a></li><li><a href="#시퀀스sequence">시퀀스(SEQUENCE)</a><ul><li><a href="#시퀀스-생성">시퀀스 생성</a></li><li><a href="#cache_size">CACHE_SIZE</a><ul><li><a href="#시퀀스이름nextval--시퀀스의-다음-번호를-부여하는-문법">시퀀스이름.NEXTVAL : 시퀀스의 다음 번호를 부여하는 문법</a></li></ul></li><li><a href="#join--on">JOIN ~ ON</a></li></ul></li><li><a href="#dual-table--오라클에서-제공하는-함수">DUAL TABLE : 오라클에서 제공하는 함수</a><ul><li><a href="#날짜와-관련된-함수">날짜와 관련된 함수</a></li><li><a href="#문자와-관련된-함수">문자와 관련된 함수</a></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-basic post tag-Basic ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime=" 3 September 2021"> 3 September 2021</time>
@@ -467,6 +477,8 @@ WHERE E1.JOB = 'CLERK';
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
                                 
                                   
                                 
@@ -897,7 +909,7 @@ WHERE E1.JOB = 'CLERK';
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -939,7 +951,7 @@ WHERE E1.JOB = 'CLERK';
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

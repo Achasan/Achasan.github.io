@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/s4-Statistics" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/s4-Statistics" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[BOJ] 2018번 : 통계학" />
     <meta property="og:description" content="2018번 : 통계학 Link 문제 수를 처리하는 것은 통계학에서 상당히 중요한 일이다. 통계학에서 N개의 수를 대표하는 기본 통계값에는 다음과 같은 것들이 있다. 단, N은 홀수라고 가정하자. 산술평균 : N개의 수들의 합을 N으로 나눈 값 중앙값 : N개의 수들을 증가하는 순서로 나열했을 경우 그 중앙에 위치하는 값 최빈값 : N개의 수들" />
-    <meta property="og:url" content="https://achasan.github.io/s4-Statistics" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/baekjoon.png" />
+    <meta property="og:url" content="http://localhost:4000/s4-Statistics" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/baekjoon.png" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-12-23T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[BOJ] 2018번 : 통계학" />
     <meta name="twitter:description" content="2018번 : 통계학 Link 문제 수를 처리하는 것은 통계학에서 상당히 중요한 일이다. 통계학에서 N개의 수를 대표하는 기본 통계값에는 다음과 같은 것들이 있다. 단, N은 홀수라고 가정하자. 산술평균 : N개의 수들의 합을 N으로 나눈 값 중앙값 : N개의 수들을 증가하는 순서로 나열했을 경우 그 중앙에 위치하는 값 최빈값 : N개의 수들" />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/baekjoon.png" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/baekjoon.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/s4-Statistics",
+    "url": "http://localhost:4000/s4-Statistics",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/baekjoon.png",
+        "url": "http://localhost:4000/assets/images/baekjoon.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/s4-Statistics"
+        "@id": "http://localhost:4000/s4-Statistics"
     },
     "description": "2018번 : 통계학 Link 문제 수를 처리하는 것은 통계학에서 상당히 중요한 일이다. 통계학에서 N개의 수를 대표하는 기본 통계값에는 다음과 같은 것들이 있다. 단, N은 홀수라고 가정하자. 산술평균 : N개의 수들의 합을 N으로 나눈 값 중앙값 : N개의 수들을 증가하는 순서로 나열했을 경우 그 중앙에 위치하는 값 최빈값 : N개의 수들"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[BOJ] 2018번 : 통계학</a>
+    <ul><li><a href="#2018번--통계학-link">2018번 : 통계학 <a href="https://www.acmicpc.net/problem/2108">Link</a></a><ul><li><a href="#문제">문제</a></li><li><a href="#입력">입력</a></li><li><a href="#출력">출력</a><ul><li><a href="#코드">코드</a></li></ul></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-algorhythm post tag-Algorhythm ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="23 December 2021">23 December 2021</time>
@@ -581,6 +591,8 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                
+                                  
                                     
                                         
                                         
@@ -771,7 +783,7 @@ into the {body} of the default.hbs template -->
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -813,7 +825,7 @@ into the {body} of the default.hbs template -->
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/spring_basic_8" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/spring_basic_8" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[Spring:8] 빈 생명주기" />
     <meta property="og:description" content="빈 생명주기 콜백 스프링 빈은 간단한 라이프사이클을 가진다 객체 생성 &gt; 의존관계 주입 스프링 빈은 객체를 생성하고 의존관계 주입이 다 끝난 다음이 되야 필요한 데이터를 사용할 수 있는 준비가 완료된다. 초기화 작업은 의존관계 주입이 모두 완료되고 난 다음에 호출해야한다. 그렇다면 개발자가 의존관계 주입이 모두 완료된 시점을 어떻게 알 수 있을까?" />
-    <meta property="og:url" content="https://achasan.github.io/spring_basic_8" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta property="og:url" content="http://localhost:4000/spring_basic_8" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/spring.png" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-10-28T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[Spring:8] 빈 생명주기" />
     <meta name="twitter:description" content="빈 생명주기 콜백 스프링 빈은 간단한 라이프사이클을 가진다 객체 생성 &gt; 의존관계 주입 스프링 빈은 객체를 생성하고 의존관계 주입이 다 끝난 다음이 되야 필요한 데이터를 사용할 수 있는 준비가 완료된다. 초기화 작업은 의존관계 주입이 모두 완료되고 난 다음에 호출해야한다. 그렇다면 개발자가 의존관계 주입이 모두 완료된 시점을 어떻게 알 수 있을까?" />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/spring.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/spring_basic_8",
+    "url": "http://localhost:4000/spring_basic_8",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/spring.png",
+        "url": "http://localhost:4000/assets/images/spring.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/spring_basic_8"
+        "@id": "http://localhost:4000/spring_basic_8"
     },
     "description": "빈 생명주기 콜백 스프링 빈은 간단한 라이프사이클을 가진다 객체 생성 &gt; 의존관계 주입 스프링 빈은 객체를 생성하고 의존관계 주입이 다 끝난 다음이 되야 필요한 데이터를 사용할 수 있는 준비가 완료된다. 초기화 작업은 의존관계 주입이 모두 완료되고 난 다음에 호출해야한다. 그렇다면 개발자가 의존관계 주입이 모두 완료된 시점을 어떻게 알 수 있을까?"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[Spring:8] 빈 생명주기</a>
+    <ul><li><a href="#빈-생명주기-콜백">빈 생명주기 콜백</a><ul><li><a href="#인터페이스-initializingbean-disposablebean">인터페이스 InitializingBean, DisposableBean</a></li><li><a href="#빈-등록-초기화-소멸-메서드">빈 등록 초기화, 소멸 메서드</a></li><li><a href="#생명주기-애노테이션-postconstruct-predestroy">생명주기 애노테이션 @PostConstruct, @PreDestroy</a></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-springboot post tag-SpringBoot ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="28 October 2021">28 October 2021</time>
@@ -604,6 +614,13 @@ into the {body} of the default.hbs template -->
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -670,7 +687,7 @@ into the {body} of the default.hbs template -->
                         <footer class="read-next-card-footer">
                             <a href="/tag/springboot/">
                                 
-                                    See all 16 posts  →
+                                    See all 17 posts  →
                                 
                             </a>
                         </footer>
@@ -793,7 +810,7 @@ into the {body} of the default.hbs template -->
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -835,7 +852,7 @@ into the {body} of the default.hbs template -->
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

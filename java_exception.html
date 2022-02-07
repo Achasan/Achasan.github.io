@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/java_exception" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/java_exception" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[Java] 예외와 예외클래스(Exception)" />
     <meta property="og:description" content="예외와 예외클래스 이것이 자바다 10장 Error와 예외(Exception)의 차이점. 💡 *ERROR : 컴퓨터 하드웨어의 오동작, 또는 고장으로 인한 응용프로그램 실행오류 발생 Exception : 사용자의 잘못된 조작 또는 개발자의 잘못된 코딩으로 인하여 발생하는 프로그램 오류* 둘 다 발생 시 프로그램이 종료된다는 점은 공통점이지만, 예외는 예외 처리(Exception Handling)를 통해 프로그램을 종료하지 않고 정상" />
-    <meta property="og:url" content="https://achasan.github.io/java_exception" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta property="og:url" content="http://localhost:4000/java_exception" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/java.jfif" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-09-02T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[Java] 예외와 예외클래스(Exception)" />
     <meta name="twitter:description" content="예외와 예외클래스 이것이 자바다 10장 Error와 예외(Exception)의 차이점. 💡 *ERROR : 컴퓨터 하드웨어의 오동작, 또는 고장으로 인한 응용프로그램 실행오류 발생 Exception : 사용자의 잘못된 조작 또는 개발자의 잘못된 코딩으로 인하여 발생하는 프로그램 오류* 둘 다 발생 시 프로그램이 종료된다는 점은 공통점이지만, 예외는 예외 처리(Exception Handling)를 통해 프로그램을 종료하지 않고 정상" />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/java.jfif" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/java_exception",
+    "url": "http://localhost:4000/java_exception",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/java.jfif",
+        "url": "http://localhost:4000/assets/images/java.jfif",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/java_exception"
+        "@id": "http://localhost:4000/java_exception"
     },
     "description": "예외와 예외클래스 이것이 자바다 10장 Error와 예외(Exception)의 차이점. 💡 *ERROR : 컴퓨터 하드웨어의 오동작, 또는 고장으로 인한 응용프로그램 실행오류 발생 Exception : 사용자의 잘못된 조작 또는 개발자의 잘못된 코딩으로 인하여 발생하는 프로그램 오류* 둘 다 발생 시 프로그램이 종료된다는 점은 공통점이지만, 예외는 예외 처리(Exception Handling)를 통해 프로그램을 종료하지 않고 정상"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[Java] 예외와 예외클래스(Exception)</a>
+    <ul><li><a href="#예외와-예외클래스">예외와 예외클래스</a></li><li><a href="#exception">Exception</a><ul><li><a href="#runtimeexception">RuntimeException</a><ul><li><a href="#nullpointerexception">NullpointerException</a></li><li><a href="#arrayindexoutofboundsexception">ArrayIndexOutOfBoundsException</a></li><li><a href="#numberformatexception">NumberFormatException</a></li><li><a href="#classcastexception">ClassCastException</a></li></ul></li><li><a href="#예외-처리-코드">예외 처리 코드</a><ul><li><a href="#다중-catch">다중 catch</a></li><li><a href="#catch-순서">catch 순서</a></li><li><a href="#멀티-catch">멀티 Catch</a></li></ul></li><li><a href="#예외-떠넘기기-throws">예외 떠넘기기 (throws)</a></li><li><a href="#사용자-정의-예외-application-exception">사용자 정의 예외 (Application Exception)</a></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-basic post tag-Basic ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime=" 2 September 2021"> 2 September 2021</time>
@@ -475,6 +485,8 @@ Exception : 사용자의 잘못된 조작 또는 개발자의 잘못된 코딩�
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
                                 
                                   
                                 
@@ -905,7 +917,7 @@ Exception : 사용자의 잘못된 조작 또는 개발자의 잘못된 코딩�
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -947,7 +959,7 @@ Exception : 사용자의 잘못된 조작 또는 개발자의 잘못된 코딩�
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

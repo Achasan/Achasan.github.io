@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/java_array" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/java_array" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[Java] 배열(Array)" />
     <meta property="og:description" content="배열(Array) 2021.08.06 배열(Array) 배열이란 하나의 이름으로 동일한 자료형의 데이터를 여러 개 연속적으로 저장할 수 있는 메모리 공간을 할당받는 것을 말한다. 이전에 변수선언을 하면 하나의 값만 저장이 가능했지만, 배열을 사용한다면 여러 개의 값을 저장할 수 있다. 배열은 선언과 동시에 저장할 수 있는 자료형의 타입이 결정된다. 따라서 저장하는 데이터의 값들은 모두 ‘동일한" />
-    <meta property="og:url" content="https://achasan.github.io/java_array" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta property="og:url" content="http://localhost:4000/java_array" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/java.jfif" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-08-06T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[Java] 배열(Array)" />
     <meta name="twitter:description" content="배열(Array) 2021.08.06 배열(Array) 배열이란 하나의 이름으로 동일한 자료형의 데이터를 여러 개 연속적으로 저장할 수 있는 메모리 공간을 할당받는 것을 말한다. 이전에 변수선언을 하면 하나의 값만 저장이 가능했지만, 배열을 사용한다면 여러 개의 값을 저장할 수 있다. 배열은 선언과 동시에 저장할 수 있는 자료형의 타입이 결정된다. 따라서 저장하는 데이터의 값들은 모두 ‘동일한" />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/java.jfif" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/java.jfif" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/java_array",
+    "url": "http://localhost:4000/java_array",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/java.jfif",
+        "url": "http://localhost:4000/assets/images/java.jfif",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/java_array"
+        "@id": "http://localhost:4000/java_array"
     },
     "description": "배열(Array) 2021.08.06 배열(Array) 배열이란 하나의 이름으로 동일한 자료형의 데이터를 여러 개 연속적으로 저장할 수 있는 메모리 공간을 할당받는 것을 말한다. 이전에 변수선언을 하면 하나의 값만 저장이 가능했지만, 배열을 사용한다면 여러 개의 값을 저장할 수 있다. 배열은 선언과 동시에 저장할 수 있는 자료형의 타입이 결정된다. 따라서 저장하는 데이터의 값들은 모두 ‘동일한"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[Java] 배열(Array)</a>
+    <ul><li><a href="#배열array">배열(Array)</a></li><li><a href="#배열array-1">배열(Array)</a><ul><li><a href="#배열-선언과-생성">배열 선언과 생성</a><ul><li><a href="#배열의-생성과정">배열의 생성과정</a></li><li><a href="#선언된-배열의-길이와-인덱스">선언된 배열의 길이와 인덱스</a></li><li><a href="#배열의-초기화">배열의 초기화</a></li></ul></li><li><a href="#string-배열">String 배열</a></li><li><a href="#다차원-배열">다차원 배열</a><ul><li><a href="#2차원-배열의-초기화">2차원 배열의 초기화</a></li><li><a href="#2차원-배열의-길이-데이터-관리">2차원 배열의 길이, 데이터 관리</a></li><li><a href="#가변-배열">가변 배열</a></li></ul></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-basic post tag-Basic ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime=" 6 August 2021"> 6 August 2021</time>
@@ -471,6 +481,8 @@ into the {body} of the default.hbs template -->
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
                                 
                                   
                                 
@@ -901,7 +913,7 @@ into the {body} of the default.hbs template -->
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -943,7 +955,7 @@ into the {body} of the default.hbs template -->
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/html_css_tag" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/html_css_tag" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[HTML] form 태그, input 태그, css 박스모델" />
     <meta property="og:description" content="20210929 수업 내용 form 태그, input 태그 세부내용 form 태그 : 사용자에게 입력받을 데이터 양식을 설정하는 태그이다. input 태그를 사용하여 사용자로부터 데이터 입력을 받을 수 있는 항목을 만들 수 있다. input 태그의 속성을 사용하여 다양한 타입의 데이터 입력항목을 만들 수 있다. 여러가지가 있지만 자주 사용하는 속성 위주로 정리하였다. autocomplate :" />
-    <meta property="og:url" content="https://achasan.github.io/html_css_tag" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/css_html_js.jfif" />
+    <meta property="og:url" content="http://localhost:4000/html_css_tag" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/css_html_js.jfif" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-09-29T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[HTML] form 태그, input 태그, css 박스모델" />
     <meta name="twitter:description" content="20210929 수업 내용 form 태그, input 태그 세부내용 form 태그 : 사용자에게 입력받을 데이터 양식을 설정하는 태그이다. input 태그를 사용하여 사용자로부터 데이터 입력을 받을 수 있는 항목을 만들 수 있다. input 태그의 속성을 사용하여 다양한 타입의 데이터 입력항목을 만들 수 있다. 여러가지가 있지만 자주 사용하는 속성 위주로 정리하였다. autocomplate :" />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/css_html_js.jfif" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/css_html_js.jfif" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/html_css_tag",
+    "url": "http://localhost:4000/html_css_tag",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/css_html_js.jfif",
+        "url": "http://localhost:4000/assets/images/css_html_js.jfif",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/html_css_tag"
+        "@id": "http://localhost:4000/html_css_tag"
     },
     "description": "20210929 수업 내용 form 태그, input 태그 세부내용 form 태그 : 사용자에게 입력받을 데이터 양식을 설정하는 태그이다. input 태그를 사용하여 사용자로부터 데이터 입력을 받을 수 있는 항목을 만들 수 있다. input 태그의 속성을 사용하여 다양한 타입의 데이터 입력항목을 만들 수 있다. 여러가지가 있지만 자주 사용하는 속성 위주로 정리하였다. autocomplate :"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[HTML] form 태그, input 태그, css 박스모델</a>
+    <ul><li><a href="#20210929-수업-내용">20210929 수업 내용</a><ul><li><a href="#form-태그-input-태그-세부내용">form 태그, input 태그 세부내용</a></li><li><a href="#시맨틱-태그">시맨틱 태그</a></li></ul></li><li><a href="#html-css-js-책-공부">html, css, js 책 공부</a><ul><li><a href="#css-초기화">CSS 초기화</a></li></ul></li><li><a href="#박스모델-이해하기">박스모델 이해하기</a><ul><li><a href="#block-inline-inline-block">block, inline, inline-block</a></li><li><a href="#padding과-margin의-차이">padding과 margin의 차이</a></li></ul></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-basic post tag-Basic ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="29 September 2021">29 September 2021</time>
@@ -473,6 +483,8 @@ margin은 태그를 포함하지않는다. 두 속성의 width를 모두 10px로
                         <div class="read-next-card-content">
                             <ul>
                                 
+                                
+                                  
                                 
                                   
                                 
@@ -903,7 +915,7 @@ margin은 태그를 포함하지않는다. 두 속성의 width를 모두 10px로
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -945,7 +957,7 @@ margin은 태그를 포함하지않는다. 두 속성의 width를 모두 10px로
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

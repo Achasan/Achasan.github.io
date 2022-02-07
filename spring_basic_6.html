@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/spring_basic_6" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/spring_basic_6" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="[Spring:6] 추상체에 주입하려는 구현체(빈)가 여러 개 일 때" />
     <meta property="og:description" content="의존관계 자동 주입 어노테이션 설정방법 조회하려는 빈이 2개 이상일 때 깃을 통해서 코드를 받아도 무조건 테스트를 돌려야한다. 테스트가 모두 통과된 상태에서 내 코드를 짜야한다. 테스트가 전부 통과된 깔끔한 상태에서 하지 않으면 내가 상대방의 코드를 수정해줘야되는 상황이 발생하게된다. @Autowired는 기본적으로 타입으로 조회한다. 만약 생성자 주입으로 DiscountPolicy 타입을 받아올 때 등록된 Bean이" />
-    <meta property="og:url" content="https://achasan.github.io/spring_basic_6" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta property="og:url" content="http://localhost:4000/spring_basic_6" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/spring.png" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2021-10-28T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="[Spring:6] 추상체에 주입하려는 구현체(빈)가 여러 개 일 때" />
     <meta name="twitter:description" content="의존관계 자동 주입 어노테이션 설정방법 조회하려는 빈이 2개 이상일 때 깃을 통해서 코드를 받아도 무조건 테스트를 돌려야한다. 테스트가 모두 통과된 상태에서 내 코드를 짜야한다. 테스트가 전부 통과된 깔끔한 상태에서 하지 않으면 내가 상대방의 코드를 수정해줘야되는 상황이 발생하게된다. @Autowired는 기본적으로 타입으로 조회한다. 만약 생성자 주입으로 DiscountPolicy 타입을 받아올 때 등록된 Bean이" />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/spring.png" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/spring.png" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/spring_basic_6",
+    "url": "http://localhost:4000/spring_basic_6",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/spring.png",
+        "url": "http://localhost:4000/assets/images/spring.png",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/spring_basic_6"
+        "@id": "http://localhost:4000/spring_basic_6"
     },
     "description": "의존관계 자동 주입 어노테이션 설정방법 조회하려는 빈이 2개 이상일 때 깃을 통해서 코드를 받아도 무조건 테스트를 돌려야한다. 테스트가 모두 통과된 상태에서 내 코드를 짜야한다. 테스트가 전부 통과된 깔끔한 상태에서 하지 않으면 내가 상대방의 코드를 수정해줘야되는 상황이 발생하게된다. @Autowired는 기본적으로 타입으로 조회한다. 만약 생성자 주입으로 DiscountPolicy 타입을 받아올 때 등록된 Bean이"
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[Spring:6] 추상체에 주입하려는 구현체(빈)가 여러 개 일 때</a>
+    <ul><li><a href="#의존관계-자동-주입-어노테이션-설정방법">의존관계 자동 주입 어노테이션 설정방법</a><ul><li><a href="#조회하려는-빈이-2개-이상일-때">조회하려는 빈이 2개 이상일 때</a></li><li><a href="#autowired-필드명-qualifier-primary">@Autowired 필드명, @Qualifier, @Primary</a></li><li><a href="#autowired의-작동방식-빈-별칭-지정-qualifier">@Autowired의 작동방식, 빈 별칭 지정 @Qualifier</a></li><li><a href="#qualifier-정리">@Qualifier 정리</a></li><li><a href="#같은-타입의-빈-호출-시-우선순위-정하기-primary">같은 타입의 빈 호출 시 우선순위 정하기 @Primary</a></li><li><a href="#애노테이션-직접-만들기">애노테이션 직접 만들기</a></li><li><a href="#조회한-빈이-모두-필요할-때-list-map">조회한 빈이 모두 필요할 때, List, Map</a></li><li><a href="#자동-수동의-올바른-실무-운영-기준">자동 수동의 올바른 실무 운영 기준</a></li><li><a href="#편리한-자동-기능을-기본으로-사용하자">편리한 자동 기능을 기본으로 사용하자.</a></li><li><a href="#정리">정리</a></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-springboot post tag-SpringBoot ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime="28 October 2021">28 October 2021</time>
@@ -716,6 +726,13 @@ DiscountService 클래스에는 discount 메서드가 있다. 파라미터로는
                                   
                                 
                                   
+                                    
+                                        
+                                        
+                                    
+                                  
+                                
+                                  
                                 
                                   
                                 
@@ -782,7 +799,7 @@ DiscountService 클래스에는 discount 메서드가 있다. 파라미터로는
                         <footer class="read-next-card-footer">
                             <a href="/tag/springboot/">
                                 
-                                    See all 16 posts  →
+                                    See all 17 posts  →
                                 
                             </a>
                         </footer>
@@ -905,7 +922,7 @@ DiscountService 클래스에는 discount 메서드가 있다. 파라미터로는
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -947,7 +964,7 @@ DiscountService 클래스에는 discount 메서드가 있다. 파라미터로는
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>

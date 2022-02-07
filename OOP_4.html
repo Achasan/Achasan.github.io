@@ -30,6 +30,10 @@
     <!-- highlight.js -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
     <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="../assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
     <!--[if IE]>
@@ -45,8 +49,8 @@
     
     <!-- This tag outputs SEO meta+structured data and other important settings -->
     <meta name="description" content="by Achasan" />
-    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
-    <link rel="canonical" href="https://achasan.github.io/OOP_4" />
+    <link rel="shortcut icon" href="http://localhost:4000/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="http://localhost:4000/OOP_4" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
     <!-- Google Search Console -->
@@ -67,8 +71,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:title" content="객체지향의 사실과 오해 3장 : 타입" />
     <meta property="og:description" content="객체지향의 사실과 오해 3장 : 타입과 추상화 해당 글은 이전에 올린 글을 이어서 작성한 것이다. (링크) 타입 타입의 정의는 개념의 정의와 완전히 동일하다. 타입은 공통점을 기반으로 객체들을 묶기 위한 틀이다. 타입은 개념과 마찬가지로 심볼, 내연, 외연을 이용해 서술할 수 있고, 타입에 속하는 객체 역시 타입의 인스턴스라고 한다. 타입은 개념과 동일하다." />
-    <meta property="og:url" content="https://achasan.github.io/OOP_4" />
-    <meta property="og:image" content="https://achasan.github.io/assets/images/OOP_cover.jpg" />
+    <meta property="og:url" content="http://localhost:4000/OOP_4" />
+    <meta property="og:image" content="http://localhost:4000/assets/images/OOP_cover.jpg" />
     <meta property="article:publisher" content="https://www.facebook.com/false" />
     <meta property="article:author" content="https://www.facebook.com/false" />
     <meta property="article:published_time" content="2022-01-02T00:00:00+09:00" />
@@ -77,8 +81,8 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="객체지향의 사실과 오해 3장 : 타입" />
     <meta name="twitter:description" content="객체지향의 사실과 오해 3장 : 타입과 추상화 해당 글은 이전에 올린 글을 이어서 작성한 것이다. (링크) 타입 타입의 정의는 개념의 정의와 완전히 동일하다. 타입은 공통점을 기반으로 객체들을 묶기 위한 틀이다. 타입은 개념과 마찬가지로 심볼, 내연, 외연을 이용해 서술할 수 있고, 타입에 속하는 객체 역시 타입의 인스턴스라고 한다. 타입은 개념과 동일하다." />
-    <meta name="twitter:url" content="https://achasan.github.io/" />
-    <meta name="twitter:image" content="https://achasan.github.io/assets/images/OOP_cover.jpg" />
+    <meta name="twitter:url" content="http://localhost:4000/" />
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/OOP_cover.jpg" />
     <meta name="twitter:label1" content="Written by" />
     <meta name="twitter:data1" content="Memory Repo." />
     <meta name="twitter:label2" content="Filed under" />
@@ -95,18 +99,18 @@
     "publisher": {
         "@type": "Organization",
         "name": "Memory Repo.",
-        "logo": "https://achasan.github.io/false"
+        "logo": "http://localhost:4000/false"
     },
-    "url": "https://achasan.github.io/OOP_4",
+    "url": "http://localhost:4000/OOP_4",
     "image": {
         "@type": "ImageObject",
-        "url": "https://achasan.github.io/assets/images/OOP_cover.jpg",
+        "url": "http://localhost:4000/assets/images/OOP_cover.jpg",
         "width": 2000,
         "height": 666
     },
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://achasan.github.io/OOP_4"
+        "@id": "http://localhost:4000/OOP_4"
     },
     "description": "객체지향의 사실과 오해 3장 : 타입과 추상화 해당 글은 이전에 올린 글을 이어서 작성한 것이다. (링크) 타입 타입의 정의는 개념의 정의와 완전히 동일하다. 타입은 공통점을 기반으로 객체들을 묶기 위한 틀이다. 타입은 개념과 마찬가지로 심볼, 내연, 외연을 이용해 서술할 수 있고, 타입에 속하는 객체 역시 타입의 인스턴스라고 한다. 타입은 개념과 동일하다."
 }
@@ -140,7 +144,7 @@ into the {body} of the default.hbs template -->
     <div class="site-nav-left">
         
             
-                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+                <a class="site-nav-logo" href="http://localhost:4000/">Memory Repo.</a>
             
         
         
@@ -171,12 +175,18 @@ into the {body} of the default.hbs template -->
 
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">객체지향의 사실과 오해 3장 : 타입</a>
+    <ul><li><a href="#객체지향의-사실과-오해-3장--타입과-추상화">객체지향의 사실과 오해 3장 : 타입과 추상화</a><ul><li><a href="#타입">타입</a><ul><li><a href="#객체와-타입">객체와 타입</a></li><li><a href="#행동이-우선이다">행동이 우선이다.</a></li><li><a href="#일반화특수화-관계">일반화/특수화 관계</a></li><li><a href="#슈퍼타입과-서브타입">슈퍼타입과 서브타입</a></li></ul></li><li><a href="#타입의-목적">타입의 목적</a><ul><li><a href="#결국-타입은-추상화다">결국 타입은 추상화다</a></li><li><a href="#동적-모델과-정적-모델">동적 모델과 정적 모델</a></li></ul></li></ul></li></ul>
+
+</div>
 
 <main id="site-main" class="site-main outer" role="main">
+
     <div class="inner">
 
         <article class="post-full  tag-etc post tag-ETC ">
-
+            
             <header class="post-full-header">
                 <section class="post-full-meta">
                     <time class="post-full-meta-date" datetime=" 2 January 2022"> 2 January 2022</time>
@@ -583,6 +593,8 @@ into the {body} of the default.hbs template -->
                                 
                                   
                                 
+                                  
+                                
                             </ul>
                         </div>
                         <footer class="read-next-card-footer">
@@ -711,7 +723,7 @@ into the {body} of the default.hbs template -->
 <!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
 <div class="floating-header">
     <div class="floating-header-logo">
-        <a href="https://achasan.github.io/">
+        <a href="http://localhost:4000/">
             
             <span>Memory Repo.</span>
         </a>
@@ -753,7 +765,7 @@ into the {body} of the default.hbs template -->
         <!-- The footer at the very bottom of the screen -->
         <footer class="site-footer outer">
             <div class="site-footer-content inner">
-                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="copyright"><a href="http://localhost:4000/">Memory Repo.</a> &copy; 2022</section>
                 <section class="poweredby">
                     hmin4957@naver.com
                 </section>
