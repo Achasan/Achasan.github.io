@@ -160,6 +160,7 @@ into the {body} of the default.hbs template -->
     </div>
     <div class="site-nav-right">
         <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/all-posts/">All Posts</a></li>
             <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
         </ul>
         <div class="social-links">
@@ -236,7 +237,7 @@ into the {body} of the default.hbs template -->
 
 <h3 id="블럭-">블럭 {}</h3>
 
-<p>괄호 {}를 이용해서 여러 문장을 한 묶음으로 묶을 수 있는데 이를 블럭(block)이라고 명한다. 블럭은 괄호 내에 문장을 작성하기만 하면 된다. 단, 블럭은 끝 괄호 } 에 세미콜론(;)을 붙이지 않는다음 점을 알아야한다.  if문의 실행문이 한 줄일경우에는 블럭을 사용안해도 문장이 실행되지만, 두 줄 이상 실행구문을 작성할 때에는 블럭을 작성해 주는 것이 코드의 가독성을 높일 수 있는 방법이다.</p>
+<p>괄호 {}를 이용해서 여러 문장을 한 묶음으로 묶을 수 있는데 이를 블럭(block)이라고 명한다. 블럭은 괄호 내에 문장을 작성하기만 하면 된다. 단, 블럭은 끝 괄호 } 에 세미콜론(;)을 붙이지 않는다음 점을 알아야한다. if문의 실행문이 한 줄일경우에는 블럭을 사용안해도 문장이 실행되지만, 두 줄 이상 실행구문을 작성할 때에는 블럭을 작성해 주는 것이 코드의 가독성을 높일 수 있는 방법이다.</p>
 
 <h3 id="if---else-문">if - else 문</h3>
 
@@ -277,7 +278,7 @@ into the {body} of the default.hbs template -->
 	<span class="k">if</span><span class="o">(</span><span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// score가 90점 이상일 경우</span>
 		<span class="k">if</span><span class="o">(</span><span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">95</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// score가 90점 이상인 경우에 score가 95점 이상인지 확인</span>
 			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A+ 학점입니다."</span><span class="o">);</span> <span class="c1">// true일 경우 실행문</span>
-		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span> 
+		<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
 			<span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"A 학점입니다."</span><span class="o">);</span> <span class="c1">// false일 경우 실행문</span>
 		<span class="o">}</span>
 	<span class="o">}</span> <span class="k">else</span> <span class="o">{</span> <span class="c1">// score가 90점 이상이 아닐 경우</span>
@@ -286,7 +287,7 @@ into the {body} of the default.hbs template -->
 
 </code></pre></div></div>
 
-<p>다음의 코드에서는 score 변수를 95라고 선언하고,  조건문에 대입하였다. score가 90점 이상인 경우에는 95점 이상인지 한번 더 if문이 실행된다. 95점 이상일 경우에는 A+ 학점이라고 출력되도록 하였고, 90점 이상이지만 95점 이상은 아닐 시에는 A 학점이 출력되도록 작성하였다.</p>
+<p>다음의 코드에서는 score 변수를 95라고 선언하고, 조건문에 대입하였다. score가 90점 이상인 경우에는 95점 이상인지 한번 더 if문이 실행된다. 95점 이상일 경우에는 A+ 학점이라고 출력되도록 하였고, 90점 이상이지만 95점 이상은 아닐 시에는 A 학점이 출력되도록 작성하였다.</p>
 
 <p>만약 score가 90점 이상이 아닐 경우에는 점수가 90점 미만이라는 출력을 실행하는 else 구문을 사용하여 조건문을 끝마치도록 작성하였다.</p>
 
@@ -346,11 +347,11 @@ into the {body} of the default.hbs template -->
 
 <h1 id="반복문--while-do-while-for-문">반복문 : while, do-while, for 문</h1>
 
-<p>반복문은 어떤 작업이 반복적인 수행을 하도록 할 수 있으며, 반복문의 종류로는 for문과  while, do-whild문이 있다. 반복문은 조건식의 결과가 참이면 문장을 반복적으로 수행하고 거짓이 나올 때까지 이 수행작업은 반복된다. for문은 주로 반복횟수를 알고 있을 때 많이 사용하며, whild문은 반복횟수를 알 수 없을 때 사용된다.</p>
+<p>반복문은 어떤 작업이 반복적인 수행을 하도록 할 수 있으며, 반복문의 종류로는 for문과 while, do-whild문이 있다. 반복문은 조건식의 결과가 참이면 문장을 반복적으로 수행하고 거짓이 나올 때까지 이 수행작업은 반복된다. for문은 주로 반복횟수를 알고 있을 때 많이 사용하며, whild문은 반복횟수를 알 수 없을 때 사용된다.</p>
 
 <h2 id="while문">while문</h2>
 
-<p>whild문은 if문처럼 조건식과 블럭 {}만으로 이루어져 있다. 하지만  if문과 달리 while문은 조건식이 false를 반환할 때까지 문장을 반복실행한다.</p>
+<p>whild문은 if문처럼 조건식과 블럭 {}만으로 이루어져 있다. 하지만 if문과 달리 while문은 조건식이 false를 반환할 때까지 문장을 반복실행한다.</p>
 
 <p>조건식을 먼저 확인하여 조건식이 거짓이면 while문 전체를 벗어나고, 조건식이 true이면 while문을 실행한다. 조건식이 false를 반환할 때까지 계속 반복된다.</p>
 

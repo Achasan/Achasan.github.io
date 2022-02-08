@@ -4,7 +4,7 @@
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
   <link href="https://achasan.github.io/tag/basic/feed.xml" rel="self" type="application/atom+xml" />
   <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-08T15:38:39+09:00</updated>
+  <updated>2022-02-08T19:53:46+09:00</updated>
   <id>https://achasan.github.io/tag/basic/feed.xml</id>
 
   
@@ -1491,10 +1491,10 @@ git repository에 있는 .gitignore 파일에 붙여넣기해주면 push할 때 
 &lt;p&gt;gitignore.io 에서도 .project 파일과 .classpath 파일을 ignore하는 항목이 없어서 따로 추가해 주었다.&lt;/p&gt;
 
 &lt;p&gt;# Eclipse Core
-   .project&lt;/p&gt;
+.project&lt;/p&gt;
 
 &lt;p&gt;# JDT-specific (Eclipse Java Development Tools)
-   .classpath&lt;/p&gt;
+.classpath&lt;/p&gt;
 
 &lt;p&gt;위 항목들을 .gitignore 파일에 추가해주면 .project와 .classpath 파일이 push 할 때 적용되지 않는다.&lt;/p&gt;</content>
 
@@ -1555,7 +1555,7 @@ JComboBox를 사용한다.&lt;/p&gt;
 가져온 컬럼데이터를 JComboBox에 넣어주었다. 전체적인 코드의 내용은 어제 배웠던 내용과 동일하고,
 JComboBox부분만 구현하는 것에 중점을 맞추었다.&lt;/p&gt;
 
-&lt;p&gt;일단 구현은 GUI가 구현되어있는 생성자에 JComboBox 컴포넌트에 addItem() 메소드를 사용하여 
+&lt;p&gt;일단 구현은 GUI가 구현되어있는 생성자에 JComboBox 컴포넌트에 addItem() 메소드를 사용하여
 각 컬럼에 선택할 수 있는 데이터들을 추가해주는 것이다. EMP테이블에서 JComboBox를 사용할 컬럼은
 3개이므로, 3개의 메소드를 만들어서 생성자에 넣어주어 GUI창이 나올 시 데이터를 선택할 수 있도록 구현하였다.&lt;/p&gt;
 
@@ -1600,7 +1600,7 @@ https://github.com/Achasan/Study/blob/main/9월/JDBC%20내용%20(9.7~/Java%20파
 문서를 엑셀에 일일이 다 옮겨야하니 되게 불편했었던 경험이 있었다. 그래서 주제를 문화강좌 수강생
 관리 프로그램으로 하려고 했었는데 이미 전 기수에서 그 주제로 만든 프로젝트가 있었다.&lt;/p&gt;
 
-&lt;p&gt;강사님이 따로 프로그램을 보여주시진 않고, 프로젝트 발표 PPT만 보여주셔서 대충 가닥만 보고 
+&lt;p&gt;강사님이 따로 프로그램을 보여주시진 않고, 프로젝트 발표 PPT만 보여주셔서 대충 가닥만 보고
 프로젝트를 하기 전에 연습 겸 화면전환하는 GUI들을 구현해보아야 겠다고 생각하였다.&lt;/p&gt;</content>
 
       

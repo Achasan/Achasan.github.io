@@ -5,8 +5,8 @@
     <description>by Achasan</description>
     <link>https://achasan.github.io//</link>
     <atom:link href="https://achasan.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 08 Feb 2022 15:38:39 +0900</pubDate>
-    <lastBuildDate>Tue, 08 Feb 2022 15:38:39 +0900</lastBuildDate>
+    <pubDate>Tue, 08 Feb 2022 19:53:46 +0900</pubDate>
+    <lastBuildDate>Tue, 08 Feb 2022 19:53:46 +0900</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
     
       <item>
@@ -1302,7 +1302,7 @@
       </item>
     
       <item>
-        <title>[Java] Comparator, Comparable 객체 정리</title>
+        <title>Comparator, Comparable 객체 정리</title>
         <description>&lt;h1 id=&quot;comparator-comparable-정리&quot;&gt;Comparator, Comparable 정리&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;

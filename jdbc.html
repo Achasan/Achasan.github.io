@@ -160,6 +160,7 @@ into the {body} of the default.hbs template -->
     </div>
     <div class="site-nav-right">
         <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/all-posts/">All Posts</a></li>
             <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
         </ul>
         <div class="social-links">
@@ -221,14 +222,14 @@ JDBC는 자바 표준 인터페이스로, API로 제공되어지는 공식 인�
   <li>java.sql.driver : 데이터베이스에서 사용되는 드라이버 인터페이스.</li>
   <li>java.sql.connection : 데이터베이스 연결 정보를 가지고 있는 인터페이스</li>
   <li>java.sql.PreparedStatement : statement 인터페이스의 서브 인터페이스로서, DB에 SQL문을 전송하는 방법을
-                                 알고 있는 인터페이스이다.</li>
+알고 있는 인터페이스이다.</li>
   <li>java.sql.ResultSet : 데이터베이스의 실행 결과를 가지고 있는 인터페이스이다.</li>
 </ul>
 
 <h1 id="오라클db와-java를-연결하는-방식">오라클DB와 Java를 연결하는 방식</h1>
 
 <p>오라클 DB를 배웠으므로 이제 Java와 오라클DB를 연결시켜서 사용해야한다.
-자바에서 제공하는 JDBC클래스를 이용하여 오라클 DB와 Java를 연결시켜보자. 
+자바에서 제공하는 JDBC클래스를 이용하여 오라클 DB와 Java를 연결시켜보자.
 절차가 꽤나 복잡하다. 연결방법을 알아야 나중에 JSP나 Spring에서도 사용이 가능하므로 꼭 알아두도록 하자.</p>
 
 <ol>
@@ -245,7 +246,7 @@ OS에 입력하여 적절한 기능을 사용할 수 있도록 하는 것이다.
 <p>자바도 같다. 자바에 오라클 DB의 드라이버를 설치하여 JDBC클래스에서 오라클DB와 연결할 수 있도록 하기 위해서
 오라클 DB 내에 있는 자바드라이버 파일을 Java에 연결하는 것이다.</p>
 
-<p>자바가 설치된 파일에 dbhomeX\jdbc\lib 폴더에 보면 ojdbc8.jar 이라는 파일이 있다. 이 파일을 연동하고자 하는 프로젝트 
+<p>자바가 설치된 파일에 dbhomeX\jdbc\lib 폴더에 보면 ojdbc8.jar 이라는 파일이 있다. 이 파일을 연동하고자 하는 프로젝트
 폴더 우클릭-[Build Path]-[Configure Build Path]를 누르고, Library 탭에서 add External jars를 클릭하여 해당 파일을
 추가시켜주면 드라이버 연결은 완료된 것이다.</p>
 
@@ -269,7 +270,7 @@ DB와 직접적으로 연결하는 것은 아니다. 연결을 하기 위해서�
 드라이버를 메모리로 업로드 시키는방법은 Class.forName(드라이버객체)을 사용한다.
 특정 클래스를 로딩하면 자동으로 객체가 생성이 되고, DriverManage에 등록이 되는데,
 일반적으로 드라이버 클래스들은 로드될 때 자신의 인스턴스를 생성하고, 자동적으로 DriverManage 클래스 메소드를
-호출하여 인스턴스를 등록하는 방식이다. 
+호출하여 인스턴스를 등록하는 방식이다.
 DriverManager가 있는 위치는 oracle.jdbc.driver.OracleDriver 이다.</p>
 
 <p>forName()메소드는 Class 클래스에 포함되어있고, 해당 파일 경로에 위치한 파일을 동적으로 프로그램이 실행될 때
@@ -299,57 +300,56 @@ DriverManager 클래스의 getConnection() 메소드를 이용해 자신이 사�
   </li>
   <li>
     <p>드라이버를 연결했다면 OracleDriver.class 파일을 찾아야한다. 연결한 ojdbc8.jar 파일 안에 많은 패키지들이 있는데,
- 여기서 oracle.jdbc.driver 패키지 안에 있는 OracleDriver.class 파일을 드라이버로 사용할 수 있다.</p>
+여기서 oracle.jdbc.driver 패키지 안에 있는 OracleDriver.class 파일을 드라이버로 사용할 수 있다.</p>
   </li>
   <li>
     <p>Class.forName(드라이버주소) 메소드를 실행하여 드라이버를 메모리에 등록한다. 드라이버를 메모리에 등록하면
- 자동적으로 DriverManager 클래스에 인스턴스가 들어가게 된다.</p>
+자동적으로 DriverManager 클래스에 인스턴스가 들어가게 된다.</p>
   </li>
   <li>
     <p>DriverManage 클래스에 저장된 오라클 DB 정보를 통해 이제 연결할 수 있다. 메소드인 getConnection() 메소드를 사용하여
- DB에 연결하자. getConnection() 메소드의 매개값으로는 ip주소, 계정이름, 계정비밀번호, DB연산자를 넣어주어야한다.
- 연결이 완료되면 연결정보를 Connection 클래스에 저장할 수 있다. Connection 클래스를 생성하여 연결정보를 저장해주도록 하자.</p>
+DB에 연결하자. getConnection() 메소드의 매개값으로는 ip주소, 계정이름, 계정비밀번호, DB연산자를 넣어주어야한다.
+연결이 완료되면 연결정보를 Connection 클래스에 저장할 수 있다. Connection 클래스를 생성하여 연결정보를 저장해주도록 하자.</p>
   </li>
   <li>
     <p>연결을 했으면 이제 자바측에서 쿼리문을 DB쪽으로 보내보도록 한다. Connection 클래스에는 prepareStatement()라는 메소드가 있는데,
- 작성한 쿼리문을 PrepareStatement 클래스에 보낸다. PrepareStatement 클래스는 원활한 쿼리문 전달이 될 수 있도록 수정할 수 있는
- 클래스이다.</p>
+작성한 쿼리문을 PrepareStatement 클래스에 보낸다. PrepareStatement 클래스는 원활한 쿼리문 전달이 될 수 있도록 수정할 수 있는
+클래스이다.</p>
   </li>
   <li>
     <p>PrepareStatement에는 executeQuery(), executeUpdate() 등 쿼리문을 보내기 위한 메소드들이 존재한다.
- 어떤 쿼리문을 사용하느냐에 따라 다른데, SELECT문 같은 결과값을 가져오는 경우에는 executeQuery(),
- 결과값이 없이 데이터 추가, 수정, 삽입만 하는 INSERT, UPDATE, DELETE 같은 경우에는 executeUpdate() 메소드를 사용한다. 
- 메소드를 사용하여 DB에 쿼리문을 넘겨서 실행시키도록 한다.</p>
+어떤 쿼리문을 사용하느냐에 따라 다른데, SELECT문 같은 결과값을 가져오는 경우에는 executeQuery(),
+결과값이 없이 데이터 추가, 수정, 삽입만 하는 INSERT, UPDATE, DELETE 같은 경우에는 executeUpdate() 메소드를 사용한다.
+메소드를 사용하여 DB에 쿼리문을 넘겨서 실행시키도록 한다.</p>
   </li>
   <li>
-    <p>어떤 쿼리문을 보내느냐에 따라서 결과값을 받을 수도 있고, 안 받을 수도 있다. 예를 들어 쿼리문을 SELECT문으로 보냈다면, 
- DB에서는 결과 데이터들을 모아서 자바쪽으로 보내줄 것이고, UPDATE, INSERT, DELETE와 같은 DB 내의 데이터만 수정하는 쿼리문을
- 작성한다면 DB에서는 결과값을 리턴하지 않을 것이다.</p>
+    <p>어떤 쿼리문을 보내느냐에 따라서 결과값을 받을 수도 있고, 안 받을 수도 있다. 예를 들어 쿼리문을 SELECT문으로 보냈다면,
+DB에서는 결과 데이터들을 모아서 자바쪽으로 보내줄 것이고, UPDATE, INSERT, DELETE와 같은 DB 내의 데이터만 수정하는 쿼리문을
+작성한다면 DB에서는 결과값을 리턴하지 않을 것이다.</p>
 
     <ul>
       <li>
-        <p>8-1. 결과값을 리턴하는 SELECT 문을 DB에 보냈을 경우, executeQuery() 메소드를 사용했을 것이다. executeQuery() 메소드는 
-  결과값들을 ResultSet 객체로 리턴한다. ResultSet 객체를 생성하여 결과값을 받아주도록 한다.
-  ResultSet 객체는 SQL한테서 받은 데이터들을 관리할 수 있는 클래스이다. 사용방식은 약간 StringTokenizer와 비슷한 것 같다.</p>
+        <p>8-1. 결과값을 리턴하는 SELECT 문을 DB에 보냈을 경우, executeQuery() 메소드를 사용했을 것이다. executeQuery() 메소드는
+결과값들을 ResultSet 객체로 리턴한다. ResultSet 객체를 생성하여 결과값을 받아주도록 한다.
+ResultSet 객체는 SQL한테서 받은 데이터들을 관리할 수 있는 클래스이다. 사용방식은 약간 StringTokenizer와 비슷한 것 같다.</p>
       </li>
       <li>
         <p>8-2. 결과값을 리턴하지않는 INSERT, UPDATE, DELETE 문의 경우에는 결과값을 받아올 필요가 없으니 쿼리문을 넘겨서 실행되었다면
-  거기서 끝이다. 확인해보겠다면 SELECT문을 만들어서 다시 불러와도 된다.</p>
+거기서 끝이다. 확인해보겠다면 SELECT문을 만들어서 다시 불러와도 된다.</p>
       </li>
     </ul>
   </li>
   <li>
     <p>DB를 연결하여 여러가지 작업을 처리하고 난 다음에는 남아있는 객체들을 닫아주어, 메모리를 다시 반환하도록 한다.
- 각 객체에는 close() 메소드가 있다. Connection, PreparedStatement, ResultSet 객체들을 모두 닫아주도록 하여 원활한
- 메모리 구동이 될 수 있도록 한다.</p>
+각 객체에는 close() 메소드가 있다. Connection, PreparedStatement, ResultSet 객체들을 모두 닫아주도록 하여 원활한
+메모리 구동이 될 수 있도록 한다.</p>
   </li>
 </ol>
 
-<p>자바와 DB순서를 수업에서 코드로 구현해 본 과정을 정리해보면 위와 같다. 나머지 실습파일은 자바파일로 따로 업로드하고, 
+<p>자바와 DB순서를 수업에서 코드로 구현해 본 과정을 정리해보면 위와 같다. 나머지 실습파일은 자바파일로 따로 업로드하고,
 주석을 적어서 마무리하였다.</p>
 
 <p>오늘 작성한 내용은 20210908 마크다운과 이어질 예정이다.</p>
-
 
                 </div>
             </section>
