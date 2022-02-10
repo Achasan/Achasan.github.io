@@ -5,9 +5,351 @@
     <description>by Achasan</description>
     <link>https://achasan.github.io//</link>
     <atom:link href="https://achasan.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 09 Feb 2022 18:30:39 +0900</pubDate>
-    <lastBuildDate>Wed, 09 Feb 2022 18:30:39 +0900</lastBuildDate>
+    <pubDate>Thu, 10 Feb 2022 18:22:27 +0900</pubDate>
+    <lastBuildDate>Thu, 10 Feb 2022 18:22:27 +0900</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>[정보처리기사] 3.데이터베이스 설계</title>
+        <description>&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://powerdev.tistory.com/37&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해당 주소에서 외워야하는 키워드 위주로 정리하여 타이핑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;데이터-베이스-설계&quot;&gt;데이터 베이스 설계&lt;/h1&gt;
+
+&lt;h2 id=&quot;데이터베이스-설계-시-고려사항&quot;&gt;데이터베이스 설계 시 고려사항&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무결성(정확성)
+    &lt;ul&gt;
+      &lt;li&gt;삽입, 삭제, 갱신 등의 연산 후에도 저장된 데이터가 정해진 제약조건을 만족해야한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;일관성&lt;/li&gt;
+  &lt;li&gt;회복&lt;/li&gt;
+  &lt;li&gt;보안&lt;/li&gt;
+  &lt;li&gt;효율성 : 응답시간을 단축하여 시스템의 생산성, 저장공간 최적화가 가능해야한다.&lt;/li&gt;
+  &lt;li&gt;데이터베이스 확장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-데이터베이스-설계-순서&quot;&gt;★ 데이터베이스 설계 순서&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;요구분석 : 사용자의 요구사항 분석, 요구 조건 명세서 작성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;개념적 설계 : DBMS에 독립적인 개념 스키마 설계(E-R 모델), 트랜잭션 모델링&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;정보 모델링, 개념화&lt;/li&gt;
+      &lt;li&gt;현실 세계에 대한 인식을 추상적인 개념으로 표현하는 과정&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;개념 스키마 모델링, 트랜잭션 모델링, E-R 다이어그램&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;논리적 설계 : DBMS에 맞는 스키마를 설계, 트랜잭션 인터페이스 설계&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;데이터 모델링&lt;/li&gt;
+      &lt;li&gt;현실에서 발생한 자료를 컴퓨터로 처리할 수 있는 저장장치에 저장할 수 있게 특정 dBMS가 지원하는 논리적 자료구조로 변환시키는 과정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;물리적 설계 : DBMS에 맞는 물리적 구조를 설계, 트랜잭션 세부 설계&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;데이터 구조화&lt;/li&gt;
+      &lt;li&gt;디스크 등 물리적 저장장치에 저장가능한 물리적 구조의 데이터로 변환하는 과정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;구현 : DDL로 데이터베이스 생성, 트랜잭션 작성&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;DBMS의 DDL을 이용해 데이터베이스 파일 생성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;데이터-모델의-개념&quot;&gt;데이터 모델의 개념&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;현실 세계의 정보들을 컴퓨터에 표현하기 위해 단순화, 추상화하여 체계적으로 표현한 개념적 모형&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;-데이터-모델-구성-요소&quot;&gt;★ 데이터 모델 구성 요소&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;개체(Entity)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;데이터베이스에 표현하려는 것, 사람이 생각하는 개념, 정보단위&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;속성(Attribute)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;데이터의 가장 작은 논리적 단위, 파일 구조상의 데이터 항목 또는 데이터 필드&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;관계(Relationship)&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;개체 간의 관계 또는 속성 간의 논리적인 연결을 의미&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-데이터-모델에-표시할-요소&quot;&gt;★ 데이터 모델에 표시할 요소&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;구조(Structure)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;논리적으로 표현된 개체 타입을 간의 관계로서 데이터 구조 및 정적 성질 표현&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;연산(Operation)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;DB에 저장된 실제 데이터를 처리하는 작업에 대한 명세, 데이터베이스를 조작하는 기본 도구&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;제약 조건(Constraint)&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;실제 데이터의 논리적인 제약 조건&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;데이터-모델의-종류&quot;&gt;데이터 모델의 종류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개념적 데이터 모델&lt;/li&gt;
+  &lt;li&gt;논리적 데이터 모델 : 관계, 계층, 네트워크 모델로 구분&lt;/li&gt;
+  &lt;li&gt;물리적 데이터 모델&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;개체entity&quot;&gt;개체(Entity)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터베이스에 표현하려는 것, 사람이 생각하는 개념이나 정보 단위같은 현실 세계의 대상체&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-15-44-33.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;교수 : 개체(Entity)&lt;/li&gt;
+  &lt;li&gt;교수번호, 성명, 전공, 소속 : 속성(Attribute)&lt;/li&gt;
+  &lt;li&gt;각 행 : 개체 인스턴스(Instance)
+    &lt;ul&gt;
+      &lt;li&gt;개체 인스턴스는 개체를 구성하고 있는 각 속성들이 값을 가져 하나의 개체를 나타내는 것으로 &lt;strong&gt;어커런스(Occurance)&lt;/strong&gt;라고도 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;개체의-특성&quot;&gt;개체의 특성&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;독립적으로 존재하는 유형, 무형의 정보. 속성으로 구성&lt;/li&gt;
+  &lt;li&gt;파일 시스템의 레코드에 대응&lt;/li&gt;
+  &lt;li&gt;영속적으로 존재하는 개체의 집합&lt;/li&gt;
+  &lt;li&gt;독립적으로 존재, 그 자체로 구별&lt;/li&gt;
+  &lt;li&gt;유일한 식별자를 가짐&lt;/li&gt;
+  &lt;li&gt;다른 개체의 &lt;strong&gt;하나 이상&lt;/strong&gt;의 관계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;속성attribute&quot;&gt;속성(Attribute)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터베이스를 구성하는 가장 작은 논리적 단위&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;특성&quot;&gt;특성&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파일 구조 상 데이터 항목, 필드에 해당&lt;/li&gt;
+  &lt;li&gt;개체를 구성하는 항목&lt;/li&gt;
+  &lt;li&gt;개체 특성을 기술&lt;/li&gt;
+  &lt;li&gt;속성의 수를 Degree, 차수라고한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;속성의-종류&quot;&gt;속성의 종류&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-15-50-44.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;속성의-특성에-따른-종류&quot;&gt;속성의 특성에 따른 종류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;기본 속성(Basic Attribute) : 업무분석으로 정의, 속성중 가장 많고 일반적, 업무상 코드로 정의한 속성은 기본 속성에서 제외&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;설게 속성(Designed Attribute) : 설계 과정에서 도출해내는 속성&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;업무에 필요한 데이터 외에 데이터 모델링을 위해 업무를 규칙화하려고 속성을 새로 만들거나 변형하여 정의&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;파생 속성(Derived Attribute) : 다른 속성으로부터 계산이나 변형 등의 영향을 받아 발생, 되도록 적은 수로 정의&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;개체-구성-방식에-따른-분류&quot;&gt;개체 구성 방식에 따른 분류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;기본키 속성(Primary Key Attribute) : 개체의 속성을 식별할 수 있는 속성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;외래키 속성(Foreign Key Attribute) : 다른 개체와의 관계에서 포함된 속성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;일반 속성 : 개체에 포함되어있고 기본키, 외래키에 포함되지않은 속성&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;관계relationship&quot;&gt;관계(Relationship)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;개체와 개체 사이의 논리적인 연결을 의미한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-15-53-34.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개체 간 관계, 속성 간 관계로 구분&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;관계의-형태&quot;&gt;관계의 형태&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-15-53-41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;관계의-종류&quot;&gt;관계의 종류&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;종속 관계(Dependent Relationship) : 두 개체 사이의 주종 관계 표현, 식발 관계와 비식별 관계로 구분&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;식별 관계 : A 개체의 기본키가 B 개체의 외래키이민서 동시에 기본키&lt;/li&gt;
+      &lt;li&gt;비식별 관계 : A 개체의 기본키가 B 개체의 비기본키 영역에서 외래키가 되는 관계&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;중복 관계(Redundant Relationship) : 두 개체 사이에서 2번 이상의 종속관계 발생&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;재귀 관계(Recursive Relationship) : 자기 자신과 관계를 가짐, 순환 관계&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;배타 관계(Exclusive Relationship) : 속성이나 구분자로 특성을 분할하는 관계. AND 관계, OR 관계로 구분&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;식별자identifier&quot;&gt;식별자(Identifier)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;하나의 개체 내에서 각각의 인스턴스를 유일하게 구분할 수 잇는 구분자, 모든 객체는 하나 이상의 식별자를 반드시 가진다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;식별자-분류-기준&quot;&gt;식별자 분류 기준&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;대표성 여부 : 두 식별자 모두 개체를 유일하게 식별가능해야한다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;주 식별자(Primaty Identifier) : 하나의 개체에 하나만 존재, 기본키로 지정됨&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;주 식별자의 4가지 특성 : 유일성, 최소성, 불변성, 존재성&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;보조 식별자(Alternate Identifier) : 주 식별자를 대신하여 개체를 식별&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;하나의 객체에 한 개 이상 존재&lt;/li&gt;
+          &lt;li&gt;물리적 테이블에서 유니크 인덱스로 지정되어 사용&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;스스로 생성 여부 :&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;내부 식별자(Internal Identifier) : 개체 내에서 스스로 만들어지는 식별자&lt;/li&gt;
+      &lt;li&gt;외부 식별자(Foreign Identifier) : 외부 개체의 식별자를 가져와 사용하는 식별자(연결자 역할)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;단일 속성 여부&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;단일 식별자(Single Identifier) : 주 식별자가 한 가지 속성으로만 구성된 식별자(PK)&lt;/li&gt;
+      &lt;li&gt;복합 식별자(Composite Identifier) : 주 식별자가 두 개 이상의 속성으로 구성된 식별자(PK + FK)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;대체 여부&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;원조 식별자(Original Identifier) :&lt;/li&gt;
+      &lt;li&gt;대리 식별자(Surrogate Identifier) : 주 식별자의 속성이 두 개 잇아인 경우 속성들을 하나의 속서응로 묶어 사용하는 식별자, 인조 식별자&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;e-r개체-관계-모델&quot;&gt;E-R(개체-관계) 모델&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;개념적 모델의 가장 대표적인 것, 1976년 피터 첸(Peter Chen)에 의해 제안됨&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;E-R 다이어그램으로 표현, 1:1 / 1:N / N:M 등의 관계 유형을 제한없이 나타 낼 수 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;E-R 다이어그램&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;E-R 모델의 기본 아이디어를 기호를 사용하여 시각적으로 표현&lt;/li&gt;
+      &lt;li&gt;피터 첸 표기법, 정보 공학 표기법, 바커 표기법 등이 존재&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;피터-첸-표기법&quot;&gt;피터 첸 표기법&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-16-11-38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;정보-공학-표기법&quot;&gt;정보 공학 표기법&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1981년 클리프 핀겔쉬타인과 제임스 마틴이 공동 개발&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-16-11-56.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 10 Feb 2022 00:00:00 +0900</pubDate>
+        <link>https://achasan.github.io//Engineer_Information_Processing_1</link>
+        <guid isPermaLink="true">https://achasan.github.io//Engineer_Information_Processing_1</guid>
+        
+        <category>TIL</category>
+        
+        
+      </item>
     
       <item>
         <title>봄봄(이 영화 봄?봄!) 프로젝트 회고</title>
@@ -4754,136 +5096,6 @@ Host: www.google.com&lt;/p&gt;
         <pubDate>Thu, 28 Oct 2021 00:00:00 +0900</pubDate>
         <link>https://achasan.github.io//spring_basic_8</link>
         <guid isPermaLink="true">https://achasan.github.io//spring_basic_8</guid>
-        
-        <category>SpringBoot</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>[Spring:7] 조회한 빈이 모두 필요할 때</title>
-        <description>&lt;h1 id=&quot;의존관계-자동-주입-2-이전링크&quot;&gt;의존관계 자동 주입 2 &lt;a href=&quot;20211028_4.md&quot;&gt;이전링크&lt;/a&gt;&lt;/h1&gt;
-
-&lt;h2 id=&quot;조회한-빈이-모두-필요할-때-list-map&quot;&gt;조회한 빈이 모두 필요할 때, List, Map&lt;/h2&gt;
-
-&lt;p&gt;동적으로 필요한 할인정책을 그때그때 선택하여 사용할 수 있도록 하는 방법을 알아보자.&lt;/p&gt;
-
-&lt;p&gt;비즈니스 로직 처리는 Service 클래스에서 하므로 Service 클래스에 Map 객체 또는 List 객체에 빈을 넣어서 사용하면 된다. 당연히 AutoWired를 통해서 빈 객체를 넣을 수 있다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AllBeanTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-        &lt;span class=&quot;nd&quot;&gt;@Test&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;findAllBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;ApplicationContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ac&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AnnotationConfigApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;AutoAppConfig&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DiscountService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;DiscountService&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;discountService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ac&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DiscountService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;userA&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Grade&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;VIP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;discountPrice&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;discountService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;discount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;rateDiscountPolicy&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-            &lt;span class=&quot;n&quot;&gt;assertThat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;discountService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isInstanceOf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DiscountService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;assertThat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;discountPrice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEqualTo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DiscountService&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DiscountPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;policyMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DiscountPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;policies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;DiscountService&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Map&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DiscountPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;policyMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;
-             &lt;span class=&quot;nc&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;DiscountPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;policies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;policyMap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;policyMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;policies&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;policies&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;discount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Member&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;discountCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;nc&quot;&gt;DiscountPolicy&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;discountPolicy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;policyMap&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;discountCode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;discountPolicy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;discount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;먼저 정적 클래스를 하나 만들었다. DiscountService 클래스인데, 빈으로 등록되어있는 모든 DiscountPolicy 타입의 구현체들을 키와 값의 형태로 Map 컬렉션에 넣도록 생성자 주입까지 작성하였다.&lt;/p&gt;
-
-&lt;p&gt;그리고 AnnotationConfigApplicationContext 객체를 통해 DiscountPolicy.class, DiscountService.class 클래스 파일을 빈에 등록했다.&lt;/p&gt;
-
-&lt;p&gt;(이미 ComponentScan을 통해서 빈에 등록되어있는 경우에는 빈의 설정정보를 그냥 가져온다.)&lt;/p&gt;
-
-&lt;p&gt;이렇게 될 경우, DiscountService에 있는 생성자를 보고 스프링이 DiscountPolicy에 해당하는 구현체 빈 클래스들을 Map 컬렉션에 하나씩 넣어주게 된다. 순서는 랜덤이다.&lt;/p&gt;
-
-&lt;p&gt;여기서 키 값이 어떻게 들어가지는지 궁금해질 텐데, 기본적으로 등록되는 빈 이름이 된다. FixDiscountPolicy는 fixDiscountPolicy로, RateDiscountPolicy는 rateDiscountPolicy로 빈 이름이 등록되어진다. key는 생성된 빈 이름이 들어가고, 싱글턴 방식으로 등록된 객체주소를 value값으로 받아와서 Map 객체 안에 들어가게 된다.&lt;/p&gt;
-
-&lt;p&gt;이제 로직을 만들고 Assertion으로 테스트코드를 확인해보자.
-DiscountService 클래스에는 discount 메서드가 있다. 파라미터로는 멤버변수, 가격과 discountCode가 있다. discountCode는 Map 객체에 있는 key를 입력하면 된다. rateDiscountPolicy를 입력하면 rateDiscountPolicy 객체에 있는 discount 메서드를 실행한 결과값을 리턴하도록 설정하고 리턴하도록 하였다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;자동-수동의-올바른-실무-운영-기준&quot;&gt;자동 수동의 올바른 실무 운영 기준&lt;/h2&gt;
-
-&lt;p&gt;빈을 등록하는 방법은 다양하다. 하지만 어떤 상황에 자동 빈을 쓰고, 수동 빈을 써야할지는 감이 잡히지 않는다. 그래서 뭘 어떻게 쓰라는건데?&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;편리한-자동-기능을-기본으로-사용하자&quot;&gt;편리한 자동 기능을 기본으로 사용하자.&lt;/h3&gt;
-
-&lt;p&gt;스프링이 나오고 난 이래 자동이 점점 선호되는 추세이다. 스프링은 계층에 맞추어 일반적인 애플리케이션 로직을 자동으로 스캔할 수 있도록 지원한다. 또한 스프링 부트는 컴포넌트 스캔을 기본으로 사용하고 다양한스프링 빈들도 조건이 맞으면 자동으로 등록하도록 설계되었다.&lt;/p&gt;
-
-&lt;p&gt;설정 정보를 기반로 구성하는 부분과 실제 동작하는 부분을 명확히 나누느 것이 이상적이지만 주입할 대상을 일일이 적어주는 과정은 상당히 번거롭다.&lt;/p&gt;
-
-&lt;p&gt;결정적으로 자동 빈 등록을 사용해도 OCP, DIP를 지킬 수 있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;그렇다면 수동 빈 등록은 언제 사용하는 것일까?&lt;/p&gt;
-
-&lt;p&gt;애플리케이션은 크게 업무 로직과 기술지원 로직으로 나눌 수 있다.&lt;/p&gt;
-
-&lt;p&gt;업무 로직 빈은 웹을 지원하는 컨트롤러, 핵심 비즈니스 로직이 있는 서비스, 데이터 계층의 로직을 처리하는 리포지토리 등이 모두 업무 로직이다. 비즈니스 요구사항을 개발할 때 추가되거나 변경된다.
-기술지원 빈은 기술적인 문제나 공통 관심사(AOP)를 처리할 떄 주로 사용된다. DB 연결이나 공통 로그 처리처럼 업무 로직을 지원하기 위한 하부 기술이나 공통 기술들이다.&lt;/p&gt;
-
-&lt;p&gt;업무 로직은 그 수가 많고, 한번 개발하게되면 컨트롤러, 서비스, 리포지토리 처럼 유사한 패틴 있다. 이 경우는 자동기능을 적극적으로 사용하는 것이 좋다. 보통 문제가 발생해도 어디서 발생했는지 파악하기가 어렵지 않다.
-기술로직은 그 수가 상대적으로 업무로직보다 적고, 어플리케이션 전반에 걸쳐서 고아범위하게 영향을 미친다. 기술 지원 로직은 적용이 잘 되고 있는지 아닌지 조차 파악하기 어려운 경우가 많다. 따라서 기술지원 로직은 가급적 수동 빈 등록을 사용해서 명확하게 드러내는 것이 좋다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“어플리케이션에 광범위하게 영향을 미치는 기술 지원 객체는 수동 빈으로 등록해서 설정 정보에 바로 나타나게 하는 것이 유지보수에 좋다.”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;한 가지 고민해봐야할 점이 하나 있는데, 추상화이다.&lt;/p&gt;
-
-&lt;p&gt;추상화는 내가 개발할 때는 정말 편리하고 좋지만, 내가 작성한 코드를 다른 동료개발자가 봤을 때 한 눈에 알아보기 힘들다는 단점이 있다.&lt;/p&gt;
-
-&lt;p&gt;예를들어 이전강의에서 DiscountService 클래스를 생각해보자 Map 객체에 DiscountPolicy 타입의 빈들이 전부 담겨진다. 우리는 rateDiscountPolicy, fixDiscountPolicy를 만들어 봐서 어떤 빈이 들어갈지 알 수 있다. 하지만 다른 동료개발자들은 처음 코드를 봤을 때 어떤 객체가 Map 컬렉션에 담기는지 한 눈에 알아보기 힘들다.&lt;/p&gt;
-
-&lt;p&gt;담기는 빈 객체들이 몇 십개 된다면 과연 동료개발자가 내 코드를 파악하고 제대로 개발을 수행할 수 있을까? 사실 정답은 없다. AppConfig를 통해서 수동으로 빈을 등록하면 가독성은 좋아지지만 번거로운 작업이 될 것이다.&lt;/p&gt;
-
-&lt;p&gt;따라서 추상객체와 구현체들이 같은 타입인 경우에는 패키지에 따로 모아두는 것이 좋다. 다른 개발자가 딱 보고 어떻게 구성되어있는지를 파악할 수 있도록 설계하는 것이 핵심이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;요약&quot;&gt;요약&lt;/h3&gt;
-
-&lt;p&gt;편리한 자동 기능을 기본으로 사용하자.&lt;/p&gt;
-
-&lt;p&gt;직접 등록하는 기술 지원 객체는 수동 등록을 하는 것이 좋다.&lt;/p&gt;
-
-&lt;p&gt;다형성을 적극 활용하는 비즈니스 로직은 수동 등록을 고민해보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;
-&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;※ @Bean과 @Component의 차이&lt;/p&gt;
-
-&lt;p&gt;@Bean은 수동 빈 등록을 하기 위해서 사용하는 어노테이션이다. @Configuration으로 등록한 설정 정보 클래스의 메서드에 @Bean을 입력하면 컨테이너에 수동으로 등록이 된다.&lt;/p&gt;
-
-&lt;p&gt;@Component는 자동으로 빈 등록을 하기 위해서 사용되는 어노테이션이다. @ComponentScan이 되어있는 자동 설정정보 클래스가 있으면 모든 @Component 클래스를 스캔해서 컨테이너에 등록한다.&lt;/p&gt;
-
-&lt;p&gt;@Bean은 수동 빈 등록, @Component는 자동 빈 등록이라는 점을 구분짓기 위해서 사용한다. 만약 @Configuration 클래스에 @Component를 사용하면 수동 빈으로 등록하려는 메서드를 자동 빈 등록으로 한다는 점이 충돌되어서 예외가 발생하게 된다.&lt;/p&gt;
-</description>
-        <pubDate>Thu, 28 Oct 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//spring_basic_7</link>
-        <guid isPermaLink="true">https://achasan.github.io//spring_basic_7</guid>
         
         <category>SpringBoot</category>
         

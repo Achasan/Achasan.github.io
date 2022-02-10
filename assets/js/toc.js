@@ -20,57 +20,76 @@ function getHeaderNodes(master) {
   return headerNodes;
 }
 
-var image = document.getElementsByClassName("post-full-image")[0];
-var imageY = window.pageYOffset + image.getBoundingClientRect().bottom;
+var image;
+var imageY;
+var article;
+var articleX;
+var articleY;
+var toc;
+var headerNodes;
+var tocNodes;
+var before;
 
-var article = document.getElementsByClassName("post-full-content")[0];
-var articleX = window.pageXOffset + article.getBoundingClientRect().right;
-var articleY = window.pageYOffset + article.getBoundingClientRect().top;
+if (
+  location.pathname.substring(0, 4) === "/tag" ||
+  location.pathname.substring(0, 4) === "/"
+) {
+  document.removeEventListener("scroll", fixToc, false);
+} else {
+  image = document.getElementsByClassName("post-full-image")[0];
+  imageY = window.pageYOffset + image.getBoundingClientRect().bottom;
 
-var toc = document.getElementsByClassName("toc")[0];
+  article = document.getElementsByClassName("post-full-content")[0];
+  articleX = window.pageXOffset + article.getBoundingClientRect().right;
+  articleY = window.pageYOffset + article.getBoundingClientRect().top;
 
-var headerNodes = getHeaderNodes(article);
-var tocNodes = getTOCNodes(toc);
+  toc = document.getElementsByClassName("toc")[0];
 
-var before = undefined;
+  headerNodes = getHeaderNodes(article);
+  tocNodes = getTOCNodes(toc);
 
-document.addEventListener(
-  "scroll",
-  function (e) {
-    if (window.scrollY >= imageY - 60) {
-      toc.style.cssText = "position: fixed; top: 100px;";
-    } else {
-      toc.style.cssText = "";
-    }
+  before = undefined;
+}
 
-    var current = headerNodes.filter(function (header) {
-      var headerY = window.pageYOffset + header.getBoundingClientRect().top;
-      return window.scrollY >= headerY - 100;
+function fixToc(e) {
+  if (location.pathname.substring(0, 4) === "/tag") {
+    return;
+  }
+
+  if (window.scrollY >= imageY - 60) {
+    toc.style.cssText = "position: fixed; top: 100px;";
+  } else {
+    toc.style.cssText = "";
+  }
+
+  var current = headerNodes.filter(function (header) {
+    var headerY = window.pageYOffset + header.getBoundingClientRect().top;
+    return window.scrollY >= headerY - 100;
+  });
+
+  if (current.length > 0) {
+    current = current[current.length - 1];
+
+    var currentA = tocNodes.filter(function (tocNode) {
+      return tocNode.innerHTML == current.innerHTML;
     });
 
-    if (current.length > 0) {
-      current = current[current.length - 1];
+    currentA = currentA[0];
+    if (currentA) {
+      if (before == undefined) before = currentA;
 
-      var currentA = tocNodes.filter(function (tocNode) {
-        return tocNode.innerHTML == current.innerHTML;
-      });
-
-      currentA = currentA[0];
-      if (currentA) {
-        if (before == undefined) before = currentA;
-
-        if (before != currentA) {
-          before.classList.remove("toc-active");
-          before = currentA;
-        }
-
-        currentA.classList.add("toc-active");
-      } else {
-        if (before) before.classList.remove("toc-active");
+      if (before != currentA) {
+        before.classList.remove("toc-active");
+        before = currentA;
       }
+
+      currentA.classList.add("toc-active");
     } else {
       if (before) before.classList.remove("toc-active");
     }
-  },
-  false
-);
+  } else {
+    if (before) before.classList.remove("toc-active");
+  }
+}
+
+document.addEventListener("scroll", fixToc, false);

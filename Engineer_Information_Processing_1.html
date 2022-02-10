@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Document Settings -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Base Meta -->
+    <!-- dynamically fixing the title for tag/author pages -->
+
+
+
+    <title>[정보처리기사] 3.데이터베이스 설계</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Web font -->
+    <link defer rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap">
+
+    <!-- code block font -->
+    <link defer rel="preconnect" href="https://fonts.googleapis.com">
+    <link defer rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link defer href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+
+    <!-- Styles'n'Scripts -->
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/screen.edited.css" />
+    <link defer rel="stylesheet" type="text/css" href="/assets/built/syntax.css" />
+    <!-- highlight.js -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/monokai.min.css"> -->
+    <style>.hljs { background: none; }</style>
+    <!-- toc.js -->
+    <script defer src="/assets/js/toc.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+    <!--[if IE]>
+        <style>
+            p, ol, ul{
+                width: 100%;
+            }
+            blockquote{
+                width: 100%;
+            }
+        </style>
+    <![endif]-->
+    
+    <!-- This tag outputs SEO meta+structured data and other important settings -->
+    <meta name="description" content="by Achasan" />
+    <link rel="shortcut icon" href="https://achasan.github.io/assets/images/myFavicon.png" type="image/png" />
+    <link rel="canonical" href="https://achasan.github.io/Engineer_Information_Processing_1" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="flmHHc2CaW5EJCNqQnedu3pY6nZcP4rzi7YL-wp0N6k" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1Q1F9SP78"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', '');
+    </script>
+
+     <!--title below is coming from _includes/dynamic_title-->
+    <meta property="og:site_name" content="Memory Repo." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="[정보처리기사] 3.데이터베이스 설계" />
+    <meta property="og:description" content="정보처리기사 필기 - 논리 데이터베이스 설계 Reference 해당 주소에서 외워야하는 키워드 위주로 정리하여 타이핑 데이터 베이스 설계 데이터베이스 설계 시 고려사항 무결성(정확성) 삽입, 삭제, 갱신 등의 연산 후에도 저장된 데이터가 정해진 제약조건을 만족해야한다. 일관성 회복 보안 효율성 : 응답시간을 단축하여 시스템의 생산성, 저장공간 최적화가 가능해야한다. 데이터베이스 확장 ★ 데이터베이스 설계" />
+    <meta property="og:url" content="https://achasan.github.io/Engineer_Information_Processing_1" />
+    <meta property="og:image" content="https://achasan.github.io/assets/images/TIL.png" />
+    <meta property="article:publisher" content="https://www.facebook.com/false" />
+    <meta property="article:author" content="https://www.facebook.com/false" />
+    <meta property="article:published_time" content="2022-02-10T00:00:00+09:00" />
+    <meta property="article:modified_time" content="2022-02-10T00:00:00+09:00" />
+    <meta property="article:tag" content="Til" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="[정보처리기사] 3.데이터베이스 설계" />
+    <meta name="twitter:description" content="정보처리기사 필기 - 논리 데이터베이스 설계 Reference 해당 주소에서 외워야하는 키워드 위주로 정리하여 타이핑 데이터 베이스 설계 데이터베이스 설계 시 고려사항 무결성(정확성) 삽입, 삭제, 갱신 등의 연산 후에도 저장된 데이터가 정해진 제약조건을 만족해야한다. 일관성 회복 보안 효율성 : 응답시간을 단축하여 시스템의 생산성, 저장공간 최적화가 가능해야한다. 데이터베이스 확장 ★ 데이터베이스 설계" />
+    <meta name="twitter:url" content="https://achasan.github.io/" />
+    <meta name="twitter:image" content="https://achasan.github.io/assets/images/TIL.png" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="Memory Repo." />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Til" />
+    <meta name="twitter:site" content="@false" />
+    <meta name="twitter:creator" content="@false" />
+    <meta property="og:image:width" content="1400" />
+    <meta property="og:image:height" content="933" />
+
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Memory Repo.",
+        "logo": "https://achasan.github.io/false"
+    },
+    "url": "https://achasan.github.io/Engineer_Information_Processing_1",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://achasan.github.io/assets/images/TIL.png",
+        "width": 2000,
+        "height": 666
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://achasan.github.io/Engineer_Information_Processing_1"
+    },
+    "description": "정보처리기사 필기 - 논리 데이터베이스 설계 Reference 해당 주소에서 외워야하는 키워드 위주로 정리하여 타이핑 데이터 베이스 설계 데이터베이스 설계 시 고려사항 무결성(정확성) 삽입, 삭제, 갱신 등의 연산 후에도 저장된 데이터가 정해진 제약조건을 만족해야한다. 일관성 회복 보안 효율성 : 응답시간을 단축하여 시스템의 생산성, 저장공간 최적화가 가능해야한다. 데이터베이스 확장 ★ 데이터베이스 설계"
+}
+    </script>
+
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/public/ghost-sdk.min.js?v=724281a32e"></script>
+    <script type="text/javascript">
+    ghost.init({
+    	clientId: "ghost-frontend",
+    	clientSecret: "f84a07a72b17"
+    });
+    </script> -->
+
+    <meta name="generator" content="Jekyll 3.6.2" />
+    <link rel="alternate" type="application/rss+xml" title="[정보처리기사] 3.데이터베이스 설계" href="/feed.xml" />
+
+
+</head>
+<body class="post-template">
+
+    <div class="site-wrapper">
+        <!-- All the main content gets inserted here, index.hbs, post.hbs, etc -->
+        <!-- default -->
+
+<!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template -->
+
+<header class="site-header outer">
+    <div class="inner">
+        <nav class="site-nav">
+    <div class="site-nav-left">
+        
+            
+                <a class="site-nav-logo" href="https://achasan.github.io/">Memory Repo.</a>
+            
+        
+        
+            <ul class="nav" role="menu">
+    <li class="nav-algorhythm" role="menuitem"><a href="/tag/algorhythm/">Algorhythm</a></li>
+    <li class="nav-basic" role="menuitem"><a href="/tag/basic/">Basic</a></li>
+    <li class="nav-spring-boot" role="menuitem"><a href="/tag/springboot/">Spring(Boot)</a></li>
+    <li class="nav-etc" role="menuitem"><a href="/tag/etc/">ETC</a></li>
+    <li class="nav-til" role="menuitem"><a href="/tag/til/">TIL</a></li>
+    <!-- <li class="nav-about" role="menuitem"><a href="/about/">About</a></li> -->
+</ul>
+
+        
+    </div>
+    <div class="site-nav-right">
+        <ul class="nav">
+            <li class="nav-about" role="menuitem"><a href="/all-posts/">All Posts</a></li>
+            <li class="nav-about" role="menuitem"><a href="/about/">About</a></li>
+        </ul>
+        <div class="social-links">
+            
+            
+        </div>
+        
+    </div>
+</nav>
+
+    </div>
+</header>
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+<div class="toc">
+    <a class="toc-title" href="#">[정보처리기사] 3.데이터베이스 설계</a>
+    <ul><li><a href="#데이터-베이스-설계">데이터 베이스 설계</a><ul><li><a href="#데이터베이스-설계-시-고려사항">데이터베이스 설계 시 고려사항</a></li><li><a href="#-데이터베이스-설계-순서">★ 데이터베이스 설계 순서</a></li></ul></li><li><a href="#데이터-모델의-개념">데이터 모델의 개념</a><ul><li><a href="#-데이터-모델-구성-요소">★ 데이터 모델 구성 요소</a></li><li><a href="#-데이터-모델에-표시할-요소">★ 데이터 모델에 표시할 요소</a><ul><li><a href="#데이터-모델의-종류">데이터 모델의 종류</a></li></ul></li></ul></li><li><a href="#개체entity">개체(Entity)</a><ul><li><a href="#개체의-특성">개체의 특성</a></li></ul></li><li><a href="#속성attribute">속성(Attribute)</a><ul><li><a href="#특성">특성</a></li><li><a href="#속성의-종류">속성의 종류</a><ul><li><a href="#속성의-특성에-따른-종류">속성의 특성에 따른 종류</a></li><li><a href="#개체-구성-방식에-따른-분류">개체 구성 방식에 따른 분류</a></li></ul></li></ul></li><li><a href="#관계relationship">관계(Relationship)</a><ul><li><a href="#관계의-형태">관계의 형태</a></li><li><a href="#관계의-종류">관계의 종류</a></li></ul></li><li><a href="#식별자identifier">식별자(Identifier)</a><ul><li><a href="#식별자-분류-기준">식별자 분류 기준</a></li></ul></li><li><a href="#e-r개체-관계-모델">E-R(개체-관계) 모델</a><ul><li><a href="#피터-첸-표기법">피터 첸 표기법</a></li><li><a href="#정보-공학-표기법">정보 공학 표기법</a></li></ul></li></ul></li></ul>
+
+</div>
+
+<main id="site-main" class="site-main outer" role="main">
+
+    <div class="inner">
+
+        <article class="post-full  tag-til post tag-Basic ">
+            
+            <header class="post-full-header">
+                <section class="post-full-meta">
+                    <time class="post-full-meta-date" datetime="10 February 2022">10 February 2022</time>
+                    
+                        <span class="date-divider">/</span>
+                        
+                            
+                                <a href='/tag/til/'>TIL</a>
+                            
+                        
+                    
+                </section>
+                <h1 class="post-full-title">[정보처리기사] 3.데이터베이스 설계</h1>
+            </header>
+
+            
+            <figure class="post-full-image" style="background-image: url(/assets/images/TIL.png)">
+            </figure>
+            
+
+            <section class="post-full-content">
+                <div class="kg-card-markdown">
+                    <p>정보처리기사 필기 - 논리 데이터베이스 설계</p>
+
+<p><a href="https://powerdev.tistory.com/37">Reference</a></p>
+
+<ul>
+  <li>해당 주소에서 외워야하는 키워드 위주로 정리하여 타이핑</li>
+</ul>
+
+<h1 id="데이터-베이스-설계">데이터 베이스 설계</h1>
+
+<h2 id="데이터베이스-설계-시-고려사항">데이터베이스 설계 시 고려사항</h2>
+
+<ul>
+  <li>무결성(정확성)
+    <ul>
+      <li>삽입, 삭제, 갱신 등의 연산 후에도 저장된 데이터가 정해진 제약조건을 만족해야한다.</li>
+    </ul>
+  </li>
+  <li>일관성</li>
+  <li>회복</li>
+  <li>보안</li>
+  <li>효율성 : 응답시간을 단축하여 시스템의 생산성, 저장공간 최적화가 가능해야한다.</li>
+  <li>데이터베이스 확장</li>
+</ul>
+
+<h2 id="-데이터베이스-설계-순서">★ 데이터베이스 설계 순서</h2>
+
+<ol>
+  <li>
+    <p>요구분석 : 사용자의 요구사항 분석, 요구 조건 명세서 작성</p>
+  </li>
+  <li>
+    <p>개념적 설계 : DBMS에 독립적인 개념 스키마 설계(E-R 모델), 트랜잭션 모델링</p>
+
+    <ul>
+      <li>정보 모델링, 개념화</li>
+      <li>현실 세계에 대한 인식을 추상적인 개념으로 표현하는 과정</li>
+      <li><strong>개념 스키마 모델링, 트랜잭션 모델링, E-R 다이어그램</strong></li>
+    </ul>
+  </li>
+  <li>
+    <p>논리적 설계 : DBMS에 맞는 스키마를 설계, 트랜잭션 인터페이스 설계</p>
+
+    <ul>
+      <li>데이터 모델링</li>
+      <li>현실에서 발생한 자료를 컴퓨터로 처리할 수 있는 저장장치에 저장할 수 있게 특정 dBMS가 지원하는 논리적 자료구조로 변환시키는 과정</li>
+    </ul>
+  </li>
+  <li>
+    <p>물리적 설계 : DBMS에 맞는 물리적 구조를 설계, 트랜잭션 세부 설계</p>
+
+    <ul>
+      <li>데이터 구조화</li>
+      <li>디스크 등 물리적 저장장치에 저장가능한 물리적 구조의 데이터로 변환하는 과정</li>
+    </ul>
+  </li>
+  <li>
+    <p>구현 : DDL로 데이터베이스 생성, 트랜잭션 작성</p>
+    <ul>
+      <li>DBMS의 DDL을 이용해 데이터베이스 파일 생성</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="데이터-모델의-개념">데이터 모델의 개념</h1>
+
+<blockquote>
+  <p>현실 세계의 정보들을 컴퓨터에 표현하기 위해 단순화, 추상화하여 체계적으로 표현한 개념적 모형</p>
+</blockquote>
+
+<h2 id="-데이터-모델-구성-요소">★ 데이터 모델 구성 요소</h2>
+
+<ul>
+  <li>
+    <p>개체(Entity)</p>
+
+    <ul>
+      <li>데이터베이스에 표현하려는 것, 사람이 생각하는 개념, 정보단위</li>
+    </ul>
+  </li>
+  <li>
+    <p>속성(Attribute)</p>
+
+    <ul>
+      <li>데이터의 가장 작은 논리적 단위, 파일 구조상의 데이터 항목 또는 데이터 필드</li>
+    </ul>
+  </li>
+  <li>
+    <p>관계(Relationship)</p>
+    <ul>
+      <li>개체 간의 관계 또는 속성 간의 논리적인 연결을 의미</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="-데이터-모델에-표시할-요소">★ 데이터 모델에 표시할 요소</h2>
+
+<ul>
+  <li>
+    <p>구조(Structure)</p>
+
+    <ul>
+      <li>논리적으로 표현된 개체 타입을 간의 관계로서 데이터 구조 및 정적 성질 표현</li>
+    </ul>
+  </li>
+  <li>
+    <p>연산(Operation)</p>
+
+    <ul>
+      <li>DB에 저장된 실제 데이터를 처리하는 작업에 대한 명세, 데이터베이스를 조작하는 기본 도구</li>
+    </ul>
+  </li>
+  <li>
+    <p>제약 조건(Constraint)</p>
+    <ul>
+      <li>실제 데이터의 논리적인 제약 조건</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="데이터-모델의-종류">데이터 모델의 종류</h3>
+
+<ul>
+  <li>개념적 데이터 모델</li>
+  <li>논리적 데이터 모델 : 관계, 계층, 네트워크 모델로 구분</li>
+  <li>물리적 데이터 모델</li>
+</ul>
+
+<h1 id="개체entity">개체(Entity)</h1>
+
+<blockquote>
+  <p>데이터베이스에 표현하려는 것, 사람이 생각하는 개념이나 정보 단위같은 현실 세계의 대상체</p>
+</blockquote>
+
+<p><img src="/assets/images/TIL/2022-02-10-15-44-33.png" alt="" /></p>
+
+<ul>
+  <li>교수 : 개체(Entity)</li>
+  <li>교수번호, 성명, 전공, 소속 : 속성(Attribute)</li>
+  <li>각 행 : 개체 인스턴스(Instance)
+    <ul>
+      <li>개체 인스턴스는 개체를 구성하고 있는 각 속성들이 값을 가져 하나의 개체를 나타내는 것으로 <strong>어커런스(Occurance)</strong>라고도 한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="개체의-특성">개체의 특성</h2>
+
+<ul>
+  <li>독립적으로 존재하는 유형, 무형의 정보. 속성으로 구성</li>
+  <li>파일 시스템의 레코드에 대응</li>
+  <li>영속적으로 존재하는 개체의 집합</li>
+  <li>독립적으로 존재, 그 자체로 구별</li>
+  <li>유일한 식별자를 가짐</li>
+  <li>다른 개체의 <strong>하나 이상</strong>의 관계</li>
+</ul>
+
+<h1 id="속성attribute">속성(Attribute)</h1>
+
+<blockquote>
+  <p>데이터베이스를 구성하는 가장 작은 논리적 단위</p>
+</blockquote>
+
+<h2 id="특성">특성</h2>
+
+<ul>
+  <li>파일 구조 상 데이터 항목, 필드에 해당</li>
+  <li>개체를 구성하는 항목</li>
+  <li>개체 특성을 기술</li>
+  <li>속성의 수를 Degree, 차수라고한다.</li>
+</ul>
+
+<h2 id="속성의-종류">속성의 종류</h2>
+
+<p><img src="/assets/images/TIL/2022-02-10-15-50-44.png" alt="" /></p>
+
+<h3 id="속성의-특성에-따른-종류">속성의 특성에 따른 종류</h3>
+
+<ul>
+  <li>
+    <p>기본 속성(Basic Attribute) : 업무분석으로 정의, 속성중 가장 많고 일반적, 업무상 코드로 정의한 속성은 기본 속성에서 제외</p>
+  </li>
+  <li>
+    <p>설게 속성(Designed Attribute) : 설계 과정에서 도출해내는 속성</p>
+
+    <ul>
+      <li>업무에 필요한 데이터 외에 데이터 모델링을 위해 업무를 규칙화하려고 속성을 새로 만들거나 변형하여 정의</li>
+    </ul>
+  </li>
+  <li>
+    <p>파생 속성(Derived Attribute) : 다른 속성으로부터 계산이나 변형 등의 영향을 받아 발생, 되도록 적은 수로 정의</p>
+  </li>
+</ul>
+
+<h3 id="개체-구성-방식에-따른-분류">개체 구성 방식에 따른 분류</h3>
+
+<ul>
+  <li>
+    <p>기본키 속성(Primary Key Attribute) : 개체의 속성을 식별할 수 있는 속성</p>
+  </li>
+  <li>
+    <p>외래키 속성(Foreign Key Attribute) : 다른 개체와의 관계에서 포함된 속성</p>
+  </li>
+  <li>
+    <p>일반 속성 : 개체에 포함되어있고 기본키, 외래키에 포함되지않은 속성</p>
+  </li>
+</ul>
+
+<h1 id="관계relationship">관계(Relationship)</h1>
+
+<blockquote>
+  <p>개체와 개체 사이의 논리적인 연결을 의미한다.</p>
+</blockquote>
+
+<p><img src="/assets/images/TIL/2022-02-10-15-53-34.png" alt="" /></p>
+
+<ul>
+  <li>개체 간 관계, 속성 간 관계로 구분</li>
+</ul>
+
+<h2 id="관계의-형태">관계의 형태</h2>
+
+<p><img src="/assets/images/TIL/2022-02-10-15-53-41.png" alt="" /></p>
+
+<h2 id="관계의-종류">관계의 종류</h2>
+
+<ul>
+  <li>
+    <p>종속 관계(Dependent Relationship) : 두 개체 사이의 주종 관계 표현, 식발 관계와 비식별 관계로 구분</p>
+
+    <ul>
+      <li>식별 관계 : A 개체의 기본키가 B 개체의 외래키이민서 동시에 기본키</li>
+      <li>비식별 관계 : A 개체의 기본키가 B 개체의 비기본키 영역에서 외래키가 되는 관계</li>
+    </ul>
+  </li>
+  <li>
+    <p>중복 관계(Redundant Relationship) : 두 개체 사이에서 2번 이상의 종속관계 발생</p>
+  </li>
+  <li>
+    <p>재귀 관계(Recursive Relationship) : 자기 자신과 관계를 가짐, 순환 관계</p>
+  </li>
+  <li>
+    <p>배타 관계(Exclusive Relationship) : 속성이나 구분자로 특성을 분할하는 관계. AND 관계, OR 관계로 구분</p>
+  </li>
+</ul>
+
+<h1 id="식별자identifier">식별자(Identifier)</h1>
+
+<blockquote>
+  <p>하나의 개체 내에서 각각의 인스턴스를 유일하게 구분할 수 잇는 구분자, 모든 객체는 하나 이상의 식별자를 반드시 가진다.</p>
+</blockquote>
+
+<h2 id="식별자-분류-기준">식별자 분류 기준</h2>
+
+<ul>
+  <li>
+    <p>대표성 여부 : 두 식별자 모두 개체를 유일하게 식별가능해야한다.</p>
+
+    <ul>
+      <li>
+        <p>주 식별자(Primaty Identifier) : 하나의 개체에 하나만 존재, 기본키로 지정됨</p>
+
+        <ul>
+          <li>주 식별자의 4가지 특성 : 유일성, 최소성, 불변성, 존재성</li>
+        </ul>
+      </li>
+      <li>
+        <p>보조 식별자(Alternate Identifier) : 주 식별자를 대신하여 개체를 식별</p>
+        <ul>
+          <li>하나의 객체에 한 개 이상 존재</li>
+          <li>물리적 테이블에서 유니크 인덱스로 지정되어 사용</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>스스로 생성 여부 :</p>
+
+    <ul>
+      <li>내부 식별자(Internal Identifier) : 개체 내에서 스스로 만들어지는 식별자</li>
+      <li>외부 식별자(Foreign Identifier) : 외부 개체의 식별자를 가져와 사용하는 식별자(연결자 역할)</li>
+    </ul>
+  </li>
+  <li>
+    <p>단일 속성 여부</p>
+
+    <ul>
+      <li>단일 식별자(Single Identifier) : 주 식별자가 한 가지 속성으로만 구성된 식별자(PK)</li>
+      <li>복합 식별자(Composite Identifier) : 주 식별자가 두 개 이상의 속성으로 구성된 식별자(PK + FK)</li>
+    </ul>
+  </li>
+  <li>
+    <p>대체 여부</p>
+    <ul>
+      <li>원조 식별자(Original Identifier) :</li>
+      <li>대리 식별자(Surrogate Identifier) : 주 식별자의 속성이 두 개 잇아인 경우 속성들을 하나의 속서응로 묶어 사용하는 식별자, 인조 식별자</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="e-r개체-관계-모델">E-R(개체-관계) 모델</h1>
+
+<blockquote>
+  <p>개념적 모델의 가장 대표적인 것, 1976년 피터 첸(Peter Chen)에 의해 제안됨</p>
+</blockquote>
+
+<ul>
+  <li>
+    <p>E-R 다이어그램으로 표현, 1:1 / 1:N / N:M 등의 관계 유형을 제한없이 나타 낼 수 있음</p>
+  </li>
+  <li>
+    <p>E-R 다이어그램</p>
+    <ul>
+      <li>E-R 모델의 기본 아이디어를 기호를 사용하여 시각적으로 표현</li>
+      <li>피터 첸 표기법, 정보 공학 표기법, 바커 표기법 등이 존재</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="피터-첸-표기법">피터 첸 표기법</h3>
+
+<p><img src="/assets/images/TIL/2022-02-10-16-11-38.png" alt="" /></p>
+
+<h3 id="정보-공학-표기법">정보 공학 표기법</h3>
+
+<ul>
+  <li>1981년 클리프 핀겔쉬타인과 제임스 마틴이 공동 개발</li>
+</ul>
+
+<p><img src="/assets/images/TIL/2022-02-10-16-11-56.png" alt="" /></p>
+
+                </div>
+            </section>
+
+            <!-- Email subscribe form at the bottom of the page -->
+            
+
+            <footer class="post-full-footer">
+                <!-- Everything inside the #author tags pulls data from the author -->
+                <!-- #author-->
+                
+                    
+                        <section class="author-card">
+                            
+                                <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                            
+                            <section class="author-card-content">
+                                <h4 class="author-card-name"><a href="/author/Achasan">Achasan</a></h4>
+                                
+                                    <p>Studying to be a passionate Developer</p>
+                                
+                            </section>
+                        </section>
+                        <div class="post-full-footer-right">
+                            <a class="author-card-button" href="/author/Achasan">Read More</a>
+                        </div>
+                    
+                
+                <!-- /author  -->
+            </footer>
+
+            <!-- Utterance script -->
+            <script src="https://utteranc.es/client.js"
+                repo="Achasan/achasan.github.io"
+                issue-term="url"
+                theme="github-light"
+                crossorigin="anonymous"
+                async>
+            </script>
+
+            <!-- If you use Disqus comments, just uncomment this block.
+            The only thing you need to change is "test-apkdzgmqhj" - which
+            should be replaced with your own Disqus site-id. -->
+            
+
+        </article>
+
+    </div>
+</main>
+
+<!-- Links to Previous/Next posts -->
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+                
+                
+                
+                
+            
+
+            <!-- If there's a next post, display it using the same markup included from - partials/post-card.hbs -->
+            
+
+            <!-- If there's a previous post, display it using the same markup included from - partials/post-card.hbs -->
+            
+                
+
+    <article class="post-card post-template">
+        
+            <a class="post-card-image-link" href="/bombom_review">
+                <div class="post-card-image" style="background-image: url(/assets/images/bombom_thumbnail.png)"></div>
+            </a>
+        
+        <div class="post-card-content">
+            <a class="post-card-content-link" href="/bombom_review">
+                <header class="post-card-header">
+                    
+                        
+                            
+                                <span class="post-card-tags">Etc</span>
+                            
+                        
+                    
+
+                    <h2 class="post-card-title">봄봄(이 영화 봄?봄!) 프로젝트 회고</h2>
+                </header>
+                <section class="post-card-excerpt">
+                    
+                        <p>파이널 프로젝트가 끝이났다.
+
+</p>
+                    
+                </section>
+            </a>
+            <footer class="post-card-meta">
+                
+                    
+                        
+                        <img class="author-profile-image" src="/assets/images/Achasan.png" alt="Achasan" />
+                        
+                        <span class="post-card-author">
+                            <a href="/author/Achasan/">Achasan</a>
+                        </span>
+                    
+                
+                <span class="reading-time">
+                    
+                    
+                        8 min read
+                    
+                </span>
+            </footer>
+        </div>
+    </article>
+
+            
+
+        </div>
+    </div>
+</aside>
+
+<!-- Floating header which appears on-scroll, included from includes/floating-header.hbs -->
+<div class="floating-header">
+    <div class="floating-header-logo">
+        <a href="https://achasan.github.io/">
+            
+            <span>Memory Repo.</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">[정보처리기사] 3.데이터베이스 설계</div>
+    <!-- <div class="floating-header-share">
+        <div class="floating-header-share-label">Share this <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <path d="M7.5 15.5V4a1.5 1.5 0 1 1 3 0v4.5h2a1 1 0 0 1 1 1h2a1 1 0 0 1 1 1H18a1.5 1.5 0 0 1 1.5 1.5v3.099c0 .929-.13 1.854-.385 2.748L17.5 23.5h-9c-1.5-2-5.417-8.673-5.417-8.673a1.2 1.2 0 0 1 1.76-1.605L7.5 15.5zm6-6v2m-3-3.5v3.5m6-1v2"/>
+</svg>
+</div>
+        <a class="floating-header-share-tw" href="https://twitter.com/share?text=%5B%EC%A0%95%EB%B3%B4%EC%B2%98%EB%A6%AC%EA%B8%B0%EC%82%AC%5D+3.%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4+%EC%84%A4%EA%B3%84&amp;url=https://achasan.github.ioEngineer_Information_Processing_1"
+            onclick="window.open(this.href, 'share-twitter', 'width=550,height=235');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M30.063 7.313c-.813 1.125-1.75 2.125-2.875 2.938v.75c0 1.563-.188 3.125-.688 4.625a15.088 15.088 0 0 1-2.063 4.438c-.875 1.438-2 2.688-3.25 3.813a15.015 15.015 0 0 1-4.625 2.563c-1.813.688-3.75 1-5.75 1-3.25 0-6.188-.875-8.875-2.625.438.063.875.125 1.375.125 2.688 0 5.063-.875 7.188-2.5-1.25 0-2.375-.375-3.375-1.125s-1.688-1.688-2.063-2.875c.438.063.813.125 1.125.125.5 0 1-.063 1.5-.25-1.313-.25-2.438-.938-3.313-1.938a5.673 5.673 0 0 1-1.313-3.688v-.063c.813.438 1.688.688 2.625.688a5.228 5.228 0 0 1-1.875-2c-.5-.875-.688-1.813-.688-2.75 0-1.063.25-2.063.75-2.938 1.438 1.75 3.188 3.188 5.25 4.25s4.313 1.688 6.688 1.813a5.579 5.579 0 0 1 1.5-5.438c1.125-1.125 2.5-1.688 4.125-1.688s3.063.625 4.188 1.813a11.48 11.48 0 0 0 3.688-1.375c-.438 1.375-1.313 2.438-2.563 3.188 1.125-.125 2.188-.438 3.313-.875z"/></svg>
+
+        </a>
+        <a class="floating-header-share-fb" href="https://www.facebook.com/sharer/sharer.php?u=https://achasan.github.ioEngineer_Information_Processing_1"
+            onclick="window.open(this.href, 'share-facebook','width=580,height=296');return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M19 6h5V0h-5c-3.86 0-7 3.14-7 7v3H8v6h4v16h6V16h5l1-6h-6V7c0-.542.458-1 1-1z"/></svg>
+
+        </a>
+    </div> -->
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+<!-- /post -->
+
+<!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs -->
+
+
+        <!-- Previous/next page links - displayed on every page -->
+        
+
+        <!-- The footer at the very bottom of the screen -->
+        <footer class="site-footer outer">
+            <div class="site-footer-content inner">
+                <section class="copyright"><a href="https://achasan.github.io/">Memory Repo.</a> &copy; 2022</section>
+                <section class="poweredby">
+                    hmin4957@naver.com
+                </section>
+                <nav class="site-footer-nav">
+                    <a href="/">Latest Posts</a>
+                    
+                    
+                    <a href="https://github.com/Achasan" target="_blank" rel="noopener">Github</a>
+                </nav>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- The big email subscribe modal content -->
+    
+
+    <!-- highlight.js : 작동안해서 주석처리, rouge 사용중 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-abap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script> -->
+
+    <!-- jQuery + Fitvids, which makes all video embeds responsive -->
+    <script defer
+        src="https://code.jquery.com/jquery-3.6.0.min.js">
+    </script>
+    <script defer type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <!-- <script type="text/javascript" src="https://demo.ghost.io/assets/js/jquery.fitvids.js?v=724281a32e"></script> -->
+
+
+    <!-- Paginator increased to "infinit" in _config.yml -->
+    <!-- if paginator.posts  -->
+    <!-- <script>
+        var maxPages = parseInt('');
+    </script>
+    <script src="/assets/js/infinitescroll.js"></script> -->
+    <!-- /endif -->
+
+    
+
+
+    <!-- Add Google Analytics  -->
+    <!-- Google Analytics Tracking code -->
+ <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'G-W1Q1F9SP78', 'auto');
+  ga('send', 'pageview');
+
+ </script>
+
+
+    <!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. -->
+    
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+// NOTE: Scroll performance is poor in Safari
+// - this appears to be due to the events firing much more slowly in Safari.
+//   Dropping the scroll event and using only a raf loop results in smoother
+//   scrolling but continuous processing even when not scrolling
+    $(document).ready(function () {
+    // Start fitVids
+    var $postContent = $(".post-full-content");
+    $postContent.fitVids();
+    // End fitVids
+
+    var progressBar = document.querySelector('progress');
+    var header = document.querySelector('.floating-header');
+    var title = document.querySelector('.post-full-title');
+
+    var lastScrollY = window.scrollY;
+    var lastWindowHeight = window.innerHeight;
+    var lastDocumentHeight = $(document).height();
+    var ticking = false;
+
+    function onScroll() {
+        lastScrollY = window.scrollY;
+        requestTick();
+    }
+
+    function onResize() {
+        lastWindowHeight = window.innerHeight;
+        lastDocumentHeight = $(document).height();
+        requestTick();
+    }
+
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(update);
+        }
+        ticking = true;
+    }
+
+    function update() {
+        var trigger = title.getBoundingClientRect().top + window.scrollY;
+        var triggerOffset = title.offsetHeight + 35;
+        var progressMax = lastDocumentHeight - lastWindowHeight;
+
+        // show/hide floating header
+        if (lastScrollY >= trigger + triggerOffset) {
+            header.classList.add('floating-active');
+        } else {
+            header.classList.remove('floating-active');
+        }
+
+        progressBar.setAttribute('max', progressMax);
+        progressBar.setAttribute('value', lastScrollY);
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', onScroll, {passive: true});
+    window.addEventListener('resize', onResize, false);
+
+    update();
+});
+</script>
+
+    
+
+    <!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag -->
+    <!-- ghost_foot -->
+
+</body>
+</html>

@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
+  <link href="https://achasan.github.io/tag/til/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-02-10T18:22:27+09:00</updated>
+  <id>https://achasan.github.io/tag/til/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">Memory Repo. | </title>
+  
+
+  
+    <subtitle>by Achasan</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">[정보처리기사] 3.데이터베이스 설계</title>
+      <link href="https://achasan.github.io/Engineer_Information_Processing_1" rel="alternate" type="text/html" title="[정보처리기사] 3.데이터베이스 설계" />
+      <published>2022-02-10T00:00:00+09:00</published>
+      <updated>2022-02-10T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/Engineer_Information_Processing_1</id>
+      <content type="html" xml:base="https://achasan.github.io/Engineer_Information_Processing_1">&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://powerdev.tistory.com/37&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해당 주소에서 외워야하는 키워드 위주로 정리하여 타이핑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;데이터-베이스-설계&quot;&gt;데이터 베이스 설계&lt;/h1&gt;
+
+&lt;h2 id=&quot;데이터베이스-설계-시-고려사항&quot;&gt;데이터베이스 설계 시 고려사항&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;무결성(정확성)
+    &lt;ul&gt;
+      &lt;li&gt;삽입, 삭제, 갱신 등의 연산 후에도 저장된 데이터가 정해진 제약조건을 만족해야한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;일관성&lt;/li&gt;
+  &lt;li&gt;회복&lt;/li&gt;
+  &lt;li&gt;보안&lt;/li&gt;
+  &lt;li&gt;효율성 : 응답시간을 단축하여 시스템의 생산성, 저장공간 최적화가 가능해야한다.&lt;/li&gt;
+  &lt;li&gt;데이터베이스 확장&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-데이터베이스-설계-순서&quot;&gt;★ 데이터베이스 설계 순서&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;요구분석 : 사용자의 요구사항 분석, 요구 조건 명세서 작성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;개념적 설계 : DBMS에 독립적인 개념 스키마 설계(E-R 모델), 트랜잭션 모델링&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;정보 모델링, 개념화&lt;/li&gt;
+      &lt;li&gt;현실 세계에 대한 인식을 추상적인 개념으로 표현하는 과정&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;개념 스키마 모델링, 트랜잭션 모델링, E-R 다이어그램&lt;/strong&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;논리적 설계 : DBMS에 맞는 스키마를 설계, 트랜잭션 인터페이스 설계&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;데이터 모델링&lt;/li&gt;
+      &lt;li&gt;현실에서 발생한 자료를 컴퓨터로 처리할 수 있는 저장장치에 저장할 수 있게 특정 dBMS가 지원하는 논리적 자료구조로 변환시키는 과정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;물리적 설계 : DBMS에 맞는 물리적 구조를 설계, 트랜잭션 세부 설계&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;데이터 구조화&lt;/li&gt;
+      &lt;li&gt;디스크 등 물리적 저장장치에 저장가능한 물리적 구조의 데이터로 변환하는 과정&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;구현 : DDL로 데이터베이스 생성, 트랜잭션 작성&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;DBMS의 DDL을 이용해 데이터베이스 파일 생성&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h1 id=&quot;데이터-모델의-개념&quot;&gt;데이터 모델의 개념&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;현실 세계의 정보들을 컴퓨터에 표현하기 위해 단순화, 추상화하여 체계적으로 표현한 개념적 모형&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;-데이터-모델-구성-요소&quot;&gt;★ 데이터 모델 구성 요소&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;개체(Entity)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;데이터베이스에 표현하려는 것, 사람이 생각하는 개념, 정보단위&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;속성(Attribute)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;데이터의 가장 작은 논리적 단위, 파일 구조상의 데이터 항목 또는 데이터 필드&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;관계(Relationship)&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;개체 간의 관계 또는 속성 간의 논리적인 연결을 의미&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-데이터-모델에-표시할-요소&quot;&gt;★ 데이터 모델에 표시할 요소&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;구조(Structure)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;논리적으로 표현된 개체 타입을 간의 관계로서 데이터 구조 및 정적 성질 표현&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;연산(Operation)&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;DB에 저장된 실제 데이터를 처리하는 작업에 대한 명세, 데이터베이스를 조작하는 기본 도구&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;제약 조건(Constraint)&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;실제 데이터의 논리적인 제약 조건&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;데이터-모델의-종류&quot;&gt;데이터 모델의 종류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개념적 데이터 모델&lt;/li&gt;
+  &lt;li&gt;논리적 데이터 모델 : 관계, 계층, 네트워크 모델로 구분&lt;/li&gt;
+  &lt;li&gt;물리적 데이터 모델&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;개체entity&quot;&gt;개체(Entity)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터베이스에 표현하려는 것, 사람이 생각하는 개념이나 정보 단위같은 현실 세계의 대상체&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-15-44-33.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;교수 : 개체(Entity)&lt;/li&gt;
+  &lt;li&gt;교수번호, 성명, 전공, 소속 : 속성(Attribute)&lt;/li&gt;
+  &lt;li&gt;각 행 : 개체 인스턴스(Instance)
+    &lt;ul&gt;
+      &lt;li&gt;개체 인스턴스는 개체를 구성하고 있는 각 속성들이 값을 가져 하나의 개체를 나타내는 것으로 &lt;strong&gt;어커런스(Occurance)&lt;/strong&gt;라고도 한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;개체의-특성&quot;&gt;개체의 특성&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;독립적으로 존재하는 유형, 무형의 정보. 속성으로 구성&lt;/li&gt;
+  &lt;li&gt;파일 시스템의 레코드에 대응&lt;/li&gt;
+  &lt;li&gt;영속적으로 존재하는 개체의 집합&lt;/li&gt;
+  &lt;li&gt;독립적으로 존재, 그 자체로 구별&lt;/li&gt;
+  &lt;li&gt;유일한 식별자를 가짐&lt;/li&gt;
+  &lt;li&gt;다른 개체의 &lt;strong&gt;하나 이상&lt;/strong&gt;의 관계&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;속성attribute&quot;&gt;속성(Attribute)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터베이스를 구성하는 가장 작은 논리적 단위&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;특성&quot;&gt;특성&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;파일 구조 상 데이터 항목, 필드에 해당&lt;/li&gt;
+  &lt;li&gt;개체를 구성하는 항목&lt;/li&gt;
+  &lt;li&gt;개체 특성을 기술&lt;/li&gt;
+  &lt;li&gt;속성의 수를 Degree, 차수라고한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;속성의-종류&quot;&gt;속성의 종류&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-15-50-44.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;속성의-특성에-따른-종류&quot;&gt;속성의 특성에 따른 종류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;기본 속성(Basic Attribute) : 업무분석으로 정의, 속성중 가장 많고 일반적, 업무상 코드로 정의한 속성은 기본 속성에서 제외&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;설게 속성(Designed Attribute) : 설계 과정에서 도출해내는 속성&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;업무에 필요한 데이터 외에 데이터 모델링을 위해 업무를 규칙화하려고 속성을 새로 만들거나 변형하여 정의&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;파생 속성(Derived Attribute) : 다른 속성으로부터 계산이나 변형 등의 영향을 받아 발생, 되도록 적은 수로 정의&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;개체-구성-방식에-따른-분류&quot;&gt;개체 구성 방식에 따른 분류&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;기본키 속성(Primary Key Attribute) : 개체의 속성을 식별할 수 있는 속성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;외래키 속성(Foreign Key Attribute) : 다른 개체와의 관계에서 포함된 속성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;일반 속성 : 개체에 포함되어있고 기본키, 외래키에 포함되지않은 속성&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;관계relationship&quot;&gt;관계(Relationship)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;개체와 개체 사이의 논리적인 연결을 의미한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-15-53-34.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;개체 간 관계, 속성 간 관계로 구분&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;관계의-형태&quot;&gt;관계의 형태&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-15-53-41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;관계의-종류&quot;&gt;관계의 종류&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;종속 관계(Dependent Relationship) : 두 개체 사이의 주종 관계 표현, 식발 관계와 비식별 관계로 구분&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;식별 관계 : A 개체의 기본키가 B 개체의 외래키이민서 동시에 기본키&lt;/li&gt;
+      &lt;li&gt;비식별 관계 : A 개체의 기본키가 B 개체의 비기본키 영역에서 외래키가 되는 관계&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;중복 관계(Redundant Relationship) : 두 개체 사이에서 2번 이상의 종속관계 발생&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;재귀 관계(Recursive Relationship) : 자기 자신과 관계를 가짐, 순환 관계&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;배타 관계(Exclusive Relationship) : 속성이나 구분자로 특성을 분할하는 관계. AND 관계, OR 관계로 구분&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;식별자identifier&quot;&gt;식별자(Identifier)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;하나의 개체 내에서 각각의 인스턴스를 유일하게 구분할 수 잇는 구분자, 모든 객체는 하나 이상의 식별자를 반드시 가진다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;식별자-분류-기준&quot;&gt;식별자 분류 기준&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;대표성 여부 : 두 식별자 모두 개체를 유일하게 식별가능해야한다.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;주 식별자(Primaty Identifier) : 하나의 개체에 하나만 존재, 기본키로 지정됨&lt;/p&gt;
+
+        &lt;ul&gt;
+          &lt;li&gt;주 식별자의 4가지 특성 : 유일성, 최소성, 불변성, 존재성&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;보조 식별자(Alternate Identifier) : 주 식별자를 대신하여 개체를 식별&lt;/p&gt;
+        &lt;ul&gt;
+          &lt;li&gt;하나의 객체에 한 개 이상 존재&lt;/li&gt;
+          &lt;li&gt;물리적 테이블에서 유니크 인덱스로 지정되어 사용&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;스스로 생성 여부 :&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;내부 식별자(Internal Identifier) : 개체 내에서 스스로 만들어지는 식별자&lt;/li&gt;
+      &lt;li&gt;외부 식별자(Foreign Identifier) : 외부 개체의 식별자를 가져와 사용하는 식별자(연결자 역할)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;단일 속성 여부&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;단일 식별자(Single Identifier) : 주 식별자가 한 가지 속성으로만 구성된 식별자(PK)&lt;/li&gt;
+      &lt;li&gt;복합 식별자(Composite Identifier) : 주 식별자가 두 개 이상의 속성으로 구성된 식별자(PK + FK)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;대체 여부&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;원조 식별자(Original Identifier) :&lt;/li&gt;
+      &lt;li&gt;대리 식별자(Surrogate Identifier) : 주 식별자의 속성이 두 개 잇아인 경우 속성들을 하나의 속서응로 묶어 사용하는 식별자, 인조 식별자&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;e-r개체-관계-모델&quot;&gt;E-R(개체-관계) 모델&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;개념적 모델의 가장 대표적인 것, 1976년 피터 첸(Peter Chen)에 의해 제안됨&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;E-R 다이어그램으로 표현, 1:1 / 1:N / N:M 등의 관계 유형을 제한없이 나타 낼 수 있음&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;E-R 다이어그램&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;E-R 모델의 기본 아이디어를 기호를 사용하여 시각적으로 표현&lt;/li&gt;
+      &lt;li&gt;피터 첸 표기법, 정보 공학 표기법, 바커 표기법 등이 존재&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;피터-첸-표기법&quot;&gt;피터 첸 표기법&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-16-11-38.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;정보-공학-표기법&quot;&gt;정보 공학 표기법&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1981년 클리프 핀겔쉬타인과 제임스 마틴이 공동 개발&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-16-11-56.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="TIL" />
+      
+
+      
+        <summary type="html">정보처리기사 필기 - 논리 데이터베이스 설계</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
