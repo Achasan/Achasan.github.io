@@ -5,9 +5,308 @@
     <description>by Achasan</description>
     <link>https://achasan.github.io//</link>
     <atom:link href="https://achasan.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 10 Feb 2022 23:48:04 +0900</pubDate>
-    <lastBuildDate>Thu, 10 Feb 2022 23:48:04 +0900</lastBuildDate>
+    <pubDate>Sat, 12 Feb 2022 13:12:49 +0900</pubDate>
+    <lastBuildDate>Sat, 12 Feb 2022 13:12:49 +0900</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>[정보처리기사]  3.논리 데이터베이스 설계(3)</title>
+        <description>&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://powerdev.tistory.com/42&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해당 주소에서 외워야하는 키워드 위주로 정리하여 타이핑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;정규화normalization&quot;&gt;정규화(Normalization)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;잘못 설계된 관계형 스키마를 더 작은 속성의 세트로 쪼개어 바람직한 스키마로 만들어 가는 과정&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;논리적 설계 단계에서 수행한다.&lt;/li&gt;
+  &lt;li&gt;데이터의 중복성 최소, 이상 발생 방지, 저장공간 최소화, 일관성 보장, 정확성 증가&lt;/li&gt;
+  &lt;li&gt;조회 성능은 저하한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;이상의-개념-및-종류&quot;&gt;이상의 개념 및 종류&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;정규화를 거치지 않으면 DB 내의 데이터들이 중복되어 의도와 상관없이 삽입, 삭제, 갱신이 일어나는 현상&lt;/li&gt;
+  &lt;li&gt;이상의 종류 : 삽입 이상, 삭제 이상, 갱신 이상&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;-정규화-과정&quot;&gt;★ 정규화 과정&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/2022-02-11-16-46-49.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;반정규화역정규화--denomalization&quot;&gt;반정규화(역정규화 : Denomalization)&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;정규화된 데이터를 통합, 중복, 분리하는 과정&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;정규화 규칙을 위배하는 행위&lt;/li&gt;
+  &lt;li&gt;성능 향상, 효율성 증가&lt;/li&gt;
+  &lt;li&gt;일관성, 정합성 저하&lt;/li&gt;
+  &lt;li&gt;테이블 통합, 테이블 분할, 테이블 추가, 중복 속성 추가가 있다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;테이블-통합&quot;&gt;테이블 통합&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;조인되는 경우가 많은 두 테이블일 경우 통합
+    &lt;ul&gt;
+      &lt;li&gt;Not Null, Default, Check 등의 제약조건 설계가 어려워짐&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;테이블-분할&quot;&gt;테이블 분할&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;테이블을 수직, 수평으로 분할한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;중복-테이블-추가&quot;&gt;중복 테이블 추가&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;여러 다른 테이블을 사용해야 하는 경우에 중복 테이블 추가&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;중복-속성-추가&quot;&gt;중복 속성 추가&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;조인하여 여러 데이터를 처리할 때 자주 사용하는 속성을 추가&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;시스템-카탈로그-system-catalog&quot;&gt;시스템 카탈로그 (System Catalog)&lt;/h1&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;일반 사용자&lt;/strong&gt;도 SQL을 사용하여 내용을 검색해 볼 수 있다.&lt;/li&gt;
+  &lt;li&gt;DBMS가 스스로 생성하고 유지한다.&lt;/li&gt;
+  &lt;li&gt;사용자가 SQL문을 실행시켜 기본테이블, 인덱스 등에 변화를 주면 &lt;strong&gt;시스템이 자동으로 갱신&lt;/strong&gt;한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;메타-데이터&quot;&gt;메타 데이터&lt;/h3&gt;
+&lt;p&gt;시스템 카탈로그에 저장된 정보를 메타 데이터라고 한다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;테이블, 인덱스, 뷰 등&lt;/li&gt;
+  &lt;li&gt;아이디, 패스워드, 접근권한 등&lt;/li&gt;
+  &lt;li&gt;기본키, 외래키, NULL값 허용 여부&lt;/li&gt;
+  &lt;li&gt;함수, 프로시저, 트리거 등에 대한 정보&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;카탈로그--데이터-사전을-참조하기위한-dbms-내의-모듈-시스템&quot;&gt;카탈로그 / 데이터 사전을 참조하기위한 DBMS 내의 모듈 시스템&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;DDL 번역기&lt;/li&gt;
+  &lt;li&gt;DCL 번역기&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Data Directory&lt;/strong&gt; : 사용자 접근 X, 시스템만 접근 가능&lt;/li&gt;
+  &lt;li&gt;질의 최적화기&lt;/li&gt;
+  &lt;li&gt;트랜잭션 처리기&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 10 Feb 2022 00:00:00 +0900</pubDate>
+        <link>https://achasan.github.io//Engineer_Information_Processing_3</link>
+        <guid isPermaLink="true">https://achasan.github.io//Engineer_Information_Processing_3</guid>
+        
+        <category>TIL</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>[정보처리기사] 3.논리 데이터베이스 설계(2)</title>
+        <description>&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://powerdev.tistory.com/40&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;해당 주소에서 외워야하는 키워드 위주로 정리하여 타이핑&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;관계형-데이터-모델&quot;&gt;관계형 데이터 모델&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;가장 널리 사용되는 데이터 모델, 2차원적인 표를 사용하여 데이터 상화관계를 구조하는 DB구조, 기본키와 외래키를 사용하여 관계를 표현한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;관계형-데이터-베이스의-구조&quot;&gt;관계형 데이터 베이스의 구조&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1970년 IBM에 근무하던 코드에 의해 처음 제안된 관계형 데이터베이스의 구조는 개체와 관계를 모두 릴레이션이라는 표로 작성한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;관계형-데이터베이스의-relation-구조&quot;&gt;관계형 데이터베이스의 Relation 구조&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2022-02-11-15-47-46.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;튜플tuple&quot;&gt;튜플(Tuple)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;릴레이션을 구성하는 각각의 행&lt;/li&gt;
+  &lt;li&gt;속성의 모임으로 구성되어있음&lt;/li&gt;
+  &lt;li&gt;파일구조에서 레코드와 같은 의미&lt;/li&gt;
+  &lt;li&gt;**튜플의 수 = 카디널리티(Cardinality) = 기수 = 대응수&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;속성attribute&quot;&gt;속성(Attribute)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;데이터베이스를 구성하는 가장 작은 논리적 단위&lt;/li&gt;
+  &lt;li&gt;데이터항목, 데이터 필드와 같은 의미(파일시스템)&lt;/li&gt;
+  &lt;li&gt;개체의 특성을 기술&lt;/li&gt;
+  &lt;li&gt;속성의 수 = Degree = 차수&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;도메인domain&quot;&gt;도메인(Domain)&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;하나의 속성이 취할 수 있는 같은 타입의 원자 값들의 집합&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;릴레이션의-특징&quot;&gt;릴레이션의 특징&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;릴레이션에 포함된 튜플들은 모두 상이하다.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;튜플 사이에는 순서가 없다.&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;속성의 &lt;strong&gt;명칭은 유일&lt;/strong&gt;해야한다, &lt;strong&gt;속성값은 동일한 값이 올 수 있다&lt;/strong&gt;.&lt;/li&gt;
+  &lt;li&gt;속성의 값은 논리적으로 더 이상 쪼갤 수 없는 원자값이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;관계형-데이터베이스의-제약조건--key&quot;&gt;관계형 데이터베이스의 제약조건 : Key&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;DB에서 조건을 만족하는 Key를 찾거나 순서대로 정렬할 때 튜플들을 서로 구분할 수 있는 기준이 되는 속성&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Key의 종류는 후보키, 기본키, 대체키, 슈퍼키, 외래키 등이 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/2022-02-11-15-54-26.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;후보키candidate-key&quot;&gt;후보키(Candidate Key)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;튜플을 유일하게 식별하기위해 사용하는 속성의 부분집합, 기본키로 사용가능한 속성&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;모든 릴레이션에는 반드시 하나 이상의 후보키가 존재한다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;후보키는 모든 튜플의 &lt;strong&gt;유일성, 최소성&lt;/strong&gt;을 만족시켜야 한다.
+        &lt;ul&gt;
+          &lt;li&gt;유일성(Unique) : 하나의 키 값으로 하나의 튜플을 유일하게 식별&lt;/li&gt;
+          &lt;li&gt;최소성(Minimality) : 모든 레코드를 유일하게 식별하는데 꼭 필요한 속성으로 구성&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;학번, 주민번호는 유일성과 최소성을 만족하므로 기본키로 사용할 수 있는 후보키에 해당된다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;기본키primary-key&quot;&gt;기본키(Primary Key)&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;기본키는 NULL 값을 가질 수 없다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;특정 튜플을 유일하게 구별할 수 있는 속성&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;기본키는 후보키의 성질(최소성, 유일성)을 가진다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;학생 릴레이션에서는 학번 or 주민번호, 수강 릴레이션에서는 학번 + 과목명이 기본키가 될 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;대체키alternate-key&quot;&gt;대체키(Alternate Key)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;후보키가 둘 이상일 때, 기본키를 제외한 나머지를 대체키라고한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;슈퍼키super-key&quot;&gt;슈퍼키(Super Key)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;한 릴레이션 내에 있는 속성들의 집합으로 구성된 키를 말한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;유일성은 만족시키지만, 최소성은 만족시키지 못한다.&lt;/strong&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;외래키foreign-key&quot;&gt;외래키(Foreign Key)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;다른 릴레이션의 기본키를 참조하는 속성 혹은 속성들의 집합
+    &lt;ul&gt;
+      &lt;li&gt;릴레이션 간 참조관계를 표현하는데 중요한 키&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;관계형-데이터베이스의-제약조건---무결성&quot;&gt;관계형 데이터베이스의 제약조건 - 무결성&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터베이스의 저장된 데이터 값과 현실세계의 실제 값이 일치하는 &lt;strong&gt;정확성&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;종류로 개체 무결성, 도메인 무결성, 참조 무결성, 사용자 정의 무결성이 존재한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-개체-무결성-entity-integrity&quot;&gt;★ 개체 무결성 (Entity Integrity)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;기본키를 구성하는 어떤 속성도 NULL 값이나 중복 값을 가질 수 없음&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;도메인-무결성-domain-integrity&quot;&gt;도메인 무결성 (Domain Integrity)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;주어진 속성 값이 정의된 도메인이 속한 값이어야 한다는 규정
+    &lt;ul&gt;
+      &lt;li&gt;예를 들어 과목명에 들어가야하는 값을 국어, 수학, 영어, 컴퓨터, 미술로 정했을 경우 5개의 값만 들어가야한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;-참조-무결성-referential-integrity&quot;&gt;★ 참조 무결성 (Referential Integrity)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;외래키 값은 NULL이거나 참조 릴레이션의 기본키 값과 동일해야한다. 릴레이션은 참조할 수 없는 외래키 값을 가질 수 없다는 규정&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;관계-대수-및-관계-해석&quot;&gt;관계 대수 및 관계 해석&lt;/h1&gt;
+
+&lt;h2 id=&quot;관계-해석&quot;&gt;관계 해석&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;관계 데이터의 연산을 표현하는 방법, 코드가 수학의 Predicate Calculus에 기반을 두고 관계 데이터베이스를 위해 제안
+    &lt;ul&gt;
+      &lt;li&gt;비절차적 특성을 가진다.&lt;/li&gt;
+      &lt;li&gt;관계대수로 표현한 식은 관계 해석으로 표현 가능&lt;/li&gt;
+      &lt;li&gt;튜블 관계해석, 도메인 관계해석 존재&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;관게-대수&quot;&gt;관게 대수&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;RDBMS에서 원하는 정보를 얻기 위해 어떻게 유도하는가를 기술하는 &lt;strong&gt;절차적인 언어&lt;/strong&gt;
+    &lt;ul&gt;
+      &lt;li&gt;순수 관계 연산자 : Select, Project, Join, Division&lt;/li&gt;
+      &lt;li&gt;일반 집합 연산자 : UNION(합집합), INTERSECTION(교집합), DIFERENCE(차집합), CARTESIAN PRODUCT(교차곱)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 10 Feb 2022 00:00:00 +0900</pubDate>
+        <link>https://achasan.github.io//Engineer_Information_Processing_2</link>
+        <guid isPermaLink="true">https://achasan.github.io//Engineer_Information_Processing_2</guid>
+        
+        <category>TIL</category>
+        
+        
+      </item>
     
       <item>
         <title>[TIL] HTTPS를 사용하는 이유, 원리</title>
@@ -127,7 +426,7 @@
       </item>
     
       <item>
-        <title>[정보처리기사] 3.데이터베이스 설계</title>
+        <title>[정보처리기사] 3.논리 데이터베이스 설계(1)</title>
         <description>&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://powerdev.tistory.com/37&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
@@ -4662,391 +4961,6 @@ server: nginx&lt;/p&gt;
         <pubDate>Fri, 29 Oct 2021 00:00:00 +0900</pubDate>
         <link>https://achasan.github.io//spring_basic_9</link>
         <guid isPermaLink="true">https://achasan.github.io//spring_basic_9</guid>
-        
-        <category>SpringBoot</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름</title>
-        <description>&lt;h1 id=&quot;http-웹-기본-지식-2&quot;&gt;HTTP 웹 기본 지식 2&lt;/h1&gt;
-
-&lt;h2 id=&quot;uri-url-urn&quot;&gt;URI? URL? URN?&lt;/h2&gt;
-
-&lt;p&gt;웹 공부를 하면서 URI, URL은 흔하게 들어보았으나 URN은 처음 들어봤다. 세 키워드의 차이점이 무엇인지 알아보자.&lt;/p&gt;
-
-&lt;h3 id=&quot;uri&quot;&gt;URI&lt;/h3&gt;
-
-&lt;p&gt;URI(Uniform Resource Identifier)는 리소스를 식별하는 통합된 방법이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Uniform : 리소스를 식별하는 통일된 방식&lt;/li&gt;
-  &lt;li&gt;Resource : 자원, URI로 식별할 수 있는 모든 것(제한없음)&lt;/li&gt;
-  &lt;li&gt;Identifier : 다른 항목과 구분하는데 필요한 정보&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-21-30-46.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;URI는 로케이터(locator), 이름(name) 또는 둘 다 추가로 분류될 수 있다, 즉 URI 안에 URL이 있는 것이고, URN이 있는 것이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;url&quot;&gt;URL&lt;/h3&gt;
-
-&lt;p&gt;URL은 Unifrom Resource Locator로, 우리가 흔히 볼 수 있는 주소창에 입력하는 그것이다. URL은 웹 애플리케이션의 리소스가 위치한 장소를 표시한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;urn&quot;&gt;URN&lt;/h3&gt;
-
-&lt;p&gt;URN은 Unifrom Resource Name으로, 리소스에 이름을 부여한 것이다. 자주 사용되지는 않는다. 예를 들자면 책의 isbn urn을 예로 들 수 있다. 서점에 가면 뒷표지에 isbn과 바코드가 찍혀있는데, 책(리소스)의 고유한 식별자를 나타낸다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;위치는 변할 수 있지만 이름은 변하지 않는다. 하지만 URN이름 만으로 실제 리소스를 찾을 수 있는 방법이 보편화 되지는 않았다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;urluri-분석하기&quot;&gt;URL(URI) 분석하기&lt;/h2&gt;
-
-&lt;p&gt;https://www.google.com/search?q=hello&amp;amp;hl=ko&lt;/p&gt;
-
-&lt;p&gt;위의 URL의 구조를 살펴보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-21-35-27.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;[URL scheme]&lt;/p&gt;
-
-&lt;p&gt;scheme://[userInfo@]host[:port][/path][?query][#fragment]&lt;/p&gt;
-
-&lt;p&gt;https://www.google.com:443/search?q=hello&amp;amp;hl=ko&lt;/p&gt;
-
-&lt;p&gt;[scheme] : 주로 프로토콜을 사용한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;프로토콜 : 어떤 방식으로 자원에 접근할 것인가 하는 약속규칙(http, https, ftp 등)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https는 80포트, https는 443 포트를 주로 사용한다. 포트는 생략이 가능하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;https는 http에 보안을 추가한다(HTTP Secure)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;[userInfo@]&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;url에 사용자 정보를 포함해서 인증, 거의 사용하지 않는다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;[host]&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;호스트명. 도메인명 또는 IP주소를 직접 사용 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;[Port]&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;접속 포트. 일반적으로 생략한다. 생략 시 http는 80, https는 443으로 자동설정된다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;[path]&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;리소스경로(path), 계층적 구조&lt;/li&gt;
-  &lt;li&gt;ex) /home/file.jpg, /members, /members/100, /items/iphone12&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;[?query]&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;key=value 형태로 되어있다.
-?로 시작하고 &amp;amp;로 추가가 가능하다. ?keyA=valueA&amp;amp;keyB=valueB
-query parameter, query string 등으로 불린다. 웹서버에서 제공하는 파라미터, 문자 형태이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;[#fragment]&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;html 내부 북마크 등에 사용한다. 서버에 전송하는 정보는 아니다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;웹-브라우저-요청-흐름&quot;&gt;웹 브라우저 요청 흐름&lt;/h2&gt;
-
-&lt;p&gt;https://www.google.com/search?q=hello&amp;amp;hl=ko&lt;/p&gt;
-
-&lt;p&gt;위의 URL 구조를 요청한다고 했을 때 전체적인 흐름을 살펴보자.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;HTTPS 프로토콜을 사용한다는 점을 체크. 포트는 443으로 자동 할당된다.&lt;/li&gt;
-  &lt;li&gt;호스트가 www.google.com이다. IP로 변환하니 200.200.200.2가 나옴(가정)&lt;/li&gt;
-  &lt;li&gt;path = search&lt;/li&gt;
-  &lt;li&gt;쿼리문 q=hello , hl=ko 로 되어있다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;위의 URL을 입력하게 되면 웹 브라우저는 해당 도메인 주소를 IP, 포트로 바꾸고 요청 메시지를 생성한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;GET /search?q=hello&amp;amp;hl=ko HTTP/1.1
-Host: www.google.com&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-21-53-54.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;인터넷 프로토콜 4계층을 통해 HTTP 메세지가 담긴 패킷을 만들고, 서버로 전송한다.
-요청 메시지를 받은 서버는 이제 해당 URL에 있는 리소스를 응답메시지로 전달해준다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-21-56-06.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;응답할 메시지는 위와 같다. html을 클라이언트에 보내주면 웹 브라우저가 렌더링을 통해서 해당 URL의 화면을 출력해준다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;웹-브라우저-요청-전체적인-흐름-총-정리&quot;&gt;[웹 브라우저 요청 전체적인 흐름 총 정리]&lt;/h2&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;resource 요청 시, 웹 브라우저가 HTTP 메시지 생성&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;SOCKET 라이브러리를 통해 TCP/IP로 3way handshake를 실행해 서버와 연결한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;운영체제 TCP/IP 계층으로 데이터 전송을 하기 위해 데이터를 전달한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;HTTP 메시지가 포함된 TCP/IP 패킷을 생성한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;패킷 정보가 인터넷으로 흘러간다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;서버에 요청 패킷이 도착하여 패킷 껍데기는 버리고 HTTP 메시지를 서버가 해석한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;HTTP 응답 메시지를 마찬가지 방식으로 패킷을 생성하여 응답 패킷을 전달한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;수 많은 노드들을 통해서 응답 패킷이 도착하게 되면 웹 브라우저가 HTML 렌더링하여 화면에 보여준다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-</description>
-        <pubDate>Fri, 29 Oct 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//http_basic_2</link>
-        <guid isPermaLink="true">https://achasan.github.io//http_basic_2</guid>
-        
-        <category>SpringBoot</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS</title>
-        <description>&lt;h1 id=&quot;http-웹-기본-지식&quot;&gt;HTTP 웹 기본 지식&lt;/h1&gt;
-
-&lt;h2 id=&quot;인터넷-네트워크&quot;&gt;인터넷 네트워크&lt;/h2&gt;
-
-&lt;p&gt;웹을 개발하기 위해 알아야하는 인터넷 네트워크는 크게 5가지이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인터넷 통신&lt;/li&gt;
-  &lt;li&gt;IP(Internet Protocol)&lt;/li&gt;
-  &lt;li&gt;TCP, UDP&lt;/li&gt;
-  &lt;li&gt;PORT&lt;/li&gt;
-  &lt;li&gt;DNS&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;인터넷-통신&quot;&gt;인터넷 통신&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;인터넷에서 컴퓨터 둘이 통신을한다고 가정해보자. 클라이언트가 서버에 Hello world라는 메시지를 보내려고 한다. 만약 클라이언트가 한국에 있고, 서버가 미국에 있을 때 클라이언트의 메시지는 수 많은 노드들을 거쳐 서버에 도착해야한다.&lt;/li&gt;
-  &lt;li&gt;하지만 이 많은 노드들을 거쳐서 서버에 가는 동안 길을 잃지않고 목표한 지점의 서버까지 어떻게 이동할 수 있는 것일까?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ip--인터넷-프로토콜&quot;&gt;IP : 인터넷 프로토콜&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;IP의 역할은 지정한 IP주소에 데이터를 전달하는 것이다. 또한 패킷이라는 통신 단위로 데이터를 전달한다.&lt;/li&gt;
-  &lt;li&gt;패킷?
-    &lt;ul&gt;
-      &lt;li&gt;패킷은 출발지IP, 목적지IP, 기타 정보들이 담겨있다.&lt;/li&gt;
-      &lt;li&gt;클라이언트에서 Hello world 메시지를 담은 IP 패킷을 서버로 던진다. 서버는 IP패킷을 받으면 패킷을 읽는다.&lt;/li&gt;
-      &lt;li&gt;서버들은 IP패킷에는 읽어오는 규약을 따르는데, 이를 통해 어떠한 클라이언트가 던진 패킷이더라도 IP 패킷을 읽을 수 있다.&lt;/li&gt;
-      &lt;li&gt;읽은 패킷을 노드들끼리 던지면서 최종목적지 IP가 있는 서버로 패킷을 던져준다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;클라이언트의 메시지를 받은 서버는 응답 패킷을 다시 클라이언트에 던져준다. 여기서 클라이언트가 서버까지 오는 노드와는 다른 루트로 전달이 될 수 있다. 어떻게든 클라이언트의 요청에 응답하기만 하는 것이 목적이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;ip-프로토콜의-한계&quot;&gt;IP 프로토콜의 한계&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;비연결성 : 패킷을 받을 대상이 없거나 서비스 불능 상태여도 패킷이 전송된다.&lt;/li&gt;
-  &lt;li&gt;비신뢰성 : 중간에 패킷이 사라진다면? 패킷이 순서대로 안온다면?
-    &lt;ul&gt;
-      &lt;li&gt;패킷의 용량이 클 경우에는 패킷을 쪼개서 순차적으로 보내야한다. 만약 1, 2, 3 순서대로 보냈는데 1, 3, 2순으로 도착했다면?&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;프로그램 구분 불가 : 클라이언트에서 스트리밍으로 노래를 듣고, 통화를 하고, 게임을 한다고 했을 때 해당 클라이언트 아이피에서 보낸 요청이 어떤 프로그램 왔는 지 알 수 있는지?&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;tcp-udp&quot;&gt;TCP, UDP&lt;/h2&gt;
-
-&lt;p&gt;IP프로토콜은 여러 한계점을 가지고 있다. 따라서 TCP, UDP가 더 많이 쓰인다. 어떤 장점을 가지고 있을까?&lt;/p&gt;
-
-&lt;p&gt;이를 알기 위해서는 인터넷 프로토콜 스택의 4계층을 먼저 알아야한다.&lt;/p&gt;
-
-&lt;h3 id=&quot;인터넷-프로토콜-스택의-4계층&quot;&gt;인터넷 프로토콜 스택의 4계층&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;애플리케이션 계층 : HTTP, FTP&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;전송계층 : TCP, UDP&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;인터넷 계층 : IP&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;네트워크 인터페이스 계층(랜카드, 랜드라이버 …)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-20-57-36.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;위의 사진을 보면 4계층이 어떻게 이루어져있는지 볼 수 있다. 이제 TCP가 어떻게 전송되는지를 보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-20-58-54.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;구동중인 어플리케이션에서 Hello world라는 메시지를 생성한다.(HTTP 방식)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Socket 라이브러리를 통해 데이터를 전송계층에 보낸다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;TCP 데이터를 생성한다. 메시지 데이터를 포함한다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;IP패킷을 생성하고 안에 TCP 데이터를 포함한다.(메시지도 같이 포함된다.)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;랜카드의 MAC 주소와 정보가 포함된 Ethernet frame을 생성하고 안에 TCP 데이터를 담는다(TMI)&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;IP 패킷에는 출발지 IP와 목적지 IP, 기타 정보가 담겨있다. TCP에는 출발지의 Port와 목적지 Port가 담겨있고 전송 제어, 순서, 검증 정보 등이 담겨있고 그 안에 전송 데이터가 담겨져있다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;tcp-특징&quot;&gt;TCP 특징&lt;/h2&gt;
-
-&lt;p&gt;TCP(/assets/images/HTTP_imagesTransfer Control Protocol)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;연결지향 : TCP 3 way handshake(가상연결) - 먼저 상대방과 연결이 되어있는지 확인한 다음에 전송한다.&lt;/li&gt;
-  &lt;li&gt;데이터 전달 보증 : 클라이언트에서 데이터를 전송하면 서버에서 데이트를 받았다고 회신해준다. 클라이언트에서는 데이터가 전달되었다는 점을 확인 가능하다.&lt;/li&gt;
-  &lt;li&gt;순서 보장 : 패킷을 1, 2, 3 순서로 전송했는데 1, 3, 2 순서로 도착했을 경우 서버에서 패킷 2부터 다시 보내라고 응답한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;위의 3가지 특징으로 인해 TCP는 신뢰할 수 있는 프로토콜이 되었다. 현재는 대부분 TCP를 사용한다. 이제 각 특징에 대해 자세히 알아보자.&lt;/p&gt;
-
-&lt;h3 id=&quot;1-tcp-3-way-handshake-&quot;&gt;1. TCP 3 way handshake &lt;br /&gt;&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-21-05-43.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;클라이언트가 서버에 SYN이라는 신호를 보낸다.&lt;/li&gt;
-  &lt;li&gt;SYN 신호를 받은 서버가 클라이언트에 SYN + ACK 신호를 보낸다.&lt;/li&gt;
-  &lt;li&gt;SYN + ACK 신호를 받은 클라이언트가 ACK 신호를 서버에 보낸다.&lt;/li&gt;
-  &lt;li&gt;클라이언트가 서버로 데이터를 전송한다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;여기서 SYN은 접속을 요청하는 신호이다. 클라이언트가 접속을 요청하면 서버는 접속요청과 요청 수락 신호를 같이 보낸다. 클라이언트는 요청 수락 신호를 보내게 되면 서로 연결이 가능하다는 뜻이므로 그제서야 클라이언트는 데이터를 전송하기 시작한다. (ACK 신호를 보내면서 같이 전송하기도 한다.)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;2-데이터-전달-보증&quot;&gt;2. 데이터 전달 보증&lt;/h3&gt;
-
-&lt;p&gt;TCP는 클라이언트가 데이터를 서버에 보내면 서버에서 데이터를 받았다는 응답을 보낸다. IP 패킷의 경우에는 클라이언트가 데이터를 보내도 서버에서 받았다는 응답을 받지 못한다. 클라이언트에서는 데이터가 제대로 전송이 되었는 지 알 수가 없다. 신뢰성을 보장받지 못한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;3-순서-보장&quot;&gt;3. 순서 보장&lt;/h3&gt;
-
-&lt;p&gt;클라이언트에서 TCP 프로토콜로 패킷을 쪼개서 1, 2, 3 순으로 보냈는데 1, 3, 2순으로 서버에 도착했다. 이럴 경우 서버에서는 TCP 정보를 읽고, 순서가 다르게 보내진 점을 인지하고 클라이언트에게 2번 패킷부터 다시 보내라고 응답을 보내게 된다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;udp-특징&quot;&gt;UDP 특징&lt;/h2&gt;
-
-&lt;p&gt;사용자 데이터그램 프로토콜(User Datagram Protocol)&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;UDP는 하얀 도화지에 비유할 수 있다.(기능이 거의 없음)&lt;/li&gt;
-  &lt;li&gt;TCP의 3way handshake 같은 연결지향적인 기능이 없다.&lt;/li&gt;
-  &lt;li&gt;데이터 전달 보증이 안된다.&lt;/li&gt;
-  &lt;li&gt;순서 보장이 안된다.&lt;/li&gt;
-  &lt;li&gt;하지만 구조가 단순하고 빠르다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;UDP는 IP와 거의 같다고 보면 된다. 하지만 여기에 Port 정보와 체크섬 정보는 포함하고 있는게 차이점이다. 따라서 UDP를 사용하기 위해서는 애플리케이션에서 추가작업이 필요하다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;port&quot;&gt;Port&lt;/h2&gt;
-
-&lt;p&gt;TCP에 담기는 정보중에 Port가 있었다. port에 대해서 알아보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-21-14-13.png&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;클라이언트가 게임, 화상통화, 웹 브라우저 각각 다른 프로그램들을 사용중이다. IP 프로토콜의 경우에는 요청을 보내도 IP만 적혀있어 어떤 프로그램에서 온 요청인지를 알 수 없다. 게임과 화상통화는 같은 서버를 공유하고 있어서 어느쪽으로 응답을 보내야될지 서버측에서 알 방법이 없다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-21-19-49.png&quot; alt=&quot;&quot; /&gt; &lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;위 사진은 TCP와 IP 패킷을 합친 것이다. TCP/IP에는 출발지 PORT, 목적지 PORT가 포함되어 있는데 아이피 뒤에 :0000 방식으로 붙여져 있다. 프로그램마다 포트번호를 다르게 해서 어디서 온 요청인지 구분할 수 있게 해준다.&lt;/p&gt;
-
-&lt;h3 id=&quot;port-특징-&quot;&gt;Port 특징 &lt;br /&gt;&lt;/h3&gt;
-
-&lt;p&gt;Port는 항구라는 뜻을 가지고 있다. IP가 아파트라면, Port는 동, 호수를 의미한다. 포트를 통해 어떤 애플리케이션에서 온 요청인지 구분짓고, 서버에스는 해당 포트로 다시 응답해주면 되어 데이터가 충될되지 않게 해준다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;0 ~ 65535 할당 가능&lt;/li&gt;
-  &lt;li&gt;0 ~ 1023 : 잘 알려진 포트로 사용하지 않는 것이 좋다.
-    &lt;ul&gt;
-      &lt;li&gt;FTP : 20, 21&lt;/li&gt;
-      &lt;li&gt;TELNET : 23&lt;/li&gt;
-      &lt;li&gt;HTTP : 80&lt;/li&gt;
-      &lt;li&gt;HTTPS : 443&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;dns-domain-name-system&quot;&gt;DNS (Domain Name System)&lt;/h2&gt;
-
-&lt;p&gt;ip 주소는 숫자로 되어있어 기억하기가 어렵고 입력하기도 번거롭다. 또한 유동적인 ip를 사용할 경우에는 ip의 값이 변경될 수도 있다. 이렇게 될 경우 개발할 때 새로운 아이피 주소를 다시 작성해주어야 한다.&lt;/p&gt;
-
-&lt;p&gt;이러한 단점을 보완하기위해 DNS가 등장하였다. DNS는 전화번호부라고 볼 수 있는데, IP 주소를 도메인 명으로 변환하는 시스템이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/HTTP_images/2021-10-29-21-27-13.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Oct 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//http_basic_1</link>
-        <guid isPermaLink="true">https://achasan.github.io//http_basic_1</guid>
         
         <category>SpringBoot</category>
         
