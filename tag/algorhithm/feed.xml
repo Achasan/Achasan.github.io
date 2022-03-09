@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="http://localhost:4000/tag/algorhithm/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2022-03-08T11:19:34+09:00</updated>
-  <id>http://localhost:4000/tag/algorhithm/feed.xml</id>
+  <link href="https://achasan.github.io/tag/algorhithm/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-03-09T21:14:40+09:00</updated>
+  <id>https://achasan.github.io/tag/algorhithm/feed.xml</id>
 
   
   
@@ -32,12 +32,83 @@
 
   
     <entry>
+      <title type="html">깊이 우선 탐색(DFS), 너비 우선 탐색(BFS)</title>
+      <link href="https://achasan.github.io/DFS_BFS" rel="alternate" type="text/html" title="깊이 우선 탐색(DFS), 너비 우선 탐색(BFS)" />
+      <published>2022-02-25T00:00:00+09:00</published>
+      <updated>2022-02-25T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/DFS_BFS</id>
+      <content type="html" xml:base="https://achasan.github.io/DFS_BFS">&lt;p&gt;깊이 우선 탐색(DFS), 너비 우선 탐색(BFS)&lt;/p&gt;
+
+&lt;p&gt;그래프와 트리는 비선형 구조의 알고리즘이다. 두 자료구조는 정점과 간선으로 이루어져있다는 점에서 공통점을 가지지만, 여러 차이점을 보인다.&lt;/p&gt;
+
+&lt;p&gt;트리는 그래프의 한 종류로 볼 수 있을 정도로 그래프는 넓은 범위를 포괄하는 자료구조이다. 대표적으로 트리는 순환을 할 수 없는 구조이지만, 그래프는 순환, 비순환 모두 가능하다. 아래의 표를 참고하여 두 자료구조의 차이점을 파악할 수 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdKZgB7%2FbtqB6YFI2Q9%2Fkj4O1ZgTrxTZiyqFplXRF0%2Fimg.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;두 자료구조의 비교는 여기까지하고 이제 DFS와 BFS가 무엇인지 알아보자.&lt;/p&gt;
+
+&lt;h2 id=&quot;깊이-우선-탐색-dfs&quot;&gt;깊이 우선 탐색 (DFS)&lt;/h2&gt;
+
+&lt;p&gt;깊이 우선 탐색은 최대한 깊게 내려간 다음, 옆 분기로 이동하는 탐색방식을 가지고 있다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://blog.kakaocdn.net/dn/xC9Vq/btqB8n5A25K/GyOf4iwqu8euOyhwtFuyj1/img.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일단 하나의 분기를 고르면, 끝까지 파고 들어가는 성격을 가지고 있다. 이는 BFS보다 상대적으로 간단한 방식이라는 뜻이기도 하다. 다만 BFS보다는 느리다는 단점을 가지고 있기도 하다.&lt;/p&gt;
+
+&lt;p&gt;DFS는 모든 노드를 방문하고자 하는 경우에 선택하는 탐색방식이다.&lt;/p&gt;
+
+&lt;h2 id=&quot;너비-우선-탐색-bfs&quot;&gt;너비 우선 탐색 (BFS)&lt;/h2&gt;
+
+&lt;p&gt;너비 우선 탐색은 한 계단씩 모든 분기를 탐색 후, 다음 단계로 넘어가는 방식을 말한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://blog.kakaocdn.net/dn/c305k7/btqB5E2hI4r/ea7vFo08tkDYo4c8wkfVok/img.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;너비 우선 탐색은 최단 경로를 찾는 최적의 탐색방식이다. DFS와 다르게 모든 노드를 거치지않고 최단 경로를 찾으면 탐색을 종료한다.&lt;/p&gt;
+
+&lt;p&gt;DFS는 스택 또는 재귀함수로 구현한다. BFS는 큐를 사용하여 구현한다.&lt;/p&gt;
+
+&lt;p&gt;N은 노드, E는 간선이라고 가정했을 때&lt;/p&gt;
+
+&lt;p&gt;인접 리스트 : O(N+E)
+인접 행렬 : O(N²)&lt;/p&gt;
+
+&lt;p&gt;시간복잡도는 다음과 같다.&lt;/p&gt;
+
+&lt;p&gt;개념정도는 이해했지만, 코딩테스트 문제를 풀 때 개념을 적용시키기가 쉽지 않은 것 같다. 특히 재귀함수 호출하는부분이 많이 익숙하지 않아서 어떻게 될지 모르겠지만 일단 개념정리.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Algorhithm" />
+      
+
+      
+        <summary type="html">깊이 우선 탐색(DFS), 너비 우선 탐색(BFS)</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">[PRO] LV2 : 가장 큰 수</title>
-      <link href="http://localhost:4000/lv2_Biggest_Num" rel="alternate" type="text/html" title="[PRO] LV2 : 가장 큰 수" />
+      <link href="https://achasan.github.io/lv2_Biggest_Num" rel="alternate" type="text/html" title="[PRO] LV2 : 가장 큰 수" />
       <published>2021-12-29T00:00:00+09:00</published>
       <updated>2021-12-29T00:00:00+09:00</updated>
-      <id>http://localhost:4000/lv2_Biggest_Num</id>
-      <content type="html" xml:base="http://localhost:4000/lv2_Biggest_Num">&lt;h1 id=&quot;프로그래머스-lv2--가장-큰-수&quot;&gt;프로그래머스 Lv2 : 가장 큰 수&lt;/h1&gt;
+      <id>https://achasan.github.io/lv2_Biggest_Num</id>
+      <content type="html" xml:base="https://achasan.github.io/lv2_Biggest_Num">&lt;h1 id=&quot;프로그래머스-lv2--가장-큰-수&quot;&gt;프로그래머스 Lv2 : 가장 큰 수&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제-설명&quot;&gt;문제 설명&lt;/h2&gt;
 
@@ -135,11 +206,11 @@
   
     <entry>
       <title type="html">[BOJ] 1874번 : 스택 수열</title>
-      <link href="http://localhost:4000/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" />
+      <link href="https://achasan.github.io/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" />
       <published>2021-12-26T00:00:00+09:00</published>
       <updated>2021-12-26T00:00:00+09:00</updated>
-      <id>http://localhost:4000/s3_stack_sequence</id>
-      <content type="html" xml:base="http://localhost:4000/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
+      <id>https://achasan.github.io/s3_stack_sequence</id>
+      <content type="html" xml:base="https://achasan.github.io/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -265,11 +336,11 @@
   
     <entry>
       <title type="html">Comparator, Comparable 객체 정리</title>
-      <link href="http://localhost:4000/Comparator_Comparable" rel="alternate" type="text/html" title="Comparator, Comparable 객체 정리" />
+      <link href="https://achasan.github.io/Comparator_Comparable" rel="alternate" type="text/html" title="Comparator, Comparable 객체 정리" />
       <published>2021-12-24T00:00:00+09:00</published>
       <updated>2021-12-24T00:00:00+09:00</updated>
-      <id>http://localhost:4000/Comparator_Comparable</id>
-      <content type="html" xml:base="http://localhost:4000/Comparator_Comparable">&lt;h1 id=&quot;comparator-comparable-정리&quot;&gt;Comparator, Comparable 정리&lt;/h1&gt;
+      <id>https://achasan.github.io/Comparator_Comparable</id>
+      <content type="html" xml:base="https://achasan.github.io/Comparator_Comparable">&lt;h1 id=&quot;comparator-comparable-정리&quot;&gt;Comparator, Comparable 정리&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -395,11 +466,11 @@
   
     <entry>
       <title type="html">[BOJ] 18870번 : 좌표 압축</title>
-      <link href="http://localhost:4000/s2-compression_coordinates" rel="alternate" type="text/html" title="[BOJ] 18870번 : 좌표 압축" />
+      <link href="https://achasan.github.io/s2-compression_coordinates" rel="alternate" type="text/html" title="[BOJ] 18870번 : 좌표 압축" />
       <published>2021-12-24T00:00:00+09:00</published>
       <updated>2021-12-24T00:00:00+09:00</updated>
-      <id>http://localhost:4000/s2-compression_coordinates</id>
-      <content type="html" xml:base="http://localhost:4000/s2-compression_coordinates">&lt;h1 id=&quot;18870번--좌표압축&quot;&gt;18870번 : 좌표압축&lt;/h1&gt;
+      <id>https://achasan.github.io/s2-compression_coordinates</id>
+      <content type="html" xml:base="https://achasan.github.io/s2-compression_coordinates">&lt;h1 id=&quot;18870번--좌표압축&quot;&gt;18870번 : 좌표압축&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -515,12 +586,106 @@
     </entry>
   
     <entry>
-      <title type="html">[BOJ] 11651번 : 단어 정렬</title>
-      <link href="http://localhost:4000/s5-Coordinate_alignment2" rel="alternate" type="text/html" title="[BOJ] 11651번 : 단어 정렬" />
+      <title type="html">[BOJ] 1427번 : 소트인사이드</title>
+      <link href="https://achasan.github.io/s5_sort_inside" rel="alternate" type="text/html" title="[BOJ] 1427번 : 소트인사이드" />
       <published>2021-12-23T00:00:00+09:00</published>
       <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>http://localhost:4000/s5-Coordinate_alignment2</id>
-      <content type="html" xml:base="http://localhost:4000/s5-Coordinate_alignment2">&lt;h1 id=&quot;11651번--단어-정렬&quot;&gt;11651번 : 단어 정렬&lt;/h1&gt;
+      <id>https://achasan.github.io/s5_sort_inside</id>
+      <content type="html" xml:base="https://achasan.github.io/s5_sort_inside">&lt;h1 id=&quot;1427번--소트인사이드-링크&quot;&gt;1427번 : 소트인사이드 &lt;a href=&quot;https://www.acmicpc.net/problem/1427&quot;&gt;(링크)&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;배열을 정렬하는 것은 쉽다. 수가 주어지면, 그 수의 각 자리수를 내림차순으로 정렬해보자.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;첫째 줄에 정렬하려고 하는 수 N이 주어진다. N은 1,000,000,000보다 작거나 같은 자연수이다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;첫째 줄에 자리수를 내림차순으로 정렬한 수를 출력한다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;작성코드&quot;&gt;작성코드&lt;/h3&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+            &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+
+            &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toCharArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;입력한 값을 받아서 toCharArray() 메서드를 사용하면 문자열이 하나씩 분리되어 배열에 저장되게된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;저장된 배열을 Arrays.sort() 정적메서드를 사용하여 정렬해준다. char 자료형은 각 문자마다 고유코드가 존재하며, 그 코드가 기준이되어 정렬을 하기 때문에 char 자료형으로 정렬하더라도 문제가 없다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;내림차순으로 정렬한 수를 출력해야하므로 반복문을 거꾸로해서 구현하였다. StringBuilder 객체에 append하여 하나씩 합쳐준 다음 출력하면 끝이다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="Algorhithm" />
+      
+
+      
+        <summary type="html">1427번 : 소트인사이드 (링크)</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">[BOJ] 11651번 : 단어 정렬</title>
+      <link href="https://achasan.github.io/s5-Coordinate_alignment2" rel="alternate" type="text/html" title="[BOJ] 11651번 : 단어 정렬" />
+      <published>2021-12-23T00:00:00+09:00</published>
+      <updated>2021-12-23T00:00:00+09:00</updated>
+      <id>https://achasan.github.io/s5-Coordinate_alignment2</id>
+      <content type="html" xml:base="https://achasan.github.io/s5-Coordinate_alignment2">&lt;h1 id=&quot;11651번--단어-정렬&quot;&gt;11651번 : 단어 정렬&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -617,11 +782,11 @@
   
     <entry>
       <title type="html">[BOJ] 11650번 : 좌표 정렬하기</title>
-      <link href="http://localhost:4000/s5-Coordinate_alignment" rel="alternate" type="text/html" title="[BOJ] 11650번 : 좌표 정렬하기" />
+      <link href="https://achasan.github.io/s5-Coordinate_alignment" rel="alternate" type="text/html" title="[BOJ] 11650번 : 좌표 정렬하기" />
       <published>2021-12-23T00:00:00+09:00</published>
       <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>http://localhost:4000/s5-Coordinate_alignment</id>
-      <content type="html" xml:base="http://localhost:4000/s5-Coordinate_alignment">&lt;h1 id=&quot;11650번--좌표-정렬하기&quot;&gt;11650번 : 좌표 정렬하기&lt;/h1&gt;
+      <id>https://achasan.github.io/s5-Coordinate_alignment</id>
+      <content type="html" xml:base="https://achasan.github.io/s5-Coordinate_alignment">&lt;h1 id=&quot;11650번--좌표-정렬하기&quot;&gt;11650번 : 좌표 정렬하기&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -735,11 +900,11 @@
   
     <entry>
       <title type="html">[BOJ] 2018번 : 통계학</title>
-      <link href="http://localhost:4000/s4-Statistics" rel="alternate" type="text/html" title="[BOJ] 2018번 : 통계학" />
+      <link href="https://achasan.github.io/s4-Statistics" rel="alternate" type="text/html" title="[BOJ] 2018번 : 통계학" />
       <published>2021-12-23T00:00:00+09:00</published>
       <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>http://localhost:4000/s4-Statistics</id>
-      <content type="html" xml:base="http://localhost:4000/s4-Statistics">&lt;h1 id=&quot;2018번--통계학-link&quot;&gt;2018번 : 통계학 &lt;a href=&quot;https://www.acmicpc.net/problem/2108&quot;&gt;Link&lt;/a&gt;&lt;/h1&gt;
+      <id>https://achasan.github.io/s4-Statistics</id>
+      <content type="html" xml:base="https://achasan.github.io/s4-Statistics">&lt;h1 id=&quot;2018번--통계학-link&quot;&gt;2018번 : 통계학 &lt;a href=&quot;https://www.acmicpc.net/problem/2108&quot;&gt;Link&lt;/a&gt;&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -904,219 +1069,12 @@
     </entry>
   
     <entry>
-      <title type="html">[BOJ] 1427번 : 소트인사이드</title>
-      <link href="http://localhost:4000/s5_sort_inside" rel="alternate" type="text/html" title="[BOJ] 1427번 : 소트인사이드" />
-      <published>2021-12-23T00:00:00+09:00</published>
-      <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>http://localhost:4000/s5_sort_inside</id>
-      <content type="html" xml:base="http://localhost:4000/s5_sort_inside">&lt;h1 id=&quot;1427번--소트인사이드-링크&quot;&gt;1427번 : 소트인사이드 &lt;a href=&quot;https://www.acmicpc.net/problem/1427&quot;&gt;(링크)&lt;/a&gt;&lt;/h1&gt;
-
-&lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;배열을 정렬하는 것은 쉽다. 수가 주어지면, 그 수의 각 자리수를 내림차순으로 정렬해보자.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;입력&quot;&gt;입력&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;첫째 줄에 정렬하려고 하는 수 N이 주어진다. N은 1,000,000,000보다 작거나 같은 자연수이다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;출력&quot;&gt;출력&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;첫째 줄에 자리수를 내림차순으로 정렬한 수를 출력한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h3 id=&quot;작성코드&quot;&gt;작성코드&lt;/h3&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.IOException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.io.InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Main&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;throws&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;IOException&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;BufferedReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;InputStreamReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;StringBuilder&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-
-            &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readLine&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;toCharArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;Arrays&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;--)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]);&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;입력한 값을 받아서 toCharArray() 메서드를 사용하면 문자열이 하나씩 분리되어 배열에 저장되게된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;저장된 배열을 Arrays.sort() 정적메서드를 사용하여 정렬해준다. char 자료형은 각 문자마다 고유코드가 존재하며, 그 코드가 기준이되어 정렬을 하기 때문에 char 자료형으로 정렬하더라도 문제가 없다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;내림차순으로 정렬한 수를 출력해야하므로 반복문을 거꾸로해서 구현하였다. StringBuilder 객체에 append하여 하나씩 합쳐준 다음 출력하면 끝이다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Algorhithm" />
-      
-
-      
-        <summary type="html">1427번 : 소트인사이드 (링크)</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">[PRO] LV2 : 프린트</title>
-      <link href="http://localhost:4000/lv2_print" rel="alternate" type="text/html" title="[PRO] LV2 : 프린트" />
-      <published>2021-10-27T00:00:00+09:00</published>
-      <updated>2021-10-27T00:00:00+09:00</updated>
-      <id>http://localhost:4000/lv2_print</id>
-      <content type="html" xml:base="http://localhost:4000/lv2_print">&lt;h1 id=&quot;20211025-알고리즘-문제풀이&quot;&gt;20211025 알고리즘 문제풀이&lt;/h1&gt;
-
-&lt;p&gt;[문제] 프로그래머스 2레벨 : 프린트 &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42587&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;문제 설명&lt;/p&gt;
-
-&lt;p&gt;일반적인 프린터는 인쇄 요청이 들어온 순서대로 인쇄합니다. 그렇기 때문에 중요한 문서가 나중에 인쇄될 수 있습니다. 이런 문제를 보완하기 위해 중요도가 높은 문서를 먼저 인쇄하는 프린터를 개발했습니다. 이 새롭게 개발한 프린터는 아래와 같은 방식으로 인쇄 작업을 수행합니다.&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;인쇄 대기목록의 가장 앞에 있는 문서(J)를 대기목록에서 꺼냅니다.&lt;/li&gt;
-  &lt;li&gt;나머지 인쇄 대기목록에서 J보다 중요도가 높은 문서가 한 개라도 존재하면 J를 대기목록의 가장 마지막에 넣습니다.&lt;/li&gt;
-  &lt;li&gt;그렇지 않으면 J를 인쇄합니다.
-예를 들어, 4개의 문서(A, B, C, D)가 순서대로 인쇄 대기목록에 있고 중요도가 2 1 3 2 라면 C D A B 순으로 인쇄하게 됩니다.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;내가 인쇄를 요청한 문서가 몇 번째로 인쇄되는지 알고 싶습니다. 위의 예에서 C는 1번째로, A는 3번째로 인쇄됩니다.&lt;/p&gt;
-
-&lt;p&gt;현재 대기목록에 있는 문서의 중요도가 순서대로 담긴 배열 priorities와 내가 인쇄를 요청한 문서가 현재 대기목록의 어떤 위치에 있는지를 알려주는 location이 매개변수로 주어질 때, 내가 인쇄를 요청한 문서가 몇 번째로 인쇄되는지 return 하도록 solution 함수를 작성해주세요.&lt;/p&gt;
-
-&lt;p&gt;제한사항
-현재 대기목록에는 1개 이상 100개 이하의 문서가 있습니다.
-인쇄 작업의 중요도는 1~9로 표현하며 숫자가 클수록 중요하다는 뜻입니다.
-location은 0 이상 (현재 대기목록에 있는 작업 수 - 1) 이하의 값을 가지며 대기목록의 가장 앞에 있으면 0, 두 번째에 있으면 1로 표현합니다.&lt;/p&gt;
-
-&lt;p&gt;입력한 코드는 다음과 같다.&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;java.util.*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-    &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Solution&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-        &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;solution&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;priorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;nc&quot;&gt;Queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;LinkedList&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;();&lt;/span&gt;
-
-            &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;priorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;priorities&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(!&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;isEmpty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;())&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;poll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-
-                &lt;span class=&quot;kt&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;able&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;Prior&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;priority&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;priority&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;able&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;able&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                    &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++;&lt;/span&gt;
-                    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prior&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                        &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                        &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-                    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;answer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이 문제를 푸면서 처음 알게된 사실은 Queue가 LinkedList로 생성된다는 점, 그리고 그것을 활용하여 향상된 for문을 사용하여 queue안에 있는 데이터들을 차례로 호출하여 로직을 수행할 수 있다는 점이었다. 이 점을 몰라서 문제 해결에 접근 자체를 하지 못했었던 것 같다.&lt;/p&gt;
-
-&lt;p&gt;또한 2레벨 문제이다보니 머리로만 생각하기에는 도저히 로직을 짜낼 수 가 없었다. 조건들이 많아지고 만들어야하는 기능들이 복잡하다보니 순서도를 작성해서 문제를 푸는 습관을 들여야겠다는 생각이 든다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="Algorhithm" />
-      
-
-      
-        <summary type="html">20211025 알고리즘 문제풀이</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">[PRO] LV1 : 비밀지도</title>
-      <link href="http://localhost:4000/lv1-secret_map" rel="alternate" type="text/html" title="[PRO] LV1 : 비밀지도" />
+      <link href="https://achasan.github.io/lv1-secret_map" rel="alternate" type="text/html" title="[PRO] LV1 : 비밀지도" />
       <published>2021-10-27T00:00:00+09:00</published>
       <updated>2021-10-27T00:00:00+09:00</updated>
-      <id>http://localhost:4000/lv1-secret_map</id>
-      <content type="html" xml:base="http://localhost:4000/lv1-secret_map">&lt;h1 id=&quot;프로그래머스--비밀지도1차&quot;&gt;프로그래머스 : 비밀지도[1차]&lt;/h1&gt;
+      <id>https://achasan.github.io/lv1-secret_map</id>
+      <content type="html" xml:base="https://achasan.github.io/lv1-secret_map">&lt;h1 id=&quot;프로그래머스--비밀지도1차&quot;&gt;프로그래머스 : 비밀지도[1차]&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/17681&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
 

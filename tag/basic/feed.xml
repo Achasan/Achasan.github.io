@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="http://localhost:4000/tag/basic/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
-  <updated>2022-03-08T11:19:34+09:00</updated>
-  <id>http://localhost:4000/tag/basic/feed.xml</id>
+  <link href="https://achasan.github.io/tag/basic/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
+  <updated>2022-03-09T21:14:40+09:00</updated>
+  <id>https://achasan.github.io/tag/basic/feed.xml</id>
 
   
   
@@ -33,11 +33,11 @@
   
     <entry>
       <title type="html">[JSP] % 태그, forward, redirect</title>
-      <link href="http://localhost:4000/JSP_2" rel="alternate" type="text/html" title="[JSP] % 태그, forward, redirect" />
+      <link href="https://achasan.github.io/JSP_2" rel="alternate" type="text/html" title="[JSP] % 태그, forward, redirect" />
       <published>2021-10-15T00:00:00+09:00</published>
       <updated>2021-10-15T00:00:00+09:00</updated>
-      <id>http://localhost:4000/JSP_2</id>
-      <content type="html" xml:base="http://localhost:4000/JSP_2">&lt;h1 id=&quot;jsp-20211015-til&quot;&gt;JSP 20211015 TIL&lt;/h1&gt;
+      <id>https://achasan.github.io/JSP_2</id>
+      <content type="html" xml:base="https://achasan.github.io/JSP_2">&lt;h1 id=&quot;jsp-20211015-til&quot;&gt;JSP 20211015 TIL&lt;/h1&gt;
 
 &lt;p&gt;&amp;lt;% %&amp;gt; 태그를 이용하여 JSP 파일 내에 자바코드로 로직을 구현하고, 출력하는 부분을 배우고,
 forward에 대해서 중점적으로 배웠다.&lt;/p&gt;
@@ -147,11 +147,11 @@ isErrorPage는 해당 웹페이지가 에러페이지인지를 확인하는 속�
   
     <entry>
       <title type="html">[JSP] 이론 정리</title>
-      <link href="http://localhost:4000/JSP_1" rel="alternate" type="text/html" title="[JSP] 이론 정리" />
+      <link href="https://achasan.github.io/JSP_1" rel="alternate" type="text/html" title="[JSP] 이론 정리" />
       <published>2021-10-14T00:00:00+09:00</published>
       <updated>2021-10-14T00:00:00+09:00</updated>
-      <id>http://localhost:4000/JSP_1</id>
-      <content type="html" xml:base="http://localhost:4000/JSP_1">&lt;h1 id=&quot;jsp-20211014-til&quot;&gt;JSP 20211014 TIL&lt;/h1&gt;
+      <id>https://achasan.github.io/JSP_1</id>
+      <content type="html" xml:base="https://achasan.github.io/JSP_1">&lt;h1 id=&quot;jsp-20211014-til&quot;&gt;JSP 20211014 TIL&lt;/h1&gt;
 
 &lt;p&gt;JSP 수업을 나가기 전 기본적인 웹에 대한 기초적 이론을 공부하였다.&lt;/p&gt;
 
@@ -293,11 +293,11 @@ servlet 태그를 생성하고, 태그 안에 servlet-name 태그를 만들어�
   
     <entry>
       <title type="html">jQuery 자주 사용하는 함수 정리</title>
-      <link href="http://localhost:4000/jQuery" rel="alternate" type="text/html" title="jQuery 자주 사용하는 함수 정리" />
+      <link href="https://achasan.github.io/jQuery" rel="alternate" type="text/html" title="jQuery 자주 사용하는 함수 정리" />
       <published>2021-10-12T00:00:00+09:00</published>
       <updated>2021-10-12T00:00:00+09:00</updated>
-      <id>http://localhost:4000/jQuery</id>
-      <content type="html" xml:base="http://localhost:4000/jQuery">&lt;h1 id=&quot;20211012-til--jquery-내용-정리&quot;&gt;20211012 TIL : jQuery 내용 정리&lt;/h1&gt;
+      <id>https://achasan.github.io/jQuery</id>
+      <content type="html" xml:base="https://achasan.github.io/jQuery">&lt;h1 id=&quot;20211012-til--jquery-내용-정리&quot;&gt;20211012 TIL : jQuery 내용 정리&lt;/h1&gt;
 
 &lt;p&gt;jQuery는 자바스크립트 언어를 간편하게 사용가능하도록 단순화시킨 오픈소스 기반의 라이브러리이며, 자바스크립트의 DOM을 좀 더 쉽게 다루기 위해 설계되어져 있다. jQuery를 통해 이벤트처리를 손 쉽게 구현할 수 있으며, 모든 브라우저에서 호환이 가능하다는 것이 장점이다.&lt;/p&gt;
 
@@ -601,11 +601,11 @@ keydown, keypress, keyup&lt;/li&gt;
   
     <entry>
       <title type="html">css 수업 배운 내용 정리</title>
-      <link href="http://localhost:4000/css" rel="alternate" type="text/html" title="css 수업 배운 내용 정리" />
+      <link href="https://achasan.github.io/css" rel="alternate" type="text/html" title="css 수업 배운 내용 정리" />
       <published>2021-09-30T00:00:00+09:00</published>
       <updated>2021-09-30T00:00:00+09:00</updated>
-      <id>http://localhost:4000/css</id>
-      <content type="html" xml:base="http://localhost:4000/css">&lt;h1 id=&quot;20210930-수업-내용-정리&quot;&gt;20210930 수업 내용 정리&lt;/h1&gt;
+      <id>https://achasan.github.io/css</id>
+      <content type="html" xml:base="https://achasan.github.io/css">&lt;h1 id=&quot;20210930-수업-내용-정리&quot;&gt;20210930 수업 내용 정리&lt;/h1&gt;
 
 &lt;h2 id=&quot;css-수업&quot;&gt;CSS 수업&lt;/h2&gt;
 
@@ -788,11 +788,11 @@ browser 101 인강을 통해서 따로 학습하였다. 여러가지 미니프�
   
     <entry>
       <title type="html">[HTML] form 태그, input 태그, css 박스모델</title>
-      <link href="http://localhost:4000/html_css_tag" rel="alternate" type="text/html" title="[HTML] form 태그, input 태그, css 박스모델" />
+      <link href="https://achasan.github.io/html_css_tag" rel="alternate" type="text/html" title="[HTML] form 태그, input 태그, css 박스모델" />
       <published>2021-09-29T00:00:00+09:00</published>
       <updated>2021-09-29T00:00:00+09:00</updated>
-      <id>http://localhost:4000/html_css_tag</id>
-      <content type="html" xml:base="http://localhost:4000/html_css_tag">&lt;h1 id=&quot;20210929-수업-내용&quot;&gt;20210929 수업 내용&lt;/h1&gt;
+      <id>https://achasan.github.io/html_css_tag</id>
+      <content type="html" xml:base="https://achasan.github.io/html_css_tag">&lt;h1 id=&quot;20210929-수업-내용&quot;&gt;20210929 수업 내용&lt;/h1&gt;
 
 &lt;h2 id=&quot;form-태그-input-태그-세부내용&quot;&gt;form 태그, input 태그 세부내용&lt;/h2&gt;
 
@@ -1019,11 +1019,11 @@ margin은 태그를 포함하지않는다. 두 속성의 width를 모두 10px로
   
     <entry>
       <title type="html">[HTML] 자주 사용되는 html 태그</title>
-      <link href="http://localhost:4000/html" rel="alternate" type="text/html" title="[HTML] 자주 사용되는 html 태그" />
+      <link href="https://achasan.github.io/html" rel="alternate" type="text/html" title="[HTML] 자주 사용되는 html 태그" />
       <published>2021-09-27T00:00:00+09:00</published>
       <updated>2021-09-27T00:00:00+09:00</updated>
-      <id>http://localhost:4000/html</id>
-      <content type="html" xml:base="http://localhost:4000/html">&lt;h1 id=&quot;html-수업-9월-27일28일&quot;&gt;HTML 수업 9월 27일~28일&lt;/h1&gt;
+      <id>https://achasan.github.io/html</id>
+      <content type="html" xml:base="https://achasan.github.io/html">&lt;h1 id=&quot;html-수업-9월-27일28일&quot;&gt;HTML 수업 9월 27일~28일&lt;/h1&gt;
 
 &lt;p&gt;아직 HTML, CSS와 관련된 책을 학원에서 교부받지 못했다.
 교부받는대로 강의에서 배우지 않은 내용은 책에서 보면서 공부할 예정이다.&lt;/p&gt;
@@ -1217,11 +1217,11 @@ frameset 태그 내부에 또 frameset 태그를 사용하여 화면분할을 �
   
     <entry>
       <title type="html">WEB의 역사, HTML5 주요 기능, UI/UX</title>
-      <link href="http://localhost:4000/web" rel="alternate" type="text/html" title="WEB의 역사, HTML5 주요 기능, UI/UX" />
+      <link href="https://achasan.github.io/web" rel="alternate" type="text/html" title="WEB의 역사, HTML5 주요 기능, UI/UX" />
       <published>2021-09-27T00:00:00+09:00</published>
       <updated>2021-09-27T00:00:00+09:00</updated>
-      <id>http://localhost:4000/web</id>
-      <content type="html" xml:base="http://localhost:4000/web">&lt;h1 id=&quot;20210927-수업-내용&quot;&gt;2021.09.27 수업 내용&lt;/h1&gt;
+      <id>https://achasan.github.io/web</id>
+      <content type="html" xml:base="https://achasan.github.io/web">&lt;h1 id=&quot;20210927-수업-내용&quot;&gt;2021.09.27 수업 내용&lt;/h1&gt;
 
 &lt;h3 id=&quot;인터넷-vs-웹&quot;&gt;인터넷 vs 웹&lt;/h3&gt;
 &lt;p&gt;인터넷은 전 세계를 연결하는 국제 정보 통신망이다. 컴퓨터나 스마트폰 같은
@@ -1359,11 +1359,11 @@ HTML, CSS, JavaScript를 통해 웹페이지를 만들고 구동해볼 때 conso
   
     <entry>
       <title type="html">Github 기본적인 개념 정리</title>
-      <link href="http://localhost:4000/github_jdbc" rel="alternate" type="text/html" title="Github 기본적인 개념 정리" />
+      <link href="https://achasan.github.io/github_jdbc" rel="alternate" type="text/html" title="Github 기본적인 개념 정리" />
       <published>2021-09-14T00:00:00+09:00</published>
       <updated>2021-09-14T00:00:00+09:00</updated>
-      <id>http://localhost:4000/github_jdbc</id>
-      <content type="html" xml:base="http://localhost:4000/github_jdbc">&lt;h1 id=&quot;github-협업-20210914&quot;&gt;GitHub 협업 (20210914)&lt;/h1&gt;
+      <id>https://achasan.github.io/github_jdbc</id>
+      <content type="html" xml:base="https://achasan.github.io/github_jdbc">&lt;h1 id=&quot;github-협업-20210914&quot;&gt;GitHub 협업 (20210914)&lt;/h1&gt;
 
 &lt;p&gt;월요일부터 시작한 자바프로젝트를 진행하면서 파일병합, 버전관리에 대한 불편함을 처음 느꼈다.
 조원들이 작업해야할 내용들을 모아서 병합을 진행하는데, 이미지파일 불러오는 것에서 처음 막히고,
@@ -1526,11 +1526,11 @@ git repository에 있는 .gitignore 파일에 붙여넣기해주면 push할 때 
   
     <entry>
       <title type="html">[JDBC] Swing에 DB연동 2</title>
-      <link href="http://localhost:4000/jdbc_swing_2" rel="alternate" type="text/html" title="[JDBC] Swing에 DB연동 2" />
+      <link href="https://achasan.github.io/jdbc_swing_2" rel="alternate" type="text/html" title="[JDBC] Swing에 DB연동 2" />
       <published>2021-09-10T00:00:00+09:00</published>
       <updated>2021-09-10T00:00:00+09:00</updated>
-      <id>http://localhost:4000/jdbc_swing_2</id>
-      <content type="html" xml:base="http://localhost:4000/jdbc_swing_2">&lt;h1 id=&quot;20210910-수업-내용-정리&quot;&gt;20210910 수업 내용 정리&lt;/h1&gt;
+      <id>https://achasan.github.io/jdbc_swing_2</id>
+      <content type="html" xml:base="https://achasan.github.io/jdbc_swing_2">&lt;h1 id=&quot;20210910-수업-내용-정리&quot;&gt;20210910 수업 내용 정리&lt;/h1&gt;
 
 &lt;p&gt;오늘은 새로 배운 내용은 크게 없었다.
 GUI와 DB연동하는 내용의 연장선이라고 보면 될 것 같다.
@@ -1631,11 +1631,11 @@ https://github.com/Achasan/Study/blob/main/9월/JDBC%20내용%20(9.7~/Java%20파
   
     <entry>
       <title type="html">[JDBC] Swing에 DB연동</title>
-      <link href="http://localhost:4000/jdbc_swing_db" rel="alternate" type="text/html" title="[JDBC] Swing에 DB연동" />
+      <link href="https://achasan.github.io/jdbc_swing_db" rel="alternate" type="text/html" title="[JDBC] Swing에 DB연동" />
       <published>2021-09-09T00:00:00+09:00</published>
       <updated>2021-09-09T00:00:00+09:00</updated>
-      <id>http://localhost:4000/jdbc_swing_db</id>
-      <content type="html" xml:base="http://localhost:4000/jdbc_swing_db">&lt;h1 id=&quot;20210909-수업-내용&quot;&gt;20210909 수업 내용&lt;/h1&gt;
+      <id>https://achasan.github.io/jdbc_swing_db</id>
+      <content type="html" xml:base="https://achasan.github.io/jdbc_swing_db">&lt;h1 id=&quot;20210909-수업-내용&quot;&gt;20210909 수업 내용&lt;/h1&gt;
 
 &lt;p&gt;JDBC를 GUI에 적용시키는 수업을 진행하였다.
 프레임에 컴포넌트를 올려서 GUI를 구현하고, 컴포넌트와 상호작용할 때,
