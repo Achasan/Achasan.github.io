@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://achasan.github.io/tag/etc/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-12T21:39:50+09:00</updated>
-  <id>https://achasan.github.io/tag/etc/feed.xml</id>
+  <link href="http://localhost:4000/tag/etc/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2022-03-08T11:19:34+09:00</updated>
+  <id>http://localhost:4000/tag/etc/feed.xml</id>
 
   
   
@@ -32,12 +32,120 @@
 
   
     <entry>
+      <title type="html">정보처리기사 필기합격 후기</title>
+      <link href="http://localhost:4000/Engineer_Infomation_Processing_Pass" rel="alternate" type="text/html" title="정보처리기사 필기합격 후기" />
+      <published>2022-03-05T00:00:00+09:00</published>
+      <updated>2022-03-05T00:00:00+09:00</updated>
+      <id>http://localhost:4000/Engineer_Infomation_Processing_Pass</id>
+      <content type="html" xml:base="http://localhost:4000/Engineer_Infomation_Processing_Pass">&lt;p&gt;정보처리기사 필기 합격후기&lt;/p&gt;
+
+&lt;p&gt;처음에는 정보처리기사를 따야하나.. 하는 생각이 먼저 있었지만 개발자가 되기로 한 이상 일단 해보자는 마음가짐이 컸다. 어차피 필기시험을 준비하면서 앞으로 내가 이론적으로 공부해야할 개념들을 겉핥기식으로 정리하자는 생각도 있었다.&lt;/p&gt;
+
+&lt;p&gt;여러 커뮤니티를 돌아본 결과 필기는 난이도가 그렇게 어렵지는 않다고 하는 것 같았다. 다만 신유형이 나올 수 있으니 맞춰야할 문제는 확실히 맞추고 가야한다는 이야기가 많았다. 합격후기를 들어보면 일주일 공부하고 합격한 사람이 있는 반면, 타이밍이 좋지 않아 몇 번에 걸쳐서 합격한 사람도 볼 수 있었다. 일단 어려운 시험은 아닌 것으로 판정.&lt;/p&gt;
+
+&lt;h2 id=&quot;공부방법&quot;&gt;공부방법&lt;/h2&gt;
+
+&lt;p&gt;따로 책을사서 공부하지는 않았다. 이미 정보처리기사를 공부한 사람들이 블로그에 여러 정리글을 올려놓기도하고, 문제은행식이기 때문에 두꺼운 책을 사서 전부 읽을 엄두도 나지 않았다. 블로그는 &lt;a href=&quot;https://powerdev.tistory.com/32?category=874228&quot;&gt;여기&lt;/a&gt;에서 참고하면서 공부하였다. 3과목까지는 꼼꼼히 읽어보며 필기하고 정리했는데, 가성비가 나오지 않는 것 같아 바로 &lt;a href=&quot;https://www.comcbt.com/&quot;&gt;comcbt&lt;/a&gt;에서 문제를 풀어보았다.&lt;/p&gt;
+
+&lt;p&gt;2020년부터 정처기 문제출제방식이 개편되었다고해서 해당 회차부터 풀기 시작했다. 일단 시간은 매우 충분했다. 시험시간이 150분이지만 평균적으로 40분 ~ 50분 정도면 문제를 다 풀 수 있는 것 같다. 문제와 답이 직관적으로 되어있어 해당 개념을 아는 경우에는 답이 바로 보이는 수준이다. 다섯 과목의 난이도를 개인적으로 평가하면 다음과 같았다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;1과목 소프트웨어 설계 : ★★☆☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;무난한 과목, 여러 회차를 풀다보면 대충 어떤 유형의 문제가 나오고, 어떤 개념을 중요하게보고 외워야하는지 감이 온다. 나는 1과목과 2과목에서 점수를 많이따고 4, 5과목에서 못넘은 평균을 해당 과목에서 견인하는 전략으로 시험을 보았다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2과목 소프트웨어 개발 : ★★☆☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;1과목과 마찬가지로 비슷한 수준의 난이도이다. 다만 테스트 관리파트에서 외워야할 부분들이 꽤 있다. 화이트박스, 블랙박스, STAF, xUnit, FitNesse 등등.. 개발공부를 시작하면서 처음들어보는 키워드였기에 자주 나오는 키워드를 중점적으로 보았다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;의외로 점수가 꽤 나오는 과목이다. 취약한 부분만 잘 보완하는만큼 고득점을 노리기 쉬운 과목&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3과목 데이터베이스 구축 : ★★★☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;공부하면서 머리아팠던 과목. 알아야하는 개념도 많고, 추상적이어서 어떤 역할을 하는지 알기쉽지않다. 트랜잭션부터 시작해서 정규화, 튜플, 릴레이션, 어트리뷰트 등등.. 오라클을 다뤄보았다만 이정도로 개념이 자세할줄은 몰랐다. 역시 데이터베이스는..&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;암기하는 과정이 어렵지만 자주 나오는 개념들을 외워두면 60점은 넘을 수 있다. 욕심부리지 말고 60점만 넘기자는 생각으로 공부했고, 자주 출제되는 유형의 개념들 위주로 공부하였다.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4과목 프로그래밍 언어 활용 : ★★★★☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;프로그래밍 언어 활용이기 때문에 언어와 관련된 문제가 많이 출제된다. 객체지향의 장점이라든지, 프레임워크, 운영체제(Unix, Linux)와 관련된 문제들이 나온다. 4과목의 꽃은 코드해석문제, C언어와 자바, 파이썬으로 작성한 코드를 통해 올바른 값이 무엇인지 골라야하는 문제가 출제된다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;나는 자바만 공부했기 때문에 C언어와 파이썬이 나올 때마다 틀렸다. 특히 C언어는 포인터를 쓰는데 어지러워서 어떻게 해석을해야하는지 감도 안잡혔다. 이 과목은 과락만 안당하자는 생각으로 공부했던 것 같다. 자바문제는 무조건 맞춰야했고, 이외에 개념적으로 물어보는 문제를 최대한 공부하였다.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5과목 정보시스템 구축 관리 : ?????&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;사실 5과목은 공부를 아예 안했기때문에 문제를 풀때마다 점수가 들쭉날쭉했다.. ㅋㅋ 잘 나올때는 70점, 못 풀때는 45점 나올 때도 있었으며, 내가 알고있는 개발상식을 가지고 풀려고했기 때문에 난이도가 어떤지는 사실 잘 모르겠다. 확실한건 신유형에 영향을 많이 받는 과목이라는 느낌을 많이 받았다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;문제를 풀면서 틀린 부분은 최대한 정리를 하고 넘어갔다. 그럼에도 불구하고 문제를 풀때마다 매 번 모르는 개념들이 나와서 50점만 넘자는 마인드로 공부했던 과목&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;결과&quot;&gt;결과&lt;/h2&gt;
+
+&lt;p&gt;가채점 결과 75 75 65 45 55 로 평균 63점 턱걸이로 합격했다. 공부기간은 2주정도, 하루 3시간 씩 공부했는데 이정도면 나쁘지않은 결과가 나온 것 같다. 공부하면서 정보처리기사를 굳이 따야하는건가.. 라는 생각이 강하게 들었는데 그래도 공부한게 있으니 시험은 보고오자는 생각으로 갔다.&lt;/p&gt;
+
+&lt;p&gt;필기는 합격했지만 실기는 어떻게 공부해야할지 감도 안온다. 실기가 비전공자와 전공자를 거르게 출제가 된다던데.. 그것보다 일단 취업이 우선이니 실기는 시간이 날 때 한번쯤 도전해봐야겠다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ETC" />
+      
+
+      
+        <summary type="html">정보처리기사 필기 합격후기</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">봄봄(이 영화 봄?봄!) 프로젝트 회고</title>
-      <link href="https://achasan.github.io/bombom_review" rel="alternate" type="text/html" title="봄봄(이 영화 봄?봄!) 프로젝트 회고" />
+      <link href="http://localhost:4000/bombom_review" rel="alternate" type="text/html" title="봄봄(이 영화 봄?봄!) 프로젝트 회고" />
       <published>2022-01-14T00:00:00+09:00</published>
       <updated>2022-01-14T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/bombom_review</id>
-      <content type="html" xml:base="https://achasan.github.io/bombom_review">&lt;p&gt;파이널 프로젝트가 끝이났다.&lt;/p&gt;
+      <id>http://localhost:4000/bombom_review</id>
+      <content type="html" xml:base="http://localhost:4000/bombom_review">&lt;p&gt;파이널 프로젝트가 끝이났다.&lt;/p&gt;
 
 &lt;p&gt;이전에 &lt;a href=&quot;https://github.com/achasan/markethani&quot;&gt;마켓하니&lt;/a&gt; 프로젝트를 하면서 감을 잡았다고 생각했지만 새로운 프레임워크나 라이브러리를 가지고 기능을 구현할 때 마다 직접 부딪히며 완성해 나가야하는 건 어쩔 수 없는 것 같다. 그래도 하나의 기능을 구현하면서 성장했다는 뿌듯함을 느끼고, 완성되어가는 프로젝트를 보면서 어떨 때는 신기한 기분도 들었던 것 같다.&lt;/p&gt;
 
@@ -158,11 +266,11 @@
   
     <entry>
       <title type="html">Toast ui Editor 이미지 업로드 구현방법</title>
-      <link href="https://achasan.github.io/toast_ui_2" rel="alternate" type="text/html" title="Toast ui Editor 이미지 업로드 구현방법" />
+      <link href="http://localhost:4000/toast_ui_2" rel="alternate" type="text/html" title="Toast ui Editor 이미지 업로드 구현방법" />
       <published>2022-01-07T00:00:00+09:00</published>
       <updated>2022-01-07T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/toast_ui_2</id>
-      <content type="html" xml:base="https://achasan.github.io/toast_ui_2">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-이미지-업로드-기능-구현&quot;&gt;위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현&lt;/h1&gt;
+      <id>http://localhost:4000/toast_ui_2</id>
+      <content type="html" xml:base="http://localhost:4000/toast_ui_2">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-이미지-업로드-기능-구현&quot;&gt;위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -369,11 +477,11 @@
   
     <entry>
       <title type="html">Toast ui Editor 사용하기</title>
-      <link href="https://achasan.github.io/toast_ui_1" rel="alternate" type="text/html" title="Toast ui Editor 사용하기" />
+      <link href="http://localhost:4000/toast_ui_1" rel="alternate" type="text/html" title="Toast ui Editor 사용하기" />
       <published>2022-01-06T00:00:00+09:00</published>
       <updated>2022-01-06T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/toast_ui_1</id>
-      <content type="html" xml:base="https://achasan.github.io/toast_ui_1">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-사용법&quot;&gt;위지윅 에디터 Toast ui Editor 사용법&lt;/h1&gt;
+      <id>http://localhost:4000/toast_ui_1</id>
+      <content type="html" xml:base="http://localhost:4000/toast_ui_1">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-사용법&quot;&gt;위지윅 에디터 Toast ui Editor 사용법&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -546,12 +654,152 @@
     </entry>
   
     <entry>
-      <title type="html">객체지향의 사실과 오해 3장 : 추상화</title>
-      <link href="https://achasan.github.io/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 추상화" />
+      <title type="html">객체지향의 사실과 오해 3장 : 타입</title>
+      <link href="http://localhost:4000/OOP_4" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 타입" />
       <published>2022-01-02T00:00:00+09:00</published>
       <updated>2022-01-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_3</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
+      <id>http://localhost:4000/OOP_4</id>
+      <content type="html" xml:base="http://localhost:4000/OOP_4">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;해당 글은 이전에 올린 글을 이어서 작성한 것이다. &lt;a href=&quot;https://achasan.github.io/oop_3&quot;&gt;(링크)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;타입&quot;&gt;타입&lt;/h2&gt;
+
+&lt;p&gt;타입의 정의는 개념의 정의와 완전히 동일하다. 타입은 공통점을 기반으로 객체들을 묶기 위한 틀이다. 타입은 개념과 마찬가지로 심볼, 내연, 외연을 이용해 서술할 수 있고, 타입에 속하는 객체 역시 타입의 인스턴스라고 한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;타입은 개념과 동일하다. 따라서 타입이란 우리가 인식하고 있는 다양한 사물이나 객체에 적용할 수 있는 아이디어나 관념을 의미한다. 어떤 객체에 타입을 적용할 수 있을 때 그 객체를 타입의 인스턴스라고 한다. 타입의 인스턴스는 타입을 구성하는 외연인 객체 집합의 일원이 된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;컴퓨터가 어떤 작업을 수행하기 위해서는 작업에 필요한 데이터를 메모리 안으로 불러들여야 한다. 메모리에 불러들여진 데이터들은 무수히 많은 0과 1로 치장되어 메모리에 저장된다. 실제로 메모리 안에는 무수히 많은 0과 1의 행렬만이 존재한다. 사람이 이를 구별하기 위해서는 엄청난 시행착오를 각오해야할 것이다.&lt;/p&gt;
+
+&lt;p&gt;이로인해 사람들은 메모리 안의 데이터에 특정한 의미를 부여하기 시작했다. 데이터에 사칙연산이 가능하다면 숫자형, 여러 문자로 구성되어있고 다른 문자와 연결될 수 있으면 문자열형으로 분류하였다. 참/거짓을 이야기할 수 있는 데이터는 논리형으로 분류했다.&lt;/p&gt;
+
+&lt;p&gt;데이터를 목적에 따라 분류하기 시작하면서 타입 시스템(type system)이 자라나기 시작했다. 데이터를 분류함으로써 그 데이터에 제약사항을 부과한 것이다. 이를 통해 두 가지 중요한 사실을 알 수 있다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;타입은 데이터가 어떻게 사용되느냐에 관한 것이다. 숫자형 데이터가 사칙연산이 가능하기 때문에 분류한 것이고, 문자열형은 두 문자를 연결할 수 있는 데이터이기에 문자열형으로 분류한 것이다. 어떤 데이터에 어떤 연산자를 적용할 수 있느냐가 그 데이터의 타입을 결정하는 것이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;타입에 속한 데이터를 메모리에 어떻게 표현하는지는 외부로부터 철저하게 감춰진다. 데이터 타입의 표현은 연산 작업을 수행하기에 가장 효과적인 형태가 선택되며, 개발자는 해당 데이터 타입의 표현 방식을 몰라도 데이터를 사용하는 데 지장이 없다. 개발자는 해당 데이터 타입을 사용하기 위해 단지 데이터 타입에 적용할 수 있는 연산자만 알고 있으면 된다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;이 책에서는 데이터 타입을 다음과 같이 정의한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;데이터 타입은 메모리 안에 저장된 데이터의 종류를 분류하는데 사용하는 메모리 집합에 관한 메타데이터이다. 데이터에 대한 분류는 암시적으로 어떤 종류의 연산이 해당 데이터에 대해 수행될 수 있는지를 결정한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;객체와-타입&quot;&gt;객체와 타입&lt;/h3&gt;
+
+&lt;p&gt;객체지향 프로그램을 작성할 때 우리는 객체를 일종의 데이터처럼 사용한다. 따라서 객체를 타입에 따라 분류하고 그 타입에 이름을 붙이는 것은 결국 프로그램에서 사용하 새로운 데이터 타입을 선언하는 것과 같다.&lt;/p&gt;
+
+&lt;p&gt;그렇지만 객체는 데이터가 아니다. 객체에서 중요한 것은 객체의 행동이다. 상태는 행동의 결과로 초래된 부수효과를 쉽게 표현하기 위해 도입한 추상적인 개념일 뿐이다. 즉, 객체가 협력을 위해 어떤 책임을 지녀야 하는지를 결정하는 것이 객체지향 설계의 핵심이다.&lt;/p&gt;
+
+&lt;p&gt;따라서 앞에서 데이터 아입에 관해 언급했던 두 가지 조언은 객체의 타입을 이야기할 떄도 동일하게 적용되어진다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;어떤 객체가 어떤 타입에 속하는지를 결정하는 것은 그 객체가 수행하는 행동이다. 어떤 객체들이 동일한 행동을 수행할 수 있다면 그 객체들은 동일한 타입으로 분류될 수 있다.&lt;/li&gt;
+  &lt;li&gt;객체의 내부적인 표현은 외부로부터 철저하게 감춰진다. 객체의 행동을 가장 효과적으로 수행할 수 만 있따면 객체 내부의 상태를 어떤 방식으로 표현하더라도 무방하다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;행동이-우선이다&quot;&gt;행동이 우선이다.&lt;/h3&gt;
+
+&lt;p&gt;결론적으로 객체의 타입을 결정하는 것은 객체의 행동뿐이다. 객체가 어떤 데이터를 보유하고 잇는 지는 타입을 결정하는 데 아무런 영향을 미치지 않는다.&lt;/p&gt;
+
+&lt;p&gt;같은 타입에 속한 객체는 행동만 동일하다면 서로 다른 데이터를 가질 수 있다. 여기서 동일한 행동은 동일한 책임을 의미하고, 동일한 채김이란 동일한 메시지 수신을 의미한다. 다만 내부의 표현 방식이 다르기 떄문에 동일한 메시지를 처리하는 방식은 서로 다를 수밖에 없다. 이것은 다형성에 의미를 부여한다.&lt;/p&gt;
+
+&lt;p&gt;다형성이란 동일한 요청에 대해 서로 다른 방식으로 응답할 수 있는 능력을 뜻한다. 동일한 메시지를 서로 다른 방식으로 처리하기 위해서는 객체들은 동일한 메시지를 수신할 수 있어야하기 떄문에 결과적으로 다형적인 객체들은 동일한 타입에 속하게 된다.&lt;/p&gt;
+
+&lt;p&gt;행동만이 고려 대상이라는 사실은 외부에 데이터를 감춰야 한다는 것을 의미한다. 훌륭한 객체지향 설계는 외부에 행동만을 제공하고 데이터는 행동 뒤로 감춰야 한다. 이 원칙을 흔히 캡슐화라고 한다. 데이터가 캡슐의 벽을 뚫고 객체의 인터페이스를 오염시키는 순간 객체의 분류 체계는 급격히 위험에 노출되고 결과적으로 유연하지 못한 설계를 낳게 된다.&lt;/p&gt;
+
+&lt;h3 id=&quot;일반화특수화-관계&quot;&gt;일반화/특수화 관계&lt;/h3&gt;
+
+&lt;p&gt;타입과 타입 사이에는 일반화/특수화 관계가 존재할 수 있다. 앨리스가 트럼프 행렬에서 나온 객체들을 토끼를 제외하고 ‘트럼프’라고 칭했지만 사실 해당 객체들은 엄밀히 말하면 ‘트럼프 인간’이다. 트럼프 인간은 트럼프보다 특화된 행동을 하는 특수한 개념이다.&lt;/p&gt;
+
+&lt;p&gt;일반화와 특수화는 동시에 일어난다. 트럼프 인간은 트럼프를 좀 더 특수하게 표현한 것이다. 더 특수하다는 것은 일반적인 개념보다 범위가 더 좁다는 것을 의미하므로 트럼프 인간에 속하는 객체는 트럼프에 속하는 객체보다 그 수가 적을 수 밖에 없다.&lt;/p&gt;
+
+&lt;p&gt;특수한 개념을 포괄하는 트럼프 인간은 일반적인 개념을 표현하는 트럼프의 부분집합이 된다. 여기서도 중요한 점은 일반화/특수화 관계를 결정하는 것이 객체의 상태를 표현하는 데이터가 아니라 행동이라는 것이다.&lt;/p&gt;
+
+&lt;p&gt;특수한 타입이란 일반적인 타입이 가진 모든 타입을 포함하지만 거기에 더해 자신만의 행동을 추가하는 타입을 가리킨다. 따라서 일반적인 타입은 특수한 타입보다 더 적은 수의 행동을 가지고 특수한 타입은 일반적인 타입보다 더 많은 수의 행동을 가진다.&lt;/p&gt;
+
+&lt;h3 id=&quot;슈퍼타입과-서브타입&quot;&gt;슈퍼타입과 서브타입&lt;/h3&gt;
+
+&lt;p&gt;일반화/특수화의 관계는 좀 더 일반적인 한 타입과 좀 더 특수한 한 타입 간의 관계이다. 이 때 좀 더 일반적인 타이블 슈퍼타입(Supertype)이라고 하고, 좀 더 특수한 타입을 서브타입(Subtype)이라고 한다.&lt;/p&gt;
+
+&lt;p&gt;일반적으로 서브타입은 슈퍼타입의 행위와 호환되기 때문에 서브타입은 슈퍼타입을 대체할 수 있어야한다. 즉, 트럼프 인간은 트럼프이므로 엎드리거나 뒤집어지기만 하는 경우에는 트럼프를 대체하더라도 무방할 것이다.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://mindock.github.io/assets/images/oop_generalization_specialization.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;일반화/특수화의 관계를 표기할 때는 서브타입을 하단에 위치시키고 속이 빈 삼각형으로 연결하여 표현한다. 이 때 서브타입에서는 슈퍼타입과 중복된 행위를 행략할 수 있다. 서브 타입은 슈퍼타입의 행위에 추가적으로 특수한 자신만의 행동을 추가하는 것이므로, 슈퍼타입의 행동은 서브타입에게 자동으로 상속된다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;타입의-목적&quot;&gt;타입의 목적&lt;/h2&gt;
+
+&lt;p&gt;타입을 사용하는 이유는 무엇일까? 타입은 인간의 인지능력으로 시간에 따라 동적으로 변화하는 객체의 복잡성을 극복하기위해 사용한다.&lt;/p&gt;
+
+&lt;p&gt;앨리스의 상태는 행동에 따라 시시각각 변한다. 앨리스의 상태는 계속 변화하지만 모든 경우 앨리스는 단지 앨리스일 뿐이다. 앨리스를 다른 객체와 구별할 수 있는 식별성은 동일하게 유지된다. 따라서 앨리스의 상태가 임의의 값을 가지고 변화한다는 사실만 생각하여 상황을 단순하게 만들 수 있다.&lt;/p&gt;
+
+&lt;p&gt;타입은 시간에 따라 동적으로 변하는 앨리스의 상태를 시간과 무관한 정적인 모습으로 다룰 수 있게 해준다. 앨리스의 상태에 시간이라는 복잡성을 제거하여 독립적인 정적인 모습으로 앨리스를 생각할 수 있게 해준다.&lt;/p&gt;
+
+&lt;h3 id=&quot;결국-타입은-추상화다&quot;&gt;결국 타입은 추상화다&lt;/h3&gt;
+
+&lt;p&gt;이러한 관점에서 타입은 추상화이다. 어떤 시점에 앨리스에 관해 생각할 때 불필요한 시간이라는 요소와 상태 변화라는 요소를 제거하거 철저하게 정적인 관점에서 앨리스의 모습을 묘샇는 것을 가능하게 해준다.&lt;/p&gt;
+
+&lt;p&gt;타입은 추상화다. 타입을 이용하면 객체의 동적인 특성을 추상화 할 수 있다. 결국 타입은 시간에 딸느 객체의 상태 변겨잉라는 복잡성을 단순화 할 수 잇는 효과적인 방법인 것이다.&lt;/p&gt;
+
+&lt;h3 id=&quot;동적-모델과-정적-모델&quot;&gt;동적 모델과 정적 모델&lt;/h3&gt;
+
+&lt;p&gt;객체를 생각할 때 우리는 두 가지 모델을 동시에 고려한다는 사실을 알 수 있다.&lt;/p&gt;
+
+&lt;p&gt;하나는 객체가 특정 시점에 구체적으로 어떤 상태를 가지느냐이다. 이를 객체의 &lt;strong&gt;스냅샷(snapshot)&lt;/strong&gt;이라고 한다. 객체지향 모델링을 위한 표준 언어인 UML에서 스냅샷은 객체 다이어그램(object diagram)이라고도 불린다. 스냅샷처럼 실제로 객체가 살아움직이는 동안 상태가 어떻게 변하고 어떻게 행동하는지를 포착하는 것을 동적모델 이라고 한다.&lt;/p&gt;
+
+&lt;p&gt;다른 하나는 객체가 가질 수 잇는 모든 상태와 모든 행동을 시간에 독립적으로 표현하는 것이다. 이런 모델을 &lt;strong&gt;타입 모델(type diagram)&lt;/strong&gt;이라고 한다. 이 모델은 동적으로 변하는 객체의 상태가 아니라 객체가 속한 타입의 정적인 모습을 표현하기 때문에 정적 모델이라고도 한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;객체를 분류하는 기준은 타입이며, 타입을 나누는 기준은 객체가 수행하는 행동이라는 사실을 기억하자. 객체를 분류하기 위해 타입을 결정한 후 프로그래밍 언어를 이용해 타입을 구현할 수 있는 한 가지 방법이 클래스라는 사실을 아는 것으로 충분하다.&lt;/p&gt;
+
+&lt;p&gt;결국 객체지향에서 중요한 것은 동적으로 변하는 객체의 상태와 상태를 변경하는 행위이다. 클래스는 타입을 구현하기 위해 프로그래밍 언어에서 제공하는 구현 메커니즘이 된다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ETC" />
+      
+
+      
+        <summary type="html">객체지향의 사실과 오해 3장 : 타입과 추상화</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
+      <title type="html">객체지향의 사실과 오해 3장 : 추상화</title>
+      <link href="http://localhost:4000/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 추상화" />
+      <published>2022-01-02T00:00:00+09:00</published>
+      <updated>2022-01-02T00:00:00+09:00</updated>
+      <id>http://localhost:4000/OOP_3</id>
+      <content type="html" xml:base="http://localhost:4000/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -692,118 +940,107 @@
     </entry>
   
     <entry>
-      <title type="html">객체지향의 사실과 오해 3장 : 타입</title>
-      <link href="https://achasan.github.io/OOP_4" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 타입" />
-      <published>2022-01-02T00:00:00+09:00</published>
-      <updated>2022-01-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_4</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_4">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
+      <title type="html">객체지향의 사실과 오해 2장 : 상태</title>
+      <link href="http://localhost:4000/OOP_2" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 상태" />
+      <published>2022-01-01T00:00:00+09:00</published>
+      <updated>2022-01-01T00:00:00+09:00</updated>
+      <id>http://localhost:4000/OOP_2</id>
+      <content type="html" xml:base="http://localhost:4000/OOP_2">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--상태&quot;&gt;객체지향의 사실과 오해 2장 : 상태&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;p&gt;해당 글은 이전에 올린 글을 이어서 작성한 것이다. &lt;a href=&quot;https://achasan.github.io/oop_3&quot;&gt;(링크)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;타입&quot;&gt;타입&lt;/h2&gt;
-
-&lt;p&gt;타입의 정의는 개념의 정의와 완전히 동일하다. 타입은 공통점을 기반으로 객체들을 묶기 위한 틀이다. 타입은 개념과 마찬가지로 심볼, 내연, 외연을 이용해 서술할 수 있고, 타입에 속하는 객체 역시 타입의 인스턴스라고 한다.&lt;/p&gt;
-
 &lt;blockquote&gt;
-  &lt;p&gt;타입은 개념과 동일하다. 따라서 타입이란 우리가 인식하고 있는 다양한 사물이나 객체에 적용할 수 있는 아이디어나 관념을 의미한다. 어떤 객체에 타입을 적용할 수 있을 때 그 객체를 타입의 인스턴스라고 한다. 타입의 인스턴스는 타입을 구성하는 외연인 객체 집합의 일원이 된다.&lt;/p&gt;
+  &lt;p&gt;객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;컴퓨터가 어떤 작업을 수행하기 위해서는 작업에 필요한 데이터를 메모리 안으로 불러들여야 한다. 메모리에 불러들여진 데이터들은 무수히 많은 0과 1로 치장되어 메모리에 저장된다. 실제로 메모리 안에는 무수히 많은 0과 1의 행렬만이 존재한다. 사람이 이를 구별하기 위해서는 엄청난 시행착오를 각오해야할 것이다.&lt;/p&gt;
+&lt;p&gt;2장에서의 핵심은 &lt;strong&gt;객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것&lt;/strong&gt;이다. 객체의 상태와 행동을 통해 여러 객체들이 서로 협력하며 하나의 목표를 달성하는 원리들을 설명하면서, 현실과 객체지향의 차이점을 보여주어 어떻게 소프트웨어를 설계해야하는지 방향을 제시해준다.&lt;/p&gt;
 
-&lt;p&gt;이로인해 사람들은 메모리 안의 데이터에 특정한 의미를 부여하기 시작했다. 데이터에 사칙연산이 가능하다면 숫자형, 여러 문자로 구성되어있고 다른 문자와 연결될 수 있으면 문자열형으로 분류하였다. 참/거짓을 이야기할 수 있는 데이터는 논리형으로 분류했다.&lt;/p&gt;
-
-&lt;p&gt;데이터를 목적에 따라 분류하기 시작하면서 타입 시스템(type system)이 자라나기 시작했다. 데이터를 분류함으로써 그 데이터에 제약사항을 부과한 것이다. 이를 통해 두 가지 중요한 사실을 알 수 있다.&lt;/p&gt;
+&lt;p&gt;이를 설명하기위해 글쓴이는 이상한 나라의 앨리스를 예시로 들어 설명한다. 요약하자면 다음과 같다.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;타입은 데이터가 어떻게 사용되느냐에 관한 것이다. 숫자형 데이터가 사칙연산이 가능하기 때문에 분류한 것이고, 문자열형은 두 문자를 연결할 수 있는 데이터이기에 문자열형으로 분류한 것이다. 어떤 데이터에 어떤 연산자를 적용할 수 있느냐가 그 데이터의 타입을 결정하는 것이다.&lt;/p&gt;
+    &lt;p&gt;앨리스는 아름다운 정원을 발견했다. 정원에 들어가는 문이 40센티미터 이하여서 들어갈 수 없다.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;타입에 속한 데이터를 메모리에 어떻게 표현하는지는 외부로부터 철저하게 감춰진다. 데이터 타입의 표현은 연산 작업을 수행하기에 가장 효과적인 형태가 선택되며, 개발자는 해당 데이터 타입의 표현 방식을 몰라도 데이터를 사용하는 데 지장이 없다. 개발자는 해당 데이터 타입을 사용하기 위해 단지 데이터 타입에 적용할 수 있는 연산자만 알고 있으면 된다.&lt;/p&gt;
+    &lt;p&gt;앨리스는 주변에 ‘마셔라’가 적혀있는 병에있는 액체를 마시자 키가 24센티미터로 줄어들었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;정원으로가는 문을 열려면 열쇠를 사용해야한다. 너무 작아져서 열쇠를 사용할 수 없게되었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이번엔 탁자 아래 케이크가 있어서 먹었더니 몸이 천장에 닿을만큼 훨씬 커지게되었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;이 때 주변을 지나가던 토끼가 놀라 부채를 떨어뜨렸다. 앨리스는 더워서 부채를 부쳤는데 키가 60센티미터로 다시 줄었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;주변을 걸어가던 앨리스는 쐐기벌레를 만난다. 쐐기벌레는 버섯을 하나 주는데, 한쪽을 먹으면 크기가 작아지고, 반대쪽을 먹으면 크기가 커지는 버섯이었다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 지금까지 얻은 물건을 통해 몸의 크기를 조절해 문을 열고 아름다운 정원으로 들어갔다.&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;이 책에서는 데이터 타입을 다음과 같이 정의한다.&lt;/p&gt;
+&lt;h2 id=&quot;앨리스-객체&quot;&gt;앨리스 객체&lt;/h2&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;데이터 타입은 메모리 안에 저장된 데이터의 종류를 분류하는데 사용하는 메모리 집합에 관한 메타데이터이다. 데이터에 대한 분류는 암시적으로 어떤 종류의 연산이 해당 데이터에 대해 수행될 수 있는지를 결정한다.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;위의 이야기에서 주목해야할 점은 앨리스의 키의 변화이다. 정원으로 들어가기 위한 조건을 충족시키기위해 시간의 흐름에 따라 앨리스의 &lt;strong&gt;상태&lt;/strong&gt;는 바뀌게 된다. 앨리스의 상태를 변화시키는 것은 앨리스의 &lt;strong&gt;행동&lt;/strong&gt;이다. 버섯을 먹고, 음료수를 마시고, 부채질을 하고, 케이크를 먹으면서 앨리스의 키, 즉 상태는 변화한다.&lt;/p&gt;
 
-&lt;h3 id=&quot;객체와-타입&quot;&gt;객체와 타입&lt;/h3&gt;
+&lt;p&gt;또한 앨리스의 행동으로 앨리스의 키가 커지거나 작아지게되는데, 행동을 하기 전에 앨리스의 키가 얼마였느냐가 행동 후의 앨리스의 상태를 결정하게된다. &lt;strong&gt;앨리스가 한 행동의 결과는 앨리스의 상태에 의존적이다&lt;/strong&gt;.&lt;/p&gt;
 
-&lt;p&gt;객체지향 프로그램을 작성할 때 우리는 객체를 일종의 데이터처럼 사용한다. 따라서 객체를 타입에 따라 분류하고 그 타입에 이름을 붙이는 것은 결국 프로그램에서 사용하 새로운 데이터 타입을 선언하는 것과 같다.&lt;/p&gt;
+&lt;p&gt;앨리스의 행동으로 상태가 변화하게되고, 아름다운 정원으로 들어가기위해 앨리스는 적절한 행동을 통해 문을 통과할 수 있는 상태를 만들어야할 것이다. 이는 행동 간의 순서가 중요하다는 것을 의미한다. 문을 통과하려면 케이크나 음료수를 마시는 행동이 선행되어야한다.&lt;/p&gt;
 
-&lt;p&gt;그렇지만 객체는 데이터가 아니다. 객체에서 중요한 것은 객체의 행동이다. 상태는 행동의 결과로 초래된 부수효과를 쉽게 표현하기 위해 도입한 추상적인 개념일 뿐이다. 즉, 객체가 협력을 위해 어떤 책임을 지녀야 하는지를 결정하는 것이 객체지향 설계의 핵심이다.&lt;/p&gt;
-
-&lt;p&gt;따라서 앞에서 데이터 아입에 관해 언급했던 두 가지 조언은 객체의 타입을 이야기할 떄도 동일하게 적용되어진다.&lt;/p&gt;
+&lt;p&gt;그렇다면 지금까지의 내용을 정리해보자. 지금까지의 내용이 객체와 중요한 공통점을 공유하게될 것이다.&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;어떤 객체가 어떤 타입에 속하는지를 결정하는 것은 그 객체가 수행하는 행동이다. 어떤 객체들이 동일한 행동을 수행할 수 있다면 그 객체들은 동일한 타입으로 분류될 수 있다.&lt;/li&gt;
-  &lt;li&gt;객체의 내부적인 표현은 외부로부터 철저하게 감춰진다. 객체의 행동을 가장 효과적으로 수행할 수 만 있따면 객체 내부의 상태를 어떤 방식으로 표현하더라도 무방하다.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;앨리스는 상태를 가지며 상태는 변경가능하다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;앨리스의 상태를 변경시키는 것은 앨리스의 행동이다.
+    &lt;ul&gt;
+      &lt;li&gt;행동의 결과는 상태에 의존적이고, 상태를 이용해 서술가능하다.&lt;/li&gt;
+      &lt;li&gt;행동의 순서가 결과에 영향을 미친다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;앨리스는 어떤상태에 있더라도 유일하게 식별 가능하다.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&quot;행동이-우선이다&quot;&gt;행동이 우선이다.&lt;/h3&gt;
-
-&lt;p&gt;결론적으로 객체의 타입을 결정하는 것은 객체의 행동뿐이다. 객체가 어떤 데이터를 보유하고 잇는 지는 타입을 결정하는 데 아무런 영향을 미치지 않는다.&lt;/p&gt;
-
-&lt;p&gt;같은 타입에 속한 객체는 행동만 동일하다면 서로 다른 데이터를 가질 수 있다. 여기서 동일한 행동은 동일한 책임을 의미하고, 동일한 채김이란 동일한 메시지 수신을 의미한다. 다만 내부의 표현 방식이 다르기 떄문에 동일한 메시지를 처리하는 방식은 서로 다를 수밖에 없다. 이것은 다형성에 의미를 부여한다.&lt;/p&gt;
-
-&lt;p&gt;다형성이란 동일한 요청에 대해 서로 다른 방식으로 응답할 수 있는 능력을 뜻한다. 동일한 메시지를 서로 다른 방식으로 처리하기 위해서는 객체들은 동일한 메시지를 수신할 수 있어야하기 떄문에 결과적으로 다형적인 객체들은 동일한 타입에 속하게 된다.&lt;/p&gt;
-
-&lt;p&gt;행동만이 고려 대상이라는 사실은 외부에 데이터를 감춰야 한다는 것을 의미한다. 훌륭한 객체지향 설계는 외부에 행동만을 제공하고 데이터는 행동 뒤로 감춰야 한다. 이 원칙을 흔히 캡슐화라고 한다. 데이터가 캡슐의 벽을 뚫고 객체의 인터페이스를 오염시키는 순간 객체의 분류 체계는 급격히 위험에 노출되고 결과적으로 유연하지 못한 설계를 낳게 된다.&lt;/p&gt;
-
-&lt;h3 id=&quot;일반화특수화-관계&quot;&gt;일반화/특수화 관계&lt;/h3&gt;
-
-&lt;p&gt;타입과 타입 사이에는 일반화/특수화 관계가 존재할 수 있다. 앨리스가 트럼프 행렬에서 나온 객체들을 토끼를 제외하고 ‘트럼프’라고 칭했지만 사실 해당 객체들은 엄밀히 말하면 ‘트럼프 인간’이다. 트럼프 인간은 트럼프보다 특화된 행동을 하는 특수한 개념이다.&lt;/p&gt;
-
-&lt;p&gt;일반화와 특수화는 동시에 일어난다. 트럼프 인간은 트럼프를 좀 더 특수하게 표현한 것이다. 더 특수하다는 것은 일반적인 개념보다 범위가 더 좁다는 것을 의미하므로 트럼프 인간에 속하는 객체는 트럼프에 속하는 객체보다 그 수가 적을 수 밖에 없다.&lt;/p&gt;
-
-&lt;p&gt;특수한 개념을 포괄하는 트럼프 인간은 일반적인 개념을 표현하는 트럼프의 부분집합이 된다. 여기서도 중요한 점은 일반화/특수화 관계를 결정하는 것이 객체의 상태를 표현하는 데이터가 아니라 행동이라는 것이다.&lt;/p&gt;
-
-&lt;p&gt;특수한 타입이란 일반적인 타입이 가진 모든 타입을 포함하지만 거기에 더해 자신만의 행동을 추가하는 타입을 가리킨다. 따라서 일반적인 타입은 특수한 타입보다 더 적은 수의 행동을 가지고 특수한 타입은 일반적인 타입보다 더 많은 수의 행동을 가진다.&lt;/p&gt;
-
-&lt;h3 id=&quot;슈퍼타입과-서브타입&quot;&gt;슈퍼타입과 서브타입&lt;/h3&gt;
-
-&lt;p&gt;일반화/특수화의 관계는 좀 더 일반적인 한 타입과 좀 더 특수한 한 타입 간의 관계이다. 이 때 좀 더 일반적인 타이블 슈퍼타입(Supertype)이라고 하고, 좀 더 특수한 타입을 서브타입(Subtype)이라고 한다.&lt;/p&gt;
-
-&lt;p&gt;일반적으로 서브타입은 슈퍼타입의 행위와 호환되기 때문에 서브타입은 슈퍼타입을 대체할 수 있어야한다. 즉, 트럼프 인간은 트럼프이므로 엎드리거나 뒤집어지기만 하는 경우에는 트럼프를 대체하더라도 무방할 것이다.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://mindock.github.io/assets/images/oop_generalization_specialization.PNG&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;일반화/특수화의 관계를 표기할 때는 서브타입을 하단에 위치시키고 속이 빈 삼각형으로 연결하여 표현한다. 이 때 서브타입에서는 슈퍼타입과 중복된 행위를 행략할 수 있다. 서브 타입은 슈퍼타입의 행위에 추가적으로 특수한 자신만의 행동을 추가하는 것이므로, 슈퍼타입의 행동은 서브타입에게 자동으로 상속된다.&lt;/p&gt;
-
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;타입의-목적&quot;&gt;타입의 목적&lt;/h2&gt;
+&lt;h2 id=&quot;객체--상태와-행동&quot;&gt;객체 : 상태와 행동&lt;/h2&gt;
 
-&lt;p&gt;타입을 사용하는 이유는 무엇일까? 타입은 인간의 인지능력으로 시간에 따라 동적으로 변화하는 객체의 복잡성을 극복하기위해 사용한다.&lt;/p&gt;
+&lt;p&gt;객체의 다양한특성을 효과적으로 설명하기 위해서는 객체를 상태, 행동, 식별자를 지닌 식체로 보는 것이 가장 효과적이다. 이 책에서는 객체를 다음과 같이 정의한다.&lt;/p&gt;
 
-&lt;p&gt;앨리스의 상태는 행동에 따라 시시각각 변한다. 앨리스의 상태는 계속 변화하지만 모든 경우 앨리스는 단지 앨리스일 뿐이다. 앨리스를 다른 객체와 구별할 수 있는 식별성은 동일하게 유지된다. 따라서 앨리스의 상태가 임의의 값을 가지고 변화한다는 사실만 생각하여 상황을 단순하게 만들 수 있다.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;객체란 식별가능한 개체 또는 사물이다. 객체는 자동차처럼 만질 수 있는 구체적인 사물일 수도 있고, 시간처럼 추상적인 개념일 수도 있다. 객체는 구별가능한 식별자, 특징적인 행동, 변경 가능한 상태를 가진다. 소프트웨어 안에서 객체는 저장된 상태와 실행가능한 코드를 통해 구현된다.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;타입은 시간에 따라 동적으로 변하는 앨리스의 상태를 시간과 무관한 정적인 모습으로 다룰 수 있게 해준다. 앨리스의 상태에 시간이라는 복잡성을 제거하여 독립적인 정적인 모습으로 앨리스를 생각할 수 있게 해준다.&lt;/p&gt;
+&lt;h3 id=&quot;상태&quot;&gt;상태&lt;/h3&gt;
 
-&lt;h3 id=&quot;결국-타입은-추상화다&quot;&gt;결국 타입은 추상화다&lt;/h3&gt;
+&lt;p&gt;객체가 주변 환경과의 상호작용에 어떻게 반응하는가는 그 시점까지 객체에 어떤 일이 발생했느냐에 좌우된다. 예를 들면 비행기를 타기 위해서는 항공권을 발권해야한다. 없다면 비행기를 탈 수 없고, 있다면 탈 수 있게될 것이다. 비행기를 발권여부에 대한 행동이 비행기 탑승에 영향을 미친다.&lt;/p&gt;
 
-&lt;p&gt;이러한 관점에서 타입은 추상화이다. 어떤 시점에 앨리스에 관해 생각할 때 불필요한 시간이라는 요소와 상태 변화라는 요소를 제거하거 철저하게 정적인 관점에서 앨리스의 모습을 묘샇는 것을 가능하게 해준다.&lt;/p&gt;
+&lt;p&gt;과거에 발생한 행동의 이력을 통해 현재 발생한 행동의 결과를 판단하는 방식은 복잡하고 번거로우며, 이해하기 쉽지 않다. 이를 단순하게 하기위해 &lt;strong&gt;상태&lt;/strong&gt;라는 개념을 만들게 된다. 위의 예시로 따지자면 항공권 소유여부를 상태로 만들어 이전에 비행기를 발권하는 행동을 했는지 설명과 예측이 가능해진다.&lt;/p&gt;
 
-&lt;p&gt;타입은 추상화다. 타입을 이용하면 객체의 동적인 특성을 추상화 할 수 있다. 결국 타입은 시간에 딸느 객체의 상태 변겨잉라는 복잡성을 단순화 할 수 잇는 효과적인 방법인 것이다.&lt;/p&gt;
+&lt;p&gt;상태를 사용하면 과거에 얽매이지 않을 수 있다. 세상의 복잡성을 완화하고 인지 과부화를 줄이는 중요한 개념이다.&lt;/p&gt;
 
-&lt;h3 id=&quot;동적-모델과-정적-모델&quot;&gt;동적 모델과 정적 모델&lt;/h3&gt;
+&lt;h3 id=&quot;상태와-프로퍼티&quot;&gt;상태와 프로퍼티&lt;/h3&gt;
 
-&lt;p&gt;객체를 생각할 때 우리는 두 가지 모델을 동시에 고려한다는 사실을 알 수 있다.&lt;/p&gt;
+&lt;p&gt;모든 것을 객체로 표현할 수는 없다. 앨리스의 키는 객체가 아니다. 음료와 케이크의 양은 객체가 아니다. 상태로 표현되는 것들이다. 이러한 단순한 값들은 객체가 아니지만 객체의 상태를 표현하는 중요한 수단이 된다.&lt;/p&gt;
 
-&lt;p&gt;하나는 객체가 특정 시점에 구체적으로 어떤 상태를 가지느냐이다. 이를 객체의 &lt;strong&gt;스냅샷(snapshot)&lt;/strong&gt;이라고 한다. 객체지향 모델링을 위한 표준 언어인 UML에서 스냅샷은 객체 다이어그램(object diagram)이라고도 불린다. 스냅샷처럼 실제로 객체가 살아움직이는 동안 상태가 어떻게 변하고 어떻게 행동하는지를 포착하는 것을 동적모델 이라고 한다.&lt;/p&gt;
+&lt;p&gt;때로는 객체를 사용해 다른 객체의 상태를 표현해야할 수도 있다. 가장 간단하고 직관적이 방법은 앨리스의 상태 일부를 음료라는 객체를 이용해 표현하는 것이다. 앨리스가 음료를 들고 있을 경우 음료 객체를 상태로 표현하여 앨리스가 음료를 들고 있는 상태임을 나타내게할 수 있다.&lt;/p&gt;
 
-&lt;p&gt;다른 하나는 객체가 가질 수 잇는 모든 상태와 모든 행동을 시간에 독립적으로 표현하는 것이다. 이런 모델을 &lt;strong&gt;타입 모델(type diagram)&lt;/strong&gt;이라고 한다. 이 모델은 동적으로 변하는 객체의 상태가 아니라 객체가 속한 타입의 정적인 모습을 표현하기 때문에 정적 모델이라고도 한다.&lt;/p&gt;
+&lt;p&gt;앨리스가 음료를 들고 있게될 경우, 앨리스와 음료 객체는 서로 연결되게된다.&lt;/p&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;결론적으로 모든 객체의 상태는 단순한 값과 객체의 조합으로 표현되며, 객체의 상태를 구성하는 모든 특징을 통틀어 객체의 &lt;strong&gt;프로퍼티(property)&lt;/strong&gt;라고한다. 일반적으로 프로퍼티는 변경되지 않고 고정되기 때문에 ‘정적’이다. 하지만 &lt;strong&gt;프로퍼티 값(property value)&lt;/strong&gt;은 시간의 흐름에 따라 변경되어 ‘동적’이다.&lt;/p&gt;
 
-&lt;p&gt;객체를 분류하는 기준은 타입이며, 타입을 나누는 기준은 객체가 수행하는 행동이라는 사실을 기억하자. 객체를 분류하기 위해 타입을 결정한 후 프로그래밍 언어를 이용해 타입을 구현할 수 있는 한 가지 방법이 클래스라는 사실을 아는 것으로 충분하다.&lt;/p&gt;
+&lt;p&gt;앨리스가 음료를 들고 있을 경우 두 객체는 서로 연결되어있다. 앨리스가 음료를 마시게 될 경우, 앨리스는 음료를 마셨다는 메시지를 음료 객체에 전달하게되고, 음료 객체는 이에 따라 상태를 변화시킬 것이다. 객체와 객체사이의 의미 있는 연결을 &lt;strong&gt;링크(link)&lt;/strong&gt;라고 한다.&lt;/p&gt;
 
-&lt;p&gt;결국 객체지향에서 중요한 것은 동적으로 변하는 객체의 상태와 상태를 변경하는 행위이다. 클래스는 타입을 구현하기 위해 프로그래밍 언어에서 제공하는 구현 메커니즘이 된다.&lt;/p&gt;</content>
+&lt;p&gt;링크와 달리 객체를 구성하는 단순한 값은 &lt;strong&gt;속성(attribute)&lt;/strong&gt;이라고 부른다. 앨리스의 키, 음료수의 양은 단순한 값으로 표현되므로 속성이다.&lt;/p&gt;
+
+&lt;p&gt;객체의 상태를 정의해보자, 이 책에서는 다음과 같이 정의한다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;상태는 특정 시점에 객체가 가지고 있는 정보의 집합으로 객체의 구조적인 특징을 표현한다. 객체의 상태는 객체에 존재하는 정적인 프로퍼티와 동적인 프로퍼티 값으로 구성된다. 객체의 프로퍼티는 단순한 값과 다른 객체를 참조하는 링크로 구분할 수 있다.&lt;/p&gt;
+&lt;/blockquote&gt;</content>
 
       
       
@@ -824,7 +1061,7 @@
       
 
       
-        <summary type="html">객체지향의 사실과 오해 3장 : 타입과 추상화</summary>
+        <summary type="html">객체지향의 사실과 오해 2장 : 상태</summary>
       
 
       
@@ -833,11 +1070,11 @@
   
     <entry>
       <title type="html">객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자</title>
-      <link href="https://achasan.github.io/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자" />
+      <link href="http://localhost:4000/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자" />
       <published>2022-01-01T00:00:00+09:00</published>
       <updated>2022-01-01T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_3</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--행동-캡슐화-식별자&quot;&gt;객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자&lt;/h1&gt;
+      <id>http://localhost:4000/OOP_3</id>
+      <content type="html" xml:base="http://localhost:4000/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--행동-캡슐화-식별자&quot;&gt;객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -980,141 +1217,12 @@
     </entry>
   
     <entry>
-      <title type="html">객체지향의 사실과 오해 2장 : 상태</title>
-      <link href="https://achasan.github.io/OOP_2" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 상태" />
-      <published>2022-01-01T00:00:00+09:00</published>
-      <updated>2022-01-01T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_2</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_2">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--상태&quot;&gt;객체지향의 사실과 오해 2장 : 상태&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;객체지향 패러다임은 지식을 추상화하고 추상화한 지식을 객체 안에 캡슐화함으로써 실세계 문제에 내재된 복잡성을 관리하려고 한다. 객체를 발견하고 창조하는 것은 지식과 행동을 구조화하는 문제다. - 레베카 워프스브록&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;2장에서의 핵심은 &lt;strong&gt;객체지향의 패러다임이 현실세계를 모방하는 것이 아닌 현실세계를 기반으로 새로운 세계를 창조하는 것&lt;/strong&gt;이다. 객체의 상태와 행동을 통해 여러 객체들이 서로 협력하며 하나의 목표를 달성하는 원리들을 설명하면서, 현실과 객체지향의 차이점을 보여주어 어떻게 소프트웨어를 설계해야하는지 방향을 제시해준다.&lt;/p&gt;
-
-&lt;p&gt;이를 설명하기위해 글쓴이는 이상한 나라의 앨리스를 예시로 들어 설명한다. 요약하자면 다음과 같다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 아름다운 정원을 발견했다. 정원에 들어가는 문이 40센티미터 이하여서 들어갈 수 없다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 주변에 ‘마셔라’가 적혀있는 병에있는 액체를 마시자 키가 24센티미터로 줄어들었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;정원으로가는 문을 열려면 열쇠를 사용해야한다. 너무 작아져서 열쇠를 사용할 수 없게되었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이번엔 탁자 아래 케이크가 있어서 먹었더니 몸이 천장에 닿을만큼 훨씬 커지게되었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;이 때 주변을 지나가던 토끼가 놀라 부채를 떨어뜨렸다. 앨리스는 더워서 부채를 부쳤는데 키가 60센티미터로 다시 줄었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;주변을 걸어가던 앨리스는 쐐기벌레를 만난다. 쐐기벌레는 버섯을 하나 주는데, 한쪽을 먹으면 크기가 작아지고, 반대쪽을 먹으면 크기가 커지는 버섯이었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 지금까지 얻은 물건을 통해 몸의 크기를 조절해 문을 열고 아름다운 정원으로 들어갔다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;앨리스-객체&quot;&gt;앨리스 객체&lt;/h2&gt;
-
-&lt;p&gt;위의 이야기에서 주목해야할 점은 앨리스의 키의 변화이다. 정원으로 들어가기 위한 조건을 충족시키기위해 시간의 흐름에 따라 앨리스의 &lt;strong&gt;상태&lt;/strong&gt;는 바뀌게 된다. 앨리스의 상태를 변화시키는 것은 앨리스의 &lt;strong&gt;행동&lt;/strong&gt;이다. 버섯을 먹고, 음료수를 마시고, 부채질을 하고, 케이크를 먹으면서 앨리스의 키, 즉 상태는 변화한다.&lt;/p&gt;
-
-&lt;p&gt;또한 앨리스의 행동으로 앨리스의 키가 커지거나 작아지게되는데, 행동을 하기 전에 앨리스의 키가 얼마였느냐가 행동 후의 앨리스의 상태를 결정하게된다. &lt;strong&gt;앨리스가 한 행동의 결과는 앨리스의 상태에 의존적이다&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;앨리스의 행동으로 상태가 변화하게되고, 아름다운 정원으로 들어가기위해 앨리스는 적절한 행동을 통해 문을 통과할 수 있는 상태를 만들어야할 것이다. 이는 행동 간의 순서가 중요하다는 것을 의미한다. 문을 통과하려면 케이크나 음료수를 마시는 행동이 선행되어야한다.&lt;/p&gt;
-
-&lt;p&gt;그렇다면 지금까지의 내용을 정리해보자. 지금까지의 내용이 객체와 중요한 공통점을 공유하게될 것이다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;앨리스는 상태를 가지며 상태는 변경가능하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;앨리스의 상태를 변경시키는 것은 앨리스의 행동이다.
-    &lt;ul&gt;
-      &lt;li&gt;행동의 결과는 상태에 의존적이고, 상태를 이용해 서술가능하다.&lt;/li&gt;
-      &lt;li&gt;행동의 순서가 결과에 영향을 미친다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;앨리스는 어떤상태에 있더라도 유일하게 식별 가능하다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;객체--상태와-행동&quot;&gt;객체 : 상태와 행동&lt;/h2&gt;
-
-&lt;p&gt;객체의 다양한특성을 효과적으로 설명하기 위해서는 객체를 상태, 행동, 식별자를 지닌 식체로 보는 것이 가장 효과적이다. 이 책에서는 객체를 다음과 같이 정의한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;객체란 식별가능한 개체 또는 사물이다. 객체는 자동차처럼 만질 수 있는 구체적인 사물일 수도 있고, 시간처럼 추상적인 개념일 수도 있다. 객체는 구별가능한 식별자, 특징적인 행동, 변경 가능한 상태를 가진다. 소프트웨어 안에서 객체는 저장된 상태와 실행가능한 코드를 통해 구현된다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h3 id=&quot;상태&quot;&gt;상태&lt;/h3&gt;
-
-&lt;p&gt;객체가 주변 환경과의 상호작용에 어떻게 반응하는가는 그 시점까지 객체에 어떤 일이 발생했느냐에 좌우된다. 예를 들면 비행기를 타기 위해서는 항공권을 발권해야한다. 없다면 비행기를 탈 수 없고, 있다면 탈 수 있게될 것이다. 비행기를 발권여부에 대한 행동이 비행기 탑승에 영향을 미친다.&lt;/p&gt;
-
-&lt;p&gt;과거에 발생한 행동의 이력을 통해 현재 발생한 행동의 결과를 판단하는 방식은 복잡하고 번거로우며, 이해하기 쉽지 않다. 이를 단순하게 하기위해 &lt;strong&gt;상태&lt;/strong&gt;라는 개념을 만들게 된다. 위의 예시로 따지자면 항공권 소유여부를 상태로 만들어 이전에 비행기를 발권하는 행동을 했는지 설명과 예측이 가능해진다.&lt;/p&gt;
-
-&lt;p&gt;상태를 사용하면 과거에 얽매이지 않을 수 있다. 세상의 복잡성을 완화하고 인지 과부화를 줄이는 중요한 개념이다.&lt;/p&gt;
-
-&lt;h3 id=&quot;상태와-프로퍼티&quot;&gt;상태와 프로퍼티&lt;/h3&gt;
-
-&lt;p&gt;모든 것을 객체로 표현할 수는 없다. 앨리스의 키는 객체가 아니다. 음료와 케이크의 양은 객체가 아니다. 상태로 표현되는 것들이다. 이러한 단순한 값들은 객체가 아니지만 객체의 상태를 표현하는 중요한 수단이 된다.&lt;/p&gt;
-
-&lt;p&gt;때로는 객체를 사용해 다른 객체의 상태를 표현해야할 수도 있다. 가장 간단하고 직관적이 방법은 앨리스의 상태 일부를 음료라는 객체를 이용해 표현하는 것이다. 앨리스가 음료를 들고 있을 경우 음료 객체를 상태로 표현하여 앨리스가 음료를 들고 있는 상태임을 나타내게할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;앨리스가 음료를 들고 있게될 경우, 앨리스와 음료 객체는 서로 연결되게된다.&lt;/p&gt;
-
-&lt;p&gt;결론적으로 모든 객체의 상태는 단순한 값과 객체의 조합으로 표현되며, 객체의 상태를 구성하는 모든 특징을 통틀어 객체의 &lt;strong&gt;프로퍼티(property)&lt;/strong&gt;라고한다. 일반적으로 프로퍼티는 변경되지 않고 고정되기 때문에 ‘정적’이다. 하지만 &lt;strong&gt;프로퍼티 값(property value)&lt;/strong&gt;은 시간의 흐름에 따라 변경되어 ‘동적’이다.&lt;/p&gt;
-
-&lt;p&gt;앨리스가 음료를 들고 있을 경우 두 객체는 서로 연결되어있다. 앨리스가 음료를 마시게 될 경우, 앨리스는 음료를 마셨다는 메시지를 음료 객체에 전달하게되고, 음료 객체는 이에 따라 상태를 변화시킬 것이다. 객체와 객체사이의 의미 있는 연결을 &lt;strong&gt;링크(link)&lt;/strong&gt;라고 한다.&lt;/p&gt;
-
-&lt;p&gt;링크와 달리 객체를 구성하는 단순한 값은 &lt;strong&gt;속성(attribute)&lt;/strong&gt;이라고 부른다. 앨리스의 키, 음료수의 양은 단순한 값으로 표현되므로 속성이다.&lt;/p&gt;
-
-&lt;p&gt;객체의 상태를 정의해보자, 이 책에서는 다음과 같이 정의한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;상태는 특정 시점에 객체가 가지고 있는 정보의 집합으로 객체의 구조적인 특징을 표현한다. 객체의 상태는 객체에 존재하는 정적인 프로퍼티와 동적인 프로퍼티 값으로 구성된다. 객체의 프로퍼티는 단순한 값과 다른 객체를 참조하는 링크로 구분할 수 있다.&lt;/p&gt;
-&lt;/blockquote&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="ETC" />
-      
-
-      
-        <summary type="html">객체지향의 사실과 오해 2장 : 상태</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
       <title type="html">Spring framework 환경에서 git 세팅</title>
-      <link href="https://achasan.github.io/spring_git_setting" rel="alternate" type="text/html" title="Spring framework 환경에서 git 세팅" />
+      <link href="http://localhost:4000/spring_git_setting" rel="alternate" type="text/html" title="Spring framework 환경에서 git 세팅" />
       <published>2021-12-29T00:00:00+09:00</published>
       <updated>2021-12-29T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/spring_git_setting</id>
-      <content type="html" xml:base="https://achasan.github.io/spring_git_setting">&lt;p&gt;기나긴 삽질 끝에 Spring을 사용하여 git 세팅하는 방법을 찾아냈다. 이전 프로젝트처럼 세팅하여 사용하면 될 줄 알았으나 JSP와 다르게 Spring에서는 Maven이라는 빌드 툴이 있어서 그런지 좀 더 디테일한 세팅이 필요한 것 같았다.&lt;/p&gt;
+      <id>http://localhost:4000/spring_git_setting</id>
+      <content type="html" xml:base="http://localhost:4000/spring_git_setting">&lt;p&gt;기나긴 삽질 끝에 Spring을 사용하여 git 세팅하는 방법을 찾아냈다. 이전 프로젝트처럼 세팅하여 사용하면 될 줄 알았으나 JSP와 다르게 Spring에서는 Maven이라는 빌드 툴이 있어서 그런지 좀 더 디테일한 세팅이 필요한 것 같았다.&lt;/p&gt;
 
 &lt;p&gt;가장 중요한 점은 gitignore를 사용하여 메타데이터가 원격저장소에 push 되지 않도록 해야한다는 것이다. gitignore를 세팅하지않고 사용했더니 나중에는 다른 팀원들이 프로젝트를 불러오지 못하게되어, 결국 원격저장소를 새로 만들어야하는 상황까지 나오게 되었다.&lt;/p&gt;
 
@@ -1202,11 +1310,11 @@
   
     <entry>
       <title type="html">객체지향의 사실과 오해 1장 정리</title>
-      <link href="https://achasan.github.io/OOP_1" rel="alternate" type="text/html" title="객체지향의 사실과 오해 1장 정리" />
+      <link href="http://localhost:4000/OOP_1" rel="alternate" type="text/html" title="객체지향의 사실과 오해 1장 정리" />
       <published>2021-12-22T00:00:00+09:00</published>
       <updated>2021-12-22T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_1</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_1">&lt;h1 id=&quot;객체지향의-사실과-오해-1장-정리&quot;&gt;객체지향의 사실과 오해 1장 정리&lt;/h1&gt;
+      <id>http://localhost:4000/OOP_1</id>
+      <content type="html" xml:base="http://localhost:4000/OOP_1">&lt;h1 id=&quot;객체지향의-사실과-오해-1장-정리&quot;&gt;객체지향의 사실과 오해 1장 정리&lt;/h1&gt;
 
 &lt;p&gt;&lt;img src=&quot;/assets/images/ObjectOrientation.png&quot; alt=&quot;book&quot; /&gt;&lt;/p&gt;
 
@@ -1451,119 +1559,6 @@
 
       
         <summary type="html">객체지향의 사실과 오해 1장 정리</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">AJAX를 사용하여 아이디 중복체크하기</title>
-      <link href="https://achasan.github.io/ajax_id_distinct" rel="alternate" type="text/html" title="AJAX를 사용하여 아이디 중복체크하기" />
-      <published>2021-11-07T00:00:00+09:00</published>
-      <updated>2021-11-07T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/ajax_id_distinct</id>
-      <content type="html" xml:base="https://achasan.github.io/ajax_id_distinct">&lt;h1 id=&quot;ajax-사용하여-아이디-중복체크하기스프링부트&quot;&gt;AJAX 사용하여 아이디 중복체크하기(스프링부트)&lt;/h1&gt;
-
-&lt;p&gt;곧 JSP 프로젝트가 시작된다. 시작하기 전에 AJAX에 대해 알아보고 어떻게 사용하는지 익히기 위해서 글을 작성하였다.&lt;/p&gt;
-
-&lt;p&gt;AJAX의 개념적인 부분은 이미 구글링을 하면 다 나와있기에 여기서 자세히 설명하지는 않을 것이다. 이 글에서는 AJAX를 통해 아이디 중복확인을 하는 로직을 간단하게 구현하는 방법에 대해서 초점을 맞출 생각이다.&lt;/p&gt;
-
-&lt;p&gt;일단 DB연동같은건 하지 않았다. 그냥 Controller에 String 배열로 임의의 아이디 여러 개를 생성해놓고, 클라이언트가 ID를 입력할 때 String 배열에 있는 값과 일치할 경우 실행될 로직을 작성해보았다. 스프링 부트로 구현해보았다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;test.html&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/2021-11-07-22-11-41.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;그냥 아이디와 비밀번호가 존재하는 단순한 HTML 파일이다. input 입력란 옆에 span태그를 숨겨놓고 텍스트를 입력할 때 로직이 실행되도록 했다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;JavaScript&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/2021-11-07-22-21-40.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;로직을 요약하자면 다음과 같다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;먼저 span 태그를 숨긴다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;아이디 input 태그에 아이디를 입력할 때마다 함수가 실행되는 keyup을 사용하였다. 텍스트 길이가 4미만 또는 16 이상일 때 span 태그로 조건에 만족하지 않는 멘트를 날리도록 코드를 작성했다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;만약 길이가 4 이상 16 이하라면 ajax로 서버와 통신한다. post방식으로 입력한 아이디를 서버로 전송하고, url은 “/id-check”으로 설정한다. 받는 데이터 타입은 간단하게 text로 하였다. json형식으로도 받을 수 있고, 스프링부트에서 json으로 데이터를 반환하는 기능들을 지원하지만 간단하게 구현하기위해 text로 하였다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;success는 데이터를 성공적으로 받았을 때 실행되는 함수이다. 받은 데이터가 false이면 사용가능한 아이디, true이면 이미 사용중인 아이디라고 멘트가 나오도록 했다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;처음 사용할 때는 삽질을 엄청했다. 특히 데이터를 넘기는 부분. 사실 ajax를 처음 쓴다기 보다는 jQuery가 익숙치 않아서 삽질이 길어진 것 같다. 데이터를 넘길 때는 data에 값을 넣고, 데이터를 받을 때는 success의 function 파라미터로 받아오기 때문에 이 부분을 정확히 모르는 상태에서 사용하다 시간이 길어졌다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Controller&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/2021-11-07-22-24-25.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;먼저 이미 등록된 아이디를 ids 배열에 저장했다(임의로 작성). 입력한 아이디가 ids에 있는 아이디와 일치할 경우 이미 사용중인 아이디가 된다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;AJAX의 url을 “/id-check”으로 설정했다. @PostMapping(“/id-check”)으로 데이터가 들어오게 되고, 여기서 로직이 실행된다. @RequestParam으로 입력값을 받아오도록 했다. AJAX부분을 보면 JSON 형식으로 key는 id, value는 입력값으로 되어있었다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ids 배열을 for문으로 돌려서 만약 입력값과 일치하는 아이디가 나오면 아이디가 중복되므로 리턴할 isDistinct 변수를 true로 설정한다. 아닐 경우는 false로 설정한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;이 부분이 제일 스트레스 받았던 구간, 아직 스프링 부트를 배운지 얼마 안됐고, @RequestBody와 @RequestParam이 헷갈려서 데이터 값이 이상하게 오는 줄도 모르고 다른 코드를 고치고 있었다.&lt;/p&gt;
-
-&lt;p&gt;@RequestBody는 GET이나 POST 방식이 아닐 때 사용해야하는 애노테이션이다. 정확히 말하면 쿼리파라미터로 오는 데이터가 아닐 때 사용해야한다. 모델 객체를 사용할 때 사용하는 것이 좋다. 모델 객체의 필드변수와 읽어오는 데이터의 key 값이 일치하면 모델 객체로 바인딩을 해주는 방식인데, 이를 깜빡하고 @RequestBody를 사용해서 시간이 엄청 오래걸렸다.&lt;/p&gt;
-
-&lt;p&gt;@RequestParam은 쿼리파라미터로 값을 가져올 때 사용한다. AJAX로 보내는 값의 key가 id이므로 메서드 파라미터의 변수명도 id로 일치시키면 스프링부트는 둘의 이름이 같으므로 바인딩을 하게된다. 따라서 Model 객체가 아닌 이상은 @RequestBody를 사용하는 것이 좋다.&lt;/p&gt;
-
-&lt;p&gt;@ModelAttribute 애노테이션도 있다. 하지만 이 애노테이션은 쿼리파라미터를 받을 때 사용하는 Model 객체이므로 여기서는 예외.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h1 id=&quot;결과&quot;&gt;결과&lt;/h1&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/ETC/result.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;프로젝트를 한다면 정규식으로 아이디 양식을 제한하는 코드를 만들어보고 싶다. 일단 AJAX의 기본적인 기능에 대해서 알 수 있었으므로 만족한다. 비동기로 기능을 구현하는게 굉장히 편한 것 같다. 나중에는 게시판 페이징을 비동기로 이동하는 것도 구현해보고 싶은 생각이 든다.&lt;/p&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="ETC" />
-      
-
-      
-        <summary type="html">AJAX 사용하여 아이디 중복체크하기(스프링부트)</summary>
       
 
       

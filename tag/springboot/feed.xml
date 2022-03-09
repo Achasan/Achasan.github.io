@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://achasan.github.io/tag/springboot/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-12T21:39:50+09:00</updated>
-  <id>https://achasan.github.io/tag/springboot/feed.xml</id>
+  <link href="http://localhost:4000/tag/springboot/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2022-03-08T11:19:34+09:00</updated>
+  <id>http://localhost:4000/tag/springboot/feed.xml</id>
 
   
   
@@ -33,11 +33,11 @@
   
     <entry>
       <title type="html">HTTP 기본 지식 : 쿠키(Cookie)</title>
-      <link href="https://achasan.github.io/http_basic_7" rel="alternate" type="text/html" title="HTTP 기본 지식 : 쿠키(Cookie)" />
+      <link href="http://localhost:4000/http_basic_7" rel="alternate" type="text/html" title="HTTP 기본 지식 : 쿠키(Cookie)" />
       <published>2021-11-02T00:00:00+09:00</published>
       <updated>2021-11-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_7</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_7">&lt;h1 id=&quot;http-웹-기본-지식-7&quot;&gt;HTTP 웹 기본 지식 7&lt;/h1&gt;
+      <id>http://localhost:4000/http_basic_7</id>
+      <content type="html" xml:base="http://localhost:4000/http_basic_7">&lt;h1 id=&quot;http-웹-기본-지식-7&quot;&gt;HTTP 웹 기본 지식 7&lt;/h1&gt;
 
 &lt;h2 id=&quot;쿠키&quot;&gt;쿠키&lt;/h2&gt;
 
@@ -204,11 +204,11 @@
   
     <entry>
       <title type="html">HTTP 헤더 살펴보기(협상, 우선순위)</title>
-      <link href="https://achasan.github.io/http_basic_6" rel="alternate" type="text/html" title="HTTP 헤더 살펴보기(협상, 우선순위)" />
+      <link href="http://localhost:4000/http_basic_6" rel="alternate" type="text/html" title="HTTP 헤더 살펴보기(협상, 우선순위)" />
       <published>2021-11-02T00:00:00+09:00</published>
       <updated>2021-11-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_6</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_6">&lt;h1 id=&quot;http-웹-기본-지식-6&quot;&gt;HTTP 웹 기본 지식 6&lt;/h1&gt;
+      <id>http://localhost:4000/http_basic_6</id>
+      <content type="html" xml:base="http://localhost:4000/http_basic_6">&lt;h1 id=&quot;http-웹-기본-지식-6&quot;&gt;HTTP 웹 기본 지식 6&lt;/h1&gt;
 
 &lt;h2 id=&quot;http-헤더-자세히&quot;&gt;HTTP 헤더 자세히&lt;/h2&gt;
 
@@ -552,11 +552,11 @@ server: nginx&lt;/p&gt;
   
     <entry>
       <title type="html">HTTP 기본 지식 : 캐시(Cache)</title>
-      <link href="https://achasan.github.io/http_basic_8" rel="alternate" type="text/html" title="HTTP 기본 지식 : 캐시(Cache)" />
+      <link href="http://localhost:4000/http_basic_8" rel="alternate" type="text/html" title="HTTP 기본 지식 : 캐시(Cache)" />
       <published>2021-11-02T00:00:00+09:00</published>
       <updated>2021-11-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_8</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_8">&lt;h1 id=&quot;http-웹-기본-지식-8&quot;&gt;HTTP 웹 기본 지식 8&lt;/h1&gt;
+      <id>http://localhost:4000/http_basic_8</id>
+      <content type="html" xml:base="http://localhost:4000/http_basic_8">&lt;h1 id=&quot;http-웹-기본-지식-8&quot;&gt;HTTP 웹 기본 지식 8&lt;/h1&gt;
 
 &lt;h2 id=&quot;캐시&quot;&gt;캐시&lt;/h2&gt;
 
@@ -865,11 +865,11 @@ must-revalidate는 캐시 유효시간이라면 캐시를 사용한다.&lt;/li&g
   
     <entry>
       <title type="html">HTTP 상태코드, PRG(Post Redirect Get)</title>
-      <link href="https://achasan.github.io/http_basic_5" rel="alternate" type="text/html" title="HTTP 상태코드, PRG(Post Redirect Get)" />
+      <link href="http://localhost:4000/http_basic_5" rel="alternate" type="text/html" title="HTTP 상태코드, PRG(Post Redirect Get)" />
       <published>2021-11-01T00:00:00+09:00</published>
       <updated>2021-11-01T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_5</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_5">&lt;h1 id=&quot;http-웹-기본-지식-5&quot;&gt;HTTP 웹 기본 지식 5&lt;/h1&gt;
+      <id>http://localhost:4000/http_basic_5</id>
+      <content type="html" xml:base="http://localhost:4000/http_basic_5">&lt;h1 id=&quot;http-웹-기본-지식-5&quot;&gt;HTTP 웹 기본 지식 5&lt;/h1&gt;
 
 &lt;h2 id=&quot;http-상태-코드&quot;&gt;HTTP 상태 코드&lt;/h2&gt;
 
@@ -1121,11 +1121,11 @@ must-revalidate는 캐시 유효시간이라면 캐시를 사용한다.&lt;/li&g
   
     <entry>
       <title type="html">HTTP API 설계방법(REST API)</title>
-      <link href="https://achasan.github.io/http_basic_4" rel="alternate" type="text/html" title="HTTP API 설계방법(REST API)" />
+      <link href="http://localhost:4000/http_basic_4" rel="alternate" type="text/html" title="HTTP API 설계방법(REST API)" />
       <published>2021-11-01T00:00:00+09:00</published>
       <updated>2021-11-01T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_4</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_4">&lt;h1 id=&quot;http-웹-기본-지식-4&quot;&gt;HTTP 웹 기본 지식 4&lt;/h1&gt;
+      <id>http://localhost:4000/http_basic_4</id>
+      <content type="html" xml:base="http://localhost:4000/http_basic_4">&lt;h1 id=&quot;http-웹-기본-지식-4&quot;&gt;HTTP 웹 기본 지식 4&lt;/h1&gt;
 
 &lt;h2 id=&quot;http-api-설계&quot;&gt;HTTP API 설계&lt;/h2&gt;
 
@@ -1599,11 +1599,11 @@ must-revalidate는 캐시 유효시간이라면 캐시를 사용한다.&lt;/li&g
   
     <entry>
       <title type="html">HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)</title>
-      <link href="https://achasan.github.io/http_basic_3" rel="alternate" type="text/html" title="HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)" />
+      <link href="http://localhost:4000/http_basic_3" rel="alternate" type="text/html" title="HTTP의 개념(역사, 특징, Stateless, Stateful, 비연결성)" />
       <published>2021-10-31T00:00:00+09:00</published>
       <updated>2021-10-31T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_3</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_3">&lt;h1 id=&quot;http-웹-기본-지식-3&quot;&gt;HTTP 웹 기본 지식 3&lt;/h1&gt;
+      <id>http://localhost:4000/http_basic_3</id>
+      <content type="html" xml:base="http://localhost:4000/http_basic_3">&lt;h1 id=&quot;http-웹-기본-지식-3&quot;&gt;HTTP 웹 기본 지식 3&lt;/h1&gt;
 
 &lt;h2 id=&quot;http&quot;&gt;HTTP&lt;/h2&gt;
 
@@ -1965,11 +1965,11 @@ must-revalidate는 캐시 유효시간이라면 캐시를 사용한다.&lt;/li&g
   
     <entry>
       <title type="html">URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름</title>
-      <link href="https://achasan.github.io/http_basic_2" rel="alternate" type="text/html" title="URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름" />
+      <link href="http://localhost:4000/http_basic_2" rel="alternate" type="text/html" title="URI/URL/URN 정의, 웹 브라우저 요청의 전체적인 흐름" />
       <published>2021-10-29T00:00:00+09:00</published>
       <updated>2021-10-29T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_2</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_2">&lt;h1 id=&quot;http-웹-기본-지식-2&quot;&gt;HTTP 웹 기본 지식 2&lt;/h1&gt;
+      <id>http://localhost:4000/http_basic_2</id>
+      <content type="html" xml:base="http://localhost:4000/http_basic_2">&lt;h1 id=&quot;http-웹-기본-지식-2&quot;&gt;HTTP 웹 기본 지식 2&lt;/h1&gt;
 
 &lt;h2 id=&quot;uri-url-urn&quot;&gt;URI? URL? URN?&lt;/h2&gt;
 
@@ -2164,11 +2164,11 @@ Host: www.google.com&lt;/p&gt;
   
     <entry>
       <title type="html">IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS</title>
-      <link href="https://achasan.github.io/http_basic_1" rel="alternate" type="text/html" title="IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS" />
+      <link href="http://localhost:4000/http_basic_1" rel="alternate" type="text/html" title="IP 프로토콜, TCP/UDP의 정의, 특성, Port, DNS" />
       <published>2021-10-29T00:00:00+09:00</published>
       <updated>2021-10-29T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/http_basic_1</id>
-      <content type="html" xml:base="https://achasan.github.io/http_basic_1">&lt;h1 id=&quot;http-웹-기본-지식&quot;&gt;HTTP 웹 기본 지식&lt;/h1&gt;
+      <id>http://localhost:4000/http_basic_1</id>
+      <content type="html" xml:base="http://localhost:4000/http_basic_1">&lt;h1 id=&quot;http-웹-기본-지식&quot;&gt;HTTP 웹 기본 지식&lt;/h1&gt;
 
 &lt;h2 id=&quot;인터넷-네트워크&quot;&gt;인터넷 네트워크&lt;/h2&gt;
 
@@ -2392,11 +2392,11 @@ Host: www.google.com&lt;/p&gt;
   
     <entry>
       <title type="html">[Spring:9] 빈 스코프(Bean Scope)</title>
-      <link href="https://achasan.github.io/spring_basic_9" rel="alternate" type="text/html" title="[Spring:9] 빈 스코프(Bean Scope)" />
+      <link href="http://localhost:4000/spring_basic_9" rel="alternate" type="text/html" title="[Spring:9] 빈 스코프(Bean Scope)" />
       <published>2021-10-29T00:00:00+09:00</published>
       <updated>2021-10-29T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/spring_basic_9</id>
-      <content type="html" xml:base="https://achasan.github.io/spring_basic_9">&lt;h1 id=&quot;빈-스코프-정리&quot;&gt;빈 스코프 정리&lt;/h1&gt;
+      <id>http://localhost:4000/spring_basic_9</id>
+      <content type="html" xml:base="http://localhost:4000/spring_basic_9">&lt;h1 id=&quot;빈-스코프-정리&quot;&gt;빈 스코프 정리&lt;/h1&gt;
 
 &lt;h2 id=&quot;빈-스코프란&quot;&gt;빈 스코프란?&lt;/h2&gt;
 
@@ -2593,11 +2593,11 @@ Host: www.google.com&lt;/p&gt;
   
     <entry>
       <title type="html">[Spring:8] 빈 생명주기</title>
-      <link href="https://achasan.github.io/spring_basic_8" rel="alternate" type="text/html" title="[Spring:8] 빈 생명주기" />
+      <link href="http://localhost:4000/spring_basic_8" rel="alternate" type="text/html" title="[Spring:8] 빈 생명주기" />
       <published>2021-10-28T00:00:00+09:00</published>
       <updated>2021-10-28T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/spring_basic_8</id>
-      <content type="html" xml:base="https://achasan.github.io/spring_basic_8">&lt;h1 id=&quot;빈-생명주기-콜백&quot;&gt;빈 생명주기 콜백&lt;/h1&gt;
+      <id>http://localhost:4000/spring_basic_8</id>
+      <content type="html" xml:base="http://localhost:4000/spring_basic_8">&lt;h1 id=&quot;빈-생명주기-콜백&quot;&gt;빈 생명주기 콜백&lt;/h1&gt;
 
 &lt;p&gt;스프링 빈은 간단한 라이프사이클을 가진다&lt;/p&gt;
 

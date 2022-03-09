@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://achasan.github.io/tag/algorhythm/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-12T21:39:50+09:00</updated>
-  <id>https://achasan.github.io/tag/algorhythm/feed.xml</id>
+  <link href="http://localhost:4000/tag/algorhithm/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2022-03-08T11:19:34+09:00</updated>
+  <id>http://localhost:4000/tag/algorhithm/feed.xml</id>
 
   
   
@@ -33,11 +33,11 @@
   
     <entry>
       <title type="html">[PRO] LV2 : 가장 큰 수</title>
-      <link href="https://achasan.github.io/lv2_Biggest_Num" rel="alternate" type="text/html" title="[PRO] LV2 : 가장 큰 수" />
+      <link href="http://localhost:4000/lv2_Biggest_Num" rel="alternate" type="text/html" title="[PRO] LV2 : 가장 큰 수" />
       <published>2021-12-29T00:00:00+09:00</published>
       <updated>2021-12-29T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/lv2_Biggest_Num</id>
-      <content type="html" xml:base="https://achasan.github.io/lv2_Biggest_Num">&lt;h1 id=&quot;프로그래머스-lv2--가장-큰-수&quot;&gt;프로그래머스 Lv2 : 가장 큰 수&lt;/h1&gt;
+      <id>http://localhost:4000/lv2_Biggest_Num</id>
+      <content type="html" xml:base="http://localhost:4000/lv2_Biggest_Num">&lt;h1 id=&quot;프로그래머스-lv2--가장-큰-수&quot;&gt;프로그래머스 Lv2 : 가장 큰 수&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제-설명&quot;&gt;문제 설명&lt;/h2&gt;
 
@@ -122,7 +122,7 @@
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -135,11 +135,11 @@
   
     <entry>
       <title type="html">[BOJ] 1874번 : 스택 수열</title>
-      <link href="https://achasan.github.io/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" />
+      <link href="http://localhost:4000/s3_stack_sequence" rel="alternate" type="text/html" title="[BOJ] 1874번 : 스택 수열" />
       <published>2021-12-26T00:00:00+09:00</published>
       <updated>2021-12-26T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/s3_stack_sequence</id>
-      <content type="html" xml:base="https://achasan.github.io/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
+      <id>http://localhost:4000/s3_stack_sequence</id>
+      <content type="html" xml:base="http://localhost:4000/s3_stack_sequence">&lt;h1 id=&quot;1874번--스택-수열&quot;&gt;1874번 : 스택 수열&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -252,7 +252,7 @@
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -265,11 +265,11 @@
   
     <entry>
       <title type="html">Comparator, Comparable 객체 정리</title>
-      <link href="https://achasan.github.io/Comparator_Comparable" rel="alternate" type="text/html" title="Comparator, Comparable 객체 정리" />
+      <link href="http://localhost:4000/Comparator_Comparable" rel="alternate" type="text/html" title="Comparator, Comparable 객체 정리" />
       <published>2021-12-24T00:00:00+09:00</published>
       <updated>2021-12-24T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/Comparator_Comparable</id>
-      <content type="html" xml:base="https://achasan.github.io/Comparator_Comparable">&lt;h1 id=&quot;comparator-comparable-정리&quot;&gt;Comparator, Comparable 정리&lt;/h1&gt;
+      <id>http://localhost:4000/Comparator_Comparable</id>
+      <content type="html" xml:base="http://localhost:4000/Comparator_Comparable">&lt;h1 id=&quot;comparator-comparable-정리&quot;&gt;Comparator, Comparable 정리&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -382,7 +382,7 @@
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -395,11 +395,11 @@
   
     <entry>
       <title type="html">[BOJ] 18870번 : 좌표 압축</title>
-      <link href="https://achasan.github.io/s2-compression_coordinates" rel="alternate" type="text/html" title="[BOJ] 18870번 : 좌표 압축" />
+      <link href="http://localhost:4000/s2-compression_coordinates" rel="alternate" type="text/html" title="[BOJ] 18870번 : 좌표 압축" />
       <published>2021-12-24T00:00:00+09:00</published>
       <updated>2021-12-24T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/s2-compression_coordinates</id>
-      <content type="html" xml:base="https://achasan.github.io/s2-compression_coordinates">&lt;h1 id=&quot;18870번--좌표압축&quot;&gt;18870번 : 좌표압축&lt;/h1&gt;
+      <id>http://localhost:4000/s2-compression_coordinates</id>
+      <content type="html" xml:base="http://localhost:4000/s2-compression_coordinates">&lt;h1 id=&quot;18870번--좌표압축&quot;&gt;18870번 : 좌표압축&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -503,7 +503,7 @@
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -516,11 +516,11 @@
   
     <entry>
       <title type="html">[BOJ] 11651번 : 단어 정렬</title>
-      <link href="https://achasan.github.io/s5-Coordinate_alignment2" rel="alternate" type="text/html" title="[BOJ] 11651번 : 단어 정렬" />
+      <link href="http://localhost:4000/s5-Coordinate_alignment2" rel="alternate" type="text/html" title="[BOJ] 11651번 : 단어 정렬" />
       <published>2021-12-23T00:00:00+09:00</published>
       <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/s5-Coordinate_alignment2</id>
-      <content type="html" xml:base="https://achasan.github.io/s5-Coordinate_alignment2">&lt;h1 id=&quot;11651번--단어-정렬&quot;&gt;11651번 : 단어 정렬&lt;/h1&gt;
+      <id>http://localhost:4000/s5-Coordinate_alignment2</id>
+      <content type="html" xml:base="http://localhost:4000/s5-Coordinate_alignment2">&lt;h1 id=&quot;11651번--단어-정렬&quot;&gt;11651번 : 단어 정렬&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -604,7 +604,7 @@
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -617,11 +617,11 @@
   
     <entry>
       <title type="html">[BOJ] 11650번 : 좌표 정렬하기</title>
-      <link href="https://achasan.github.io/s5-Coordinate_alignment" rel="alternate" type="text/html" title="[BOJ] 11650번 : 좌표 정렬하기" />
+      <link href="http://localhost:4000/s5-Coordinate_alignment" rel="alternate" type="text/html" title="[BOJ] 11650번 : 좌표 정렬하기" />
       <published>2021-12-23T00:00:00+09:00</published>
       <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/s5-Coordinate_alignment</id>
-      <content type="html" xml:base="https://achasan.github.io/s5-Coordinate_alignment">&lt;h1 id=&quot;11650번--좌표-정렬하기&quot;&gt;11650번 : 좌표 정렬하기&lt;/h1&gt;
+      <id>http://localhost:4000/s5-Coordinate_alignment</id>
+      <content type="html" xml:base="http://localhost:4000/s5-Coordinate_alignment">&lt;h1 id=&quot;11650번--좌표-정렬하기&quot;&gt;11650번 : 좌표 정렬하기&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -722,7 +722,7 @@
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -735,11 +735,11 @@
   
     <entry>
       <title type="html">[BOJ] 2018번 : 통계학</title>
-      <link href="https://achasan.github.io/s4-Statistics" rel="alternate" type="text/html" title="[BOJ] 2018번 : 통계학" />
+      <link href="http://localhost:4000/s4-Statistics" rel="alternate" type="text/html" title="[BOJ] 2018번 : 통계학" />
       <published>2021-12-23T00:00:00+09:00</published>
       <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/s4-Statistics</id>
-      <content type="html" xml:base="https://achasan.github.io/s4-Statistics">&lt;h1 id=&quot;2018번--통계학-link&quot;&gt;2018번 : 통계학 &lt;a href=&quot;https://www.acmicpc.net/problem/2108&quot;&gt;Link&lt;/a&gt;&lt;/h1&gt;
+      <id>http://localhost:4000/s4-Statistics</id>
+      <content type="html" xml:base="http://localhost:4000/s4-Statistics">&lt;h1 id=&quot;2018번--통계학-link&quot;&gt;2018번 : 통계학 &lt;a href=&quot;https://www.acmicpc.net/problem/2108&quot;&gt;Link&lt;/a&gt;&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -892,7 +892,7 @@
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -905,11 +905,11 @@
   
     <entry>
       <title type="html">[BOJ] 1427번 : 소트인사이드</title>
-      <link href="https://achasan.github.io/s5_sort_inside" rel="alternate" type="text/html" title="[BOJ] 1427번 : 소트인사이드" />
+      <link href="http://localhost:4000/s5_sort_inside" rel="alternate" type="text/html" title="[BOJ] 1427번 : 소트인사이드" />
       <published>2021-12-23T00:00:00+09:00</published>
       <updated>2021-12-23T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/s5_sort_inside</id>
-      <content type="html" xml:base="https://achasan.github.io/s5_sort_inside">&lt;h1 id=&quot;1427번--소트인사이드-링크&quot;&gt;1427번 : 소트인사이드 &lt;a href=&quot;https://www.acmicpc.net/problem/1427&quot;&gt;(링크)&lt;/a&gt;&lt;/h1&gt;
+      <id>http://localhost:4000/s5_sort_inside</id>
+      <content type="html" xml:base="http://localhost:4000/s5_sort_inside">&lt;h1 id=&quot;1427번--소트인사이드-링크&quot;&gt;1427번 : 소트인사이드 &lt;a href=&quot;https://www.acmicpc.net/problem/1427&quot;&gt;(링크)&lt;/a&gt;&lt;/h1&gt;
 
 &lt;h2 id=&quot;문제&quot;&gt;문제&lt;/h2&gt;
 
@@ -986,7 +986,7 @@
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -999,11 +999,11 @@
   
     <entry>
       <title type="html">[PRO] LV2 : 프린트</title>
-      <link href="https://achasan.github.io/lv2_print" rel="alternate" type="text/html" title="[PRO] LV2 : 프린트" />
+      <link href="http://localhost:4000/lv2_print" rel="alternate" type="text/html" title="[PRO] LV2 : 프린트" />
       <published>2021-10-27T00:00:00+09:00</published>
       <updated>2021-10-27T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/lv2_print</id>
-      <content type="html" xml:base="https://achasan.github.io/lv2_print">&lt;h1 id=&quot;20211025-알고리즘-문제풀이&quot;&gt;20211025 알고리즘 문제풀이&lt;/h1&gt;
+      <id>http://localhost:4000/lv2_print</id>
+      <content type="html" xml:base="http://localhost:4000/lv2_print">&lt;h1 id=&quot;20211025-알고리즘-문제풀이&quot;&gt;20211025 알고리즘 문제풀이&lt;/h1&gt;
 
 &lt;p&gt;[문제] 프로그래머스 2레벨 : 프린트 &lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/42587&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
 
@@ -1099,7 +1099,7 @@ location은 0 이상 (현재 대기목록에 있는 작업 수 - 1) 이하의 �
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       
@@ -1112,11 +1112,11 @@ location은 0 이상 (현재 대기목록에 있는 작업 수 - 1) 이하의 �
   
     <entry>
       <title type="html">[PRO] LV1 : 비밀지도</title>
-      <link href="https://achasan.github.io/lv1-secret_map" rel="alternate" type="text/html" title="[PRO] LV1 : 비밀지도" />
+      <link href="http://localhost:4000/lv1-secret_map" rel="alternate" type="text/html" title="[PRO] LV1 : 비밀지도" />
       <published>2021-10-27T00:00:00+09:00</published>
       <updated>2021-10-27T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/lv1-secret_map</id>
-      <content type="html" xml:base="https://achasan.github.io/lv1-secret_map">&lt;h1 id=&quot;프로그래머스--비밀지도1차&quot;&gt;프로그래머스 : 비밀지도[1차]&lt;/h1&gt;
+      <id>http://localhost:4000/lv1-secret_map</id>
+      <content type="html" xml:base="http://localhost:4000/lv1-secret_map">&lt;h1 id=&quot;프로그래머스--비밀지도1차&quot;&gt;프로그래머스 : 비밀지도[1차]&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://programmers.co.kr/learn/courses/30/lessons/17681&quot;&gt;링크&lt;/a&gt;&lt;/p&gt;
 
@@ -1188,7 +1188,7 @@ location은 0 이상 (현재 대기목록에 있는 작업 수 - 1) 이하의 �
       
 
       
-        <category term="Algorhythm" />
+        <category term="Algorhithm" />
       
 
       

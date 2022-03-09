@@ -3,11 +3,98 @@
   <channel>
     <title>Memory Repo.</title>
     <description>by Achasan</description>
-    <link>https://achasan.github.io//</link>
-    <atom:link href="https://achasan.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 12 Feb 2022 21:39:50 +0900</pubDate>
-    <lastBuildDate>Sat, 12 Feb 2022 21:39:50 +0900</lastBuildDate>
+    <link>http://localhost:4000//</link>
+    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 08 Mar 2022 11:19:34 +0900</pubDate>
+    <lastBuildDate>Tue, 08 Mar 2022 11:19:34 +0900</lastBuildDate>
     <generator>Jekyll v3.9.0</generator>
+    
+      <item>
+        <title>정보처리기사 필기합격 후기</title>
+        <description>&lt;p&gt;정보처리기사 필기 합격후기&lt;/p&gt;
+
+&lt;p&gt;처음에는 정보처리기사를 따야하나.. 하는 생각이 먼저 있었지만 개발자가 되기로 한 이상 일단 해보자는 마음가짐이 컸다. 어차피 필기시험을 준비하면서 앞으로 내가 이론적으로 공부해야할 개념들을 겉핥기식으로 정리하자는 생각도 있었다.&lt;/p&gt;
+
+&lt;p&gt;여러 커뮤니티를 돌아본 결과 필기는 난이도가 그렇게 어렵지는 않다고 하는 것 같았다. 다만 신유형이 나올 수 있으니 맞춰야할 문제는 확실히 맞추고 가야한다는 이야기가 많았다. 합격후기를 들어보면 일주일 공부하고 합격한 사람이 있는 반면, 타이밍이 좋지 않아 몇 번에 걸쳐서 합격한 사람도 볼 수 있었다. 일단 어려운 시험은 아닌 것으로 판정.&lt;/p&gt;
+
+&lt;h2 id=&quot;공부방법&quot;&gt;공부방법&lt;/h2&gt;
+
+&lt;p&gt;따로 책을사서 공부하지는 않았다. 이미 정보처리기사를 공부한 사람들이 블로그에 여러 정리글을 올려놓기도하고, 문제은행식이기 때문에 두꺼운 책을 사서 전부 읽을 엄두도 나지 않았다. 블로그는 &lt;a href=&quot;https://powerdev.tistory.com/32?category=874228&quot;&gt;여기&lt;/a&gt;에서 참고하면서 공부하였다. 3과목까지는 꼼꼼히 읽어보며 필기하고 정리했는데, 가성비가 나오지 않는 것 같아 바로 &lt;a href=&quot;https://www.comcbt.com/&quot;&gt;comcbt&lt;/a&gt;에서 문제를 풀어보았다.&lt;/p&gt;
+
+&lt;p&gt;2020년부터 정처기 문제출제방식이 개편되었다고해서 해당 회차부터 풀기 시작했다. 일단 시간은 매우 충분했다. 시험시간이 150분이지만 평균적으로 40분 ~ 50분 정도면 문제를 다 풀 수 있는 것 같다. 문제와 답이 직관적으로 되어있어 해당 개념을 아는 경우에는 답이 바로 보이는 수준이다. 다섯 과목의 난이도를 개인적으로 평가하면 다음과 같았다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;1과목 소프트웨어 설계 : ★★☆☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;무난한 과목, 여러 회차를 풀다보면 대충 어떤 유형의 문제가 나오고, 어떤 개념을 중요하게보고 외워야하는지 감이 온다. 나는 1과목과 2과목에서 점수를 많이따고 4, 5과목에서 못넘은 평균을 해당 과목에서 견인하는 전략으로 시험을 보았다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2과목 소프트웨어 개발 : ★★☆☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;1과목과 마찬가지로 비슷한 수준의 난이도이다. 다만 테스트 관리파트에서 외워야할 부분들이 꽤 있다. 화이트박스, 블랙박스, STAF, xUnit, FitNesse 등등.. 개발공부를 시작하면서 처음들어보는 키워드였기에 자주 나오는 키워드를 중점적으로 보았다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;의외로 점수가 꽤 나오는 과목이다. 취약한 부분만 잘 보완하는만큼 고득점을 노리기 쉬운 과목&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3과목 데이터베이스 구축 : ★★★☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;공부하면서 머리아팠던 과목. 알아야하는 개념도 많고, 추상적이어서 어떤 역할을 하는지 알기쉽지않다. 트랜잭션부터 시작해서 정규화, 튜플, 릴레이션, 어트리뷰트 등등.. 오라클을 다뤄보았다만 이정도로 개념이 자세할줄은 몰랐다. 역시 데이터베이스는..&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;암기하는 과정이 어렵지만 자주 나오는 개념들을 외워두면 60점은 넘을 수 있다. 욕심부리지 말고 60점만 넘기자는 생각으로 공부했고, 자주 출제되는 유형의 개념들 위주로 공부하였다.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4과목 프로그래밍 언어 활용 : ★★★★☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;프로그래밍 언어 활용이기 때문에 언어와 관련된 문제가 많이 출제된다. 객체지향의 장점이라든지, 프레임워크, 운영체제(Unix, Linux)와 관련된 문제들이 나온다. 4과목의 꽃은 코드해석문제, C언어와 자바, 파이썬으로 작성한 코드를 통해 올바른 값이 무엇인지 골라야하는 문제가 출제된다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;나는 자바만 공부했기 때문에 C언어와 파이썬이 나올 때마다 틀렸다. 특히 C언어는 포인터를 쓰는데 어지러워서 어떻게 해석을해야하는지 감도 안잡혔다. 이 과목은 과락만 안당하자는 생각으로 공부했던 것 같다. 자바문제는 무조건 맞춰야했고, 이외에 개념적으로 물어보는 문제를 최대한 공부하였다.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5과목 정보시스템 구축 관리 : ?????&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;사실 5과목은 공부를 아예 안했기때문에 문제를 풀때마다 점수가 들쭉날쭉했다.. ㅋㅋ 잘 나올때는 70점, 못 풀때는 45점 나올 때도 있었으며, 내가 알고있는 개발상식을 가지고 풀려고했기 때문에 난이도가 어떤지는 사실 잘 모르겠다. 확실한건 신유형에 영향을 많이 받는 과목이라는 느낌을 많이 받았다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;문제를 풀면서 틀린 부분은 최대한 정리를 하고 넘어갔다. 그럼에도 불구하고 문제를 풀때마다 매 번 모르는 개념들이 나와서 50점만 넘자는 마인드로 공부했던 과목&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;결과&quot;&gt;결과&lt;/h2&gt;
+
+&lt;p&gt;가채점 결과 75 75 65 45 55 로 평균 63점 턱걸이로 합격했다. 공부기간은 2주정도, 하루 3시간 씩 공부했는데 이정도면 나쁘지않은 결과가 나온 것 같다. 공부하면서 정보처리기사를 굳이 따야하는건가.. 라는 생각이 강하게 들었는데 그래도 공부한게 있으니 시험은 보고오자는 생각으로 갔다.&lt;/p&gt;
+
+&lt;p&gt;필기는 합격했지만 실기는 어떻게 공부해야할지 감도 안온다. 실기가 비전공자와 전공자를 거르게 출제가 된다던데.. 그것보다 일단 취업이 우선이니 실기는 시간이 날 때 한번쯤 도전해봐야겠다.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 05 Mar 2022 00:00:00 +0900</pubDate>
+        <link>http://localhost:4000//Engineer_Infomation_Processing_Pass</link>
+        <guid isPermaLink="true">http://localhost:4000//Engineer_Infomation_Processing_Pass</guid>
+        
+        <category>ETC</category>
+        
+        
+      </item>
     
       <item>
         <title>[정보처리기사]  3.논리 데이터베이스 설계(3)</title>
@@ -106,8 +193,8 @@
 
 </description>
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//Engineer_Information_Processing_3</link>
-        <guid isPermaLink="true">https://achasan.github.io//Engineer_Information_Processing_3</guid>
+        <link>http://localhost:4000//Engineer_Information_Processing_3</link>
+        <guid isPermaLink="true">http://localhost:4000//Engineer_Information_Processing_3</guid>
         
         <category>TIL</category>
         
@@ -300,8 +387,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//Engineer_Information_Processing_2</link>
-        <guid isPermaLink="true">https://achasan.github.io//Engineer_Information_Processing_2</guid>
+        <link>http://localhost:4000//Engineer_Information_Processing_2</link>
+        <guid isPermaLink="true">http://localhost:4000//Engineer_Information_Processing_2</guid>
         
         <category>TIL</category>
         
@@ -417,8 +504,8 @@
 &lt;/ol&gt;
 </description>
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//HTTP_Definition</link>
-        <guid isPermaLink="true">https://achasan.github.io//HTTP_Definition</guid>
+        <link>http://localhost:4000//HTTP_Definition</link>
+        <guid isPermaLink="true">http://localhost:4000//HTTP_Definition</guid>
         
         <category>TIL</category>
         
@@ -759,8 +846,8 @@
 &lt;p&gt;&lt;img src=&quot;/assets/images/TIL/2022-02-10-16-11-56.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Thu, 10 Feb 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//Engineer_Information_Processing_1</link>
-        <guid isPermaLink="true">https://achasan.github.io//Engineer_Information_Processing_1</guid>
+        <link>http://localhost:4000//Engineer_Information_Processing_1</link>
+        <guid isPermaLink="true">http://localhost:4000//Engineer_Information_Processing_1</guid>
         
         <category>TIL</category>
         
@@ -863,8 +950,8 @@
 &lt;p&gt;파이널 프로젝트인만큼 욕심도 많았지만 현실적으로 모든 것을 구현하기에는 한계가 있었다. 이제 취업을 해야하는 시기가 되는데, 회사에서는 신입의 수준을 어느정도까지 요구하는지를 모르기 때문에 많은 것을 보여주고싶어 더 욕심만 나는 프로젝트였던 것 같다. 욕심부리지말고 꾸준히 정진할 수 있는 자세를 가져야겠다.&lt;/p&gt;
 </description>
         <pubDate>Fri, 14 Jan 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//bombom_review</link>
-        <guid isPermaLink="true">https://achasan.github.io//bombom_review</guid>
+        <link>http://localhost:4000//bombom_review</link>
+        <guid isPermaLink="true">http://localhost:4000//bombom_review</guid>
         
         <category>ETC</category>
         
@@ -1053,8 +1140,8 @@
 &lt;p&gt;에디터를 사용하면서 이미지 업로드를 어떻게 처리해야할지 막막했다. 열심히 구글링을 하면서 찾아본 결과 끝내 구현할 수 있었다. 대부분의 글들은 리액트를 사용하기 때문에 작성하는 코드가 내가 구현하려는 것과 많이 달랐지만, 공식문서와 같이 참조하면서 삽질한 결과 기능을 구현할 수 있었다.&lt;/p&gt;
 </description>
         <pubDate>Fri, 07 Jan 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//toast_ui_2</link>
-        <guid isPermaLink="true">https://achasan.github.io//toast_ui_2</guid>
+        <link>http://localhost:4000//toast_ui_2</link>
+        <guid isPermaLink="true">http://localhost:4000//toast_ui_2</guid>
         
         <category>ETC</category>
         
@@ -1210,8 +1297,8 @@
 &lt;p&gt;위에서 언급하지 않았지만 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hooks&lt;/code&gt;와 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;event&lt;/code&gt; 옵션은 에디터에서 사용자가 글을 작성할 때 특정한 이벤트가 발생할 경우에 작동하게할 수 있는 함수라고 보면 된다. 이는 다음 글 &lt;a href=&quot;https://achasan.github.io/toast_ui_2&quot;&gt;Toast ui Editor 이미지 업로드하기&lt;/a&gt;에서 자세히 다루도록 하겠다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 06 Jan 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//toast_ui_1</link>
-        <guid isPermaLink="true">https://achasan.github.io//toast_ui_1</guid>
+        <link>http://localhost:4000//toast_ui_1</link>
+        <guid isPermaLink="true">http://localhost:4000//toast_ui_1</guid>
         
         <category>ETC</category>
         
@@ -1329,8 +1416,8 @@
 &lt;p&gt;결국 객체지향에서 중요한 것은 동적으로 변하는 객체의 상태와 상태를 변경하는 행위이다. 클래스는 타입을 구현하기 위해 프로그래밍 언어에서 제공하는 구현 메커니즘이 된다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 02 Jan 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//OOP_4</link>
-        <guid isPermaLink="true">https://achasan.github.io//OOP_4</guid>
+        <link>http://localhost:4000//OOP_4</link>
+        <guid isPermaLink="true">http://localhost:4000//OOP_4</guid>
         
         <category>ETC</category>
         
@@ -1454,8 +1541,8 @@
 &lt;p&gt;객체를 적절한 개념에 따라 분류하지 못한 애플리케이션은 유지보수가 어렵고 변화에 쉽게 대처하지 못한다. 중요한 것은 적절한 분류 체계는 애플리케이션을 다루는 개발자의 머릿속에 객체를 쉽게 찾고 조작할 수 있는 정신적인 지도를 제공한다는 것이다. 따라서 최대한 직관적으로 객체를 분류하는 것이 중요하다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 02 Jan 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//OOP_3</link>
-        <guid isPermaLink="true">https://achasan.github.io//OOP_3</guid>
+        <link>http://localhost:4000//OOP_3</link>
+        <guid isPermaLink="true">http://localhost:4000//OOP_3</guid>
         
         <category>ETC</category>
         
@@ -1581,8 +1668,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Sat, 01 Jan 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//OOP_3</link>
-        <guid isPermaLink="true">https://achasan.github.io//OOP_3</guid>
+        <link>http://localhost:4000//OOP_3</link>
+        <guid isPermaLink="true">http://localhost:4000//OOP_3</guid>
         
         <category>ETC</category>
         
@@ -1690,8 +1777,8 @@
 
 </description>
         <pubDate>Sat, 01 Jan 2022 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//OOP_2</link>
-        <guid isPermaLink="true">https://achasan.github.io//OOP_2</guid>
+        <link>http://localhost:4000//OOP_2</link>
+        <guid isPermaLink="true">http://localhost:4000//OOP_2</guid>
         
         <category>ETC</category>
         
@@ -1761,8 +1848,8 @@
 &lt;p&gt;생성된 프로젝트 폴더는 자동으로 원격저장소와 연결되며, 변경된 사항이 있을 경우 push하여 원격저장소에 저장할 수 있다.&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//spring_git_setting</link>
-        <guid isPermaLink="true">https://achasan.github.io//spring_git_setting</guid>
+        <link>http://localhost:4000//spring_git_setting</link>
+        <guid isPermaLink="true">http://localhost:4000//spring_git_setting</guid>
         
         <category>ETC</category>
         
@@ -1842,10 +1929,10 @@
 &lt;p&gt;사실 처음에 생각했던 방법이 막힌다음 내 머리로는 못 풀겠다고 판단하여 구글링을 하면서 힌트를 얻었다. String으로 compareTo() 메서드를 응용하는 방법을 알았으므로 앞으로 사용할 일이 있으면 활용해야겠다.&lt;/p&gt;
 </description>
         <pubDate>Wed, 29 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//lv2_Biggest_Num</link>
-        <guid isPermaLink="true">https://achasan.github.io//lv2_Biggest_Num</guid>
+        <link>http://localhost:4000//lv2_Biggest_Num</link>
+        <guid isPermaLink="true">http://localhost:4000//lv2_Biggest_Num</guid>
         
-        <category>Algorhythm</category>
+        <category>Algorhithm</category>
         
         
       </item>
@@ -1951,10 +2038,10 @@
 &lt;p&gt;백준을 풀 때 항상 지문을 이해하기가 너무 어려운 것 같다. 예시를 보다 구체적으로 들어주면 좋을 것 같은데,, 다양한 문제를 제공하는 것은 장점이지만 문제의 출제의도를 파악하고 어떤 자료구조를 요구하는지를 바로 알아채기가 힘든 것 같다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 26 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//s3_stack_sequence</link>
-        <guid isPermaLink="true">https://achasan.github.io//s3_stack_sequence</guid>
+        <link>http://localhost:4000//s3_stack_sequence</link>
+        <guid isPermaLink="true">http://localhost:4000//s3_stack_sequence</guid>
         
-        <category>Algorhythm</category>
+        <category>Algorhithm</category>
         
         
       </item>
@@ -2051,10 +2138,10 @@
 &lt;p&gt;좌표압축이라는 키워드를 처음 들어보기도했고, 문제설명이 조금 이해안되게 나온 것 같기도하고.. 구현하는데는 큰 어려움은 없었다. 다만 이해가 안되서 좌표압축이 무엇인지 구글링을 해보긴 했다.. 이번 기회에 이해하고 넘어가는게 좋을 듯 싶다.&lt;/p&gt;
 </description>
         <pubDate>Fri, 24 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//s2-compression_coordinates</link>
-        <guid isPermaLink="true">https://achasan.github.io//s2-compression_coordinates</guid>
+        <link>http://localhost:4000//s2-compression_coordinates</link>
+        <guid isPermaLink="true">http://localhost:4000//s2-compression_coordinates</guid>
         
-        <category>Algorhythm</category>
+        <category>Algorhithm</category>
         
         
       </item>
@@ -2160,10 +2247,10 @@
 &lt;p&gt;알고리즘 문제를 풀 때 정렬은 어디서나 물어볼 수 있다고 생각한다. 따라서 정렬을 사용하는 인터페이스를 알아두고, 문제해결을 하기 위해 할외하는 시간을 줄이기 위해 해당 인터페이스를 정리하는 글을 작성하였다.&lt;/p&gt;
 </description>
         <pubDate>Fri, 24 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//Comparator_Comparable</link>
-        <guid isPermaLink="true">https://achasan.github.io//Comparator_Comparable</guid>
+        <link>http://localhost:4000//Comparator_Comparable</link>
+        <guid isPermaLink="true">http://localhost:4000//Comparator_Comparable</guid>
         
-        <category>Algorhythm</category>
+        <category>Algorhithm</category>
         
         
       </item>
@@ -2233,10 +2320,10 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 23 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//s5_sort_inside</link>
-        <guid isPermaLink="true">https://achasan.github.io//s5_sort_inside</guid>
+        <link>http://localhost:4000//s5_sort_inside</link>
+        <guid isPermaLink="true">http://localhost:4000//s5_sort_inside</guid>
         
-        <category>Algorhythm</category>
+        <category>Algorhithm</category>
         
         
       </item>
@@ -2313,10 +2400,10 @@
 &lt;p&gt;같은 단어가 여러 번 입력된 경우 한 번씩 출력해야되는 조건을 까먹고있어서 몇 번 틀렸는데, 아래에서 반복문을 통해 이전 단어와 일치하지 않을 때만 StringBuilder에 넣어서 출력하도록 하였다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//s5-Coordinate_alignment2</link>
-        <guid isPermaLink="true">https://achasan.github.io//s5-Coordinate_alignment2</guid>
+        <link>http://localhost:4000//s5-Coordinate_alignment2</link>
+        <guid isPermaLink="true">http://localhost:4000//s5-Coordinate_alignment2</guid>
         
-        <category>Algorhythm</category>
+        <category>Algorhithm</category>
         
         
       </item>
@@ -2410,10 +2497,10 @@
 &lt;p&gt;2차원 배열의 정렬방식은 Array.sort() 메서드를 사용하되, 값을 비교하는 방식은 콜백으로 따로 설정해주어 사용해야한다. 만약 내림차순으로 정렬하려고할 때도 위의 형식으로 콜백을 만들어주면 로직에 맞춰서 정렬을 해주니 참고하는 것이 좋을 것 같다.&lt;/p&gt;
 </description>
         <pubDate>Thu, 23 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//s5-Coordinate_alignment</link>
-        <guid isPermaLink="true">https://achasan.github.io//s5-Coordinate_alignment</guid>
+        <link>http://localhost:4000//s5-Coordinate_alignment</link>
+        <guid isPermaLink="true">http://localhost:4000//s5-Coordinate_alignment</guid>
         
-        <category>Algorhythm</category>
+        <category>Algorhithm</category>
         
         
       </item>
@@ -2559,10 +2646,10 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 23 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//s4-Statistics</link>
-        <guid isPermaLink="true">https://achasan.github.io//s4-Statistics</guid>
+        <link>http://localhost:4000//s4-Statistics</link>
+        <guid isPermaLink="true">http://localhost:4000//s4-Statistics</guid>
         
-        <category>Algorhythm</category>
+        <category>Algorhithm</category>
         
         
       </item>
@@ -2795,8 +2882,8 @@
 &lt;/ul&gt;
 </description>
         <pubDate>Wed, 22 Dec 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//OOP_1</link>
-        <guid isPermaLink="true">https://achasan.github.io//OOP_1</guid>
+        <link>http://localhost:4000//OOP_1</link>
+        <guid isPermaLink="true">http://localhost:4000//OOP_1</guid>
         
         <category>ETC</category>
         
@@ -2883,8 +2970,8 @@ gitIgnore로 메타정보파일들을 제외하여 파일 업로드를 완료했
 &lt;p&gt;나는 소스파일들만 추적하도록 했지만 이 외에도 여러가지 추적환경을 다루는 행동들을 형상관리(구성관리)라고 하는 것 같다. 소프트웨어 소스 코드 뿐 아니라 개발 환경, 빌드 구조 등 전반적인 환경 전반적인 내역에 대한 관리 체계를 뜻하는 것으로 보인다. 나중에 Spring 프로젝트를 할 때는 Maven이나 Gradle로 여러 라이브러리를 사용하면서 보다 복잡한 세팅이 되게 될 텐데, 미리 알아두는 것도 좋을 것 같다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 21 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//gitignore_pull</link>
-        <guid isPermaLink="true">https://achasan.github.io//gitignore_pull</guid>
+        <link>http://localhost:4000//gitignore_pull</link>
+        <guid isPermaLink="true">http://localhost:4000//gitignore_pull</guid>
         
         
       </item>
@@ -2973,8 +3060,8 @@ gitIgnore로 메타정보파일들을 제외하여 파일 업로드를 완료했
 &lt;p&gt;프로젝트를 한다면 정규식으로 아이디 양식을 제한하는 코드를 만들어보고 싶다. 일단 AJAX의 기본적인 기능에 대해서 알 수 있었으므로 만족한다. 비동기로 기능을 구현하는게 굉장히 편한 것 같다. 나중에는 게시판 페이징을 비동기로 이동하는 것도 구현해보고 싶은 생각이 든다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 07 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//ajax_id_distinct</link>
-        <guid isPermaLink="true">https://achasan.github.io//ajax_id_distinct</guid>
+        <link>http://localhost:4000//ajax_id_distinct</link>
+        <guid isPermaLink="true">http://localhost:4000//ajax_id_distinct</guid>
         
         <category>ETC</category>
         
@@ -3265,8 +3352,8 @@ must-revalidate는 캐시 유효시간이라면 캐시를 사용한다.&lt;/li&g
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 02 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//http_basic_8</link>
-        <guid isPermaLink="true">https://achasan.github.io//http_basic_8</guid>
+        <link>http://localhost:4000//http_basic_8</link>
+        <guid isPermaLink="true">http://localhost:4000//http_basic_8</guid>
         
         <category>SpringBoot</category>
         
@@ -3415,8 +3502,8 @@ must-revalidate는 캐시 유효시간이라면 캐시를 사용한다.&lt;/li&g
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 02 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//http_basic_7</link>
-        <guid isPermaLink="true">https://achasan.github.io//http_basic_7</guid>
+        <link>http://localhost:4000//http_basic_7</link>
+        <guid isPermaLink="true">http://localhost:4000//http_basic_7</guid>
         
         <category>SpringBoot</category>
         
@@ -3742,8 +3829,8 @@ server: nginx&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Tue, 02 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//http_basic_6</link>
-        <guid isPermaLink="true">https://achasan.github.io//http_basic_6</guid>
+        <link>http://localhost:4000//http_basic_6</link>
+        <guid isPermaLink="true">http://localhost:4000//http_basic_6</guid>
         
         <category>SpringBoot</category>
         
@@ -3977,8 +4064,8 @@ server: nginx&lt;/p&gt;
 &lt;p&gt;비즈니스 로직에 문제가 생겼을 때, DB서버에 문제가 생겼을 때 500 에러를 내야하지 &lt;strong&gt;예외케이스가 나왔다고 해서 서버 측 오류가 났다고 상태코드를 보내서는 안된다.&lt;/strong&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 01 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//http_basic_5</link>
-        <guid isPermaLink="true">https://achasan.github.io//http_basic_5</guid>
+        <link>http://localhost:4000//http_basic_5</link>
+        <guid isPermaLink="true">http://localhost:4000//http_basic_5</guid>
         
         <category>SpringBoot</category>
         
@@ -4434,8 +4521,8 @@ server: nginx&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Mon, 01 Nov 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//http_basic_4</link>
-        <guid isPermaLink="true">https://achasan.github.io//http_basic_4</guid>
+        <link>http://localhost:4000//http_basic_4</link>
+        <guid isPermaLink="true">http://localhost:4000//http_basic_4</guid>
         
         <category>SpringBoot</category>
         
@@ -4779,188 +4866,8 @@ server: nginx&lt;/p&gt;
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 31 Oct 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//http_basic_3</link>
-        <guid isPermaLink="true">https://achasan.github.io//http_basic_3</guid>
-        
-        <category>SpringBoot</category>
-        
-        
-      </item>
-    
-      <item>
-        <title>[Spring:9] 빈 스코프(Bean Scope)</title>
-        <description>&lt;h1 id=&quot;빈-스코프-정리&quot;&gt;빈 스코프 정리&lt;/h1&gt;
-
-&lt;h2 id=&quot;빈-스코프란&quot;&gt;빈 스코프란?&lt;/h2&gt;
-
-&lt;p&gt;Bean Scope&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;SingleTon : 기본 스코프, 스프링 컨테이너의 시작과 종료까지 유지되는 가장 넓은 범위의 스코프&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ProtoType : 스프링 컨테이너는 프로토타입 빈의 생성과 의존관계 주입까지만 관여하고 더는 관리하지 않는 매우 짧은 범위의 스코프이다. 종료 메서드 호출이 되지 않는다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;웹 관련 스코프&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;request : 웹 요청이 들어오고 나갈 때 까지 유지되는 스코프&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;session : 웹 세션이 생성되고 종료될 때까지 유지되는 스코프&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;application : 웹의 서블릿 컨텍스트와 같은 범위로 유지되는 스코프이다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;프로토타입-스코프&quot;&gt;프로토타입 스코프&lt;/h2&gt;
-
-&lt;p&gt;프로토타입 스코프를 스프링 컨테이너에 조회하면 항상 새로운 인스턴스를 생성해서 반환한다(싱글턴이 아니다.)&lt;/p&gt;
-
-&lt;p&gt;프로토타입 빈을 등록했을 경우, 스프링 컨테이너는 프로토타입 빈을 생성하고, 의존관계를 주입하고, 초기화까지만 처리한다. 클라이언트에 빈을 반환하고 빈을 아예 관리하지 않는다. 따라서 클라이언트가 받은 프로토타입 빈을 관리할 책임을 갖는다. 초기화까지만 처리하기 때문에 @PreDestroy 종료 메서드는 호출되지 않는다.&lt;/p&gt;
-
-&lt;p&gt;@Configuration 어노테이션을 주지 않더라도 AnnotationConfigApplicationContext 파라미터에 클래스를 넣어주면 해당 클래스는 컨테이너에 등록이 된다.(정확히 말하면 컴포넌트 스캔 목록에 해당되게된다.)&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;일반-스코프와-프로토타입-스코프의-차이점&quot;&gt;일반 스코프와 프로토타입 스코프의 차이점&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;일반 스코프라면 (Singleton) 스프링 컨테이너가 등록될 때 빈이 생성되면서 init() 메서드가 실행되게 된다.(@PostConstruct)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;프로토타입 스코프는 스프링 컨테이너가 등록되면서 객체가 생성되지 않는다. 당연히 init() 메서드도 실행되지 않는다. 클라이언트가 프로토타입의 빈을 요청하면 그때 객체를 새로 생성하고 init() 메서드까지 한 다음에 클라이언트한테 객체를 던져주고 끝난다. 또한 같은 객체가 아닌 클라이언트가 요청할 때마다 새로운 객체를 생성해서 클라이언트한테 던져준다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;클라이언트에게 객체를 줘버리기 때문에 컨테이너가 죽을 때destroy() 메서드는 실행되지 않는다. 만약 destroy()를 호출할 필요가 있을 경우 코드를 통해 수정으로 호출해주어야 한다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;프로토타입-스코프를-싱글톤-빈과-함께-사용시-문제점&quot;&gt;프로토타입 스코프를 싱글톤 빈과 함께 사용시 문제점&lt;/h2&gt;
-
-&lt;p&gt;만약 싱글턴 빈에 프로토타입 빈을 의존관계 주입하게 되면 어떻게 될까? 싱글턴 빈은 컨테이너가 생성될 때 최초로 의존관계 주입이 되기 때문에 컨테이너에서 프로토타입 객체를 하나 생성해서 싱글턴 빈에 넣어줄 것이다.&lt;/p&gt;
-
-&lt;p&gt;하지만 이렇게 된 다음 클라이언트가 싱글턴 빈을 호출하면 싱글턴 빈 안에 존재하는 프로토타입 빈만 계속 호출이 된다. 프로토타입 빈이 싱글턴이 되어버린 것이다.&lt;/p&gt;
-
-&lt;p&gt;우리는 분명 싱글턴 빈에 프로토타입 빈을 의존관계 주입해서 빈을 호출할 때마다 새로운 프로토타입 빈 객체를 호출하게 구현하기를 원한다. 다른 방법을 찾아보자.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;싱글톤-빈과-함께-사용시-provider로-문제-해결&quot;&gt;싱글톤 빈과 함께 사용시 Provider로 문제 해결&lt;/h2&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nd&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClientBean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;ApplicationContext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;applicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-            &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;logic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;applicationContext&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-                    &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;AnnotationConfigApplicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;PrototypeBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;nc&quot;&gt;PrototypeBean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prototypeBean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;
-                     &lt;span class=&quot;n&quot;&gt;applicationContext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;PrototypeBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-                &lt;span class=&quot;n&quot;&gt;prototypeBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-                &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prototypeBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;이전 강의에서 싱글턴 빈에 프토토타입 빈을 의존관계 주입했을 때 프로토 타입 빈이 싱글턴이 되어버리는 현상을 보았었다. 따라서 위의 코드 처럼 클라이언트가 logic() 메서드를 실행하면 ApplicationContext를 통해 컨테이너에 등록되어있는 프로토타입 빈을 가져오게하도록 코드를 작성하여 메서드를 호출할 때마다 새로운 빈을 생성하도록 (어거지로) 구현했다.&lt;/p&gt;
-
-&lt;p&gt;이 처럼 의존관계를 외부에서 주입받는게 아니라 직접 필요한 의존 관계를 찾는 것을 Dependency Lookup(DL) 의존관계라고 한다.&lt;/p&gt;
-
-&lt;p&gt;하지만 이렇게 스프링의 애플리케이션 컨텍스트 전체를 주입받게 되면 스프링 컨테이너에 종속적인 코드가 되고, 단위테스트도 어려워지게 된다. 무엇보다 객체지향적이지 않은 것 같다.&lt;/p&gt;
-
-&lt;p&gt;&lt;br /&gt; &lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;objectfactory-objectprovider&quot;&gt;ObjectFactory, ObjectProvider&lt;/h2&gt;
-
-&lt;p&gt;지정한 빈을 컨테이너에서 대신 찾아주는 DL 서비스를 제공&lt;/p&gt;
-
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;nd&quot;&gt;@Scope&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;singleton&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ClientBean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nd&quot;&gt;@Autowired&lt;/span&gt;
-        &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;ObjectProvider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;PrototypeBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prototypeBeanProvider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-
-        &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;logic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;nc&quot;&gt;PrototypeBean&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prototypeBean&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prototypeBeanProvider&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;n&quot;&gt;prototypeBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;addCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;prototypeBean&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getCount&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;위에서 작성했던 코드를 다음과 같이 바꿔보았다. 간단한 테스트를 위해서 필드주입으로 사용하였고, ObjectProvider를 사용하여 PrototypeBean을 직접 호출하여 호출할 때마다 새로운 객체를 받아오도록 하였다. 제네릭으로 어떤 빈을 호출할 건지를 적어주어야 한다.&lt;/p&gt;
-
-&lt;p&gt;logic() 메서드를 보면 getObject() 메서드를 사용하여 컨테이너한테 프로토타입 빈의 새 객체를 요청한 다음 로직을 실행하는 것을 볼 수 있다.&lt;/p&gt;
-
-&lt;p&gt;클라이언트가 메서드를 호출할 때마다 컨테이너는 새로운 객체를 주므로 테스트코드에서는 count의 수치가 1이 되어야 할 것이다. (테스트 성공)&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;지금까지 내용을 다시 정리하자면, 생성자 주입을 할 때 프로토타입 빈을 싱글턴 빈에다가 주입하게되면 빈을 생성할 때 최초로 프로토타입 빈이 주입되고, 이후에는 싱글턴 빈을 호출할 때 주입된 프로토타입 빈만 계속 호출되어 프로토타입 빈이 싱글턴이 되어버린다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;이를 방지하기위해 ObjectProvider 객체를 사용하면 해당 객체를 getObject() 메서드를 통해서 새로운 객체를 호출할 수 있다. logic() 메서드에 getObject() 메서드를 집어넣어 메서드가 실행될 때 마다 새로운 객체를 생성해낸다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;원래는 ObjectFactory가 ObjectProvider보다 먼저 존재하고있었으나 ObjectProvider가 ObjectFactory를 상속하면서 여러가지 추가 기능들을 제공하는 객체가 만들어졌다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;ObjectFactory : 기능이 단순하고 별도의 라이브러리가 필요없다. 스프링에 의존&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;ObjectProvider : ObjectFactory를 상속한다. 옵션이나 스트림 처리 등 편의 기능이 많고 별도의 라이브러리가 필요없다. 스프링에 의존한다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt; &lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;providerjavaxinject&quot;&gt;Provider(javax.inject)&lt;/h2&gt;
-
-&lt;p&gt;JSR-330인 자바 표준의 라이브러리이다. 라이브러리 이므로 그리들에 없다면 새로 설치를 해주어야 한다. dependencies 안에&lt;/p&gt;
-
-&lt;p&gt;implementation ‘javax.inject:javax.inject:1’
-를 작성해주면 된다.&lt;/p&gt;
-
-&lt;p&gt;Provider라는 이름의 여러 객체들이 있으니 사용할 때는 javax.inject인지 확인하고 사용하여야 한다.&lt;/p&gt;
-
-&lt;p&gt;ObjectProvider는 getObject()를 통해 새로운 객체를 컨테이너에 요청한다. Provider는 get() 메서드를 사용하여 컨테이너에 새 객체를 요청할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;Provider는 자바 표준이고, 기능이 매우 단순하므로 단위테스트를 만들거나 mock 코드를 만들기는 훨씬 쉬워진다.&lt;/p&gt;
-
-&lt;p&gt;특징 :&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;get() 메서드 하나로 기능이 매우 단순함&lt;/li&gt;
-  &lt;li&gt;별도의 라이브러리가 필요하다.&lt;/li&gt;
-  &lt;li&gt;자바 표준이므로 스프링이 아닌 다른 컨테이너에서도 사용할 수 있다. (근데 이럴일이 거의 없음)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;정리&quot;&gt;[정리]&lt;/h3&gt;
-
-&lt;p&gt;프로토타입 빈은 언제 사용할까? 매 번 사용할 때마다 의존관계 주입이 완료된 새로운 객체가 필요하면 사용하면 된다. 실무에서는 싱글턴 빈으로 대부분의 문제가 해결되기 떄문에 프로토타입 빈을 직접적으로 사용하는 일은 매우 드물다.&lt;/p&gt;
-
-&lt;p&gt;프로토타입 뿐만 아니라 DL이 필요한 경우에는 위의 객체들을 모두 사용할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;※ Provider, ObjectProvider 어떤걸 사용해야되는지 : ObjectProvider는 DL을 위한 편의 기능을 많이 제공해주고 스프링 외에 별도의 의존고나계 추가가 필요없기 때문에 편리하다.&lt;/p&gt;
-
-&lt;p&gt;만약 코드를 스프링이 아닌 다른 컨테이너에서도 사용할 수 있어야 한다면 JSR-330 Provider를 사용해야한다.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 29 Oct 2021 00:00:00 +0900</pubDate>
-        <link>https://achasan.github.io//spring_basic_9</link>
-        <guid isPermaLink="true">https://achasan.github.io//spring_basic_9</guid>
+        <link>http://localhost:4000//http_basic_3</link>
+        <guid isPermaLink="true">http://localhost:4000//http_basic_3</guid>
         
         <category>SpringBoot</category>
         

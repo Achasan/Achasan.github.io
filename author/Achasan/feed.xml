@@ -2,10 +2,10 @@
 
 <feed xmlns="http://www.w3.org/2005/Atom" >
   <generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator>
-  <link href="https://achasan.github.io/author/Achasan/feed.xml" rel="self" type="application/atom+xml" />
-  <link href="https://achasan.github.io/" rel="alternate" type="text/html" />
-  <updated>2022-02-12T21:39:50+09:00</updated>
-  <id>https://achasan.github.io/author/Achasan/feed.xml</id>
+  <link href="http://localhost:4000/author/Achasan/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2022-03-08T11:19:34+09:00</updated>
+  <id>http://localhost:4000/author/Achasan/feed.xml</id>
 
   
   
@@ -32,12 +32,120 @@
 
   
     <entry>
+      <title type="html">정보처리기사 필기합격 후기</title>
+      <link href="http://localhost:4000/Engineer_Infomation_Processing_Pass" rel="alternate" type="text/html" title="정보처리기사 필기합격 후기" />
+      <published>2022-03-05T00:00:00+09:00</published>
+      <updated>2022-03-05T00:00:00+09:00</updated>
+      <id>http://localhost:4000/Engineer_Infomation_Processing_Pass</id>
+      <content type="html" xml:base="http://localhost:4000/Engineer_Infomation_Processing_Pass">&lt;p&gt;정보처리기사 필기 합격후기&lt;/p&gt;
+
+&lt;p&gt;처음에는 정보처리기사를 따야하나.. 하는 생각이 먼저 있었지만 개발자가 되기로 한 이상 일단 해보자는 마음가짐이 컸다. 어차피 필기시험을 준비하면서 앞으로 내가 이론적으로 공부해야할 개념들을 겉핥기식으로 정리하자는 생각도 있었다.&lt;/p&gt;
+
+&lt;p&gt;여러 커뮤니티를 돌아본 결과 필기는 난이도가 그렇게 어렵지는 않다고 하는 것 같았다. 다만 신유형이 나올 수 있으니 맞춰야할 문제는 확실히 맞추고 가야한다는 이야기가 많았다. 합격후기를 들어보면 일주일 공부하고 합격한 사람이 있는 반면, 타이밍이 좋지 않아 몇 번에 걸쳐서 합격한 사람도 볼 수 있었다. 일단 어려운 시험은 아닌 것으로 판정.&lt;/p&gt;
+
+&lt;h2 id=&quot;공부방법&quot;&gt;공부방법&lt;/h2&gt;
+
+&lt;p&gt;따로 책을사서 공부하지는 않았다. 이미 정보처리기사를 공부한 사람들이 블로그에 여러 정리글을 올려놓기도하고, 문제은행식이기 때문에 두꺼운 책을 사서 전부 읽을 엄두도 나지 않았다. 블로그는 &lt;a href=&quot;https://powerdev.tistory.com/32?category=874228&quot;&gt;여기&lt;/a&gt;에서 참고하면서 공부하였다. 3과목까지는 꼼꼼히 읽어보며 필기하고 정리했는데, 가성비가 나오지 않는 것 같아 바로 &lt;a href=&quot;https://www.comcbt.com/&quot;&gt;comcbt&lt;/a&gt;에서 문제를 풀어보았다.&lt;/p&gt;
+
+&lt;p&gt;2020년부터 정처기 문제출제방식이 개편되었다고해서 해당 회차부터 풀기 시작했다. 일단 시간은 매우 충분했다. 시험시간이 150분이지만 평균적으로 40분 ~ 50분 정도면 문제를 다 풀 수 있는 것 같다. 문제와 답이 직관적으로 되어있어 해당 개념을 아는 경우에는 답이 바로 보이는 수준이다. 다섯 과목의 난이도를 개인적으로 평가하면 다음과 같았다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;1과목 소프트웨어 설계 : ★★☆☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;무난한 과목, 여러 회차를 풀다보면 대충 어떤 유형의 문제가 나오고, 어떤 개념을 중요하게보고 외워야하는지 감이 온다. 나는 1과목과 2과목에서 점수를 많이따고 4, 5과목에서 못넘은 평균을 해당 과목에서 견인하는 전략으로 시험을 보았다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;2과목 소프트웨어 개발 : ★★☆☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;1과목과 마찬가지로 비슷한 수준의 난이도이다. 다만 테스트 관리파트에서 외워야할 부분들이 꽤 있다. 화이트박스, 블랙박스, STAF, xUnit, FitNesse 등등.. 개발공부를 시작하면서 처음들어보는 키워드였기에 자주 나오는 키워드를 중점적으로 보았다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;의외로 점수가 꽤 나오는 과목이다. 취약한 부분만 잘 보완하는만큼 고득점을 노리기 쉬운 과목&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;3과목 데이터베이스 구축 : ★★★☆☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;공부하면서 머리아팠던 과목. 알아야하는 개념도 많고, 추상적이어서 어떤 역할을 하는지 알기쉽지않다. 트랜잭션부터 시작해서 정규화, 튜플, 릴레이션, 어트리뷰트 등등.. 오라클을 다뤄보았다만 이정도로 개념이 자세할줄은 몰랐다. 역시 데이터베이스는..&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;암기하는 과정이 어렵지만 자주 나오는 개념들을 외워두면 60점은 넘을 수 있다. 욕심부리지 말고 60점만 넘기자는 생각으로 공부했고, 자주 출제되는 유형의 개념들 위주로 공부하였다.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;4과목 프로그래밍 언어 활용 : ★★★★☆&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;프로그래밍 언어 활용이기 때문에 언어와 관련된 문제가 많이 출제된다. 객체지향의 장점이라든지, 프레임워크, 운영체제(Unix, Linux)와 관련된 문제들이 나온다. 4과목의 꽃은 코드해석문제, C언어와 자바, 파이썬으로 작성한 코드를 통해 올바른 값이 무엇인지 골라야하는 문제가 출제된다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;나는 자바만 공부했기 때문에 C언어와 파이썬이 나올 때마다 틀렸다. 특히 C언어는 포인터를 쓰는데 어지러워서 어떻게 해석을해야하는지 감도 안잡혔다. 이 과목은 과락만 안당하자는 생각으로 공부했던 것 같다. 자바문제는 무조건 맞춰야했고, 이외에 개념적으로 물어보는 문제를 최대한 공부하였다.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;5과목 정보시스템 구축 관리 : ?????&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;사실 5과목은 공부를 아예 안했기때문에 문제를 풀때마다 점수가 들쭉날쭉했다.. ㅋㅋ 잘 나올때는 70점, 못 풀때는 45점 나올 때도 있었으며, 내가 알고있는 개발상식을 가지고 풀려고했기 때문에 난이도가 어떤지는 사실 잘 모르겠다. 확실한건 신유형에 영향을 많이 받는 과목이라는 느낌을 많이 받았다.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;문제를 풀면서 틀린 부분은 최대한 정리를 하고 넘어갔다. 그럼에도 불구하고 문제를 풀때마다 매 번 모르는 개념들이 나와서 50점만 넘자는 마인드로 공부했던 과목&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;결과&quot;&gt;결과&lt;/h2&gt;
+
+&lt;p&gt;가채점 결과 75 75 65 45 55 로 평균 63점 턱걸이로 합격했다. 공부기간은 2주정도, 하루 3시간 씩 공부했는데 이정도면 나쁘지않은 결과가 나온 것 같다. 공부하면서 정보처리기사를 굳이 따야하는건가.. 라는 생각이 강하게 들었는데 그래도 공부한게 있으니 시험은 보고오자는 생각으로 갔다.&lt;/p&gt;
+
+&lt;p&gt;필기는 합격했지만 실기는 어떻게 공부해야할지 감도 안온다. 실기가 비전공자와 전공자를 거르게 출제가 된다던데.. 그것보다 일단 취업이 우선이니 실기는 시간이 날 때 한번쯤 도전해봐야겠다.&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Achasan</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="ETC" />
+      
+
+      
+        <summary type="html">정보처리기사 필기 합격후기</summary>
+      
+
+      
+      
+    </entry>
+  
+    <entry>
       <title type="html">[정보처리기사] 3.논리 데이터베이스 설계(2)</title>
-      <link href="https://achasan.github.io/Engineer_Information_Processing_2" rel="alternate" type="text/html" title="[정보처리기사] 3.논리 데이터베이스 설계(2)" />
+      <link href="http://localhost:4000/Engineer_Information_Processing_2" rel="alternate" type="text/html" title="[정보처리기사] 3.논리 데이터베이스 설계(2)" />
       <published>2022-02-10T00:00:00+09:00</published>
       <updated>2022-02-10T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/Engineer_Information_Processing_2</id>
-      <content type="html" xml:base="https://achasan.github.io/Engineer_Information_Processing_2">&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
+      <id>http://localhost:4000/Engineer_Information_Processing_2</id>
+      <content type="html" xml:base="http://localhost:4000/Engineer_Information_Processing_2">&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://powerdev.tistory.com/40&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
 
@@ -248,11 +356,11 @@
   
     <entry>
       <title type="html">[TIL] HTTPS를 사용하는 이유, 원리</title>
-      <link href="https://achasan.github.io/HTTP_Definition" rel="alternate" type="text/html" title="[TIL] HTTPS를 사용하는 이유, 원리" />
+      <link href="http://localhost:4000/HTTP_Definition" rel="alternate" type="text/html" title="[TIL] HTTPS를 사용하는 이유, 원리" />
       <published>2022-02-10T00:00:00+09:00</published>
       <updated>2022-02-10T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/HTTP_Definition</id>
-      <content type="html" xml:base="https://achasan.github.io/HTTP_Definition">&lt;p&gt;20220210 : HTTPS를 사용하는 이유와 원리에 대해서 공부하였다.&lt;/p&gt;
+      <id>http://localhost:4000/HTTP_Definition</id>
+      <content type="html" xml:base="http://localhost:4000/HTTP_Definition">&lt;p&gt;20220210 : HTTPS를 사용하는 이유와 원리에 대해서 공부하였다.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=H6lpFRpyl14&quot;&gt;Reference&lt;/a&gt; : 얄팍한 코딩사전 유튜브 영상을 정리&lt;/p&gt;
 
@@ -386,11 +494,11 @@
   
     <entry>
       <title type="html">[정보처리기사] 3.논리 데이터베이스 설계(1)</title>
-      <link href="https://achasan.github.io/Engineer_Information_Processing_1" rel="alternate" type="text/html" title="[정보처리기사] 3.논리 데이터베이스 설계(1)" />
+      <link href="http://localhost:4000/Engineer_Information_Processing_1" rel="alternate" type="text/html" title="[정보처리기사] 3.논리 데이터베이스 설계(1)" />
       <published>2022-02-10T00:00:00+09:00</published>
       <updated>2022-02-10T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/Engineer_Information_Processing_1</id>
-      <content type="html" xml:base="https://achasan.github.io/Engineer_Information_Processing_1">&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
+      <id>http://localhost:4000/Engineer_Information_Processing_1</id>
+      <content type="html" xml:base="http://localhost:4000/Engineer_Information_Processing_1">&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://powerdev.tistory.com/37&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
 
@@ -749,11 +857,11 @@
   
     <entry>
       <title type="html">[정보처리기사] 3.논리 데이터베이스 설계(3)</title>
-      <link href="https://achasan.github.io/Engineer_Information_Processing_3" rel="alternate" type="text/html" title="[정보처리기사]  3.논리 데이터베이스 설계(3)" />
+      <link href="http://localhost:4000/Engineer_Information_Processing_3" rel="alternate" type="text/html" title="[정보처리기사]  3.논리 데이터베이스 설계(3)" />
       <published>2022-02-10T00:00:00+09:00</published>
       <updated>2022-02-10T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/Engineer_Information_Processing_3</id>
-      <content type="html" xml:base="https://achasan.github.io/Engineer_Information_Processing_3">&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
+      <id>http://localhost:4000/Engineer_Information_Processing_3</id>
+      <content type="html" xml:base="http://localhost:4000/Engineer_Information_Processing_3">&lt;p&gt;정보처리기사 필기 - 논리 데이터베이스 설계&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://powerdev.tistory.com/42&quot;&gt;Reference&lt;/a&gt;&lt;/p&gt;
 
@@ -874,11 +982,11 @@
   
     <entry>
       <title type="html">봄봄(이 영화 봄?봄!) 프로젝트 회고</title>
-      <link href="https://achasan.github.io/bombom_review" rel="alternate" type="text/html" title="봄봄(이 영화 봄?봄!) 프로젝트 회고" />
+      <link href="http://localhost:4000/bombom_review" rel="alternate" type="text/html" title="봄봄(이 영화 봄?봄!) 프로젝트 회고" />
       <published>2022-01-14T00:00:00+09:00</published>
       <updated>2022-01-14T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/bombom_review</id>
-      <content type="html" xml:base="https://achasan.github.io/bombom_review">&lt;p&gt;파이널 프로젝트가 끝이났다.&lt;/p&gt;
+      <id>http://localhost:4000/bombom_review</id>
+      <content type="html" xml:base="http://localhost:4000/bombom_review">&lt;p&gt;파이널 프로젝트가 끝이났다.&lt;/p&gt;
 
 &lt;p&gt;이전에 &lt;a href=&quot;https://github.com/achasan/markethani&quot;&gt;마켓하니&lt;/a&gt; 프로젝트를 하면서 감을 잡았다고 생각했지만 새로운 프레임워크나 라이브러리를 가지고 기능을 구현할 때 마다 직접 부딪히며 완성해 나가야하는 건 어쩔 수 없는 것 같다. 그래도 하나의 기능을 구현하면서 성장했다는 뿌듯함을 느끼고, 완성되어가는 프로젝트를 보면서 어떨 때는 신기한 기분도 들었던 것 같다.&lt;/p&gt;
 
@@ -999,11 +1107,11 @@
   
     <entry>
       <title type="html">Toast ui Editor 이미지 업로드 구현방법</title>
-      <link href="https://achasan.github.io/toast_ui_2" rel="alternate" type="text/html" title="Toast ui Editor 이미지 업로드 구현방법" />
+      <link href="http://localhost:4000/toast_ui_2" rel="alternate" type="text/html" title="Toast ui Editor 이미지 업로드 구현방법" />
       <published>2022-01-07T00:00:00+09:00</published>
       <updated>2022-01-07T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/toast_ui_2</id>
-      <content type="html" xml:base="https://achasan.github.io/toast_ui_2">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-이미지-업로드-기능-구현&quot;&gt;위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현&lt;/h1&gt;
+      <id>http://localhost:4000/toast_ui_2</id>
+      <content type="html" xml:base="http://localhost:4000/toast_ui_2">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-이미지-업로드-기능-구현&quot;&gt;위지윅 에디터 Toast ui Editor 이미지 업로드 기능 구현&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1210,11 +1318,11 @@
   
     <entry>
       <title type="html">Toast ui Editor 사용하기</title>
-      <link href="https://achasan.github.io/toast_ui_1" rel="alternate" type="text/html" title="Toast ui Editor 사용하기" />
+      <link href="http://localhost:4000/toast_ui_1" rel="alternate" type="text/html" title="Toast ui Editor 사용하기" />
       <published>2022-01-06T00:00:00+09:00</published>
       <updated>2022-01-06T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/toast_ui_1</id>
-      <content type="html" xml:base="https://achasan.github.io/toast_ui_1">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-사용법&quot;&gt;위지윅 에디터 Toast ui Editor 사용법&lt;/h1&gt;
+      <id>http://localhost:4000/toast_ui_1</id>
+      <content type="html" xml:base="http://localhost:4000/toast_ui_1">&lt;h1 id=&quot;위지윅-에디터-toast-ui-editor-사용법&quot;&gt;위지윅 에디터 Toast ui Editor 사용법&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1388,11 +1496,11 @@
   
     <entry>
       <title type="html">객체지향의 사실과 오해 3장 : 추상화</title>
-      <link href="https://achasan.github.io/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 추상화" />
+      <link href="http://localhost:4000/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 추상화" />
       <published>2022-01-02T00:00:00+09:00</published>
       <updated>2022-01-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_3</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
+      <id>http://localhost:4000/OOP_3</id>
+      <content type="html" xml:base="http://localhost:4000/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1534,11 +1642,11 @@
   
     <entry>
       <title type="html">객체지향의 사실과 오해 3장 : 타입</title>
-      <link href="https://achasan.github.io/OOP_4" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 타입" />
+      <link href="http://localhost:4000/OOP_4" rel="alternate" type="text/html" title="객체지향의 사실과 오해 3장 : 타입" />
       <published>2022-01-02T00:00:00+09:00</published>
       <updated>2022-01-02T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_4</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_4">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
+      <id>http://localhost:4000/OOP_4</id>
+      <content type="html" xml:base="http://localhost:4000/OOP_4">&lt;h1 id=&quot;객체지향의-사실과-오해-3장--타입과-추상화&quot;&gt;객체지향의 사실과 오해 3장 : 타입과 추상화&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 
@@ -1666,154 +1774,6 @@
 
       
         <summary type="html">객체지향의 사실과 오해 3장 : 타입과 추상화</summary>
-      
-
-      
-      
-    </entry>
-  
-    <entry>
-      <title type="html">객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자</title>
-      <link href="https://achasan.github.io/OOP_3" rel="alternate" type="text/html" title="객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자" />
-      <published>2022-01-01T00:00:00+09:00</published>
-      <updated>2022-01-01T00:00:00+09:00</updated>
-      <id>https://achasan.github.io/OOP_3</id>
-      <content type="html" xml:base="https://achasan.github.io/OOP_3">&lt;h1 id=&quot;객체지향의-사실과-오해-2장--행동-캡슐화-식별자&quot;&gt;객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;해당 글은 이전 글에 이어서 작성된 글이다. &lt;a href=&quot;https://achasan.github.io/oop_2&quot;&gt;(객체지향의 사실과 오해 2장 : 상태)&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;행동&quot;&gt;행동&lt;/h2&gt;
-
-&lt;p&gt;객체의 상태는 행동에 의해서 바뀐다. 객체의 상태를 변경하는 것은 객체의 자발적인 행동 뿐이다.&lt;/p&gt;
-
-&lt;p&gt;객체가 취하는 행동은 객체 자신의 상태를 변경시킨다. 행동에 의해 상태가 변경되는 것은 행동이 부수효과(side effect)를 초래하는 것을 의미한다. 앨리스가 케이크를 먹는 행동은 앨리스의 키를 작게 변화시키는 부수효과를 초래한다.&lt;/p&gt;
-
-&lt;p&gt;객체의 행동은 객체의 상태를 변경시키지만 행동의 결과는 객체의 상태에 의존적이다. 음료를 마시는 행동의 결과가 앨리스의 키에 의존한다는 것을 생각해 보면 될 것이다. 앨리스가 아름다운 정원으로 들어가기위해 문을 통과할 수 있는 지는 앨리스의 키가 현재 몇 센티미터 인지에 달려 있다. 앨리스의 키가 문보다 크다면 문을 통과할 수 없을 것이다.&lt;/p&gt;
-
-&lt;p&gt;따라서 상태와 행동 사이에는 다음과 같은 관계가 있음을 알 수 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;객체의 행동은 상태에 영향을 받는다.&lt;/li&gt;
-  &lt;li&gt;객체의 행동은 상태를 변경시킨다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;위는 다음과 같이 표현할 수도 있다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;상호작용이 현재의 상태에 어떤 방식으로 의존하는가&lt;/li&gt;
-  &lt;li&gt;상호작용이 어떻게 현재의 상태를 변경시키는가&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;앨리스의 이야기를 예시로 들면 아래와 같이 설명이 가능하다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;앨리스의 키가 40센티미터 이하라면 문을 통과할 수 있다.&lt;/li&gt;
-  &lt;li&gt;문을 통과한 후에 앨리스의 위치는 아름다운 정원으로 바뀌어야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;상태를 사용하면 복잡한 객체의 행동을 쉽게 이해할 수 있다.&lt;/p&gt;
-
-&lt;h2 id=&quot;협력과-행동&quot;&gt;협력과 행동&lt;/h2&gt;
-
-&lt;p&gt;객체는 자신에게 주어진 책임을 완수하기위해 다른 객체를 이용하고 다른 객체에게 서비스를 제공한다. 어떤 객체도 섬이 아니다. 객체는 서로 상호작용하며 협력하는 객체들의 공동체에 참여하기위해 노력한다.&lt;/p&gt;
-
-&lt;p&gt;객체는 서로 메시지를 통해서만 의사소통이 가능하다. 객체는 수신한 메시지에 따라 행동하면서 협력에 참여하고, 자신의 상태를 변경시킨다. 또한 다른 객체의 상태 변화를 유발하기도 한다. 앨리스가 음료수를 마시면 자신의 키가 줄어들지만 음료 객체에 양을 감소시키라는 메시지를 전달하는 것처럼말이다. 메시지를 받은 음료 객체는 메시지에 따라 적절히 자신의 상태를 변경시킨다.&lt;/p&gt;
-
-&lt;p&gt;이를 정리하면 객체의 행동은 두 가지 관점의 부수효과를 명확히 서술해야한다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;객체 자신의 상태를 변경&lt;/li&gt;
-  &lt;li&gt;행동 내에서 협력하는 다른 객체에 대한 메시지를 전송&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;이제 행동을 정의해보자. 이 책에서는 행동을 다음과 같이 정의한다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;행동이란 외부의 요청 또는 수신된 메시지에 응답하기 위해 동작하고 반응하는 활동이다. 행동의 결과로 객체는 자신의 상태를 변경하거나 다른 객체에게 메시지를 전달할 수 있다. 객체는 행동을 통해 다른 객체와의 협력에 참여하므로 행동은 외부에 가시적이어야한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;상태-캡슐화&quot;&gt;상태 캡슐화&lt;/h2&gt;
-
-&lt;p&gt;현실 세계의 객체와 객체지향 세계의 객체 사이에는 중요한 차이점이 있는데, 바로 객체는 &lt;strong&gt;능동적인 존재&lt;/strong&gt;라는 것이다. 현실 세계에서의 음료 객체는 혼자서는 아무것도 하지 못하는 수동적인 존재이다. 음료의 상태를 변경시키는 주체는 음료를 마시는 사람, 앨리스가 될 것이다.&lt;/p&gt;
-
-&lt;p&gt;하지만 &lt;strong&gt;객체지향 세계에서는 모든 객체가 능동적&lt;/strong&gt;이다. 스스로 자신의 상태를 자율적으로 관리한다. 따라서 이전부터 설명했지만, 객체가 다른 객체의 상태를 직접적으로 변경하는 것이 아닌, 메시지를 전달하기만 할 뿐 그 다음은 신경쓰지 않는다. 메시지를 전달받은 객체가 능동적으로 자신의 상태를 변경할 뿐이다.&lt;/p&gt;
-
-&lt;p&gt;앨리스가 음료를 마시면, 앨리스 객체는 음료 객체에 자신이 먹은 음료의 양 만큼 상태를 변경하라는 메시지를 보낸다. 음료의 양을 줄일지 말지는 음료 객체가 결정할 사항이며, 앨리스 객체는 메시지를 전달하는 것까지만 행동한다. 음료의 양을 줄여달라는 요청만 보낼 뿐이다.&lt;/p&gt;
-
-&lt;p&gt;메시지를 송신하는 자는 메시지를 수신하는 객체의 상태 변경에 대해서 전혀 알지 못한다. 이것이 &lt;strong&gt;캡슐화&lt;/strong&gt;가 의미하는 것이다. 객체는 상태를 캡슐 안에감춰둔 채 외부로 노출하지 않으며, &lt;strong&gt;객체가 외부에 노출하는 것은 행동 뿐이다&lt;/strong&gt;. 외부에서 객체에 접근할 수 있는 유일한 방법 또한 행동뿐이다.&lt;/p&gt;
-
-&lt;p&gt;상태를 외부에 노출시키지 않고 행동을 경계로 캡슐화 시키는 것은 결과적으로 객체의 자율성을 높인다. 객체의 자율성이 높아질수록 객체의 지능도 높아진다. 지능이 높아지면 객체의 협력은 유연하고 간결해진다.&lt;/p&gt;
-
-&lt;h2 id=&quot;식별자&quot;&gt;식별자&lt;/h2&gt;
-
-&lt;p&gt;모든 객체는 식별자를 가지며 식별자를 이용하여 객체를 구별할 수 있다.&lt;/p&gt;
-
-&lt;p&gt;모든 객체가 식별자를 가진다는 것은 반대로 객체가 아닌 단순한 값은 식별자를 가지지않는다는 것을 의미한다. 이는 단순한 값은 식별자를 가지지 않는 것을 의미한다. 단순한 값은 객체의 프로퍼티에 들어가는 타입 중 하나라고 이전에 설명했었다.&lt;/p&gt;
-
-&lt;p&gt;시스템을 설계할 때는 단순한 값과 객체의 차이점을 명확히 구분하고 명시적으로 표현하는 것이 매우 중요하다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;값은 숫자, 문자, 날짜 시간 등 변하지 않는 양을 모델링하기 때문에 불변상태(immutable state)를 가진다.
-    &lt;ul&gt;
-      &lt;li&gt;따라서 두 인스턴스의 상태가 같다면 두 인스턴스를 같은 것으로 판단한다. 따로 식별하지 않는다.&lt;/li&gt;
-      &lt;li&gt;상태를 이용해 두 값이 같은지 판단할 수 있는 성질을 &lt;strong&gt;동등성&lt;/strong&gt;이라고 한다.&lt;/li&gt;
-      &lt;li&gt;값은 오직 상태만을 이용해 동등성을 판단하기 때문에 인스턴스를 구별하기위한 별도의 식별자를 필요로 하지 않는다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;객체는 시간에 따라 변경되는 상태를 포함한다. 또한 행동으로 상태를 변경한다. 따라서 객체는 가변상태(mutable state)를 가진다.
-    &lt;ul&gt;
-      &lt;li&gt;타입이 같은 두 객체의 상태가 똑같더라도 두 객체는 별개의 객체로 다루어야 한다.&lt;/li&gt;
-      &lt;li&gt;두 객체의 상태가 다르더라도 식별자가 같다면 두 객체는 같은 객체로 볼 수 있다. 이를 &lt;strong&gt;동일성&lt;/strong&gt;이라고 한다.&lt;/li&gt;
-      &lt;li&gt;시간의 흐름에 따라 객체의 상태는 변하기 때문에 가변적인 두 객체의 동일성을 판단하기 위해서는 식별자가 필요하다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;그렇다면 식별자가 무엇인지 정의해보도록 하자, 식별자는 다음으로 정의하고 있다.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;식별자란 어떤 객체를 다른 객체와 구분하는데 사용하는 객체의 프로퍼티이다. 값은 식별자를 가지지 않기 때문에 상태를 이용한 동등성 검사를 통해 두 인스턴스를 비교해야한다. 객체는 상태가 변경될 수 있기 때문에 식별자를 이용한 동일성 검사를 통해 두 인스턴스를 비교할 수 있다.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;식별자는 객체지향에서 다형성, 캡슐화, 상속에 비해서 중요하게 다루어지지 않는 개념일 수 있다. 하지만 식별자는 객체지향 패러다임의 표현력을 높여주는 중요한 역할을 한다. 상태가 변하지 않는 값과, 상태가 변하는 객체들이 균형을 맞추며 조화를 이루어야한다.&lt;/p&gt;
-
-&lt;p&gt;지금까지 작성한 내용을 간략하게 정리해보았다.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;객체는 상태를 가지고, &lt;strong&gt;상태는 변경가능&lt;/strong&gt;하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;상태를 변경시키는 것은 객체의 행동이다.
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;행동의 결과는 상태에 의존적&lt;/strong&gt;이며 상태를 이용하여 서술이 가능하다.&lt;/li&gt;
-      &lt;li&gt;행동의 순서가 실행 결과에 영향을 미친다.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;strong&gt;객체는&lt;/strong&gt; 어떤 상태에 있더라도 &lt;strong&gt;유일하게 식별&lt;/strong&gt;이 가능하다.&lt;/li&gt;
-&lt;/ul&gt;</content>
-
-      
-      
-      
-      
-      
-
-      <author>
-          <name>Achasan</name>
-        
-        
-      </author>
-
-      
-
-      
-        <category term="ETC" />
-      
-
-      
-        <summary type="html">객체지향의 사실과 오해 2장 : 행동, 캡슐화, 식별자</summary>
       
 
       
